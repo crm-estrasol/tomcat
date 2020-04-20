@@ -9,4 +9,4 @@ class TomCatCustomerSegment(models.Model):
    _name = 'tomcat.customer.segment'
    _inherit =  ['mail.thread', 'mail.activity.mixin']
    _rec_name = 'name'
-   name = fields.char("Nombre")
+   name = fields.Char("Nombre")

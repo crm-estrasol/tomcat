@@ -26,7 +26,7 @@
          'security/ir.model.access.csv',
         #'views/theme/theme.xml',
         'views/contact/contact.xml',
-        #'views/contact/intermediary_category.xml',
+        'views/contact/intermediary_category.xml',
         'views/contact/customer_segment.xml',
         'views/contact/menu.xml',
         #

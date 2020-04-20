@@ -11,6 +11,8 @@
 #CRM
 #from .crm import crm_lead
 from .contact import contact
+from .contact import customer_segment
+from .contact import intermediary_category
 #from .users import res_user
 #STOCK
 #from .stock_picking import stock_picking

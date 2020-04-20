@@ -8,7 +8,7 @@ from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationE
 class TomCatResPartner(models.Model):
     _inherit  = "res.partner"
     external_id = fields.Char('ID externo',tracking=True)
-    url_map = fields.Char('Enlace mapa',tracking=True)
+    sale_note = fields.Char('Nota de venta',tracking=True)
     #ON BUTTON ACTIONS
 
     #ON COMPUTE

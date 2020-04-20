@@ -1,0 +1,17 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+         <menuitem id="menu_config_bank_accounts"
+            action="base.action_country_group"
+            name="Segmento cliente"
+            parent="res_partner_menu_config"
+            sequence="7"/>
+         <menuitem id="menu_config_bank_accounts"
+            action="base.action_country_group"
+            name="Categoria intermediario"
+            parent="res_partner_menu_config"
+            sequence="8"/>
+  </data>
+</odoo>
+ 

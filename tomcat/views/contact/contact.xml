@@ -36,8 +36,8 @@
               <xpath expr="//field[@name='vat']" position="after">
                    
                  
-                   <field name="customer_segments" attrs="{'invisible': not  context.get('customer')"/>
-                   <field name="intermediary_category" attrs="{'invisible': not  context.get('customer')"/>
+                   <field name="customer_segments" attrs="{'invisible':   context.get('res_partner_search_mode') not 'customer' "/>
+                   <field name="intermediary_category" attrs="{'invisible':  context.get('res_partner_search_mode') not 'cistomer'"/>
                 
               </xpath>
       </field>

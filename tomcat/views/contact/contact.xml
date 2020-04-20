@@ -7,13 +7,10 @@
       <field name="model">crm.lead</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
-        <input name="parent_id" position="before">
-                
+      
+              <xpath expr="//field[@name='parent_id']" position="before">
                 <field name="external_id" required="1" />
-            
-                
-        </input>
-            
+              </xpath>
       </field>
     </record>
 

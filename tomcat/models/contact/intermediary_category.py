@@ -9,4 +9,4 @@ class TomCatIntermediaryCategory(models.Model):
    _name = 'tomcat.intermediary.category'
    _inherit =  ['mail.thread', 'mail.activity.mixin']
    _rec_name = 'name'
-   name = fields.char("Nombre")
+   name = fields.Char("Nombre")

@@ -21,6 +21,13 @@
                    <field name="url_map" placeholder="Enlace mapa" widget="url" class="o_address_country" />
                 
               </xpath>
+               <xpath expr="//kanban//field[@name='country_id']" position="after">
+                
+                 
+                   <field name="url_map" placeholder="Enlace mapa"  />
+                
+              </xpath>
+              
       </field>
     </record>
 

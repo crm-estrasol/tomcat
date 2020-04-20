@@ -4,12 +4,12 @@
          <menuitem id="menu_config_customer_segment"
             action="tomcat.action_tomcat_customer_segment"
             name="Segmento cliente"
-            parent="res_partner_menu_config"
+            parent="base.res_partner_menu_config"
             sequence="7"/>
          <menuitem id="menu_config_intermediary_category"
             
             name="Categoria intermediario"
-            parent="res_partner_menu_config"
+            parent="base.res_partner_menu_config"
             sequence="8"/>
   </data>
 </odoo>

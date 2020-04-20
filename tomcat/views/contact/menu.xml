@@ -7,7 +7,7 @@
             parent="base.res_partner_menu_config"
             sequence="7"/>
          <menuitem id="menu_config_intermediary_category"
-            
+             action="tomcat.action_tomcat_intermediary_category"
             name="Categoria intermediario"
             parent="base.res_partner_menu_config"
             sequence="8"/>

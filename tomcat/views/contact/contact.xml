@@ -2,14 +2,14 @@
 <odoo>
   <data>
 
-    <record id="view_crm_crm_lead_inherite_kanban_view" model="ir.ui.view">
-      <field name="name">crm.lead.inherite.kanban.view</field>
-      <field name="model">crm.lead</field>
+    <record id="view_contact_form_inherit" model="ir.ui.view">
+      <field name="name">res.partner.external</field>
+      <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
       
               <xpath expr="//field[@name='parent_id']" position="before">
-                <field name="external_id" required="1" />
+                <field name="external_id" />
               </xpath>
       </field>
     </record>

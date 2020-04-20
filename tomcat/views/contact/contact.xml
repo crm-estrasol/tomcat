@@ -33,6 +33,13 @@
                    <field name="url_map" placeholder="Enlace mapa"  attrs="{'invisible': [('type','=', 'contact')]}" />
                 
               </xpath>
+              <xpath expr="//field[@name='vat']" position="after">
+                
+                 
+                   <field name="customer_segments"/>
+                   <field name="intermediary_category"/>
+                
+              </xpath>
       </field>
     </record>
 

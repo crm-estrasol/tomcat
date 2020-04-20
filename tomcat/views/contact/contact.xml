@@ -34,10 +34,10 @@
                 
               </xpath>
               <xpath expr="//field[@name='vat']" position="after">
-                
+                   
                  
-                   <field name="customer_segments"/>
-                   <field name="intermediary_category"/>
+                   <field name="customer_segments" attrs="{'invisible': not  context.get('customer')"/>
+                   <field name="intermediary_category" attrs="{'invisible': not  context.get('customer')"/>
                 
               </xpath>
       </field>

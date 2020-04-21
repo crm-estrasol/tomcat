@@ -27,7 +27,7 @@ class TomCatCrmLead(models.Model):
            op = record
            if  op.activity_ids:
                 limit_contact = op.activity_ids[0].create_date + relativedelta(days=int(num_days))
-                real_difference =   (limit_contact - datetime.today()).days       
+                real_difference =   int( (limit_contact - datetime.today()).days )       
                
                 if  real_difference <= num_one :
                         record.light_help = 3 
@@ -36,8 +36,8 @@ class TomCatCrmLead(models.Model):
                         record.light_help = 2 
                         record.write({'light':2})
                 elif  real_difference >= (num_three+1)  :
-                        record.light_help = 3 
-                        record.write({'light':3})   
+                        record.light_help = 1 
+                        record.write({'light':1})   
            else:
                  record.light_help = 0 
                  record.write({'light':0})      

@@ -7,14 +7,22 @@
         border-radius: 25px;
         position: relative;
        
-    &.o_color_1 {
-        background-color: nth($o-colors, 1);
-        &:not(.readonly):hover {
-            transform: scale(1.2);
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        &.active:after{
+
+       
+
+        $sizes: red, yellow,green ;
+
+        
+
+        @for $size from 1 through length($sizes) {
+            &.o_color_#{$size - 1} {
+                background-color: nth($o-colors, $size);
+                &:not(.readonly):hover {
+                    transform: scale(1.2);
+                    transition: 0.3s;
+                    cursor: pointer;
+                }
+                &.active:after{
                     content: "\f00c";
                     display: inline-block;
                     font: normal normal normal 14px/1 FontAwesome;
@@ -23,8 +31,9 @@
                     position: absolute;
                     padding: 4px;
                     font-size: 16px;
-         }
-    }
+                }
+            }
+        }
         
     }
 }

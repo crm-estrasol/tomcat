@@ -24,7 +24,7 @@
                 
                  
                    <field name="light_help"  />
-                    <field name="light"   />
+                    <field name="light" />
                 
               </xpath>
               <xpath expr="//kanban//templates//field[@name='activity_ids']" position="after">

@@ -11,6 +11,6 @@
     'depends': ['base', 'web'],
     'data': [
       
-        'views/library_book.xml',
+        'views/templates.xml',
     ]
 }

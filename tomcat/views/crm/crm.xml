@@ -10,8 +10,8 @@
     
           <xpath expr="//field[@name='priority']" position="before">     
                 
-                    <field name="light" placeholder="Semaforo" widget="int_color" />
-              
+                    <field name="light" placeholder="Semaforo" widget="int_color" attrs="{'invisible': [('light', '=', False ) ] } " />
+                      <field name="light_help" invisible="1" />
           </xpath>
       </field>
     </record>

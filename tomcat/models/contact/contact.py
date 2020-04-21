@@ -11,8 +11,5 @@ class TomCatResPartner(models.Model):
     url_map = fields.Char('Enlace mapa',tracking=True)
     customer_segments = fields.Many2one("tomcat.customer.segment", string="Segmento cliente",track_visibility=True)
     intermediary_category = fields.Many2one("tomcat.intermediary.category", string="Categoria intermediario",track_visibility=True)
-    #ON BUTTON ACTIONS
-
-    #ON COMPUTE
-
-    #ON CHANGE
+   
+       

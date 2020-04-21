@@ -22,20 +22,21 @@ class TomCatCrmLead(models.Model):
        num_days = self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days')
        for record in self:
            op = record
-           
-           limit_contact = op.activity_ids[0].create_date + relativedelta(days=int(num_days))
-           real_difference =   (limit_contact - datetime.today()).days      
-           
-           if  real_difference <= 5 :
-              record.light_help = 3 
-              record.write({'light':3})
-           if  real_difference > 6  and real_difference <= 10 :
-              record.light_help = 2 
-              record.write({'light':2})
-           if  real_difference >= 11  :
-              record.light_help = 3 
-              record.write({'light':3})   
-          
+           if  op.activity_ids:
+                limit_contact = op.activity_ids[0].create_date + relativedelta(days=int(num_days))
+                real_difference =   (limit_contact - datetime.today()).days       
+                if  real_difference <= 5 :
+                    record.light_help = 3 
+                    record.write({'light':3})
+                if  real_difference > 6  and real_difference <= 10 :
+                    record.light_help = 2 
+                    record.write({'light':2})
+                if  real_difference >= 11  :
+                    record.light_help = 3 
+                    record.write({'light':3})   
+            else:
+                 record.light_help = 0 
+                    record.write({'light':0})      
 
             
         

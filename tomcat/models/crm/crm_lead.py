@@ -8,4 +8,12 @@ from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationE
 class TomCatCrmLead(models.Model):
     _inherit  = "crm.lead"
     light = fields.Integer('Semadforo',tracking=True,default=3  )
+    #ON BUTTON ACTIONS
+
+    #ON COMPUTE
+
+    #ON CHANGE
+    @api.onchange('activity_ids')
+    def on_activity(self):
+        self.light=1
     

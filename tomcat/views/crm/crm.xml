@@ -23,8 +23,8 @@
          <xpath expr="//kanban//field[@name='activity_ids']" position="after">
                 
                  
-                   <field name="light_help" placeholder="Enlace mapa"  />
-                    <field name="light" placeholder="Enlace mapa"  />
+                   <field name="light_help"  />
+                    <field name="light"   />
                 
               </xpath>
               <xpath expr="//kanban//templates//field[@name='activity_ids']" position="after">

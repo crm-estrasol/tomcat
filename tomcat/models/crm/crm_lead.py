@@ -34,7 +34,7 @@ class TomCatCrmLead(models.Model):
                 if  real_difference >= 11  :
                     record.light_help = 3 
                     record.write({'light':3})   
-            else:
+           else:
                  record.light_help = 0 
                  record.write({'light':0})      
 

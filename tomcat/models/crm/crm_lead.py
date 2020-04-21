@@ -7,5 +7,5 @@ from odoo.tools.misc import clean_context
 from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationError, Warning
 class TomCatCrmLead(models.Model):
     _inherit  = "crm.lead"
-    light = fields.Integer('Semadforo',tracking=True,default=1  )
+    light = fields.Integer('Semadforo',tracking=True,default=3  )
     

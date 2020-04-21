@@ -12,7 +12,7 @@ var colorField = AbstractField.extend({
         'click .o_color_pill': 'clickPill',
     },
     init: function () {
-        this.totalColors = 3;
+        this.totalColors = 4;
         this.color = ""
         this._super.apply(this, arguments);
     },

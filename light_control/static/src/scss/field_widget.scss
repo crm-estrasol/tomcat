@@ -8,7 +8,7 @@
         position: relative;
        
     &.o_color_1 {
-        background-color: nth($o-colors, $size);
+        background-color: nth($o-colors, 1);
         &:not(.readonly):hover {
             transform: scale(1.2);
             transition: 0.3s;

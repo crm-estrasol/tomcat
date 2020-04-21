@@ -36,7 +36,7 @@ class TomCatCrmLead(models.Model):
                     record.write({'light':3})   
             else:
                  record.light_help = 0 
-                    record.write({'light':0})      
+                 record.write({'light':0})      
 
             
         

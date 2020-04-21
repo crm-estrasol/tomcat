@@ -11,7 +11,7 @@ class ResConfigSettings(models.TransientModel):
         res = super(ResConfigSettings, self).get_values()
         _logger.info("-----------------------------------"+str(self.env['ir.config_parameter'].sudo().get_param('intelli.pdf_m')))
         res.update(
-            limit_days = self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days'),    
+            limit_days = int(self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days')),    
         )
         return res
     

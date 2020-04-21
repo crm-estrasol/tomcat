@@ -17,6 +17,6 @@ class TomCatCrmLead(models.Model):
     @api.depends('activity_ids' )
     def _compute_show_light(self):
         for rec in self:
-            rec.light_help = 2
+            rec.light_help = 3
             rec.write({'light':2})
         

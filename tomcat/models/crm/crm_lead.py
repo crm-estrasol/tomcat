@@ -21,18 +21,18 @@ class TomCatCrmLead(models.Model):
     def _compute_show_light(self):
        num_days = int(self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days'))
        num_one = num_days
-       num_two = num_days*2
-       num_three = num_days*3
+       num_two = num_days*-1
+       num_three = num_days*2*-1
        for record in self:
            op = record
            if  op.activity_ids:
                 limit_contact = op.activity_ids[0].create_date + relativedelta(days=int(num_days))
                 real_difference =   int( (limit_contact - datetime.today()).days )       
-               
+                
                 if  real_difference <= num_one :
                         record.light_help = 3 
                         record.write({'light':3})
-                elif  real_difference > (num_days+1)  and real_difference <= num_two :
+                elif  real_difference < 0  and real_difference >= num_two :
                         record.light_help = 2 
                         record.write({'light':2})
                 elif  real_difference >= (num_three+1)  :

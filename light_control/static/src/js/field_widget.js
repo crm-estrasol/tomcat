@@ -35,6 +35,7 @@ var colorField = AbstractField.extend({
         var className = "o_color_pill active readonly o_color_" +this.value.toString();
         this.$el.append($('<span>', {
             'class': className,
+            
         }));
     },
     clickPill: function (ev) {

@@ -27,7 +27,7 @@
                     <field name="light" />
                 
               </xpath>
-              <xpath expr="//kanban//templates//field[@name='activity_ids']" position="after">
+              <xpath expr="//div[@class='oe_kanban_content']" position="after">
                 
                  
                    <field name="light_help" invisible="1"  />

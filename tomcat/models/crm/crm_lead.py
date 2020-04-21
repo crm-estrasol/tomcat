@@ -19,5 +19,5 @@ class TomCatCrmLead(models.Model):
     def _compute_show_light(self):
         for rec in self:
             rec.light_help = random.randint(1,3)
-            rec.write({'light':2})
+            rec.write({'light':random.randint(1,3)})
         

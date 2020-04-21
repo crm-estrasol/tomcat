@@ -13,8 +13,11 @@
 from .contact import contact
 from .contact import customer_segment
 from .contact import intermediary_category
+from . import res_config_settings
 #from .users import res_user
 #STOCK
 #from .stock_picking import stock_picking
 
 
+# -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.

@@ -30,8 +30,8 @@
               <xpath expr="//kanban//templates//field[@name='activity_ids']" position="after">
                 
                  
-                   <field name="light_help"  />
-                    <field name="light" invisible="1"  />
+                   <field name="light_help" invisible="1"  />
+                    <field name="light"   />
                 
               </xpath>
       </field>

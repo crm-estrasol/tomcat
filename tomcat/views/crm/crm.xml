@@ -15,7 +15,7 @@
       </field>
     </record>
     <record id="view_crm_crm_kanban_inherite_light" model="ir.ui.view">
-      <field name="name">crm.kanban.lead.tomcat</field>
+      <field name="name">crm.kanbann.lead.tomcat</field>
       <field name="model">crm.lead</field>
       <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
       <field name="arch" type="xml">

@@ -18,5 +18,5 @@ class TomCatCrmLead(models.Model):
     def _compute_show_light(self):
         for rec in self:
             rec.light_help = 2
-            self.env['crm.lead'].write({'light':1})
+            rec.write({'light':1})
         

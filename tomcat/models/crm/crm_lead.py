@@ -26,7 +26,7 @@ class TomCatCrmLead(models.Model):
        for record in self:
            op = record
            if  op.activity_ids:
-                limit_contact = op.activity_ids[0].create_date + relativedelta(days=int(num_days))
+                limit_contact = op.activity_ids[0].date_deadline + relativedelta(days=int(num_days))
                 real_difference =   int( (limit_contact - datetime.today()).days )       
                 
                 if   real_difference >= 0 and  real_difference <= num_one :

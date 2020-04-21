@@ -20,5 +20,6 @@ class TomCatCrmLead(models.Model):
        for record in self:
             rand  =  random.randint(1,3)
             record.light_help = rand
+            
             record.write({'light':rand})
         

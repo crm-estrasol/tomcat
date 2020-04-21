@@ -31,7 +31,7 @@ var colorField = AbstractField.extend({
     },
     _renderReadonly: function () {
         console.log(this.value)
-        var className = "o_color_pill active readonly o_color_" + str(this.value);
+        var className = "o_color_pill active readonly o_color_" +this.value.toString();
         this.$el.append($('<span>', {
             'class': className,
         }));

@@ -19,7 +19,7 @@ class TomCatCrmLead(models.Model):
     #ON CHANGE
   
     def _compute_show_light(self):
-       num_days = self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days')
+       num_days = int(self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days'))
        num_one = num_days
        num_two = num_days*2
        num_three = num_days*3

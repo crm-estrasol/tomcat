@@ -9,7 +9,7 @@
       <field name="arch" type="xml">
     
           <xpath expr="//field[@name='priority']" position="before">     
-                    <field name="light" placeholder="Semaforo" widget="int_color" attrs="{'invisible': [('light', '=', 0 ) ] } " />
+                    <field name="light" placeholder="Semaforo" widget="int_color"  />
                     <field name="light_help"  />
           </xpath>
       </field>

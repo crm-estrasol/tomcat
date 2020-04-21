@@ -7,13 +7,14 @@ from odoo.tools.misc import clean_context
 from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationError, Warning
 class TomCatCrmLead(models.Model):
     _inherit  = "crm.lead"
-    light = fields.Integer('Semadforo',tracking=True,default=3  )
+    light = fields.Integer('Semadforo',tracking=True,default=3, compute='_compute_show_light' )
     #ON BUTTON ACTIONS
 
     #ON COMPUTE
 
     #ON CHANGE
-    @api.onchange('activity_ids')
-    def on_activity(self):
-        self.light=1
-    
+    @api.depends('activity_ids' )
+    def _compute_show_light(self):
+        for rec in self:
+            rec.light = 1
+        

@@ -10,7 +10,7 @@
     
           <xpath expr="//field[@name='priority']" position="before">     
                 
-                    <field name="light" placeholder="Semaforo" />
+                    <field name="light" placeholder="Semaforo" widget="int_color" />
               
           </xpath>
       </field>

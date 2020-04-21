@@ -21,12 +21,13 @@ var colorField = AbstractField.extend({
         for (var i = 0; i < this.totalColors; i++ ) {
             var className = "o_color_pill o_color_" + i;
             if (this.value === i ) {
-                className += ' active';
+                className += ' readonly active';
+                this.$el.append($('<span>', {
+                    'class': className,
+                    'data-val': i,
+                }));
             }
-            this.$el.append($('<span>', {
-                'class': className,
-                'data-val': i,
-            }));
+            
         }
     },
     _renderReadonly: function () {

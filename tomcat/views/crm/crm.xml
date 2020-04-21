@@ -31,7 +31,7 @@
                 
                  
                    <field name="light_help" invisible="1"  />
-                    <field name="light"  widget="int_color" />
+                    <field name="light"  widget="int_color" attrs="{'invisible': [('light', '=', 0 ) ] } " />
                 
               </xpath>
       </field>

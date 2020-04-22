@@ -99,7 +99,7 @@ class TomCatSaleOrder(models.Model):
                         """  % ( name,new_name,product_uom_qty,new_qty,price_unit,new_price ) 
 
 
-            body += "<p> Eliminado(s) </p>" if len(removes.count()) > 0  else ""
+            body += "<p> Eliminado(s) </p>" if  list(removes).count() > 0  else ""
             for remove in  removes:
                 prev_item = self.env['sale.order.line'].search([('id','=', remove[1])])  
                 name = prev_item.product_id.name

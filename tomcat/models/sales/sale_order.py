@@ -33,7 +33,7 @@ class TomCatSaleOrder(models.Model):
                 price_unit = prev_item.price_unit
                 product_uom_qty = prev_item.product_uom_qty
                 #new
-                new_name = modify[2]['name'] if modify[2] in ['name'] else "Sin cambio"
+                new_name = modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"
                 body +=   """
                                 <ul class="o_mail_thread_message_tracking">
                                 

@@ -40,7 +40,7 @@ class TomCatSaleOrder(models.Model):
         
         if values['order_line']:
             order_line = values['order_line']
-            news = filter(lambda x: x[1].includes('virtu'), order_line)   
+            news = filter(lambda x:  False if isinstance(x[1], int) else x[1].includes('virtu'), order_line)   
             _logger.info("-------------------Crea----------------"+str( list(news) ) ) 
             delete = filter(lambda x: x[0] == 2, order_line)   
             _logger.info("------------------Elimina-----------------"+str( list(delete) ) )            

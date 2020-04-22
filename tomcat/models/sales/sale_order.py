@@ -23,7 +23,7 @@ class TomCatSaleOrder(models.Model):
             order_line = values['order_line']
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
              
-            deletes = filter(lambda x: x[0] == 2, order_line)   
+            removes = filter(lambda x: x[0] == 2, order_line)   
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
             
@@ -97,7 +97,36 @@ class TomCatSaleOrder(models.Model):
                                 
                             </ul>
                         """  % ( name,new_name,product_uom_qty,new_qty,price_unit,new_price ) 
-                
+
+
+            body += "<p> Eliminado(s) </p>" if removes  else ""
+            for remove in  removes:
+                prev_item = self.env['sale.order.line'].search([('id','=', remove[1])])  
+                name = prev_item.product_id.name
+                price_unit = prev_item.price_unit
+                product_uom_qty = prev_item.product_uom_qty
+                body +=   """
+                            <ul class="o_mail_thread_message_tracking">
+                            
+                                <li>
+                                    Producto:
+                                    <span> %s </span>
+                                </li>
+                                
+                                <li>
+                                    Cantidad:
+                                    <span> %s </span>
+                                </li>
+
+                                <li>
+                                    Precio:
+                                    <span> %s </span>
+                                </li>
+                                            
+                          
+                             </ul>
+                            """  %  ( name,product_uom_qty,price_unit )     
+    
 
                
                 

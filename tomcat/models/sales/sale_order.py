@@ -14,26 +14,7 @@ class TomCatSaleOrder(models.Model):
     def create(self, values):
         res = super(TomCatSaleOrder, self).create(values)
         
-        if 'order_line' in values:
-            _logger.info("-----------------------------------"+str(values['order_line'] ) )
-          
-            for product in values['order_line']:  
-                body +=   """
-                                <ul class="o_mail_thread_message_tracking">
-                                
-                                    <li>
-                                        %s
-                                        <span> %s </span>
-                                        <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
-                                        <span>
-                                            %s
-                                        </span>
-                                    </li>
-                                
-                            </ul>
-                        """  % ( "Poducto","pop","rep" )   
-
-            res.message_post(body=body)
+       
         return res
    
     def write(self, values):
@@ -45,8 +26,10 @@ class TomCatSaleOrder(models.Model):
             deletes = filter(lambda x: x[0] == 2, order_line)   
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
-            for modify in  modifies:    
-                _logger.info("------------------Modifica-----------------"+str( list(modify) ) )            
+            for modify in  modifies: 
+                prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])   
+                _logger.info("------------------Modifica-----------------"+str( str(prev_item.product_id.name) ) )
+                _logger.info("------------------Modifica-----------------"+str( str(modify[2]) ) )            
             
 
         res = super(TomCatSaleOrder, self).write(values)

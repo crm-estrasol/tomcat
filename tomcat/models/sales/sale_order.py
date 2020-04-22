@@ -34,6 +34,8 @@ class TomCatSaleOrder(models.Model):
                 product_uom_qty = prev_item.product_uom_qty
                 #new
                 new_name = modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"
+                new_qty = modify[2]['product_uom_qty'] if  'product_uom_qty' in  modify[2]  else "Sin cambio"
+                new_price = modify[2]['price_unit'] if  'price_unit' in  modify[2]  else "Sin cambio"
                 body +=   """
                                 <ul class="o_mail_thread_message_tracking">
                                 
@@ -46,10 +48,27 @@ class TomCatSaleOrder(models.Model):
                                         </span>
                                     </li>
                                     
+                                    <li>
+                                        Cantidad:
+                                        <span> %s </span>
+                                        <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
+                                        <span>
+                                            %s
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        Precio:
+                                        <span> %s </span>
+                                        <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
+                                        <span>
+                                            %s
+                                        </span>
+                                    </li>
                                     
                                 
                             </ul>
-                        """  % ( name,new_name ) 
+                        """  % ( name,new_name,product_uom_qty,new_qty,price_unit,new_price ) 
                 
 
                

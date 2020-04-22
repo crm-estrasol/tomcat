@@ -38,7 +38,7 @@ class TomCatSaleOrder(models.Model):
     def write(self, values):
         
         if values['order_line']:
-             _logger.info("-----------------------------------"+str(v alues['order_line'] ) )             
+             _logger.info("-----------------------------------"+str(values['order_line'] ) )             
 
 
 

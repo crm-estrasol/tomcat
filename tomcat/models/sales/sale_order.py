@@ -22,13 +22,13 @@ class TomCatSaleOrder(models.Model):
         if   'order_line' in values:
             order_line = values['order_line']
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
-            news_l = len(list(filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   ))
+            news_l =  len(list(filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line) ) )  
              
             removes = filter(lambda x: x[0] == 2, order_line)   
-            removes_l = len(list(filter(lambda x: x[0] == 2, order_line)  )) 
+            removes_l = filter(lambda x: x[0] == 2, order_line)   
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
-            modifies_l = len(list(filter(lambda x: x[0] == 1, order_line)  )) 
+            modifies_l =  filter(lambda x: x[0] == 1, order_line)   
             
             body += "<p> Nuevo(s) </p>" if news_l > 1 else ""
             for new in  news:

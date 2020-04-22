@@ -14,34 +14,45 @@ class TomCatSaleOrder(models.Model):
     def create(self, values):
         res = super(TomCatSaleOrder, self).create(values)
         
-        if values['order_line']:
-             _logger.info("-----------------------------------"+str(values['order_line'] ) )
+        if 'order_line' in values:
+            _logger.info("-----------------------------------"+str(values['order_line'] ) )
+          
+            for product in values['order_line']:  
+                body +=   """
+                                <ul class="o_mail_thread_message_tracking">
+                                
+                                    <li>
+                                        %s
+                                        <span> %s </span>
+                                        <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
+                                        <span>
+                                            %s
+                                        </span>
+                                    </li>
+                                
+                            </ul>
+                        """  % ( "Poducto","pop","rep" )   
 
-        body =   """
-                        <ul class="o_mail_thread_message_tracking">
-                        
-                            <li>
-                                %s
-                                <span> %s </span>
-                                <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
-                                <span>
-                                    %s
-                                </span>
-                            </li>
-                        
-                    </ul>
-                """  % ( "Poducto","pop","rep" )   
-
-        res.message_post(body=body)
+            res.message_post(body=body)
         return res
    
     def write(self, values):
         
         if values['order_line']:
-             _logger.info("-----------------------------------"+str(values['order_line'] ) )             
+            order_line = values['order_line']
+            news = filter(lambda x: x[1].includes('virtu'), order_line)   
+            _logger.info("-----------------------------------"+str( news ) )             
 
         res = super(TomCatSaleOrder, self).write(values)
         
         self.message_post(body="HOLAAAAAA")
 
         return res
+
+"""
+    4 ,_ ,False //NADA
+    2 ,id , ---------------elimina 
+    0 , virtual ----------- nuevo 
+    1,id, diccionario ---------Editar 
+
+"""

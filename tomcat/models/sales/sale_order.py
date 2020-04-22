@@ -53,8 +53,7 @@ class TomCatSaleOrder(models.Model):
                                     
                                 </ul>
                             """  % ( new_name,new_qty,new_price )    
-
-            
+        
             body += "<p> Modificado(s) </p>" if len(list(modifies)) else ""   
             for modify in  modifies: 
                 prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
@@ -101,9 +100,9 @@ class TomCatSaleOrder(models.Model):
                 
             body += "<p> Eliminado(s) </p>" if len(list(removes)) > 0 else ""
             for remove in  removes:
-                new_name = remove[2]['name'] if  'name' in  remove[2]  else ""
-                new_qty = remove[2]['product_uom_qty'] if  'product_uom_qty' in  remove[2]  else ""
-                new_price = remove[2]['price_unit'] if  'price_unit' in  remove[2]  else "" 
+                last_name = remove[2]['name'] if  'name' in  remove[2]  else ""
+                last_qty = remove[2]['product_uom_qty'] if  'product_uom_qty' in  remove[2]  else ""
+                last_price = remove[2]['price_unit'] if  'price_unit' in  remove[2]  else "" 
                 body +=   """
                             <ul class="o_mail_thread_message_tracking">
                             
@@ -121,15 +120,9 @@ class TomCatSaleOrder(models.Model):
                                     Precio:
                                     <span> %s </span>
                                 </li>
-                                            
-                                        
+                                                                      
                              </ul>
-                            """  % ( new_name,new_qty,new_price )    
-
-               
-                
-            
-
+                            """  % ( last_name,last_qty,last_price )    
         res = super(TomCatSaleOrder, self).write(values)
         
         self.message_post(body=body)

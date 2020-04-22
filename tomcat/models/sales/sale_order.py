@@ -100,29 +100,30 @@ class TomCatSaleOrder(models.Model):
                 
             body += "<p> Eliminado(s) </p>" if len(list(removes)) > 0 else ""
             for remove in  removes:
-                last_name = remove[2]['name'] if  'name' in  remove[2]  else ""
-                last_qty = remove[2]['product_uom_qty'] if  'product_uom_qty' in  remove[2]  else ""
-                last_price = remove[2]['price_unit'] if  'price_unit' in  remove[2]  else "" 
-                body +=   """
-                            <ul class="o_mail_thread_message_tracking">
-                            
-                                <li>
-                                    Producto:
-                                    <span> %s </span>
-                                </li>
+                prev_item = self.env['sale.order.line'].search([('id','=', remove[1])])  
+                name = prev_item.product_id.name
+                price_unit = prev_item.price_unit
+                product_uom_qty = prev_item.product_uom_qty
+                body += """
+                                <ul class="o_mail_thread_message_tracking">
                                 
-                                <li>
-                                    Cantidad:
-                                    <span> %s </span>
-                                </li>
+                                    <li>
+                                        Producto:
+                                        <span> %s </span>
+                                    </li>
+                                    
+                                    <li>
+                                        Cantidad:
+                                        <span> %s </span>
+                                    </li>
 
-                                <li>
-                                    Precio:
-                                    <span> %s </span>
-                                </li>
-                                                                      
-                             </ul>
-                            """  % ( last_name,last_qty,last_price )    
+                                    <li>
+                                        Precio:
+                                        <span> %s </span>
+                                    </li>
+                                                                        
+                                </ul>
+                        """  % ( name,price_unit,product_uom_qty )    
         res = super(TomCatSaleOrder, self).write(values)
         
         self.message_post(body=body)

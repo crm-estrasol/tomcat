@@ -25,12 +25,12 @@ class TomCatSaleOrder(models.Model):
             news_l =  len(list(filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line) ) )  
              
             removes = filter(lambda x: x[0] == 2, order_line)   
-            removes_l = filter(lambda x: x[0] == 2, order_line)   
+            removes_l = len(list(filter(lambda x: x[0] == 2, order_line)  )) 
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
-            modifies_l =  filter(lambda x: x[0] == 1, order_line)   
+            modifies_l = len(list( filter(lambda x: x[0] == 1, order_line)   ))
             
-            body += "<p> Nuevo(s) </p>" if news_l > 1 else ""
+            body += "<p> Nuevo(s) </p>" if news_l > 0 else ""
             for new in  news:
                 new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
                 new_qty = new[2]['product_uom_qty'] if  'product_uom_qty' in  new[2]  else "Sin cambio"
@@ -57,7 +57,7 @@ class TomCatSaleOrder(models.Model):
                                 </ul>
                             """  % ( new_name,new_qty,new_price )    
 
-            body += "<p> Modificados(s) </p>" if modifies_l > 1 else ""   
+            body += "<p> Modificados(s) </p>" if modifies_l > 0 else ""   
             for modify in  modifies: 
                 prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
                 name = prev_item.product_id.name

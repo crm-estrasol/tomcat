@@ -13,11 +13,36 @@ class TomCatSaleOrder(models.Model):
     @api.model
     def create(self, values):
         res = super(TomCatSaleOrder, self).create(values)
-        res.client_order_ref = "xxxxxx"
+        
+        if values['order_line']:
+             _logger.info("-----------------------------------"+str(v alues['order_line'] ) )
+
+       body =  """
+            <ul class="o_mail_thread_message_tracking">
+            
+                <li>
+                    %s
+                    <span> %s </span>
+                    <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
+                    <span>
+                        %s
+                    </span>
+                </li>
+            
+        </ul>
+        """  % ( "Poducto","pop","rep" )   
+
+         self.message_post(body=body)
         return res
    
     def write(self, values):
-        values['client_order_ref'] = "yyyyYEPy"
+        
+        if values['order_line']:
+             _logger.info("-----------------------------------"+str(v alues['order_line'] ) )             
+
+
+
+
         res = super(TomCatSaleOrder, self).write(values)
         
         self.message_post(body="HOLAAAAAA")

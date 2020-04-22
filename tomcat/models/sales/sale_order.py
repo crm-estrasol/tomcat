@@ -19,7 +19,7 @@ class TomCatSaleOrder(models.Model):
    
     def write(self, values):
         body =""
-        if values['order_line']:
+        if   'order_line' in values:
             order_line = values['order_line']
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
              
@@ -27,6 +27,34 @@ class TomCatSaleOrder(models.Model):
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
             
+            body += "<p> Nuevos </p>" if news else ""
+            for new in  news:
+                new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
+                new_qty = new[2]['product_uom_qty'] if  'product_uom_qty' in  new[2]  else "Sin cambio"
+                new_price = new[2]['price_unit'] if  'price_unit' in  new[2]  else "Sin cambio" 
+                body +=  """
+                                    <ul class="o_mail_thread_message_tracking">
+                                    
+                                        <li>
+                                            Producto:
+                                            <span> %s </span>
+                                        </li>
+                                        
+                                        <li>
+                                            Cantidad:
+                                            <span> %s </span>
+                                        </li>
+
+                                        <li>
+                                            Precio:
+                                            <span> %s </span>
+                                        </li>
+                                        
+                                    
+                                </ul>
+                            """  % ( new_name,new_qty,new_price )    
+
+            body += "<p> Modificados </p>" if modifies else ""   
             for modify in  modifies: 
                 prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
                 name = prev_item.product_id.name
@@ -72,7 +100,7 @@ class TomCatSaleOrder(models.Model):
                 
 
                
-                _logger.info("------------------Modifica-----------------"+str( str(modify[2]) ) )            
+                
             
 
         res = super(TomCatSaleOrder, self).write(values)

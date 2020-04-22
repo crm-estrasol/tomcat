@@ -24,7 +24,7 @@ class TomCatSaleOrder(models.Model):
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
              
             removes = filter(lambda x: x[0] == 2, order_line)   
-            
+            _logger.info("-----------------------------------"+str(removes ) )
             modifies = filter(lambda x: x[0] == 1, order_line)   
             
             body += "<p> Nuevo(s) </p>" if len(list(news)) > 0 else ""

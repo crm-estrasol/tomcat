@@ -21,6 +21,7 @@ class TomCatSaleOrder(models.Model):
         body =""
         if   'order_line' in values:
             order_line = values['order_line']
+           
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
             news_l =  len(list(filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line) ) )  
              

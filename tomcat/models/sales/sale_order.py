@@ -15,24 +15,24 @@ class TomCatSaleOrder(models.Model):
         res = super(TomCatSaleOrder, self).create(values)
         
         if values['order_line']:
-             _logger.info("-----------------------------------"+str(v alues['order_line'] ) )
+             _logger.info("-----------------------------------"+str(values['order_line'] ) )
 
-       body =  """
-            <ul class="o_mail_thread_message_tracking">
-            
-                <li>
-                    %s
-                    <span> %s </span>
-                    <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
-                    <span>
-                        %s
-                    </span>
-                </li>
-            
-        </ul>
-        """  % ( "Poducto","pop","rep" )   
+        body =   """
+                        <ul class="o_mail_thread_message_tracking">
+                        
+                            <li>
+                                %s
+                                <span> %s </span>
+                                <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
+                                <span>
+                                    %s
+                                </span>
+                            </li>
+                        
+                    </ul>
+                """  % ( "Poducto","pop","rep" )   
 
-         self.message_post(body=body)
+        self.message_post(body=body)
         return res
    
     def write(self, values):

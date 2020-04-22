@@ -15,7 +15,7 @@ class TomCatSaleOrder(models.Model):
         res = super(TomCatSaleOrder, self).create(values)
         res.client_order_ref = "xxxxxx"
         return res
-    @api.model
+   
     def write(self, values):
         res = super(TomCatSaleOrder, self).write(values)
         res.client_order_ref = "yyyyyy"

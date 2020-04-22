@@ -58,7 +58,7 @@ class TomCatSaleOrder(models.Model):
                                 </ul>
                             """  % ( new_name,new_qty,new_price )    
 
-            body += "<p> Modificados(s) </p>" if modifies_l > 0 else ""   
+            body += "<p> Modificado(s) </p>" if modifies_l > 0 else ""   
             for modify in  modifies: 
                 prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
                 name = prev_item.product_id.name

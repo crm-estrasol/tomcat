@@ -38,7 +38,7 @@ class TomCatSaleOrder(models.Model):
                                 <ul class="o_mail_thread_message_tracking">
                                 
                                     <li>
-                                        Producto
+                                        Producto:
                                         <span> %s </span>
                                         <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
                                         <span>
@@ -58,7 +58,7 @@ class TomCatSaleOrder(models.Model):
 
         res = super(TomCatSaleOrder, self).write(values)
         
-        self.message_post(body="HOLAAAAAA")
+        self.message_post(body=body)
 
         return res
 

@@ -41,7 +41,9 @@ class TomCatSaleOrder(models.Model):
         if values['order_line']:
             order_line = values['order_line']
             news = filter(lambda x: x[1].includes('virtu'), order_line)   
-            _logger.info("-----------------------------------"+str( news ) )             
+            _logger.info("-------------------Crea----------------"+str( list(news) ) ) 
+            delete = filter(lambda x: x[0] == 2, order_line)   
+            _logger.info("------------------Elimina-----------------"+str( list(delete) ) )            
 
         res = super(TomCatSaleOrder, self).write(values)
         

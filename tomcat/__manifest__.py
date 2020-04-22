@@ -32,6 +32,7 @@
         'views/contact/menu.xml',
         
         'views/crm/crm.xml',
+        'views/crm/crm_cron.xml',
         #'views/mail/mail_activity.xml',
         #'views/sales/sales.xml',
         #'views/sales/sales_cron.xml',

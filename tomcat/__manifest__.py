@@ -30,11 +30,9 @@
         'views/contact/intermediary_category.xml',
         'views/contact/customer_segment.xml',
         'views/contact/menu.xml',
-        
         'views/crm/crm.xml',
         'views/crm/crm_cron.xml',
-        
-        #'views/mail/mail_activity.xml',
+        'views/mail/mail_activity.xml',
         #'views/sales/sales.xml',
         #'views/sales/sales_cron.xml',
         #'reports/sales_report.xml',

@@ -37,6 +37,21 @@
               </xpath>
       </field>
     </record>
+    <record id="view_crm_crm_tree_inherite_light" model="ir.ui.view">
+      <field name="name">crm.tree.lead.tomcat</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+      <field name="arch" type="xml">
+    
+         <xpath expr="//tree//field[@name='priority']" position="before">
+                
+                  <field name="light_help" invisible="1"  />
+                    <field name="light"  widget="int_color"  />
+                
+              </xpath>
+             
+      </field>
+    </record>
 
  
 

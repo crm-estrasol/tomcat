@@ -45,7 +45,7 @@ class TomCatSaleOrder(models.Model):
             delete = filter(lambda x: x[0] == 2, order_line)   
             _logger.info("------------------Elimina-----------------"+str( list(delete) ) )
             modify = filter(lambda x: x[0] == 1, order_line)   
-            _logger.info("------------------Modifica-----------------"+str( list(delete) ) )            
+            _logger.info("------------------Modifica-----------------"+str( list(modify) ) )            
             
 
         res = super(TomCatSaleOrder, self).write(values)

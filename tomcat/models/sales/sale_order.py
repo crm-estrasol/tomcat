@@ -18,5 +18,5 @@ class TomCatSaleOrder(models.Model):
    
     def write(self, values):
         res = super(TomCatSaleOrder, self).write(values)
-        res.client_order_ref = "yyyyyy"
+        self.client_order_ref = "yyyyyy"
         return res

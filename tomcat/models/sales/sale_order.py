@@ -18,7 +18,7 @@ class TomCatSaleOrder(models.Model):
         return res
    
     def write(self, values):
-        
+        body =""
         if values['order_line']:
             order_line = values['order_line']
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
@@ -26,9 +26,33 @@ class TomCatSaleOrder(models.Model):
             deletes = filter(lambda x: x[0] == 2, order_line)   
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
+            
             for modify in  modifies: 
-                prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])   
-                _logger.info("------------------Modifica-----------------"+str( str(prev_item.product_id.name) ) )
+                prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
+                name = prev_item.product_id.name
+                price_unit = prev_item.price_unit
+                product_uom_qty = prev_item.product_uom_qty
+                #new
+                new_name = modify[2]['name'] if modify[2] in ['name'] else "Sin cambio"
+                body +=   """
+                                <ul class="o_mail_thread_message_tracking">
+                                
+                                    <li>
+                                        Producto
+                                        <span> %s </span>
+                                        <span class="fa fa-long-arrow-right" role="img" aria-label="Changed" title="Changed"></span>
+                                        <span>
+                                            %s
+                                        </span>
+                                    </li>
+                                    
+                                    
+                                
+                            </ul>
+                        """  % ( name,new_name ) 
+                
+
+               
                 _logger.info("------------------Modifica-----------------"+str( str(modify[2]) ) )            
             
 

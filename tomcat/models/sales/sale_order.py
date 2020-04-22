@@ -19,4 +19,6 @@ class TomCatSaleOrder(models.Model):
     def write(self, values):
         res = super(TomCatSaleOrder, self).write(values)
         self.client_order_ref = "yyyyyy"
+        self.message_post(body="HOLAAAAAA")
+
         return res

@@ -40,7 +40,32 @@ class TomCatCrmLead(models.Model):
                         record.write({'light':1})   
            else:
                  record.light_help = 0 
-                 record.write({'light':0})      
+                 record.write({'light':0})  
+    def update_state(self):
+       _logger.info("-----------------------------------"+str("CROM" ) )
+       num_days = int(self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days'))
+       num_one = num_days
+       num_two = num_days*-1
+       num_three = num_days*2*-1
+       records = self.env['crm.lead'].search([])
+       for record in records:
+           op = record
+           if  op.activity_ids:
+                limit_contact = op.activity_ids[0].create_date + relativedelta(days=int(num_days))
+                real_difference =   int( (limit_contact - datetime.today()).days )       
+                
+                if   real_difference >= 0 and  real_difference <= num_one :
+                        record.light_help = 3 
+                        record.light = 3
+                elif  real_difference < 0  and real_difference >= num_two :
+                        record.light_help = 2 
+                        record.light = 2
+                elif  real_difference <= (num_three+1)  :
+                        record.light_help = 1 
+                        record.light = 1
+           else:
+                 record.light_help = 0 
+                 record.light = 0    
 
             
         

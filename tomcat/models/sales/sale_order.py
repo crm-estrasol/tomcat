@@ -27,7 +27,7 @@ class TomCatSaleOrder(models.Model):
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
             
-            body += "<p> Nuevos </p>" if news else ""
+            body += "<p> Nuevos </p>" if len(list(news)) > 0 else ""
             for new in  news:
                 new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
                 new_qty = new[2]['product_uom_qty'] if  'product_uom_qty' in  new[2]  else "Sin cambio"

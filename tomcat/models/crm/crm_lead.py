@@ -10,8 +10,8 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 class TomCatCrmLead(models.Model):
     _inherit  = "crm.lead"
-    light = fields.Integer('Semadforo',tracking=True,default=0 )
-    light_help = fields.Integer('Semadforo temo',tracking=True,default=0, compute='_compute_show_light' )
+    light = fields.Integer('Semaforo',tracking=True,default=0 )
+    light_help = fields.Integer('Semadforo temo',default=0, compute='_compute_show_light' )
     #ON BUTTON ACTIONS
 
     #ON COMPUTE

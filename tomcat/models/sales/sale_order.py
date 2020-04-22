@@ -43,7 +43,10 @@ class TomCatSaleOrder(models.Model):
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
             _logger.info("-------------------Crea----------------"+str( list(news) ) ) 
             delete = filter(lambda x: x[0] == 2, order_line)   
-            _logger.info("------------------Elimina-----------------"+str( list(delete) ) )            
+            _logger.info("------------------Elimina-----------------"+str( list(delete) ) )
+            modify = filter(lambda x: x[0] == 1, order_line)   
+            _logger.info("------------------Modifica-----------------"+str( list(delete) ) )            
+            
 
         res = super(TomCatSaleOrder, self).write(values)
         

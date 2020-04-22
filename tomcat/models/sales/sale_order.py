@@ -99,33 +99,7 @@ class TomCatSaleOrder(models.Model):
                             </ul>
                         """  % ( name,new_name,product_uom_qty,new_qty,price_unit,new_price ) 
                 
-            body += "<p> Eliminado(s) </p>" if len(list(news)) > 0 else ""
-                for new in  news:
-                    new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
-                    new_qty = new[2]['product_uom_qty'] if  'product_uom_qty' in  new[2]  else "Sin cambio"
-                    new_price = new[2]['price_unit'] if  'price_unit' in  new[2]  else "Sin cambio" 
-                    body +=  """
-                                        <ul class="o_mail_thread_message_tracking">
-                                        
-                                            <li>
-                                                Producto:
-                                                <span> %s </span>
-                                            </li>
-                                            
-                                            <li>
-                                                Cantidad:
-                                                <span> %s </span>
-                                            </li>
-
-                                            <li>
-                                                Precio:
-                                                <span> %s </span>
-                                            </li>
-                                            
-                                        
-                                    </ul>
-                                """  % ( new_name,new_qty,new_price )    
-
+           
                
                 
             

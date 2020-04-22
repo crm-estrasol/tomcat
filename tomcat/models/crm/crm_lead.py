@@ -42,7 +42,7 @@ class TomCatCrmLead(models.Model):
                  record.light_help = 0 
                  record.write({'light':0})  
     def update_light(self):
-       _logger.info("-----------------------------------"+str("CROM" ) )
+       #_logger.info("-----------------------------------"+str("CROM" ) )
        num_days = int(self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days'))
        num_one = num_days
        num_two = num_days*-1

@@ -32,16 +32,13 @@ class TomCatSaleOrder(models.Model):
                     </ul>
                 """  % ( "Poducto","pop","rep" )   
 
-        self.message_post(body=body)
+        res.message_post(body=body)
         return res
    
     def write(self, values):
         
         if values['order_line']:
              _logger.info("-----------------------------------"+str(values['order_line'] ) )             
-
-
-
 
         res = super(TomCatSaleOrder, self).write(values)
         

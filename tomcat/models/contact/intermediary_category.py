@@ -10,3 +10,21 @@ class TomCatIntermediaryCategory(models.Model):
    _inherit =  ['mail.thread', 'mail.activity.mixin']
    _rec_name = 'name'
    name = fields.Char("Nombre")
+   def init(self):
+      try:
+         items = self.env['tomcat.intermediary.category'].search([])
+         if not items:
+            values = [
+                     "CLIENTE FINAL",
+                     "TALLER DE ARQUITECTURA",
+                     "DISEÑO DE INTERIORES",
+                     "CONSTRUCTORA",
+                     "COMISIONISTA",
+                     "PARTNER",
+                     "ADMINISTRADORA DE PROYECTO"
+
+                     ]
+            for val in values:
+               self.env['tomcat.intermediary.category'].create({'name':val})
+      except:
+         pass

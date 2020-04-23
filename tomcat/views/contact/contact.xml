@@ -22,11 +22,10 @@
                 <xpath expr="//div[@class='oe_title']" position="before">
                 
                  
-                     <div class="oe_title">
-                        <h1>
-                            <field name="id" readonly="1"/>
-                        </h1>
-                     </div>
+                   
+                             <label for="id" string="ID" />
+                            <field name="id" readonly="1"  string="ID"/>
+                 
                 
               </xpath>
                <xpath expr="//field[@name='country_id']" position="after">

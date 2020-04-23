@@ -15,7 +15,7 @@ class TomCatCustomerSegment(models.Model):
          items = self.env['tomcat.customer.segment'].search([])
          if not items:
             values = [
-                     "BARES Y RESTAURANTES"
+                     "BARES Y RESTAURANTES",
                      "COMERCIAL",
                      "CORPORATIVO",
                      "EDUCACION",

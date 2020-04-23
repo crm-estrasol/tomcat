@@ -10,3 +10,6 @@ class TomCatCustomerSegment(models.Model):
    _inherit =  ['mail.thread', 'mail.activity.mixin']
    _rec_name = 'name'
    name = fields.Char("Nombre")
+   def init(self):
+      self.env['tomcat.customer.segment'].search([])
+      

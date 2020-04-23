@@ -8,7 +8,7 @@
       <field name="inherit_id" ref="project.view_task_form2"/>
       <field name="arch" type="xml">
     
-          <xpath expr="//field[@name='web_ribbon']" position="before">     
+          <xpath expr="//widget[@name='web_ribbon']" position="before">     
                      <label for="id" string="ID" />
                     <field name="id" string="ID" />
                      

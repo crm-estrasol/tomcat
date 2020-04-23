@@ -11,5 +11,20 @@ class TomCatCustomerSegment(models.Model):
    _rec_name = 'name'
    name = fields.Char("Nombre")
    def init(self):
-      self.env['tomcat.customer.segment'].search([])
-      
+      try:
+         items = self.env['tomcat.customer.segment'].search([])
+         if not items:
+            values = [
+                     "BARES Y RESTAURANTES"
+                     "COMERCIAL",
+                     "CORPORATIVO",
+                     "EDUCACION",
+                     "HOSPITALITY",
+                     "INDUSTRIAL",
+                     "RESIDENCIAL",
+                     "SALUD"
+                     ]
+            for val in values:
+               self.env['tomcat.customer.segment'].create({'name':val})
+      except:
+         pass

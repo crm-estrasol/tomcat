@@ -52,6 +52,11 @@
                     <field name="light"  widget="int_color"  />
                 
               </xpath>
+          <xpath expr="//tree//field[@name='create_date']" position="before">
+                
+                  <field name="id" string="ID"   />
+                
+          </xpath>
              
       </field>
     </record>

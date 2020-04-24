@@ -135,10 +135,10 @@ class TomCatSaleOrder(models.Model):
                
                 
             
-
+        self.message_post(body=body)
         res = super(TomCatSaleOrder, self).write(values)
         
-        self.message_post(body=body)
+      
 
         return res
 

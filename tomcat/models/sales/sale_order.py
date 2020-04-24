@@ -134,8 +134,8 @@ class TomCatSaleOrder(models.Model):
 
                
                 
-            
-        self.message_post(body=body)
+        if  'order_line' in values:    
+            self.message_post(body=body)
         res = super(TomCatSaleOrder, self).write(values)
         
       

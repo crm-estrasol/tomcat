@@ -191,7 +191,6 @@ class SaleReport(models.Model):
             l.discount as discount,
             sum((l.price_unit * l.product_uom_qty * l.discount / 100.0 / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END)) as discount_amount,
             s.id as order_id
-          
         """
 
         for field in fields.values():
@@ -200,7 +199,6 @@ class SaleReport(models.Model):
         from_ = """
                 sale_order_line l
                       join sale_order s on (l.order_id=s.id)
-                     
                       join res_partner partner on s.partner_id = partner.id
                         left join product_product p on (l.product_id=p.id)
                             left join product_template t on (p.product_tmpl_id=t.id)

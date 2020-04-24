@@ -26,7 +26,7 @@
     
          <xpath expr="//kanban//field[@name='activity_ids']" position="after">
                 
-                   <field name="id"   />
+                 
                    <field name="light_help"  />
                     <field name="light" />
                   

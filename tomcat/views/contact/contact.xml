@@ -74,6 +74,21 @@
       </field>
     </record>
 
+  <record id="view_res_partner_tree_inherite_id" model="ir.ui.view">
+      <field name="name">res.tree.partner.tomcat</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
+      <field name="arch" type="xml">
+    
+         
+              <xpath expr="//field[@name='display_name']" position="before">
+                 
+                    <field name="id" string="ID"   />
+
+                    
+              </xpath>
+      </field>
+    </record>
    
    
 

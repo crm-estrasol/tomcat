@@ -16,7 +16,7 @@ class TomCatSaleOrder(models.Model):
         
        
         return res
-   
+   """
     def write(self, values):
         body =""
         if   'order_line' in values:
@@ -141,7 +141,7 @@ class TomCatSaleOrder(models.Model):
       
 
         return res
-
+"""
 """
     4 ,_ ,False //NADA
     2 ,id , ---------------elimina 

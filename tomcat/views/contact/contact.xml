@@ -55,17 +55,36 @@
               </xpath>
       </field>
     </record>
-    <record id="view_res_partner_kanban_inherite_id" model="ir.ui.view">
-      <field name="name">res.kanban.partner.tomcat</field>
+    <record id="view_res_partner_tree_inherite_id" model="ir.ui.view">
+      <field name="name">res.tree.partner.tomcat</field>
       <field name="model">res.partner</field>
-      <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
       <field name="arch" type="xml">
     
          
-              <xpath expr="//strong" position="before">
- 
+              <xpath expr="//field[@name='name']" position="before">
+                  <div>
+                    <field name="id" string="ID"   />
+
+                  </div>  
+                    
+              </xpath>
+      </field>
+    </record>
+
+     <record id="view_res_partner_kanban_inherite_id" model="ir.ui.view">
+      <field name="name">res.kanban.partner.tomcat</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
+      <field name="arch" type="xml">
+    
+         
+              <xpath expr="field//strong" position="before">
+                  <div>
                     <field name="id"    />
-                
+
+                  </div>  
+                    
               </xpath>
       </field>
     </record>

@@ -200,7 +200,7 @@ class SaleReport(models.Model):
         from_ = """
                 sale_order_line l
                       join sale_order s on (l.order_id=s.id)
-                      join project_project p on (l.order_id=p.id)
+                      join project_project pro on (l.order_id=pro.id)
                       join res_partner partner on s.partner_id = partner.id
                         left join product_product p on (l.product_id=p.id)
                             left join product_template t on (p.product_tmpl_id=t.id)

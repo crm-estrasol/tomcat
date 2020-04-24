@@ -151,4 +151,6 @@ class SaleReport(models.Model):
     _inherit = "sale.report"
 
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True,required=True)
+    
+    name_proy = fields.Char('Name proyect', readonly=True)
   

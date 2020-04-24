@@ -49,8 +49,8 @@
               <xpath expr="//field[@name='vat']" position="after">
                    
                    <!-- attrs="{'invisible':   context.get('res_partner_search_mode') not 'customer' "-->
-                   <field name="customer_segments" />
-                   <field name="intermediary_category" />
+                   <field name="customer_segments"   options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}"/>
+                   <field name="intermediary_category"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />
                 
               </xpath>
       </field>

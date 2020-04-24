@@ -64,7 +64,7 @@
       <field name="arch" type="xml">
     
          
-              <xpath expr="field//strong" position="before">
+              <xpath expr="//strong" position="before">
                   <div>
                     <field name="id"    />
 

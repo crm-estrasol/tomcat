@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+  <!---->
+    <record id="view_project_project_form_inherite" model="ir.ui.view">
+      <field name="name">project.form.task.tomcat</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_form2"/>
+      <field name="arch" type="xml">
+    
+          <xpath expr="//widget[@name='web_ribbon']" position="before">     
+                     <label for="id" string="ID" />
+                    <field name="id" string="ID" />
+                     
+          </xpath>
+      </field>
+    </record>
+   <!--
+    <record id="view_crm_crm_kanban_inherite_light" model="ir.ui.view">
+      <field name="name">crm.kanbann.lead.tomcat</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+      <field name="arch" type="xml">
+    
+         <xpath expr="//kanban//field[@name='activity_ids']" position="after">
+                
+                
+                
+              </xpath>
+              <xpath expr="//div[@class='o_kanban_record_bottom']//field[@name='activity_ids']" position="after">
+                
+                 
+                  
+                
+              </xpath>
+      </field>
+    </record>
+    <record id="view_crm_crm_tree_inherite_light" model="ir.ui.view">
+      <field name="name">crm.tree.lead.tomcat</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+      <field name="arch" type="xml">
+    
+         <xpath expr="//tree//field[@name='priority']" position="before">
+                
+                
+                
+              </xpath>
+             
+      </field>
+    </record>
+-->
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+  </data>
+</odoo>
+ 

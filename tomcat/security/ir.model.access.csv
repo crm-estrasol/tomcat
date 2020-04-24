@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tomcat_intermediary_category,tomcat.intermediary.category,model_tomcat_intermediary_category,,1,1,1,1
+access_tomcat_customer_segment,tomcat.customer.segment,model_tomcat_customer_segment,,1,1,1,1
+
+

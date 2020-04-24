@@ -10,6 +10,7 @@ from datetime import timedelta, datetime
 import pytz
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
+    proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True,required=True)
     @api.model
     def create(self, values):
         res = super(TomCatSaleOrder, self).create(values)

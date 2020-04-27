@@ -7,9 +7,12 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from datetime import timedelta, datetime
-import pytz
+from odoo import tools
+from odoo import api, fields, models
+from odoo import fields, models
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
+    proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True,required=True)
     @api.model
     def create(self, values):
         res = super(TomCatSaleOrder, self).create(values)
@@ -142,10 +145,12 @@ class TomCatSaleOrder(models.Model):
 
         return res
 
-"""
-    4 ,_ ,False //NADA
-    2 ,id , ---------------elimina 
-    0 , virtual ----------- nuevo 
-    1,id, diccionario ---------Editar 
 
-"""
+
+class SaleReport(models.Model):
+    _inherit = "sale.report"
+
+    proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True,required=True)
+    
+    name_proy = fields.Char('Name proyect', readonly=True)
+  

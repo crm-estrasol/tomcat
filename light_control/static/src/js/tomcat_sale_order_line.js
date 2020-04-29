@@ -16,7 +16,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
          * @override
          */
         _renderBodyCell: function (record, node, index, options) {
-            console.log("entre xd")
+            
             var $cell = this._super.apply(this, arguments);
     
             var isSection = record.data.display_type === 'line_section';
@@ -43,7 +43,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
 
                 } 
                 
-                else if (node.attrs.name === "x_extra" ) {
+                else if (String(node.attrs.name) == "x_extra" ) {
                     console.log("entreeeeeeeeeeeeeeee")
                     var nbrColumns = this._getNumberOfCols();
                    

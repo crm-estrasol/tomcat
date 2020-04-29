@@ -3,13 +3,10 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
    
     
     "use strict";
-    var FieldChar = require('web.basic_fields').FieldChar;
-    var FieldOne2Many = require('web.relational_fields').FieldOne2Many;
-    var fieldRegistry = require('web.field_registry');
-    var ListFieldText = require('web.basic_fields').ListFieldText;
-    var ListRenderer = require('web.ListRenderer');
+ 
+    var SectionAndNoteListRenderer = require('account.section_and_note_backend').SectionAndNoteListRenderer;
     
-    var SectionAndNoteListRenderer = ListRenderer.extend({
+    SectionAndNoteListRenderer.includes({
         /**
          * We want section and note to take the whole line (except handle and trash)
          * to look better and to hide the unnecessary fields.

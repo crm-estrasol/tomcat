@@ -6,8 +6,9 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
  
     var SectionAndNoteListRenderer = require('account.section_and_note_backend');
     console.log("entre xd")
+    a = SectionAndNoteListRenderer
     console.log(SectionAndNoteListRenderer)
-    SectionAndNoteListRenderer.include({
+    SectionAndNoteListRenderer.SectionAndNoteListRenderer.include({
         /**
          * We want section and note to take the whole line (except handle and trash)
          * to look better and to hide the unnecessary fields.

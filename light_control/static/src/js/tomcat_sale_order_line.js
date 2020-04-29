@@ -21,7 +21,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     
             
     
-            return $cell;
+            return $cell.css("background","red");
         },
         /**
          * We add the o_is_{display_type} class to allow custom behaviour both in JS and CSS.

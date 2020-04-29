@@ -21,7 +21,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     
             var isSection = record.data.display_type === 'line_section';
             var isNote = record.data.display_type === 'line_note';
-            console.log(isSection)
+            //console.log(isSection)
             /*
             if (node.attrs.name === "x_extra") {
                 $cell.removeClass('o_invisible_modifier');
@@ -32,7 +32,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             if (isSection || isNote) {
                 if (node.attrs.widget === "handle") {
                     return $cell;
-                } else if (node.attrs.name === "name") {
+                } else if (node.attrs.name === "name" && isNote) {
 
                     var nbrColumns = this._getNumberOfCols();
                     if (this.handleField) {
@@ -42,6 +42,18 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                         nbrColumns--;
                     }
                     $cell.attr('colspan', nbrColumns);
+                  
+                }
+                if (node.attrs.name === "name" && isSection) {
+
+                    var nbrColumns = this._getNumberOfCols();
+                    if (this.handleField) {
+                        nbrColumns--;
+                    }
+                    if (this.addTrashIcon) {
+                        nbrColumns--;
+                    }
+                    $cell.attr('colspan', (nbrColumns-1));
                   
                 }
                

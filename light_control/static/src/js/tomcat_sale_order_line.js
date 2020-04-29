@@ -70,6 +70,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             var self = this;
             return this._super.apply(this, arguments).then(function () {
                 self.$('.o_list_table').addClass('o_section_and_note_list_view');
+                self.$('.o_list_table').find("[data-name='x_extra']").toggle();
             });
         }
     });

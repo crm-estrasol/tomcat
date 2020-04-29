@@ -19,42 +19,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             
             var $cell = this._super.apply(this, arguments);
     
-            var isSection = record.data.display_type === 'line_section';
-            var isNote = record.data.display_type === 'line_note';
-            //console.log(isSection)
-            /*
-            if (node.attrs.name === "x_extra") {
-                $cell.removeClass('o_invisible_modifier');
-                return $cell.addClass('o_hidden');   
-
-            }
-            */
-        
-         
-          
-            if (isSection || isNote) {
-                if (node.attrs.widget === "handle") {
-                    return $cell;
-
-                } 
-                
-                else if (String(node.attrs.name) == "product_uom" ) {
-                    console.log(String(node.attrs.name) == "x_extra")
-                    console.log("entreeeeeeeeeeeeeeee xddddddddddddddddddddddddd")
-                    var nbrColumns = this._getNumberOfCols();
-                   
-                    //$cell.attr('colspan', 5);
-                    //coment
-                  
-                }
-                
-               
-                else {
-                    $cell.removeClass('o_invisible_modifier');
-                    //return $cell.addClass('o_hidden');
-                    
-                }
-            }
+            
     
             return $cell;
         },

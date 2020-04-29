@@ -34,7 +34,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                 if (node.attrs.widget === "handle") {
                     return $cell;
                 } else if (node.attrs.name === "x_extra" ) {
-
+                    console.log("entreeeeeeeeeeeeeeee")
                     var nbrColumns = this._getNumberOfCols();
                     if (this.handleField) {
                         nbrColumns--;

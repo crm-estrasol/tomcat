@@ -5,7 +5,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     "use strict";
  
     var SectionAndNoteListRenderer = require('account.section_and_note_backend').SectionAndNoteListRenderer;
-    console.log("")
+   
     SectionAndNoteListRenderer.include({
         /**
          * We want section and note to take the whole line (except handle and trash)

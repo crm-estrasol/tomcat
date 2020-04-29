@@ -8,7 +8,7 @@
 
     'category': 'Uncategorized',
     'version': '12.0.1',
-    'depends': ['base', 'web'],
+    'depends': ['base', 'web','account'],
     'data': [
       
         'views/templates.xml',

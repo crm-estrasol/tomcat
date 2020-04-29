@@ -43,6 +43,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                     var nbrColumns = this._getNumberOfCols();
                    
                     //$cell.attr('colspan', nbrColumns);
+                    //coment
                   
                 }
                 

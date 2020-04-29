@@ -32,7 +32,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             if (isSection || isNote) {
                 if (node.attrs.widget === "handle") {
                     return $cell;
-                } else if (node.attrs.name === "x_extra" ) {
+                } else if (node.attrs.name === "x_extra" && isNote) {
 
                     var nbrColumns = this._getNumberOfCols();
                     if (this.handleField) {
@@ -79,7 +79,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             var self = this;
             return this._super.apply(this, arguments).then(function () {
                 self.$('.o_list_table').addClass('o_section_and_note_list_view');
-                self.$('.o_list_table').find("thead [data-name='x_extra']").toggle();
+                //self.$('.o_list_table').find("[data-name='x_extra']").toggle();
             });
         }
     });

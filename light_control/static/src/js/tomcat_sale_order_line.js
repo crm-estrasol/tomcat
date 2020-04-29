@@ -22,12 +22,13 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             var isSection = record.data.display_type === 'line_section';
             var isNote = record.data.display_type === 'line_note';
     
-           
+            /*
             if (node.attrs.name === "x_extra") {
                 $cell.removeClass('o_invisible_modifier');
                 return $cell.addClass('o_hidden');   
 
             }
+            */
             if (isSection || isNote) {
                 if (node.attrs.widget === "handle") {
                     return $cell;

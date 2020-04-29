@@ -44,18 +44,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                     $cell.attr('colspan', nbrColumns);
                   
                 }
-                if (node.attrs.name === "x_extra" && isNote) {
-
-                    var nbrColumns = this._getNumberOfCols();
-                    if (this.handleField) {
-                        nbrColumns--;
-                    }
-                    if (this.addTrashIcon) {
-                        nbrColumns--;
-                    }
-                    $cell.attr('colspan', nbrColumns);
-                  
-                }
+               
                 else {
                     $cell.removeClass('o_invisible_modifier');
                     return $cell.addClass('o_hidden');

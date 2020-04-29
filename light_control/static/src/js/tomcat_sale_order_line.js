@@ -22,8 +22,12 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             var isSection = record.data.display_type === 'line_section';
             var isNote = record.data.display_type === 'line_note';
             console.log(node.attrs.name)
-    
-            return $cell;
+            if( node.attrs.name === "x_extra"){
+                return
+            }else{
+                return $cell.toggle();
+            }
+           
         },
         /**
          * We add the o_is_{display_type} class to allow custom behaviour both in JS and CSS.

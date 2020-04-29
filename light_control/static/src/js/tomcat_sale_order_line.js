@@ -29,7 +29,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
 
             }
             */
-           if (node.attrs.name === "x_extra" ) {
+           if (node.attrs.name.toString() == "x_extra" ) {
             console.log(node.attrs.name === "x_extra")
            console.log(node.attrs.name , "x_extra")
            console.log(node.attrs.name)

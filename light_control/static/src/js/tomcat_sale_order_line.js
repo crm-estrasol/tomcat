@@ -38,7 +38,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
 
                 } 
                 
-                else if (String(node.attrs.name) == "name" ) {
+                else if (String(node.attrs.name) == "product_uom" ) {
                     console.log(String(node.attrs.name) == "x_extra")
                     console.log("entreeeeeeeeeeeeeeee xddddddddddddddddddddddddd")
                     var nbrColumns = this._getNumberOfCols();

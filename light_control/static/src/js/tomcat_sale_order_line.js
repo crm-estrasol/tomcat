@@ -6,7 +6,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
  
     var SectionAndNoteListRenderer = require('account.section_and_note_backend');
     console.log("entre xd")
-    a = SectionAndNoteListRenderer
+    var  a = SectionAndNoteListRenderer
     console.log(SectionAndNoteListRenderer)
     SectionAndNoteListRenderer.SectionAndNoteListRenderer.include({
         /**

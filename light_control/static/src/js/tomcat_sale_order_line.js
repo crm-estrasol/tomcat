@@ -40,7 +40,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                     $cell.attr('colspan', nbrColumns);
                   
                 } else {
-                    //$cell.removeClass('o_invisible_modifier');
+                    $cell.removeClass('o_invisible_modifier');
                     return $cell.addClass('o_hidden');
                     
                 }

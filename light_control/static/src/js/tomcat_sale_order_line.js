@@ -29,13 +29,8 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
 
             }
             */
-           console.log(node.attrs.name)
-           if (String(node.attrs.name) == "x_extra" ) {
-            console.log(node.attrs.name === "x_extra")
-           console.log(node.attrs.name , "x_extra")
-           console.log(node.attrs.name)
-          
-        }
+        
+         
           
             if (isSection || isNote) {
                 if (node.attrs.widget === "handle") {
@@ -44,7 +39,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                 } 
                 
                 else if (String(node.attrs.name) == "x_extra" ) {
-                    console.log("entreeeeeeeeeeeeeeee")
+                    console.log("entreeeeeeeeeeeeeeee xddddddddddddddddddddddddd")
                     var nbrColumns = this._getNumberOfCols();
                    
                     //$cell.attr('colspan', nbrColumns);

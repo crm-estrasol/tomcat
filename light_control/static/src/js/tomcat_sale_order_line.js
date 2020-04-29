@@ -4,7 +4,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     
     "use strict";
  
-    var SectionAndNoteListRenderer = require('account.section_and_note_backend').SectionAndNoteListRenderer;
+    var SectionAndNoteListRenderer = require('account.section_and_note_backend');
     console.log("entre xd")
     console.log(SectionAndNoteListRenderer)
     SectionAndNoteListRenderer.include({

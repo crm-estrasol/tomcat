@@ -39,10 +39,11 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                 } 
                 
                 else if (String(node.attrs.name) == "x_extra" ) {
+                    console.log(String(node.attrs.name) == "x_extra")
                     console.log("entreeeeeeeeeeeeeeee xddddddddddddddddddddddddd")
                     var nbrColumns = this._getNumberOfCols();
                    
-                    //$cell.attr('colspan', nbrColumns);
+                    $cell.attr('colspan', 5);
                     //coment
                   
                 }

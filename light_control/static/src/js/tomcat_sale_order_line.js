@@ -35,9 +35,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
            console.log(node.attrs.name)
           
         }
-           console.log(node.attrs.name === "x_extra")
-           console.log(node.attrs.name , "x_extra")
-           console.log(node.attrs.name)
+          
             if (isSection || isNote) {
                 if (node.attrs.widget === "handle") {
                     return $cell;

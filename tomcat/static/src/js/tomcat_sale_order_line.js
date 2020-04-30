@@ -1,5 +1,5 @@
 
-odoo.define('light_control.tomcat_sale_order_line', function (require) {
+odoo.define('tomcat.tomcat_sale_order_line', function (require) {
    
     
     "use strict";

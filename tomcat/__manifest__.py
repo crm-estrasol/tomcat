@@ -24,6 +24,7 @@
     # always loaded
     'data': [
          'security/ir.model.access.csv',
+
          'views/theme/res_config_settings_views.xml',   
         'views/theme/theme.xml',
         'views/contact/contact.xml',
@@ -35,6 +36,8 @@
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
         'views/sales/sales.xml',
+          'views/templates/templates.xml',
+        
         #'views/sales/sales_cron.xml',
         #'reports/sales_report.xml',
         #'reports/reports.xml',

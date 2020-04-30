@@ -16,5 +16,7 @@ class TomPCatProjectSection(models.Model):
 
 class TomCatSaleOrderLine(models.Model):
     _inherit = "sale.order.line"
-    display_type = fields.Selection(selection_add=[('line_project', 'Proyecto')], default=None)
+    display_type = fields.Selection(selection_add=[('line_project', 'Proyecto')], default=False)
+    
+    
     project_sections = fields.Many2one('tomcat.project.section', string='Proyecto',track_visibility=True)

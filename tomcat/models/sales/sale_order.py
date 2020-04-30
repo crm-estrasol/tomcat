@@ -132,7 +132,7 @@ class TomCatSaleOrder(models.Model):
                 if prev_item.display_type == 'line_section':
                     name = "Ubicación - "+ prev_item.name
                 else:
-                    name = prev_item.product_id.name if prev_item.product_id else "Proyecto -" + prev_item.project_sections.name
+                    name = prev_item.product_id.name if prev_item.product_id else "Proyecto -" +str( prev_item.project_sections.name)
                 price_unit = prev_item.price_unit
                 product_uom_qty = prev_item.product_uom_qty
                 body +=   """

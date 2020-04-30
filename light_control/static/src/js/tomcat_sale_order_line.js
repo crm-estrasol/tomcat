@@ -36,10 +36,10 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                     nbrColumns--;
                 }
                 if (record.model === "sale.order.line"){
-                nbrColumns--;
-                nbrColumns--;
+                    nbrColumns--;
+                   
                 }
-               
+                nbrColumns--;
                 return $cell.removeClass('o_hidden').attr('colspan',nbrColumns);
             }
             if( node.attrs.name === "project_sections" ){

@@ -9,7 +9,7 @@
                <!--
                 <link rel="stylesheet" type="text/scss" href="/test/static/src/scss/theme.scss"/>
                -->                                               
-               <link rel="stylesheet" type="text/scss" href="/test/static/src/scss/section_and_note_backend_2.scss"/>
+               <link rel="stylesheet" type="text/scss" href="/tomcat/static/src/scss/section_and_note_backend_2.scss"/>
             </xpath>
         </template>
         <!--

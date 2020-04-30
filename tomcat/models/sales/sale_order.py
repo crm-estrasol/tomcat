@@ -69,8 +69,10 @@ class TomCatSaleOrder(models.Model):
             body += "<p> Modificado(s) </p>" if modifies_l > 0 else ""   
             for modify in  modifies: 
                 prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
-                
-                name = prev_item.product_id.name if prev_item.product_id else prev_item.project_sections.name
+                if prev_item.display_type == 'line_section':
+                    name = prev_item.name
+                else:    
+                    name = prev_item.product_id.name if prev_item.product_id else prev_item.project_sections.name
 
                 price_unit = prev_item.price_unit
                 product_uom_qty = prev_item.product_uom_qty

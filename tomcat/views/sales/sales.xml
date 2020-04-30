@@ -10,7 +10,6 @@
                     <field name="project_sections"/>               
 
                 </xpath>
-                <!--
                  <xpath expr="//control" position="replace">
                     <control>                                    
                             <create name="add_product_control" string="Add a product"/>
@@ -19,7 +18,7 @@
                     </control>
                     
                   </xpath>
-                -->
+        
                
             </field>
 

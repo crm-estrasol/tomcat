@@ -34,7 +34,7 @@
         'views/crm/crm_cron.xml',
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
-        #'views/sales/sales.xml',
+        'views/sales/sales.xml',
         #'views/sales/sales_cron.xml',
         #'reports/sales_report.xml',
         #'reports/reports.xml',

@@ -6,15 +6,15 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//tree//field[@name='product_id']" position="after">
-                    <field name="count_transfers" />
-                    <button name="busqueda_activos" string="Cancelar entregas" type="object" attrs="{'invisible': [ ('count_transfers', '=', 0)] }"/>
+            
+                    <button name="project_sections" string="Cancelar entregas" type="object" attrs="{'invisible': [ ('count_transfers', '=', 0)] }"/>
                 </xpath>
                 
                
             </field>
 
         </record>
-<!---->
+<!--
         
 
         <record id="inherit_sale_order_form" model="ir.ui.view">
@@ -103,8 +103,7 @@
 
         </record>
 
-        
-        <!---->
+       
 
         
     <record id="view_quotation_treepp" model="ir.ui.view">
@@ -168,7 +167,7 @@
             
         </field>
     </record>
-
+-->
         
     </data>
 </odoo>

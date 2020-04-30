@@ -21,18 +21,19 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     
             var isSection = record.data.display_type === 'line_section';
             var isNote = record.data.display_type === 'line_note';
-           
+            var isProject = record.data.display_type === 'line_project';
           
           
                    
             var nbrColumns = this._getNumberOfCols();
              
-            if( node.attrs.name === "x_extra" && isNote){
+            if( node.attrs.name === "project_sections" && isProject){
                 var nbrColumns = this._getNumberOfCols();
 
                 return $cell.removeClass('o_hidden').attr('colspan',nbrColumns);
             }
-            if( node.attrs.name === "name" && isNote){
+            
+            if( node.attrs.name === "name" && isProject){
                 var nbrColumns = this._getNumberOfCols();
 
                 return $cell.addClass('o_hidden').attr('colspan',0);

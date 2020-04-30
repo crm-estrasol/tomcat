@@ -23,7 +23,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             var isNote = record.data.display_type === 'line_note';
             var isProject = record.data.display_type === 'line_project';
           
-        
+            console.log(record.model)
                    
        
              
@@ -35,7 +35,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                 if (this.addTrashIcon) {
                     nbrColumns--;
                 }
-                if (record.model === "sale.order.template.line"){
+                if (record.model === "sale.order.line"){
                 nbrColumns--;
                 nbrColumns--;
                 }

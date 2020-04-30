@@ -21,8 +21,9 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     
             var isSection = record.data.display_type === 'line_section';
             var isNote = record.data.display_type === 'line_note';
-            console.log(node.attrs.name)
+            
             if( node.attrs.name === "x_extra"){
+                console.log(node.attrs.name)
                 return $cell
             }else{
                 return $cell.toggle();

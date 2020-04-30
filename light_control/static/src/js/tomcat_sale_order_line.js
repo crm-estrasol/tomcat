@@ -27,7 +27,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                 console.log($cell)
                 return $cell.removeClass('o_hidden')
             }else{
-                return $cell.removeClass('o_hidden');
+                return $cell;
             }
            
         },

@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//tree//field[@name='product_id']" position="after">
             
-                    <button name="project_sections" string="Cancelar entregas" type="object" attrs="{'invisible': [ ('count_transfers', '=', 0)] }"/>
+                    <button name="project_sections" string="Cancelar entregas" type="object" />
                 </xpath>
                 
                

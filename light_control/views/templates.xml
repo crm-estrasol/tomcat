@@ -4,7 +4,7 @@
     <template id="assets_end" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
             <script src="/light_control/static/src/js/field_widget.js" type="text/javascript" />
-              <script src="/light_control/static/src/js/tomcat_sale_order_line.js" type="text/javascript" />
+            
             <link href="/light_control/static/src/scss/field_widget.scss" rel="stylesheet" type="text/scss" />
         </xpath>
     </template>

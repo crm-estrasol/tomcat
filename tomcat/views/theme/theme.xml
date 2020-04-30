@@ -2,15 +2,17 @@
   <data>
    
 
-    <template id="unique_t_id" name="custom" inherit_id="web._assets_primary_variables">
+    <template id="unique_t_id" name="custom" inherit_id="web.assets_backend">
 
             <xpath expr="." position="inside">
 
-               
+               <!--
                 <link rel="stylesheet" type="text/scss" href="/test/static/src/scss/theme.scss"/>
-                                                              
+               -->                                               
+               <link rel="stylesheet" type="text/scss" href="/tomcat/static/src/scss/section_and_note_backend_2.scss"/>
             </xpath>
         </template>
+        <!--
           <template id="unique_t_ico" name="custom_2" inherit_id="web.assets_backend">
 
             <xpath expr="." position="inside">
@@ -22,7 +24,7 @@
                      </script>                                         
             </xpath>
         </template>
-
+        -->
       
 
 </data>

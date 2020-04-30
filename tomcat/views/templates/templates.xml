@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="assets_end" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            
+              <script src="/tomcat/static/src/js/tomcat_sale_order_line.js" type="text/javascript" />
+            
+        </xpath>
+    </template>
+
+</odoo>

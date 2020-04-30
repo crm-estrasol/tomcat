@@ -19,13 +19,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale','contacts','product','mail','web','crm','sale_crm','stock','project'],
+    'depends': ['base','sale','account','sale_management','contacts','product','mail','web','crm','sale_crm','stock','project'],
 
     # always loaded
     'data': [
          'security/ir.model.access.csv',
+
          'views/theme/res_config_settings_views.xml',   
-        #'views/theme/theme.xml',
+        'views/theme/theme.xml',
         'views/contact/contact.xml',
         'views/contact/intermediary_category.xml',
         'views/contact/customer_segment.xml',
@@ -34,7 +35,9 @@
         'views/crm/crm_cron.xml',
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
-        #'views/sales/sales.xml',
+        'views/sales/sales.xml',
+          'views/templates/templates.xml',
+        
         #'views/sales/sales_cron.xml',
         #'reports/sales_report.xml',
         #'reports/reports.xml',

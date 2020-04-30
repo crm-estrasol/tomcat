@@ -36,7 +36,14 @@ class TomCatSaleOrder(models.Model):
             
             body += "<p> Nuevo(s) </p>" if news_l > 0 else ""
             for new in  news:
-                new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
+                
+                if new[2]['project_sections'] > 0:
+                    id_proy = new[2]['project_sections']   
+                    new_name = "Proyecto -" + self.env['tomcat.project.section'].search([('id','=',id_proy )])[0].name   
+                elif   new[2]['display_type']  == 'line_section' :
+                    new_name = "Ubicación - "+new[2]['name'] if  'name' in  new[2]  else "Sin cambio" 
+                else:    
+                    new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
                 new_qty = new[2]['product_uom_qty'] if  'product_uom_qty' in  new[2]  else "Sin cambio"
                 new_price = new[2]['price_unit'] if  'price_unit' in  new[2]  else "Sin cambio" 
                 body +=  """
@@ -64,11 +71,23 @@ class TomCatSaleOrder(models.Model):
             body += "<p> Modificado(s) </p>" if modifies_l > 0 else ""   
             for modify in  modifies: 
                 prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
-                name = prev_item.product_id.name
+                ubicacion =""
+                if prev_item.display_type == 'line_section':
+                    ubicacion = "Ubicación - "
+                    name = ubicacion+ prev_item.name
+                else:    
+                    name = prev_item.product_id.name if prev_item.product_id else "Proyecto -" + prev_item.project_sections.name
+
                 price_unit = prev_item.price_unit
                 product_uom_qty = prev_item.product_uom_qty
                 #new
-                new_name = modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"
+                if 'project_sections' in  modify[2]:
+                    id_proy = modify[2]['project_sections']   
+                    new_name = "Proyecto -" + self.env['tomcat.project.section'].search([('id','=',id_proy )])[0].name
+                else:    
+                    
+                    new_name = ubicacion + modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"
+                
                 new_qty = modify[2]['product_uom_qty'] if  'product_uom_qty' in  modify[2]  else "Sin cambio"
                 new_price = modify[2]['price_unit'] if  'price_unit' in  modify[2]  else "Sin cambio"
                 body +=   """
@@ -108,8 +127,12 @@ class TomCatSaleOrder(models.Model):
 
             body += "<p> Eliminado(s) </p>" if  removes_l > 0   else ""
             for remove in  removes:
+                
                 prev_item = self.env['sale.order.line'].search([('id','=', remove[1])])  
-                name = prev_item.product_id.name
+                if prev_item.display_type == 'line_section':
+                    name = "Ubicación - "+ prev_item.name
+                else:
+                    name = prev_item.product_id.name if prev_item.product_id else "Proyecto -" + prev_item.project_sections.name
                 price_unit = prev_item.price_unit
                 product_uom_qty = prev_item.product_uom_qty
                 body +=   """
@@ -132,10 +155,7 @@ class TomCatSaleOrder(models.Model):
                                             
                           
                              </ul>
-                            """  %  ( name,product_uom_qty,price_unit )     
-    
-
-               
+                            """  %  ( name,product_uom_qty,price_unit )               
                 
         if  'order_line' in values:    
             self.message_post(body=body)
@@ -146,7 +166,13 @@ class TomCatSaleOrder(models.Model):
         return res
 
 
-
+    def _compute_line_data_for_template_change(self, line):
+        return {
+            'display_type': line.display_type,
+            'name': line.name,
+            'project_sections': line.project_sections if line.project_sections else False,
+            'state': 'draft',
+        }
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

@@ -11,3 +11,4 @@ class TomCatSaleOrderLineTemplate(models.Model):
     display_type = fields.Selection(selection_add=[('line_project', 'Proyecto')], default=False)
 
     project_sections = fields.Many2one('tomcat.project.section', string='Proyecto',track_visibility=True)
+    

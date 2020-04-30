@@ -25,9 +25,9 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             if( node.attrs.name === "x_extra"){
                 console.log(node.attrs.name)
                 console.log($cell)
-                return $cell.removeClass('.o_hidden')
+                return $cell.removeClass('o_hidden')
             }else{
-                return $cell.removeClass('.o_hidden');
+                return $cell.removeClass('o_hidden');
             }
            
         },

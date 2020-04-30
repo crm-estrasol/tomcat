@@ -124,8 +124,12 @@ class TomCatSaleOrder(models.Model):
 
             body += "<p> Eliminado(s) </p>" if  removes_l > 0   else ""
             for remove in  removes:
+                
                 prev_item = self.env['sale.order.line'].search([('id','=', remove[1])])  
-                name = prev_item.product_id.name
+                if prev_item.display_type == 'line_section':
+                    name = "Ubicación - "+ prev_item.name
+                else:
+                    name = prev_item.product_id.name if prev_item.product_id else prev_item.project_sections.name
                 price_unit = prev_item.price_unit
                 product_uom_qty = prev_item.product_uom_qty
                 body +=   """

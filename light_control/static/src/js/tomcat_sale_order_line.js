@@ -25,7 +25,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
           
           
                    
-            var nbrColumns = this._getNumberOfCols();
+       
              
             if( node.attrs.name === "project_sections" && isProject){
                 var nbrColumns = this._getNumberOfCols();
@@ -58,7 +58,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                     nbrColumns--;
                 }
                 nbrColumns--;
-                nbrColumns--;
+               
                 return $cell.attr('colspan',nbrColumns);
                 
             }  

@@ -3,7 +3,7 @@
 #from . import models
 #SALES
 #from  .sales import product__template
-from  .sales import sale_order_line_template
+#from  .sales import sale_order_line_template
 from  .sales import sale_order_line
 from  .sales import sale_order
 #from  .sales.reports import sale_report

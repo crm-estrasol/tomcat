@@ -132,10 +132,7 @@ class TomCatSaleOrder(models.Model):
                                             
                           
                              </ul>
-                            """  %  ( name,product_uom_qty,price_unit )     
-    
-
-               
+                            """  %  ( name,product_uom_qty,price_unit )               
                 
         if  'order_line' in values:    
             self.message_post(body=body)
@@ -146,7 +143,13 @@ class TomCatSaleOrder(models.Model):
         return res
 
 
-
+    def _compute_line_data_for_template_change(self, line):
+        return {
+            'display_type': line.display_type,
+            'name': line.name,
+            'project_sections': line.project_sections if line.project_sections else False,
+            'state': 'draft',
+        }
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

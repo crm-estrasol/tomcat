@@ -71,8 +71,10 @@ class TomCatSaleOrder(models.Model):
             body += "<p> Modificado(s) </p>" if modifies_l > 0 else ""   
             for modify in  modifies: 
                 prev_item = self.env['sale.order.line'].search([('id','=', modify[1])])  
+                ubicacion =""
                 if prev_item.display_type == 'line_section':
-                    name = "Ubicación - "+ prev_item.name
+                    ubicacion = "Ubicación - "
+                    name = ubicacion+ prev_item.name
                 else:    
                     name = prev_item.product_id.name if prev_item.product_id else "Proyecto -" + prev_item.project_sections.name
 
@@ -83,7 +85,8 @@ class TomCatSaleOrder(models.Model):
                     id_proy = modify[2]['project_sections']   
                     new_name = "Proyecto -" + self.env['tomcat.project.section'].search([('id','=',id_proy )])[0].name
                 else:    
-                    new_name = modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"
+                    
+                    new_name = ubicacion + modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"
                 
                 new_qty = modify[2]['product_uom_qty'] if  'product_uom_qty' in  modify[2]  else "Sin cambio"
                 new_price = modify[2]['price_unit'] if  'price_unit' in  modify[2]  else "Sin cambio"

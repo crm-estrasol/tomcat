@@ -36,7 +36,10 @@ class TomCatSaleOrder(models.Model):
             
             body += "<p> Nuevo(s) </p>" if news_l > 0 else ""
             for new in  news:
-                new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
+                if "project_sections" in  new[2]:
+                    new_name = new[2]['project_sections'] 
+                else:    
+                    new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
                 new_qty = new[2]['product_uom_qty'] if  'product_uom_qty' in  new[2]  else "Sin cambio"
                 new_price = new[2]['price_unit'] if  'price_unit' in  new[2]  else "Sin cambio" 
                 body +=  """

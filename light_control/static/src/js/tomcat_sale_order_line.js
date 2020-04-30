@@ -5,9 +5,9 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     "use strict";
  
     var SectionAndNoteListRenderer = require('account.section_and_note_backend');
-    console.log("entre xd")
+  
     var  a = SectionAndNoteListRenderer
-    console.log(SectionAndNoteListRenderer)
+  
     SectionAndNoteListRenderer.include({
         /**
          * We want section and note to take the whole line (except handle and trash)
@@ -55,6 +55,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             if (record.data.display_type) {
                 $row.addClass('o_is_' + record.data.display_type);
             }
+
     
             return $row;
         },
@@ -68,7 +69,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             var self = this;
             return this._super.apply(this, arguments).then(function () {
                 self.$('.o_list_table').addClass('o_section_and_note_list_view');
-                //self.$('.o_list_table').find("[data-name='x_extra']").toggle();
+                self.$('.o_list_table').find("[data-name='project_sections']").toggle();
             });
         }
     });

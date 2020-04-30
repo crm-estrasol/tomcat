@@ -2,7 +2,7 @@
   <data>
    
 
-    <template id="unique_t_id" name="custom" inherit_id="web._assets_primary_variables">
+    <template id="unique_t_id" name="custom" inherit_id="web.assets_backend">
 
             <xpath expr="." position="inside">
 

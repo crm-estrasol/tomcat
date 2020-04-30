@@ -37,6 +37,8 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                 }
                 nbrColumns--;
                 nbrColumns--;
+                nbrColumns--;
+                nbrColumns--;
                 return $cell.removeClass('o_hidden').attr('colspan',nbrColumns);
             }
             if( node.attrs.name === "project_sections" ){

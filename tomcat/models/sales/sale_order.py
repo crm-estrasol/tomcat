@@ -37,7 +37,8 @@ class TomCatSaleOrder(models.Model):
             body += "<p> Nuevo(s) </p>" if news_l > 0 else ""
             for new in  news:
                 if "project_sections" in  new[2]:
-                    new_name = new[2]['project_sections'] 
+                    id_proy = new[2]['project_sections']   
+                    new_name = self.env['tomcat.project.section'].search([('id','=',id_proy )])[0].name   
                 else:    
                     new_name = new[2]['name'] if  'name' in  new[2]  else "Sin cambio"
                 new_qty = new[2]['product_uom_qty'] if  'product_uom_qty' in  new[2]  else "Sin cambio"

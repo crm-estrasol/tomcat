@@ -23,8 +23,8 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
             var isNote = record.data.display_type === 'line_note';
             var isProject = record.data.display_type === 'line_project';
           
-          
-                   
+            console.log(record)
+            console.log(record.data)       
        
              
             if( node.attrs.name === "project_sections" && isProject){

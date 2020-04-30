@@ -21,15 +21,27 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
     
             var isSection = record.data.display_type === 'line_section';
             var isNote = record.data.display_type === 'line_note';
-            
+           
+          
+          
+                   
+            var nbrColumns = this._getNumberOfCols();
+             
             if( node.attrs.name === "x_extra"){
-                console.log(node.attrs.name)
-                console.log($cell)
-                return $cell.removeClass('o_hidden')
-            }else{
+                var nbrColumns = this._getNumberOfCols();
+
+                return $cell.removeClass('o_hidden').attr('colspan',nbrColumns);
+            }
+            if( node.attrs.name === "name" && isNote){
+                var nbrColumns = this._getNumberOfCols();
+
+                return $cell.addClass('o_hidden').attr('colspan',0);
+                
+            }
+
+            else{
                 return $cell;
             }
-           
         },
         /**
          * We add the o_is_{display_type} class to allow custom behaviour both in JS and CSS.

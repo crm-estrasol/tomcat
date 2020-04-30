@@ -37,7 +37,7 @@ odoo.define('light_control.tomcat_sale_order_line', function (require) {
                 return $cell.addClass('o_hidden');
             }
             
-            if( isProject ){
+            if( isProject && !ode.attrs.name === "sequence"){
                
                 return $cell.addClass('o_hidden').attr('colspan',0);
                 

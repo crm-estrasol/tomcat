@@ -1,0 +1,41 @@
+.o_int_colorpicker {
+    .o_color_pill {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 4px;
+        border-radius: 20px;
+        position: relative;
+       
+
+       
+
+        $sizes: #dee0e3,#E60000, #FF7800,#4CBB17 ;
+
+        
+
+        @for $size from 1 through length($sizes) {
+            &.o_color_#{$size - 1} {
+                pointer-events: none;
+                background-color: nth($sizes, $size);
+                &:not(.readonly):hover {
+                    transform: scale(1.2);
+                    transition: 0.3s;
+                    cursor: pointer;
+                }
+                &.active:after{
+                    content: "\f00c";
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    color: #fff;
+                    position: absolute;
+                    padding: 4px 2px 1px 4px;
+                    
+                    font-size: 12px;
+                }
+            }
+        }
+        
+    }
+}

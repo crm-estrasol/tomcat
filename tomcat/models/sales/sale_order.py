@@ -178,6 +178,11 @@ class TomCatSaleOrder(models.Model):
     @api.onchange('product_proy')
     def _on_change_mins(self):
         product = self.env['product.template'].search( [ ('id','=', self.product_proy.id)] )
+        clear = []
+        for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' )):
+          clear.append(  (2,item.id) )
+        if len(clear) > 1:
+             self.order_line = clear
         if product:    
             self.order_line = [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]

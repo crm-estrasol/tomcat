@@ -94,7 +94,7 @@ class TomCatSaleOrder(models.Model):
                     new_name = ubicacion + fix_bug  if  'name' in  modify[2]  else "Sin cambio"
                     _logger.info("-----------------------------------"+str(fix_bug ) )
                 
-                  _logger.info("-----------------------------------"+str(modify[2]['name'] ) )
+                _logger.info("-----------------------------------"+str(modify[2]['name'] ) )
                 
                 new_qty = modify[2]['product_uom_qty'] if  'product_uom_qty' in  modify[2]  else "Sin cambio"
                 new_price = modify[2]['price_unit'] if  'price_unit' in  modify[2]  else "Sin cambio"

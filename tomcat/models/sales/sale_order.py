@@ -13,7 +13,7 @@ from odoo import fields, models
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
-    product_proy = fields.Many2one('product.product', string='Productos',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]",  check_company=True,readonly=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
+    product_proy = fields.Many2one('product.product', string='Productos',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]", readonly=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
  
     @api.model
     def create(self, values):
@@ -34,7 +34,7 @@ class TomCatSaleOrder(models.Model):
             removes_l = len(list(filter(lambda x: x[0] == 2, order_line)  )) 
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
-            modifies_l = len(list( filter(lambda x: x[0] == 1, order_line)   ))
+            modifies_l = len(list( filter(lambda x: x[0] == 1  and x[0] == 1 , order_line)   ))
             
             body += "<p> Nuevo(s) </p>" if news_l > 0 else ""
             for new in  news:

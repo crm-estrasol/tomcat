@@ -12,8 +12,8 @@ from odoo import api, fields, models
 from odoo import fields, models
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
-    proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True,required=True)
-    product_proy = fields.Many2one('product.product', string='Productos',track_visibility=True,required=True)
+    proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
+    product_proy = fields.Many2one('product.product', string='Productos',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]")
     @api.model
     def create(self, values):
         res = super(TomCatSaleOrder, self).create(values)

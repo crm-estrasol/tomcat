@@ -181,7 +181,7 @@ class TomCatSaleOrder(models.Model):
         clear = []
         for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
           clear.append(  (2,item.id) )
-        if len(clear) > 1:
+        if len(clear) > 0:
              self.order_line = clear
         if product:    
             self.order_line = [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]

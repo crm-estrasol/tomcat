@@ -20,3 +20,4 @@ class TomCatSaleOrderLine(models.Model):
     
     
     project_sections = fields.Many2one('tomcat.project.section', string='Proyecto',track_visibility=True)
+    type_proyect  = fields.Selection(related='product_id.service_tracking')

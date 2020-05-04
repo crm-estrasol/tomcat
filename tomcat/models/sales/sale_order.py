@@ -14,7 +14,7 @@ class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
     product_proy = fields.Many2one('product.product', string='Productos',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]")
-    type_proyect  = fields.Selection(related='product_id.service_tracking')
+ 
     @api.model
     def create(self, values):
         res = super(TomCatSaleOrder, self).create(values)

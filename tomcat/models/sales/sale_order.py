@@ -88,7 +88,8 @@ class TomCatSaleOrder(models.Model):
                     id_proy = modify[2]['project_sections']   
                     data =  self.env['tomcat.project.section'].search([('id','=',id_proy )])
                     new_name = "Proyecto -" + data[0].name if data else ""
-                else:    
+                else:  
+                      
                     fix_bug = "Sin cambio" if  modify[2]['name'] == "" else   modify[2]['name']
                     new_name = ubicacion + fix_bug  if  'name' in  modify[2]  else "Sin cambio"
                 
@@ -180,8 +181,6 @@ class TomCatSaleOrder(models.Model):
     @api.onchange('product_proy')
     def _on_change_mins(self):
         product = self.env['product.product'].search( [ ('id','=', self.product_proy.id)] )
-        _logger.info("-----------------------------------"+str(product ) )
-        _logger.info("-----------------------------------"+str(self.product_proy.id ) )
         
         clear = []
         for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):

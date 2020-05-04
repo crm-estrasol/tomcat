@@ -174,7 +174,11 @@ class TomCatSaleOrder(models.Model):
             'project_sections': line.project_sections if line.project_sections else False,
             'state': 'draft',
         }
-
+    @api.onchange('product_proy')
+    def _on_change_mins(self):
+        product = self.env['product.template'].search( [ ('id','=', self.product_proy.id)] )
+        if product:    
+            self.order_line = [(0,0 ,{'product_id':product.id}) ]
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 class SaleReport(models.Model):
     _inherit = "sale.report"

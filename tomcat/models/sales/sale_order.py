@@ -184,6 +184,7 @@ class TomCatSaleOrder(models.Model):
         }
     @api.onchange('product_proy')
     def _on_change_mins(self):
+        _logger.info("-----------------------------------"+str(self.order_line) )
         product = self.env['product.product'].search( [ ('id','=', self.product_proy.id)] )
         
         news = []
@@ -194,6 +195,7 @@ class TomCatSaleOrder(models.Model):
 
             news.append( (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) )
             self.order_line = news 
+    _logger.info("-----------------------------------"+str(self.order_line) )
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 class SaleReport(models.Model):
     _inherit = "sale.report"

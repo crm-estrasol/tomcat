@@ -23,6 +23,7 @@ class TomCatSaleOrder(models.Model):
         return res
    
     def write(self, values):
+        _logger.info("-----------------------------------"+str("dddddddddddddddddWRITE") )
         body =""
         if   'order_line' in values:
 

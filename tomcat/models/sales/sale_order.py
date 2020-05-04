@@ -94,7 +94,7 @@ class TomCatSaleOrder(models.Model):
                     new_name = ubicacion + fix_bug  if  'name' in  modify[2]  else "Sin cambio"
                     _logger.info("-----------------------------------"+str(fix_bug ) )
                 
-                _logger.info("-----------------------------------"+str(modify[2]['name'] ) )
+                    _logger.info("-----------------------------------"+str(modify[2]['product_id'] ) )
                 
                 new_qty = modify[2]['product_uom_qty'] if  'product_uom_qty' in  modify[2]  else "Sin cambio"
                 new_price = modify[2]['price_unit'] if  'price_unit' in  modify[2]  else "Sin cambio"
@@ -187,9 +187,11 @@ class TomCatSaleOrder(models.Model):
         
         clear = []
         for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
-            self.order_line.append(  (2,item.id) )
+          clear.append(  (2,item.id) )
+        if len(clear) > 0:
+             self.order_line = clear
         if product:    
-            self.order_line.append( [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ])
+            self.order_line = [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 class SaleReport(models.Model):
     _inherit = "sale.report"

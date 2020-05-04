@@ -178,7 +178,7 @@ class TomCatSaleOrder(models.Model):
     def _on_change_mins(self):
         product = self.env['product.template'].search( [ ('id','=', self.product_proy.id)] )
         if product:    
-            self.order_line = [(0,0 ,{'product_id':product.id,'name':product.name}) ]
+            self.order_line = [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 class SaleReport(models.Model):
     _inherit = "sale.report"

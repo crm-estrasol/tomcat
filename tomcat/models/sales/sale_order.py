@@ -13,7 +13,7 @@ from odoo import fields, models
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
-    product_proy = fields.Many2one('product.product', string='Productos',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]", readonly=True, check_company=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
+    product_proy = fields.Many2one('product.product', string='Productos',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]",  check_company=True,readonly=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
  
     @api.model
     def create(self, values):
@@ -85,7 +85,8 @@ class TomCatSaleOrder(models.Model):
                 #new
                 if 'project_sections' in  modify[2]:
                     id_proy = modify[2]['project_sections']   
-                    new_name = "Proyecto -" + str(self.env['tomcat.project.section'].search([('id','=',id_proy )])[0].name)
+                    data =  self.env['tomcat.project.section'].search([('id','=',id_proy )])
+                    new_name = "Proyecto -" + data[0].name if data else ""
                 else:    
                     
                     new_name = ubicacion + modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"

@@ -91,7 +91,7 @@ class TomCatSaleOrder(models.Model):
                     new_name = "Proyecto -" + data[0].name if data else ""
                 else:  
                       
-                    fix_bug = "Sin cambio" if ['product_id'] in modify[2] else   modify[2]['name']
+                    fix_bug = "Sin cambio" if 'product_id' in modify[2] else   modify[2]['name']
                     new_name = ubicacion + fix_bug  if  'name' in  modify[2]  else "Sin cambio"
                     _logger.info("-----------------------------------"+str(fix_bug ) )
                 

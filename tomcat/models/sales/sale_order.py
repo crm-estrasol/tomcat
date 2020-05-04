@@ -95,7 +95,7 @@ class TomCatSaleOrder(models.Model):
                     _logger.info("-----------------------------------"+str(fix_bug ) )
                 
                     _logger.info("-----------------------------------"+str(modify[2]['product_id'] ) )
-                
+                _logger.info("-----------------------------------"+str(values ) )
                 new_qty = modify[2]['product_uom_qty'] if  'product_uom_qty' in  modify[2]  else "Sin cambio"
                 new_price = modify[2]['price_unit'] if  'price_unit' in  modify[2]  else "Sin cambio"
                 body +=   """

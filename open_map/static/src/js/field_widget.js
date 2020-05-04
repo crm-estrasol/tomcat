@@ -1,3 +1,4 @@
+/*
 odoo.define('open_map_widget', function (require) {
     "use strict";
     
@@ -152,4 +153,4 @@ odoo.define('open_map_widget', function (require) {
         mapField: mapField,
     };
     });
-    
+    */

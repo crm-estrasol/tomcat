@@ -174,6 +174,8 @@ class TomCatSaleOrder(models.Model):
             'project_sections': line.project_sections if line.project_sections else False,
             'state': 'draft',
         }
+
+  #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

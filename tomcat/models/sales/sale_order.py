@@ -85,7 +85,7 @@ class TomCatSaleOrder(models.Model):
                 #new
                 if 'project_sections' in  modify[2]:
                     id_proy = modify[2]['project_sections']   
-                    new_name = "Proyecto -" + self.env['tomcat.project.section'].search([('id','=',id_proy )])[0].name
+                    new_name = "Proyecto -" + str(self.env['tomcat.project.section'].search([('id','=',id_proy )])[0].name)
                 else:    
                     
                     new_name = ubicacion + modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"

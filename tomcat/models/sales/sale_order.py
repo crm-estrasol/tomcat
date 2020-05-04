@@ -192,7 +192,7 @@ class TomCatSaleOrder(models.Model):
      
         if product:    
 
-            news.append( [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ])
+            news.append( (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) )
             self.order_line = news 
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 class SaleReport(models.Model):

@@ -80,7 +80,9 @@ odoo.define('tomcat.tomcat_sale_order_line', function (require) {
             if (record.data.display_type) {
                 $row.addClass('o_is_' + record.data.display_type);
             }
-          console.log(record.data.type_proyect)
+            if ((record.data.type_proyect === "project_only") {
+                $row.addClass('o_hidden');
+            }
 
     
             return $row;

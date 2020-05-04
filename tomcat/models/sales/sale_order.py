@@ -25,6 +25,7 @@ class TomCatSaleOrder(models.Model):
     def write(self, values):
         body =""
         if   'order_line' in values:
+
             order_line = values['order_line']
            
             news = filter(lambda x:  False if isinstance(x[1], int) else  'virtu' in x[1]  , order_line)   
@@ -185,13 +186,14 @@ class TomCatSaleOrder(models.Model):
     def _on_change_mins(self):
         product = self.env['product.product'].search( [ ('id','=', self.product_proy.id)] )
         
-        clear = []
+        news = []
         for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
-          clear.append(  (2,item.id) )
-        if len(clear) > 0:
-             self.order_line = clear
+          news.append(  (2,item.id) )
+     
         if product:    
-            self.order_line = [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]
+
+            news.append( [(0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ])
+            self.order_line = news 
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 class SaleReport(models.Model):
     _inherit = "sale.report"

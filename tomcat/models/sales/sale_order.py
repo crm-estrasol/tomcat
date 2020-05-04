@@ -177,7 +177,7 @@ class TomCatSaleOrder(models.Model):
         }
     @api.onchange('product_proy')
     def _on_change_mins(self):
-        product = self.env['product.template'].search( [ ('id','=', self.product_proy.id)] )
+        product = self.env['product.product'].search( [ ('id','=', self.product_proy.id)] )
         _logger.info("-----------------------------------"+str(product ) )
         _logger.info("-----------------------------------"+str(self.product_proy.id ) )
         

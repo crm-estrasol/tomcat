@@ -180,6 +180,7 @@ class TomCatSaleOrder(models.Model):
         product = self.env['product.template'].search( [ ('id','=', self.product_proy.id)] )
         _logger.info("-----------------------------------"+str(product ) )
         _logger.info("-----------------------------------"+str(self.product_proy.id ) )
+        
         clear = []
         for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
           clear.append(  (2,item.id) )

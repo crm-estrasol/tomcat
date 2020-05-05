@@ -5,7 +5,7 @@
     <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
 
             <xpath expr="//div[@class='page']" position="before">
-              <div class="page">ffff</div>
+           
             </xpath>
             
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">
@@ -72,6 +72,7 @@
                           </tr>
 
                           <t t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section')">
+                             AAAAAAAAAAAAS
                               <tr class="is-subtotal text-right">
                                   <td name="td_section_subtotal" colspan="99">
                                       <strong class="mr16">Subtotal</strong>

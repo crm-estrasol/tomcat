@@ -175,8 +175,6 @@ class TomCatSaleOrder(models.Model):
             _logger.info("-----------------------------------"+str(vaues['product_proy']) )
             for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
             news.append(  (2,item.id) )
-        
-
             self.order_line = news
 
 

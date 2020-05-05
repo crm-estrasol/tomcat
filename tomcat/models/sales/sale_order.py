@@ -171,12 +171,13 @@ class TomCatSaleOrder(models.Model):
             self.message_post(body=body)
         res = super(TomCatSaleOrder, self).write(values)
         if  'product_proy' in values:   
-        news = []
-        _logger.info("-----------------------------------"+str(vaues['product_proy']) )
-        for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
-          news.append(  (2,item.id) )
+            news = []
+            _logger.info("-----------------------------------"+str(vaues['product_proy']) )
+            for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
+            news.append(  (2,item.id) )
         
-        self.order_line = news
+
+            self.order_line = news
 
 
         

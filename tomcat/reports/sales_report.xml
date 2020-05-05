@@ -7,7 +7,7 @@
             <xpath expr="//div[@class='page']" position="before">
               <div class="page">ffff</div>
             </xpath>
-            <xpath expr="//tbody[@class='sale_tbody']" position="before">
+            <xpath expr="//tbody[@class='sale_tbody']" position="replace">
               <tbody class="sale_tbody">
 
                     <t t-set="current_subtotal" t-value="0"/>

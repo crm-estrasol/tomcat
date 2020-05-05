@@ -214,7 +214,10 @@ class TomCatSaleOrder(models.Model):
             self.order_line = news 
         _logger.info("-----------------------------------"+str(self.order_line) )
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
+
   """
+    def search_proyects(self):
+      return "eeeeooooooooooo"
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

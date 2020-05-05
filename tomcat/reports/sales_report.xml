@@ -7,7 +7,7 @@
             <xpath expr="//div[@class='page']" position="before">
               <div class="page">ffff</div>
             </xpath>
-            <xpath expr="//t" position="before">
+            <xpath expr="//t[@t-if='line.display_type == line_note']" position="before">
               <div class="page">Hola</div>
             </xpath>
 

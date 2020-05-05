@@ -216,8 +216,9 @@ class TomCatSaleOrder(models.Model):
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 
   """
-    def search_proyects(self):
-      return "eeeeooooooooooo"
+    def search_proyects(self,doc):
+
+      return doc.name
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

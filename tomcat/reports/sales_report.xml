@@ -52,6 +52,7 @@
                                   <td name="td_partida"><span> <t t-esc="current_partida"/> </span> </td>
                                    <td name="td_image">
                                    <span>
+                                   
                                           <img
                                               t-attf-src="data:image/*;base64,{{line.product_id.image_1920}}"
                                               t-att-alt="company.name"

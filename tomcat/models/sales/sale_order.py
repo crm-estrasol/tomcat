@@ -222,11 +222,13 @@ class TomCatSaleOrder(models.Model):
         actual_index = 0
         item = [actual_proy, [] ]
         items = [item]
+        
         for prod in  doc.order_line[1:] if actual_proy != "Sin proyecto asignado"   else doc.order_line:
             if prod.display_type == 'line_project':
                 actual_index+=1 
                 items.append([prod.project_sections.name, [] ])
             else:
+
                 items[actual_index][1].append(prod)
  
         return items

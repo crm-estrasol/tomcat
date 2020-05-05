@@ -17,9 +17,12 @@ class TomCatSaleOrder(models.Model):
  
     @api.model
     def create(self, values):
-        res = super(TomCatSaleOrder, self).create(values)
         
        
+        res = super(TomCatSaleOrder, self).create(values)
+        if  'product_proy' in values:  
+            product = self.env['product.product'].search( [ ('id','=', values['product_proy'])] )
+            res.order_line =  [ (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]
         return res
    
     def write(self, values):

@@ -5,13 +5,8 @@
     <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
 
             <xpath expr="//div[@class='page']" position="before">
-              <div class="page">Hola</div>
+              <div class="page">ffff</div>
             </xpath>
-            <xpath expr="//t[@t-if='line.display_type == 'line_note'']" position="before">
-              <div class="page">Hola</div>
-            </xpath>
-
-             
         </template>
     
   </data>

@@ -50,6 +50,11 @@
                                     <span t-field="line.name"/>
                                 </td>
                             </t>
+                            <t t-if="line.display_type == 'line_project'">
+                                <td name="td_section_line" colspan="99">
+                                    <span t-field="line.name"/>
+                                </td>
+                            </t>
                         </tr>
 
                         <t t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section')">

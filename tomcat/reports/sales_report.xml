@@ -7,7 +7,7 @@
             <xpath expr="//div[@class='page']" position="before">
               <div class="page">ffff</div>
             </xpath>
-            <xpath expr="//table[@class='table']" position="replace">
+            <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
              
                 <thead>

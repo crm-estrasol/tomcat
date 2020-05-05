@@ -217,12 +217,25 @@ class TomCatSaleOrder(models.Model):
 
   """
     def search_proyects(self,doc):
-
-      return doc.name
+    
+        actual_proy = doc.order_line[0].project_sections.name if doc.order_line[0].display_type == 'line_project' else "Sin proyecto asignado"
+        actual_index = 0
+        item = [actual_proy, [] ]
+        items = [item]
+        for prod in order.order_line[1:]:
+            if prod.display_type == 'line_project':
+                actual_index+=1 
+                items.append([prod.project_sections.name, [] ])
+            else:
+                items[actual_index][1].append(prod)
+ 
+        return items
 class SaleReport(models.Model):
     _inherit = "sale.report"
 
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True,required=True)
     
     name_proy = fields.Char('Name proyect', readonly=True)
+
+
   

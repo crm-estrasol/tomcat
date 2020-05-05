@@ -71,11 +71,11 @@
                               </t>
                           </tr>
 
-                          <t t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section')">
-                             AAAAAAAAAAAAS
+                          <t t-if="current_section and (line_last or proy_items[1][line_index+1].display_type == 'line_section')">
+                          
                               <tr class="is-subtotal text-right">
                                   <td name="td_section_subtotal" colspan="99">
-                                      <strong class="mr16">Subtotal</strong>
+                                      <strong class="mr16">Subtotal <t t-esc="line_last"/></strong>
                                       <span
                                           t-esc="current_subtotal"
                                           t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'

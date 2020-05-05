@@ -52,7 +52,7 @@
 
                                           <img
                                               t-attf-src="data:image/*;base64,{{line.product_id.image_1920}}"
-                                              t-att-alt="company.name"
+                                            
                                               />
                                    </span>
                                    </td>

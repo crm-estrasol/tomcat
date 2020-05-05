@@ -95,7 +95,7 @@ class TomCatSaleOrder(models.Model):
                       
                     #fix_bug = "Sin cambio" if not 'product_id'  in modify[2] else   modify[2]['name']
                     
-                    new_name = ubicacion + fix_bug  if  'name' in  modify[2]  else "Sin cambio"
+                    new_name = ubicacion + modify[2]['name'] if  'name' in  modify[2]  else "Sin cambio"
                    
                 
                 

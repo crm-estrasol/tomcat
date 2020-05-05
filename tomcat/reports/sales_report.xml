@@ -10,7 +10,7 @@
             
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
-               <h2><t t-esc="proy_items[0]"/></h2>
+               <h2 style="background:blue; color:white;"><t t-esc="proy_items[0]"/></h2>
                 <table class="table table-sm o_main_table">
                   <thead>
                       <tr>

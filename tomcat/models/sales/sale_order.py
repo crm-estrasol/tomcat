@@ -172,11 +172,12 @@ class TomCatSaleOrder(models.Model):
         res = super(TomCatSaleOrder, self).write(values)
         if  'product_proy' in values:   
             news = []
-            _logger.info("-----------------------------------"+str(values['product_proy']) )
+           
             for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
                 news.append(  (2,item.id) )
             
-
+            product = self.env['product.product'].search( [ ('id','=', values['product_proy'])] )
+            news.append( (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) )
             self.order_line = news
 
 

@@ -19,6 +19,7 @@
                   <thead>
                       <tr>
                            <th name="th_partida" class="text-left">Partida</th>
+                           <th name="th_partida" class="text-left"></th>
                           <th name="th_description" class="text-left">Description</th>
                           <th name="th_quantity" class="text-right">Quantity</th>
                           <th name="th_priceunit" class="text-right">Unit Price</th>

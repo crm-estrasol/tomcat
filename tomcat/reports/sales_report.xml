@@ -52,7 +52,7 @@
                             </t>
                             <t t-if="line.display_type == 'line_project'">
                                 <td name="td_section_line" colspan="99">
-                                    <span t-field="line.name"/>
+                                    <span t-field="line.project_sections.name"/>
                                 </td>
                             </t>
                         </tr>

@@ -23,8 +23,9 @@ class TomCatSaleOrder(models.Model):
         return res
    
     def write(self, values):
-        _logger.info("-----------------------------------"+str("dddddddddddddddddWRITE") )
+     
         body =""
+          
         if   'order_line' in values:
 
             order_line = values['order_line']
@@ -36,7 +37,7 @@ class TomCatSaleOrder(models.Model):
             removes_l = len(list(filter(lambda x: x[0] == 2, order_line)  )) 
             
             modifies = filter(lambda x: x[0] == 1, order_line)   
-            modifies_l = len(list( filter(lambda x: x[0] == 1  and x[0] == 1 , order_line)   ))
+            modifies_l = len(list( filter(lambda x: x[0] == 1  , order_line)   ))
             
             body += "<p> Nuevo(s) </p>" if news_l > 0 else ""
             for new in  news:
@@ -94,10 +95,9 @@ class TomCatSaleOrder(models.Model):
                       
                     fix_bug = "Sin cambio" if 'product_id' not in modify[2] else   modify[2]['name']
                     new_name = ubicacion + fix_bug  if  'name' in  modify[2]  else "Sin cambio"
-                    _logger.info("-----------------------------------"+str(fix_bug ) )
+                   
                 
-                    _logger.info("-----------------------------------"+str(modify[2]['product_id'] ) )
-                _logger.info("-----------------------------------"+str(values ) )
+                
                 new_qty = modify[2]['product_uom_qty'] if  'product_uom_qty' in  modify[2]  else "Sin cambio"
                 new_price = modify[2]['price_unit'] if  'price_unit' in  modify[2]  else "Sin cambio"
                 body +=   """
@@ -170,6 +170,15 @@ class TomCatSaleOrder(models.Model):
         if  'order_line' in values:    
             self.message_post(body=body)
         res = super(TomCatSaleOrder, self).write(values)
+        if  'product_proy' in values:   
+        news = []
+        _logger.info("-----------------------------------"+str(vaues['product_proy']) )
+        for item in self.order_line.filtered(lambda x: x.product_id.type == 'service' and x.product_id.service_tracking == 'project_only' ):
+          news.append(  (2,item.id) )
+        
+        self.order_line = news
+
+
         
       
 
@@ -183,6 +192,7 @@ class TomCatSaleOrder(models.Model):
             'project_sections': line.project_sections if line.project_sections else False,
             'state': 'draft',
         }
+    """
     @api.onchange('product_proy')
     def _on_change_mins(self):
         _logger.info("-----------------------------------"+str(self.order_line) )
@@ -198,6 +208,7 @@ class TomCatSaleOrder(models.Model):
             self.order_line = news 
         _logger.info("-----------------------------------"+str(self.order_line) )
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
+  """
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

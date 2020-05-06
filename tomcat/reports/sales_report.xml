@@ -6,9 +6,8 @@
          <xpath expr="//t[@t-set='colclass']" position="before">
             <div class="page">
                 <h2>kevin</h2>
-                <div name="sale_orderName">
-                    <t t-raw="
-                    "/>
+                 <div name="address" t-att-class="colclass">
+                    <t t-raw="address"/>
                 </div>
               </div>
               <p style="page-break-after:always"></p>

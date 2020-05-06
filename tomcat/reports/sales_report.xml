@@ -12,8 +12,8 @@
                 <t t-set="current_partida" t-value="0"/>
 
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
-                  <div class="row"  style="background:#1f3864; color:white;" >
-                    <div class="col-12">
+                  <div class="row justify-content-center"  style="background:#1f3864; color:white;" >
+                    <div class="col-4 ">
                            <t t-esc="proy_items[0]"/>
                     </div>          
                   </div> 

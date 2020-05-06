@@ -22,7 +22,7 @@
                   </div>
                 
                  
-                <table class="table table-sm o_main_table">
+                <table class="table table-sm o_main_table mt-1 mb-1">
                   <thead  style="border-top:1px solid black; border-bottom:1px solid black;">
                       <tr style="border-top:1px groove black; border-bottom:1px groove black;">
                            <th name="th_partida" class="text-left">Partida</th>

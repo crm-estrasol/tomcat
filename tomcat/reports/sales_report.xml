@@ -22,7 +22,7 @@
                   </div>
                 
                  
-                <table class="table table-sm o_main_table ">
+                <table class="table table-sm o_main_table mt-1 ">
                   <thead  class = " mt-1 mb-1" style="border-top:2px groove black; border-bottom:2px groove black;">
                       <tr style="border-top:1px groove black; border-bottom:1px groove black;">
                            <th name="th_partida" class="text-left">Partida</th>
@@ -40,7 +40,7 @@
                           </th>
                       </tr>
                   </thead>
-                  <tbody class="sale_tbody">
+                  <tbody class="sale_tbody mt-1">
 
                       <t t-set="current_subtotal" t-value="0"/>
                       <t t-foreach="proy_items[1]" t-as="line">

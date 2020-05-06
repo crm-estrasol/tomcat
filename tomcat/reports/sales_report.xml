@@ -15,7 +15,7 @@
                             a
                             </div>
                             <div class="col-2">
-                            b
+                            baaa
                             </div>
                           </div>
                           
@@ -35,6 +35,7 @@
     
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
        <xpath expr="//div[@class='row']" position="replace">
+           
            <div class="row">
                <div class="col-7"></div>
                 <div class="col-3 mb4">
@@ -52,7 +53,22 @@
 
             <xpath expr="//t[@t-set='doc']" position="before">
               <div class="page">
-               
+                <div class="container">
+                    <div class="row align-self-center">
+                          <div class="col-12 align-self-center text-center">
+                              <h1>COTIZACION</h1>
+                            <p> aaa a</p>
+                            <p> aaa a</p>
+                            <div class="col-2">
+                            a
+                            </div>
+                            <div class="col-2">
+                            baaa
+                            </div>
+                          </div>
+                          
+                    </div>
+                    </div>
                
               </div>
                <t t-set="sale_orderName">

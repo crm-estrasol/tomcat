@@ -14,7 +14,7 @@
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
                   <div class="row"  style="background:#1f3864; color:white;" >
                     <div class="col-12">
-                           <t t-esc="proy_items[0]"/></th>
+                           <t t-esc="proy_items[0]"/>
                     </div>          
                   </div> 
                 

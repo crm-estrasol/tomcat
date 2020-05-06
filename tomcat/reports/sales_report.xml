@@ -6,7 +6,7 @@
          <xpath expr="//t[@t-set='colclass']" position="before">
             <div class="page">
                 <h2>kevin</h2>
-                 <div name="address" t-att-class="colclass">
+                 <div name="address" >
                     <t t-raw="address"/>
                 </div>
               </div>

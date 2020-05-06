@@ -11,17 +11,18 @@
                 </div>
                 <div class="col-12 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
             </div>
-           
-            
-             
+       
           </xpath>
 
     </template>
     
     <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
 
-            <xpath expr="//div[@class='page']" position="before">
-              
+            <xpath expr="//t[@t-call='web.external_layou']" position="before">
+              <section>
+                    Titulo
+                    <p style="page-break-after:always"></p>
+              </section>
             </xpath>
             
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">

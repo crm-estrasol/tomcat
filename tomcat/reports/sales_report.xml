@@ -11,11 +11,16 @@
                 </div>
                 <div class="col-8 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
             </div>
+            <p style="page-break-after:always;">   </p>
+             <div class="page">
+             HEEEY
+              <p style="page-break-after:always;">   </p>
+             </div>
           </xpath>
 
     </template>
     
-    <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
+    <template id="sale_frist_report" name="custom" inherit_id="sale.">
 
             <xpath expr="//div[@class='page']" position="before">
            
@@ -133,7 +138,9 @@
 
                          
                 </t>
+                <p style="page-break-after:always;">   </p>
             </xpath>
+
 
         </template>
     

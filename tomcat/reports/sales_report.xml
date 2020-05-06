@@ -18,7 +18,7 @@
     
     <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
 
-            <xpath expr="//" position="before">
+            <xpath expr="//t[@t-set='doc']" position="before">
               <div class="page">
                 <h2>kevin</h2>
               </div>

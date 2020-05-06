@@ -14,7 +14,7 @@
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
                   
                   <div class="container">
-                    <div class="row pt-2"  style="background:#1f3864; color:white; font-size:25px; height:60px;" >
+                    <div class="row pt-3"  styld qe="background:#1f3864; color:white; font-size:25px; height:60px;" >
                       <div class="col align-self-center text-center">
                             <t t-esc="proy_items[0]"/>
                       </div>          
@@ -24,7 +24,7 @@
                  
                 <table class="table table-sm o_main_table">
                   <thead>
-                      <tr>
+                      <tr style="border-top:1px groove black; border-bottom:1px groove black">
                            <th name="th_partida" class="text-left">Partida</th>
                            <th name="th_partida" class="text-left"></th>
                           <th name="th_description" class="text-left">Description</th>

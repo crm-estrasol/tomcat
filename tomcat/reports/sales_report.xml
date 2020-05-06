@@ -11,17 +11,14 @@
                               <h1>COTIZACION</h1>
                             <p> aaa a</p>
                             <p> aaa a</p>
-                            <div class="row">
-                              <div class="col">1</div>
-                              <div class="col">2</div>
-                              <div class="col">3</div>
+                            <div class="col-2">
+                            a
                             </div>
-                      
+                            <div class="col-2">
+                            b
+                            </div>
                           </div>
-                          <div class="col-12  align-self-center  text-center">
-                              <p>ASD</p>
-                          </div>
-                      
+                          
                     </div>
  
           </xpath>

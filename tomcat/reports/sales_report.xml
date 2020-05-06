@@ -23,7 +23,7 @@
                 
                  
                 <table class="table table-sm o_main_table ">
-                  <thead  class = " mt-1 mb-1" style="background:black;">
+                  <thead  class = " mt-1 mb-1" style="border-top:5px solid black;">
                       <tr style="border-top:1px groove black; border-bottom:1px groove black;">
                            <th name="th_partida" class="text-left">Partida</th>
                            <th name="th_partida" class="text-left"></th>

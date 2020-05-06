@@ -16,10 +16,7 @@
                     HEEEY
             
              </div>
-              <div style="page-break-before: always;">
-                  ...
-                </div>
-
+             
           </xpath>
 
     </template>
@@ -27,10 +24,12 @@
     <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
 
             <xpath expr="//div[@class='page']" position="before">
-           
+                <p style="page-break-after:always"></p>
             </xpath>
             
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">
+                <p style="page-break-after:always"></p>
+                
                 <t t-set="current_partida" t-value="0"/>
 
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">

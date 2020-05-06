@@ -11,7 +11,7 @@
                           <h1>COTIZACION</h1>
                       </div>
                       <div class="col-12 align-self-center text-center">
-                        <p>  <t t-raw="sale_orderName"/> </p>
+                        <p> aaa </p>
                    
                       </div>
                       <div class="col-12  align-self-center  text-center">

@@ -17,39 +17,7 @@
                       <div class="col-12  align-self-center  text-center">
                         
                       </div>
-                      <div class="col-12">
-                        <div class="row lign-self-center">
-                          <div class="col-3  text-center text-break">
-                            <h6>Presentado por </h6
-                            >
-                             
-                              
-                              </div>
-                          <div class="col-4  text-center text-break mt-3" >
-                            <h6>Guadalajara</h6>
-                            <p>+52 (33) 3122-5563
-                              contacto@tomcat.mx
-                              Piscis No. 504
-                              Zapopan, Jalisco
-                              Marco Méndez</p>
-                          </div>
-                          <div class="col-4  text-center text-break mt-3">
-                            <h6>Quéretaro</h6>
-                          <p>
-                            +52 (442) 404-1341
-                            contacto@tomcat.mx
-                            Sendero Escondido #60
-                            Milenio III
-                            Querétaro, Qro.
-                            Rafael Mutio
-                          </p></div>
-                          <div class="col-1 pt-1 ">
-                          <div class="mt-5 invisible">X</div>  
-                          <p class="mt-5">creado: 27/03/20</p>
-                            
-                          </div>
-                        </div>
-                      </div>
+                      
                     </div>
                   </div>   
 
@@ -60,7 +28,8 @@
 
 
               
-              </div>
+              
+            </div>
             
        
           </xpath>

@@ -6,6 +6,10 @@
          <xpath expr="//t[@t-set='colclass']" position="before">
             <div class="page">
                 <h2>kevin</h2>
+                <div name="sale_orderName">
+                    <t t-raw="
+                    "/>
+                </div>
               </div>
               <p style="page-break-after:always"></p>
        
@@ -34,6 +38,11 @@
             <xpath expr="//t[@t-set='doc']" position="before">
               <div class="page">
                 <h2>kevin</h2>
+                <t t-set="sale_orderName">
+                 <div>
+                   Ejemplo nombre 
+                 </div>
+              </t>
               </div>
               <p style="page-break-after:always"></p>
               

@@ -16,15 +16,13 @@
                       <thead>
                       <tr>
                         <th colspan="4"></th>
-                        <th colspan="2"><t t-esc="proy_items[0]"/></th>
-                      
-                        <th>Precio unitario </th>
-                        <th>Subtotal</th>
+                        <th colspan="4" class="text-white"><t t-esc="proy_items[0]"/></th>
+                     
                       </tr>
                       
                       </thead>
                   </table> 
-                  <t t-esc="proy_items[0]"/>
+                
                  
                 <table class="table table-sm o_main_table">
                   <thead>

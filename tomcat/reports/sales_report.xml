@@ -2,6 +2,18 @@
 
 <odoo>
   <data>
+   <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
+         <xpath expr="//t[@t-set='colclass']" position="before">
+            <div class="page">
+                <h2>kevin</h2>
+              </div>
+              <p style="page-break-after:always"></p>
+       
+          </xpath>
+         
+
+    </template>
+    
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
        <xpath expr="//div[@class='row']" position="replace">
            <div class="row">
@@ -13,9 +25,7 @@
             </div>
        
           </xpath>
-          <xpath expr="//div[@name='company_address']" position="replace">
-               <p>s</p>
-          </xpath>
+         
 
     </template>
     
@@ -23,7 +33,7 @@
 
             <xpath expr="//t[@t-set='doc']" position="before">
               <div class="page">
-                <h2>kevin |</h2>
+                <h2>kevin</h2>
               </div>
               <p style="page-break-after:always"></p>
               

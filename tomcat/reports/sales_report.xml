@@ -6,6 +6,7 @@
          <xpath expr="//t[@t-set='colclass']" position="before">
          
            <t t-call="web.html_container">
+               <t t-call="web.external_layout">
               <div class="row align-self-center">
                           <div class="col-12 a <t t-call="web.html_container">lign-self-center text-center">
                               <h1>COTIZACION</h1>
@@ -21,7 +22,8 @@
                             </div>
                     </div>
                     </div>
-           
+                
+        </t>
         </t>
     </t>
           </xpath>

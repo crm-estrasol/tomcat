@@ -13,6 +13,9 @@
             </div>
        
           </xpath>
+          <xpath expr="//div[@name='company_address']" position="replace">
+               <p>s</p>
+          </xpath>
 
     </template>
     
@@ -20,7 +23,7 @@
 
             <xpath expr="//t[@t-set='doc']" position="before">
               <div class="page">
-                <h2>kevin</h2>
+                <h2>kevin |</h2>
               </div>
               <p style="page-break-after:always"></p>
               

@@ -4,7 +4,7 @@
   <data>
    <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
          <xpath expr="//t[@t-set='colclass']" position="before">
-         <div class="row mt32 mb32" id="ax">
+         <div class="row mt16 mb15" id="ax">
                      <div  class="col-auto mw-100 mb-2"> aaaaa </div>
                       
                   </div>

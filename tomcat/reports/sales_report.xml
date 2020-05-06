@@ -12,9 +12,20 @@
                 <t t-set="current_partida" t-value="0"/>
 
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
+                  <table class="table table-sm o_main_table"  style="background:#1f3864; color:white;" >
+                      <thead>
+                      <tr>
+                        <th colspan="4"></th>
+                        <th colspan="2"<><t t-esc="proy_items[0]"/></th>
+                      
+                        <th>Precio unitario </th>
+                        <th>Subtotal</th>
+                      </tr>
+                      
+                      </thead>
+                  </table> 
+                  <t t-esc="proy_items[0]"/>
                  
-               <h2 style="background:blue; color:white;">   <t t-esc="proy_items[0]"/>
-                 </h2>
                 <table class="table table-sm o_main_table">
                   <thead>
                       <tr>

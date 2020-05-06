@@ -2,6 +2,19 @@
 
 <odoo>
   <data>
+    <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
+        <xpath expr="//div//[@class='row']" position="replace">
+           <div class="row">
+               <div class="col-9"></div>
+                <div class="col-3 mb4">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+                </div>
+                <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+            </div>
+          </xpath>
+
+    </template>
+    
     <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
 
             <xpath expr="//div[@class='page']" position="before">

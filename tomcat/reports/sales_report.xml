@@ -3,7 +3,7 @@
 <odoo>
   <data>
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
-        <xpath expr="//div//[@class='row']" position="replace">
+        <xpath expr="//div[@class='row']" position="replace">
            <div class="row">
                <div class="col-9"></div>
                 <div class="col-3 mb4">

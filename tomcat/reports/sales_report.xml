@@ -7,24 +7,23 @@
          
            <t t-call="web.html_container">
                <t t-call="web.external_layout">
-              <div class="row align-self-center">
-                          <div class="col-12 align-self-center text-center">
-                              <h1>COTIZACION</h1>
-                            <p> aaa a</p>
-                            <p> aaa a</p>
-                            
-                          </div>
-                          <div class="col-2">
-                            a
-                            </div>
-                            <div class="col-2">
-                            baaa
-                            </div>
-                    </div>
-                    </div>
-                
-        </t>
-        </t>
+                  <div class="row align-self-center">
+                              <div class="col-12 align-self-center text-center">
+                                  <h1>COTIZACION</h1>
+                                <p> aaa a</p>
+                                <p> aaa a</p>
+                                
+                              </div>
+                              <div class="col-2">
+                                a
+                                </div>
+                                <div class="col-2">
+                                baaa
+                                </div>
+                        </div>
+                        </div>
+      
+               </t>
     </t>
           </xpath>
            <xpath expr="//t[@t-if='address']" position="replace">

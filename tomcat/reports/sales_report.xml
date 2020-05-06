@@ -14,7 +14,7 @@
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
                   
                   <div class="container">
-                    <div class="row"  style="background:#1f3864; color:white; font-size:25px; height:80px;" >
+                    <div class="row"  style="background:#1f3864; color:white; font-size:25px; height:60px;" >
                       <div class="col align-self-center text-center">
                             <t t-esc="proy_items[0]"/>
                       </div>          

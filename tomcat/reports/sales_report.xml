@@ -90,7 +90,7 @@
                                   </td>
                                   <t t-set="current_section" t-value="line"/>
                                   <t t-set="current_subtotal" t-value="0"/>
-                                    <t t-set="current_namesection" t-value="line.description"/>
+                                    <t t-set="current_namesection" t-value="line.name"/>
                               </t>
                               <t t-if="line.display_type == 'line_note'">
                                   <td name="td_note_line" colspan="99">

@@ -22,6 +22,12 @@
                     </div>
  
           </xpath>
+           <xpath expr="//t[@t-if='address']" position="replace">
+      
+                    <t t-raw="address"/>
+               
+          </xpath>
+       
          
 
     </template>

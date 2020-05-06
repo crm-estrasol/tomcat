@@ -12,20 +12,11 @@
                 <t t-set="current_partida" t-value="0"/>
 
                <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
-                  <table class="table table-sm o_main_table"  style="background:#1f3864; color:white;" >
-                      <thead>
-                      <tr>
-                        <th colspan="2"></th>
-                        <th colspan="2"></th>
-                        <th colspan="2"></th>
-                        <th colspan="2"></th>
-
-                        <th colspan="4" class="text-white" style="font-size:25px;"><t t-esc="proy_items[0]"/></th>
-                     
-                      </tr>
-                      
-                      </thead>
-                  </table> 
+                  <div class="row"  style="background:#1f3864; color:white;" >
+                    <div class="col-12">
+                           <t t-esc="proy_items[0]"/></th>
+                    </div>          
+                  </div> 
                 
                  
                 <table class="table table-sm o_main_table">

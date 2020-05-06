@@ -8,7 +8,7 @@
            <t t-call="web.html_container">
                <t t-call="web.external_layout">
               <div class="row align-self-center">
-                          <div class="col-12 a <t t-call="web.html_container">lign-self-center text-center">
+                          <div class="col-12 align-self-center text-center">
                               <h1>COTIZACION</h1>
                             <p> aaa a</p>
                             <p> aaa a</p>

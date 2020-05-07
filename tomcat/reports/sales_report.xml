@@ -4,7 +4,7 @@
   <data>
    <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
          <xpath expr="//t[@t-set='colclass']" position="before">
-          <div class="page " style="height:1200px;">         
+          <div class="page " style="height:1500px;">         
                 <div class="row align-self-center"> 
                   <div class="col-12 align-self-center text-center">
                       <h1>COTIZACION</h1>

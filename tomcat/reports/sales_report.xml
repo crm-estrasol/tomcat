@@ -9,13 +9,13 @@
                   <div class="col-12 align-self-center text-center">
                       <h1 >COTIZACIÓN</h1>
                       
-                       <p class="mt2">   <t t-raw="proyect_name"/> </p>
+                       <p class="mt5" style="font-size:25px;">   <t t-raw="proyect_name"/> </p>
                   </div>
                 </div>
                
                 <div class="row align-self-center  mb-2 pb-0 pt-0   no-gutters mb-2" style="height: 350px;">  
-                  <div class="col-12  align-self-center  text-center  pb-0 pt-0" style="height: 350px;">
-                    <img class="h-100" src='/tomcat/static/src/img/colocaralcentro.png' style="height: 350px;  transform: scale(1.7);"/>
+                  <div class="col-12  align-self-center  text-center  pb-0 pt-0" style="height: 500px;">
+                    <img class="h-100" src='/tomcat/static/src/img/colocaralcentro.png' style="height: 500px;  "/>
                   </div>
                 </div>
 

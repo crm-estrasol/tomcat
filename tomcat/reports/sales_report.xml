@@ -5,15 +5,15 @@
    <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
          <xpath expr="//t[@t-set='colclass']" position="before">
          <div class="row mt16 mb15" id="ax">
-                     <div  class="col-auto mw-100 mb-2"> aaaaa </div>
+                     <div  class="col-12 mw-100 mb-2"> aaaaa </div>
                       
                   </div>
  
-         <div class="row mt32 mb32" id="ax">
-                     <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                      <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                       <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                      <div  class="col-auto mw-100 mb-2"> aaaaa </div>
+         <div class="row mt32 mb32" id="ax" style="width:100%">
+                     <div  class="col-3 mw-100 mb-2"> aaaaa </div>
+                      <div  class="col-3 mw-100 mb-2"> aaaaa </div>
+                       <div  class="col-3 mw-100 mb-2"> aaaaa </div>
+                      <div  class="col-3 mw-100 mb-2"> aaaaa </div>
                   </div>
  
           </xpath>

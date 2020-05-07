@@ -25,9 +25,11 @@
                       <div class="col-3   text-center text-break">
                         <h6 class="mb-2">Presentado por </h6
                         >
-                         <img src='/tomcat/static/src/img/esqsupder.png' style="width:25px height: 25px;" alt="Logo"/>
+                        <div>
+                          <img class="img-fluid"  src='/tomcat/static/src/img/esqsupder.png' style="max-width:25px max-height: 25px;" alt="Logo"/>
                           
                           </div>
+                         </div>
                       <div class="col-4  text-center text-break mt-3" >
                         <h2>Guadalajara</h2>
                         <p>+52 (33) 3122-5563

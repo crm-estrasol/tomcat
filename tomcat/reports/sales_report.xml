@@ -207,7 +207,7 @@
             </xpath>
                 <xpath expr="//div[@class='clearfix']" position="after">
                       <div class="page">
-                         <div class="row">
+                         <div class="row mt-5">
         <div class="col-7" style=" border-top: 1px solid black;">
             <p>Cliente:</p>
         </div>
@@ -218,7 +218,7 @@
             <p>Fecha</p>
         </div>
       </div>
-      <div class="row mt-3">
+      <div class="row mt-5">
         <div class="col-7" style=" border-top: 1px solid black;">
             <p>Cliente:</p>
         </div>

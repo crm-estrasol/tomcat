@@ -58,12 +58,7 @@
                 </div>  
           </div>
  
-         <div class="row mt32 mb32" id="ax" style="width:50%">
-                     <div  class="col-3 mw-100 mb-2"> aaaaa </div>
-                      <div  class="col-3 mw-100 mb-2"> aaaaa </div>
-                       <div  class="col-3 mw-100 mb-2"> aaaaa </div>
-                      <div  class="col-3 mw-100 mb-2"> aaaaa </div>
-                  </div>
+      
  
           </xpath>
            <xpath expr="//t[@t-if='address']" position="replace">

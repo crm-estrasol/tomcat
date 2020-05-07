@@ -10,6 +10,7 @@
                       <h1 >COTIZACIÓN</h1>
                       
                        <p class="mt5" style="font-size:25px;">   <t t-raw="proyect_name"/> </p>
+                       <p class="mt5" style="font-size:25px;">   <t t-raw="partnert_name"/> </p>
                   </div>
                 </div>
                
@@ -90,6 +91,10 @@
                 <t t-set="proyect_name">
                     <t t-esc="doc.name"/>
                 </t>
+                 <t t-set="partnert_name">
+                    <t t-esc=" doc.partner_id.name"/>
+                </t>
+                
             </xpath>
             
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">
@@ -209,7 +214,7 @@
                       <div class="page">
                          <div class="row mt-5">
         <div class="col-7" style=" border-top: 1px solid black;">
-            <p>Cliente:</p>
+            <p>Cliente: <t t-esc=" doc.partner_id.name"/></p>
         </div>
         <div class="col-1">
 
@@ -220,7 +225,7 @@
       </div>
       <div class="row mt-5">
         <div class="col-7" style=" border-top: 1px solid black;">
-            <p>Cliente:</p>
+            <p>Contratista:Tomcat</p>
         </div>
         <div class="col-1">
 

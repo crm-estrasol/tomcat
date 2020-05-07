@@ -233,7 +233,7 @@
       <div class="row">
         <div class="col-12">
 
-          <table  class ="table table-bordered text-center "style=" table-layout:fixed;">
+          <table  class ="table table-bordered text-center " style=" table-layout:fixed;">
             <tr>
               <td colspan="6" style="width:100%;">
                 Metodo de pago</td>

@@ -71,8 +71,8 @@
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
        <xpath expr="//div[@class='row']" position="replace">
            <div class="row">
-               <div class="col-5" style="height:30px;"></div>
-                <div class="col-5 mb4">
+               <div class="col-8" style="height:30px;"></div>
+                <div class="col-3 mb4">
                     <img class="img-fluid" src='/tomcat/static/src/img/esqsupder.png'  style="max-width:20px max-height: 20px;" alt="Logo"/>
                     
                 </div>

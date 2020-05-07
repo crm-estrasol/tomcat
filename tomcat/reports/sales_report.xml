@@ -91,20 +91,7 @@
     <template id="sale_frist_report" name="custom" inherit_id="sale.report_saleorder_document">
 
             <xpath expr="//t[@t-set='doc']" position="before">
-              <div class="page">
-                <div class="row mt32 mb32" id="ax">
-                     <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                      <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                  </div>
-               
-              </div>
-               <t t-set="sale_orderName">
-                 <div>
-                   Ejemplo nombre 
-                 </div>
-              </t>
-              <p style="page-break-after:always"></p>
-              
+             
             </xpath>
             
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">

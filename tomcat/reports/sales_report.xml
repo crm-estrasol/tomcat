@@ -63,8 +63,8 @@
       
                     <t t-raw="address"/>
                      <div class="row mt32 mb32" id="ax">
-                     <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                      <div  class="col-auto mw-100 mb-2"> aaaaa </div>
+                  
+                      
                   </div>
                
           </xpath>
@@ -208,10 +208,6 @@
                          
                 </t>
               <p style="page-break-after:always"></p>
-                <div class="row mt32 mb32" id="ax">
-                     <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                      <div  class="col-auto mw-100 mb-2"> aaaaa </div>
-                  </div>
                
             </xpath>
 

@@ -199,15 +199,112 @@
                       </t>
                   </tbody>
                   </table>
-                              
-                             
-
-
+                  
                          
                 </t>
               <p style="page-break-after:always"></p>
                
             </xpath>
+                <xpath expr="//div[@class='clearfix']" position="after">
+                      <div class="page">
+                         <div class="row">
+        <div class="col-7" style=" border-top: 1px solid black;">
+            <p>Cliente:</p>
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col-4" style=" border-top: 1px solid black;">
+            <p>Fecha</p>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-7" style=" border-top: 1px solid black;">
+            <p>Cliente:</p>
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col-4" style=" border-top: 1px solid black;">
+            <p>Fecha</p>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-12">
+
+          <table  class ="table table-bordered text-center "style=" table-layout:fixed;">
+            <tr>
+              <td colspan="6" style="width:100%;">
+                Metodo de pago</td>
+              
+            <tr>
+              <td colspan="2" rowspan="2" >Plazos, cantidad o porcentaje</td>
+              <td colspan="2" >Crédito ( ____Días)</td>
+              <td colspan="2" >Anticipado</td>R
+            </tr>
+            <tr>
+            
+              <td colspan="1" >Fecha
+                DD / MM /AA</td>
+              <td colspan="3">Observaciones</td>
+            </tr>
+            <tr>
+              <td  class="text-left" colspan="2">1</td>
+              <td></td>
+              <td colspan="3"></td>
+             
+            </tr>
+            <td  class="text-left" colspan="2">2</td>
+            <td></td>
+            <td colspan="3"></td>
+           
+          </tr>
+          <td  class="text-left" colspan="2">3</td>
+          <td></td>
+          <td colspan="3"></td>
+         
+        </tr>
+        <td  class="text-left" colspan="2">4</td>
+        <td></td>
+        <td colspan="3"></td>
+       
+      </tr>
+      <td  class="text-left" colspan="2">5</td>
+      <td></td>
+      <td colspan="3"></td>
+     
+    </tr>
+            
+    
+          </table>
+    
+        </div>
+      </div>
+     
+
+      <div class="row">
+        <div class="col-12">
+          <h2>Notas</h2>
+          <p> GARANTÍA DE INSTALACIÓN 1 AÑO  </p>
+          <p> GARANTÍA DE LOS EQUIPOS DE 1 A 3 AÑOS  </p>
+         
+          <p> GARANTÍA EN PROGRAMACIÓN DE POR VIDA </p>
+          <p>GARANTÍA EN PROGRAMACIÓN DE POR VIDA  </p>
+          <p>  </p>
+          <p> PUEDE SER PAGADO EN DOLARES AMERICANOS POR TRANSFERENCIA ELECTRÓNICA O EN MONEDA NACIONAL AL TIPO DE CAMBIO
+            DE VENTA DEL BANCO BANORTE </p>
+          <p> EN ESTA PROPUESTA NO SE CONSIDERA OBRA CIVIL
+            VIGENCIA DE ESTA COTIZACIÓN DE 15 DÍAS </p>
+         
+        </div>
+      
+      </div>
+
+
+                      </div>
+                             
+                  </xpath>
 
 
         </template>

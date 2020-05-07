@@ -4,8 +4,21 @@
   <data>
    <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
          <xpath expr="//t[@t-set='colclass']" position="before">
-         <div class="row mt16 mb15" id="ax">
-                     <div  class="col-12 mw-100 mb-2"> aaaaa </div>
+        
+                      <div class="row">
+                        <div class="col-3 mb4">
+                          aaaaaaaaaaaaaaaa
+                        </div>
+                            <div class="col-3 mb4">
+                          aaaaaaaaaaaaaaaa
+                        </div>
+                            <div class="col-3 mb4">
+                          aaaaaaaaaaaaaaaa
+                        </div>
+                            <div class="col-3 mb4">
+                          aaaaaaaaaaaaaaaa
+                        </div>
+                        
                       
                   </div>
  

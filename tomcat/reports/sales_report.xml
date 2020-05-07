@@ -15,7 +15,7 @@
                
                 <div class="row align-self-center  mb-2 pb-0 pt-0   no-gutters mb-2" style="height: 350px;">  
                   <div class="col-12  align-self-center  text-center  pb-0 pt-0" style="height: 350px;">
-                    <img class="h-100" src='/tomcat/static/src/img/colocaralcentro.png' style="height: 350px;"/>
+                    <img class="h-100" src='/tomcat/static/src/img/colocaralcentro.png' style="height: 350px;  transform: scale(1.5);"/>
                   </div>
                 </div>
 
@@ -26,7 +26,7 @@
                         <h6 class="mb-2">Presentado por </h6
                         >
                         <div>
-                          <img class="img-fluid"  src='/tomcat/static/src/img/esqsupder.png' style="max-width:25px max-height: 25px;" alt="Logo"/>
+                          <img class="img-fluid"  src='/tomcat/static/src/img/esqinfizq.png' style="max-width:25px max-height: 25px;" alt="Logo"/>
                           
                           </div>
                          </div>

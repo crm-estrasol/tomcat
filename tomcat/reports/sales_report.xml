@@ -71,7 +71,7 @@
            <div class="row">
                <div class="col-7"></div>
                 <div class="col-3 mb4">
-                    <img src='/tomcat/static/src/img/esqsupder.png' style="max-width:50px height: 100px;" alt="Logo"/>
+                    <img src='/tomcat/static/src/img/esqsupder.png' style="max-width:25px height: 100px;" alt="Logo"/>
                     
                 </div>
                 <div class="col-12 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>

@@ -4,16 +4,17 @@
   <data>
    <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
          <xpath expr="//t[@t-set='colclass']" position="before">
-        
+              <div class="page">
                       <div class="row">
-                        <div class="col-3 mb8">
+                        <div class="col-3 ">
                           aaaaaaaaaaaaaaaa
                         </div>
-                            <div class="col-3 mb8">
+                            <div class="col-3 ">
                           aaaaaaaaaaaaaaaa
                         </div>
                         
                       
+                  </div>
                   </div>
  
          <div class="row mt32 mb32" id="ax" style="width:50%">

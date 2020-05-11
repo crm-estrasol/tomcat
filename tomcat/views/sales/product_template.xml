@@ -14,6 +14,9 @@
                         <h1><field name="name" placeholder="Modelo"/></h1>
                         <label class="oe_edit_only" for="client_model" />
                         <h1><field name="client_model" placeholder="Modelo cliente"/></h1>
+                        
+                        <label class="oe_edit_only" for="brand" />
+                        <h1><field name="brand" placeholder="Marca"/></h1>
                         <div name="options" groups="base.group_user">
                             <div>
                                 <field name="sale_ok"/>

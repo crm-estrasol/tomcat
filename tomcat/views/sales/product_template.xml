@@ -10,7 +10,7 @@
       
                 <xpath expr="//div[@class='oe_title']" position="replace">
                      <div class="oe_title">
-                        <label class="oe_edit_only" for="name" string="Modelo"/>
+                        <label class="oe_edit_only" for="name"/>
                         <h1><field name="name" placeholder="Modelo"/></h1>
                         <label class="oe_edit_only" for="client_model" />
                         <h1><field name="name" placeholder="Modelo cliente"/></h1>

@@ -41,7 +41,8 @@
         
         #'views/sales/sales_cron.xml',
         'reports/sales_report.xml',
-        #'reports/reports.xml',
+        'reports/sale_report_prueba.xml', 
+        'reports/reports.xml',
         #'wizard/sale_details.xml',
         #'mail/mail_taller.xml',
         #'views/menus/menus.xml',

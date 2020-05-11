@@ -56,9 +56,10 @@ class TomCatSaleOrderLine(models.Model):
             pricelist=self.order_id.pricelist_id.id,
             uom=self.product_uom.id, 
             margin_tomcat="self.product_uom.id",
-            marigin_tTotal="self.product_uom.id"
+            margin_tomcat="self.product_uom.id"
         )
-
+        vals['margin_tomcat'] = "d"
+        vals['margin_tomcat'] = "self.product_uom_qty or 1.0"
         vals.update(name=self.get_sale_order_line_multiline_description_sale(product))
 
         self._compute_tax_id()

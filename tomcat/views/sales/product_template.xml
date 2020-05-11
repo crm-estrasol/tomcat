@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        
+         <record id="inherit_product_template" model="ir.ui.view">
+            <field name="name">product.template.inherit.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+          
+      
+                <xpath expr="//div[@class='oe_title']" position="replace">
+                     <div class="oe_title">
+                        <label class="oe_edit_only" for="name"/>
+                        <h1><field name="name" placeholder="Modelo"/></h1>
+                        <label class="oe_edit_only" for="client_model" />
+                        <h1><field name="client_model" placeholder="Modelo cliente"/></h1>
+                        
+                        <label class="oe_edit_only" for="brand" />
+                        <h1><field name="brand" placeholder="Marca"/></h1>
+                        <div name="options" groups="base.group_user">
+                            <div>
+                                <field name="sale_ok"/>
+                                <label for="sale_ok"/>
+                            </div>
+                            <div>
+                                <field name="purchase_ok"/>
+                                <label for="purchase_ok"/>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+                
+               
+            </field>
+
+       
+        </record>
+
+    </data>
+</odoo>

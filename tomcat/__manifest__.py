@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale','account','sale_management','contacts','product','mail','web','crm','sale_crm','stock','project'],
+    'depends': ['base','product','sale','account','sale_management','contacts','product','mail','web','crm','sale_crm','stock','project'],
 
     # always loaded
     'data': [
@@ -36,11 +36,13 @@
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
         'views/sales/sales.xml',
+          'views/sales/product_template.xml',
           'views/templates/templates.xml',
         
         #'views/sales/sales_cron.xml',
-        #'reports/sales_report.xml',
-        #'reports/reports.xml',
+        'reports/sales_report.xml',
+        'reports/sale_report_prueba.xml', 
+        'reports/reports.xml',
         #'wizard/sale_details.xml',
         #'mail/mail_taller.xml',
         #'views/menus/menus.xml',

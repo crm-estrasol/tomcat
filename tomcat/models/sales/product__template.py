@@ -9,7 +9,7 @@ class TomcatProductBrand(models.Model):
     _name= 'tomcat.brand'
     _inherit =  ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
-    name = fields.Many2one('intelli.tower', string='Torre', required=True,ondelete='cascade')
+    name = fields.Char('Nombre', index=True, required=True)
 
 class TomcatProductTemplate(models.Model):
     _inherit = "product.template"

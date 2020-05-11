@@ -10,7 +10,7 @@ class TomcatProductBrand(models.Model):
     _inherit =  ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
     name = fields.Char('Nombre', index=True, required=True)
-
+    #Pendiende darle un form
 class TomcatProductTemplate(models.Model):
     _inherit = "product.template"
     name = fields.Char('Modelo', index=True, required=True, translate=True)

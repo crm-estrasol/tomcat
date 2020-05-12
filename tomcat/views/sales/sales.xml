@@ -73,6 +73,25 @@
 
        
         </record>
+        
+           
+               <record id="inhertit_product_pricelist_item_form_view" model="ir.ui.view">
+                <field name="name">product.pricelist.item.inherit.form</field>
+                        <field name="model">product.pricelist.item</field>
+                        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+                        <field name="arch" type="xml">
+                      
+                
+                            <xpath expr="//field[@name='fixed_price']" position="before">
+                                <field name="cost"/>   
+                                  <field name="margin_ut"/>
+            
+                            </xpath>
+           
+                        </field>
+
+       
+        </record>
 
     </data>
 </odoo>

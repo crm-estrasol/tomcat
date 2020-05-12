@@ -67,8 +67,11 @@ class TomCatSaleOrderLine(models.Model):
         if self.order_id.pricelist_id and self.order_id.partner_id:
             vals['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id)
           
-
-            vals['price_unit'] =  vals['price_unit']  / (1 -  self.product_id.margin_ut ) 
+            id_rule = self._get_display_rule(product)
+            value =  self.env['product.pricelist.item'].search(['id','=',id_rule])[0]
+            #_logger.info("-----------------------------------"+str(value) )
+            vals['margin_tomcat'] = value.margin_ut
+            vals['price_unit'] =  vals['price_unit']  / (1 -  vals['margin_tomcat'] ) 
             
           
         
@@ -140,8 +143,10 @@ class TomCatSaleOrderLine(models.Model):
                     fiscal_position=self.env.context.get('fiscal_position')
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
-                value = self._get_display_rule(product)
+                id_rule = self._get_display_rule(product)
+                value =  self.env['product.pricelist.item'].search(['id','=',id_rule])[0]
                 _logger.info("-----------------------------------"+str(value) )
+                self.margin_tomcat = value.margin_ut
                 self.price_unit = self.price_unit  / (1 -  self.margin_tomcat ) 
     def _get_display_rule(self, product):
                 # TO DO: move me in master/saas-16 on sale.order

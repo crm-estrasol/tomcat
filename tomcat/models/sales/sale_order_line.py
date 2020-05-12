@@ -90,6 +90,7 @@ class TomCatSaleOrderLine(models.Model):
         return result
     @api.onchange('product_id', 'price_unit', 'product_uom', 'product_uom_qty', 'tax_id')
     def _onchange_discount(self):
+
         _logger.info("-----------------------------------"+str( "eooooooooooooooooooooooo" ) )
         if not (self.product_id and self.product_uom and
                 self.order_id.partner_id and self.order_id.pricelist_id and
@@ -122,3 +123,19 @@ class TomCatSaleOrderLine(models.Model):
             discount = (new_list_price - price) / new_list_price * 100
             if (discount > 0 and new_list_price > 0) or (discount < 0 and new_list_price < 0):
                 self.discount = discount
+    @api.onchange('product_uom', 'product_uom_qty')
+        def product_uom_change(self):
+            if not self.product_uom or not self.product_id:
+                self.price_unit = 0.0
+                return
+            if self.order_id.pricelist_id and self.order_id.partner_id:
+                product = self.product_id.with_context(
+                    lang=self.order_id.partner_id.lang,
+                    partner=self.order_id.partner_id,
+                    quantity=self.product_uom_qty,
+                    date=self.order_id.date_order,
+                    pricelist=self.order_id.pricelist_id.id,
+                    uom=self.product_uom.id,
+                    fiscal_position=self.env.context.get('fiscal_position')
+                )
+                self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) + 50

@@ -139,5 +139,5 @@ class TomCatSaleOrderLine(models.Model):
                     fiscal_position=self.env.context.get('fiscal_position')
                 )
                 
-                self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) + 50
+                self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
                 self.price_unit = self.price_unit  / (1 -  self.product_id.margin_ut ) 

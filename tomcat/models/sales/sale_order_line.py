@@ -168,9 +168,7 @@ class TomCatSaleOrderLine(models.Model):
             product = product.with_context(
                 no_variant_attributes_price_extra=tuple(no_variant_attributes_price_extra)
             )
-        _logger.info("-----------------------------------"+str("id_rule 2") )
-        if self.order_id.pricelist_id.discount_policy == 'with_discount':
-            return product.with_context(pricelist=self.order_id.pricelist_id.id).price
+    
         product_context = dict(self.env.context, partner_id=self.order_id.partner_id.id, date=self.order_id.date_order, uom=self.product_uom.id)
         _logger.info("-----------------------------------"+str("id_rule 3") )
         final_price, rule_id = self.order_id.pricelist_id.with_context(product_context).get_product_price_rule(self.product_id, self.product_uom_qty or 1.0, self.order_id.partner_id)

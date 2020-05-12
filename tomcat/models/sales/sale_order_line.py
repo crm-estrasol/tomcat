@@ -141,5 +141,6 @@ class TomCatSaleOrderLine(models.Model):
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
                 self.price_unit = self.price_unit  / (1 -  self.product_id.margin_ut ) 
     @api.onchange('margin_ut')
-    def product_uom_change(self):
+    def product_margin_ut(self):
+
         self.product_uom_change()

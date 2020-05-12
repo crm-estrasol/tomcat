@@ -24,8 +24,8 @@ class TomCatSaleOrderLine(models.Model):
     
     project_sections = fields.Many2one('tomcat.project.section', string='Proyecto',track_visibility=True)
     type_proyect  = fields.Selection(related='product_id.service_tracking') 
-    margin_tomcat = fields.Char("Margen(%)")
-    marigin_tTotal  = fields.Char("Nombre")
+    margin_tomcat =fields.Float("Margen %",  store=True, digits=(12, 2))
+   
 
      
     @api.onchange('product_id')

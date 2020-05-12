@@ -124,7 +124,7 @@ class TomCatSaleOrderLine(models.Model):
             if (discount > 0 and new_list_price > 0) or (discount < 0 and new_list_price < 0):
                 self.discount = discount
     @api.onchange('product_uom', 'product_uom_qty')
-        def product_uom_change(self):
+    def product_uom_change(self):
             if not self.product_uom or not self.product_id:
                 self.price_unit = 0.0
                 return

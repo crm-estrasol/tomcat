@@ -149,7 +149,7 @@ class TomCatSaleOrderLine(models.Model):
               
                 #self.margin_tomcat = value.margin_ut
                # self.price_unit = self.price_unit  / (1 -  self.margin_tomcat[0].margin_ut ) 
-   def _get_display_rule(self, product):
+    def _get_display_rule(self, product):
         # TO DO: move me in master/saas-16 on sale.order
         # awa: don't know if it's still the case since we need the "product_no_variant_attribute_value_ids" field now
         # to be able to compute the full price

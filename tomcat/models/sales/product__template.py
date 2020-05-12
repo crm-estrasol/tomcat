@@ -20,4 +20,7 @@ class TomcatProductTemplate(models.Model):
 
 
    
+class TomcatTestItem(models.Model):
+    _inherit = "product.pricelist.item"
+    cost = margin_ut = fields.Float(realetd="product_id.standard_price")
 

@@ -69,7 +69,7 @@ class TomCatSaleOrderLine(models.Model):
             _logger.info("-----------------------------------"+str( vals['price_unit'] ) )
 
             vals['price_unit'] =  vals['price_unit']  / (1 -  self.product_id.margin_ut ) 
-            vals['marigin_tTotal'] = vals['price_unit'] 
+            
             _logger.info("-----------------------------------"+str( vals['price_unit'] ) )
         
         self.update(vals)

@@ -13,6 +13,7 @@
                               context="{'partner_id': parent.partner_id,'quantity': product_uom_qty, 'pricelist': parent.pricelist_id,   'uom':product_uom, 'company_id': parent.company_id, 'default_lst_price': price_unit,'default_description_sale': name}" 
                               domain="[('sale_ok', '=', True),'&amp;',('type', '!=', 'service'),('service_tracking', '!=', 'project_only'), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]" 
                               widget="product_configurator"/>  
+                                  <field name="margin_ut"/>   
                              
                  </xpath>
       

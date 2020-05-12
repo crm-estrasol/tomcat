@@ -29,7 +29,7 @@ class TomcatTestItem(models.Model):
         self.fixed_price =  self.cost / (1 - self.margin_ut )
 class PricelistItemTomCat(models.Model):
     _inherit = "product.pricelist.item"
-    cost = fields.Float(realetd="product_id.standard_price",readonly=True)
+    cost = fields.Float(related="product_id.standard_price")
     margin_ut = fields.Float("Margen %",  store=True, digits=(12, 6))
     
     @api.onchange('margin_ut')

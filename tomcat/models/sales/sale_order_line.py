@@ -90,7 +90,7 @@ class TomCatSaleOrderLine(models.Model):
         return result
     @api.onchange('product_id', 'price_unit', 'product_uom', 'product_uom_qty', 'tax_id')
     def _onchange_discount(self):
-         _logger.info("-----------------------------------"+str( "eooooooooooooooooooooooo" ) )
+        _logger.info("-----------------------------------"+str( "eooooooooooooooooooooooo" ) )
         if not (self.product_id and self.product_uom and
                 self.order_id.partner_id and self.order_id.pricelist_id and
                 self.order_id.pricelist_id.discount_policy == 'without_discount' and

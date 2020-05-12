@@ -144,8 +144,9 @@ class TomCatSaleOrderLine(models.Model):
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
                 id_rule = self._get_display_rule(product)
+                _logger.info("-----------------------------------"+str(id_rule) )
                 value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
-                _logger.info("-----------------------------------"+str(value) )
+                _logger.info("-----------------------------------"+str(id_rule) )
                 #self.margin_tomcat = value.margin_ut
                # self.price_unit = self.price_unit  / (1 -  self.margin_tomcat[0].margin_ut ) 
     def _get_display_rule(self, product):
@@ -172,7 +173,7 @@ class TomCatSaleOrderLine(models.Model):
                 product_context = dict(self.env.context, partner_id=self.order_id.partner_id.id, date=self.order_id.date_order, uom=self.product_uom.id)
 
                 final_price, rule_id = self.order_id.pricelist_id.with_context(product_context).get_product_price_rule(self.product_id, self.product_uom_qty or 1.0, self.order_id.partner_id)
-               
+                _logger.info("-----------------------------------"+str(id_rule)+str(final_price) )
                 return rule_id
     @api.onchange('margin_tomcat')
     def product_margin_ut(self):

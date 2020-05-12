@@ -91,7 +91,7 @@ class TomCatSaleOrderLine(models.Model):
     @api.onchange('product_id', 'price_unit', 'product_uom', 'product_uom_qty', 'tax_id')
     def _onchange_discount(self):
 
-        _logger.info("-----------------------------------"+str( "eooooooooooooooooooooooo" ) )
+      
         if not (self.product_id and self.product_uom and
                 self.order_id.partner_id and self.order_id.pricelist_id and
                 self.order_id.pricelist_id.discount_policy == 'without_discount' and
@@ -140,7 +140,7 @@ class TomCatSaleOrderLine(models.Model):
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
                 self.price_unit = self.price_unit  / (1 -  self.product_id.margin_ut ) 
-    @api.onchange('margin_ut')
+    @api.onchange('margin_tomcat')
     def product_margin_ut(self):
-       self.product_id.margin_ut + 1     
+        
        self.price_unit = self.price_unit  / (1 -  self.product_id.margin_ut ) 

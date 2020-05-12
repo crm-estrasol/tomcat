@@ -16,7 +16,7 @@ class TomcatProductTemplate(models.Model):
     name = fields.Char('Modelo', index=True, required=True, translate=True)
     client_model = fields.Char('Modelo cliente', index=True, required=True)
     brand = fields.Many2one('tomcat.brand', string='Marca', required=True)
-    margin_ut = currency_rate = fields.Float("Margen %",  store=True, digits=(12, 6))
+    margin_ut = fields.Float("Margen %",  store=True, digits=(12, 6))
 
 
    

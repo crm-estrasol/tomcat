@@ -70,7 +70,7 @@ class TomCatSaleOrderLine(models.Model):
             id_rule = self._get_display_rule(product)
             value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
             _logger.info("-----------------------------------"+str(value) )
-            vals['margin_tomcat'] = value.margin_ut
+            #vals['margin_tomcat'] = value.margin_ut
             #vals['price_unit'] =  vals['price_unit']  / (1 -  vals['margin_tomcat'] ) 
             
           
@@ -146,7 +146,7 @@ class TomCatSaleOrderLine(models.Model):
                 id_rule = self._get_display_rule(product)
                 value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
                 _logger.info("-----------------------------------"+str(value) )
-                self.margin_tomcat = value.margin_ut
+                #self.margin_tomcat = value.margin_ut
                # self.price_unit = self.price_unit  / (1 -  self.margin_tomcat[0].margin_ut ) 
     def _get_display_rule(self, product):
                 # TO DO: move me in master/saas-16 on sale.order

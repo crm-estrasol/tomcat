@@ -69,7 +69,7 @@ class TomCatSaleOrderLine(models.Model):
           
             id_rule = self._get_display_rule(product)
             #value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
-            _logger.info("-----------------------------------"+str(value) )
+            _logger.info("-----------------------------------"+str(id_rule) )
             #vals['margin_tomcat'] = value.margin_ut
             #vals['price_unit'] =  vals['price_unit']  / (1 -  vals['margin_tomcat'] ) 
             

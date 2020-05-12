@@ -66,11 +66,11 @@ class TomCatSaleOrderLine(models.Model):
 
         if self.order_id.pricelist_id and self.order_id.partner_id:
             vals['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id)
-            _logger.info("-----------------------------------"+str( vals['price_unit'] ) )
+          
 
             vals['price_unit'] =  vals['price_unit']  / (1 -  self.product_id.margin_ut ) 
             
-            _logger.info("-----------------------------------"+str( vals['price_unit'] ) )
+          
         
         self.update(vals)
 
@@ -120,6 +120,7 @@ class TomCatSaleOrderLine(models.Model):
                 new_list_price = currency._convert(
                     new_list_price, self.order_id.pricelist_id.currency_id,
                     self.order_id.company_id or self.env.company, self.order_id.date_order or fields.Date.today())
+                
             discount = (new_list_price - price) / new_list_price * 100
             if (discount > 0 and new_list_price > 0) or (discount < 0 and new_list_price < 0):
                 self.discount = discount
@@ -139,7 +140,35 @@ class TomCatSaleOrderLine(models.Model):
                     fiscal_position=self.env.context.get('fiscal_position')
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
+                value = self._get_display_rule(product)
+                _logger.info("-----------------------------------"+str(value) )
                 self.price_unit = self.price_unit  / (1 -  self.margin_tomcat ) 
+    def _get_display_rule(self, product):
+                # TO DO: move me in master/saas-16 on sale.order
+                # awa: don't know if it's still the case since we need the "product_no_variant_attribute_value_ids" field now
+                # to be able to compute the full price
+
+                # it is possible that a no_variant attribute is still in a variant if
+                # the type of the attribute has been changed after creation.
+                no_variant_attributes_price_extra = [
+                    ptav.price_extra for ptav in self.product_no_variant_attribute_value_ids.filtered(
+                        lambda ptav:
+                            ptav.price_extra and
+                            ptav not in product.product_template_attribute_value_ids
+                    )
+                ]
+                if no_variant_attributes_price_extra:
+                    product = product.with_context(
+                        no_variant_attributes_price_extra=tuple(no_variant_attributes_price_extra)
+                    )
+
+                if self.order_id.pricelist_id.discount_policy == 'with_discount':
+                    return product.with_context(pricelist=self.order_id.pricelist_id.id).price
+                product_context = dict(self.env.context, partner_id=self.order_id.partner_id.id, date=self.order_id.date_order, uom=self.product_uom.id)
+
+                final_price, rule_id = self.order_id.pricelist_id.with_context(product_context).get_product_price_rule(self.product_id, self.product_uom_qty or 1.0, self.order_id.partner_id)
+               
+                return rule_id
     @api.onchange('margin_tomcat')
     def product_margin_ut(self):
        self.price_unit = self.price_unit  / (1 -  self.margin_tomcat ) 

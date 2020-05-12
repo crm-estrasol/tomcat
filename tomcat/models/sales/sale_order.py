@@ -233,6 +233,8 @@ class TomCatSaleOrder(models.Model):
                 items[actual_index][1].append(prod)
  
         return items
+
+   
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

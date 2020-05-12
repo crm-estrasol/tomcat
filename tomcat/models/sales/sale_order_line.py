@@ -173,7 +173,7 @@ class TomCatSaleOrderLine(models.Model):
                 product_context = dict(self.env.context, partner_id=self.order_id.partner_id.id, date=self.order_id.date_order, uom=self.product_uom.id)
 
                 final_price, rule_id = self.order_id.pricelist_id.with_context(product_context).get_product_price_rule(self.product_id, self.product_uom_qty or 1.0, self.order_id.partner_id)
-                _logger.info("-----------------------------------"+str(id_rule)+str(final_price) )
+                _logger.info("-----------------------------------"+str(rule_id)+str(final_price) )
                 return rule_id
     @api.onchange('margin_tomcat')
     def product_margin_ut(self):

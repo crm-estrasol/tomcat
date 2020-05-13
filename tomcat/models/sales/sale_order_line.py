@@ -182,4 +182,4 @@ class TomCatSaleOrderLine(models.Model):
         return rule_id
     @api.onchange('margin_tomcat')
     def product_margin_ut(self):
-       self.price_unit = self.price_unit  / (1 -  self.margin_tomcat ) 
+       self.price_unit = self.cost  / (1 -  self.margin_tomcat ) 

@@ -31,6 +31,13 @@
                             
 
                 </xpath>
+                 <xpath expr="//field[@name='amount_total']" position="before">
+                   
+                     <field name="currency_id"/>   
+                   
+                            
+
+                </xpath>
                  <xpath expr="//control" position="replace">
                     <control>                                    
                             <create name="add_product_control" string="Add a product"/>

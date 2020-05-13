@@ -35,7 +35,7 @@ class PricelistItemTomCat(models.Model):
             cur = self.env['res.currency'].search([('name', '=', 'MXN')]) 
             cur_dlr = self.env['res.currency'].search([('name', '=', 'USD')]) 
             cost = cur._convert( self.cost , cur_dlr, self.env.company, date=datetime.today(), round=False)
-        margin_fix = self.margin_ut / 10
+        margin_fix = self.margin_ut / 100
         self.fixed_price = cost / (1 - margin_fix)  
     @api.onchange('pricelist_id')
     def product_pricelist(self):

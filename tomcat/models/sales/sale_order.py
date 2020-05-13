@@ -21,6 +21,7 @@ class TomCatSaleOrder(models.Model):
         
        
         res = super(TomCatSaleOrder, self).create(values)
+        res.write({'name':res.name+res.name_proy})
         if  'product_proy' in values:  
             product = self.env['product.product'].search( [ ('id','=', values['product_proy'])] )
             res.order_line =  [ (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]

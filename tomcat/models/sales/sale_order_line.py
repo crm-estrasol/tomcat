@@ -66,10 +66,11 @@ class TomCatSaleOrderLine(models.Model):
 
         if self.order_id.pricelist_id and self.order_id.partner_id:
             vals['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id)
-          
-            id_rule = self._get_display_rule(product)
+
+            #id_rule = self._get_display_rule(product)
             #value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
-            _logger.info("-----------------------------------"+str(id_rule) )
+            #cur = self.env['res.currency'].search([('name', '=', 'MXN')]) 
+            #cur_dlr = self.env['res.currency'].search([('name', '=', 'USD')])   
             #vals['margin_tomcat'] = value.margin_ut
             #vals['price_unit'] =  vals['price_unit']  / (1 -  vals['margin_tomcat'] ) 
             
@@ -143,7 +144,12 @@ class TomCatSaleOrderLine(models.Model):
                     fiscal_position=self.env.context.get('fiscal_position')
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
-                id_rule = self._get_display_rule(product)
+                if self.order_id.pricelist_id.currency_id.name == "USD":
+                   cur = self.env['res.currency'].search([('name', '=', 'MXN')]) 
+                   cur_dlr = self.env['res.currency'].search([('name', '=', 'USD')]) 
+                   self.price_unit = cur._convert( self.price_unit , cur_dlr, self.env.company, date=self.order_id.date_order, round=False)
+                
+                #id_rule = self._get_display_rule(product)
                 
                 #value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
               
@@ -170,7 +176,7 @@ class TomCatSaleOrderLine(models.Model):
             )
     
         product_context = dict(self.env.context, partner_id=self.order_id.partner_id.id, date=self.order_id.date_order, uom=self.product_uom.id)
-        _logger.info("-----------------------------------"+str("id_rule 3") )
+       
         final_price, rule_id = self.order_id.pricelist_id.with_context(product_context).get_product_price_rule(self.product_id, self.product_uom_qty or 1.0, self.order_id.partner_id)
         base_price, currency = self.with_context(product_context)._get_real_price_currency(product, rule_id, self.product_uom_qty, self.product_uom, self.order_id.pricelist_id.id)
         if currency != self.order_id.pricelist_id.currency_id:

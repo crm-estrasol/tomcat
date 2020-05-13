@@ -21,6 +21,7 @@ class TomCatSaleOrder(models.Model):
         
        
         res = super(TomCatSaleOrder, self).create(values)
+        res.write({'name':res.name+"-"+res.name_proy})
         if  'product_proy' in values:  
             product = self.env['product.product'].search( [ ('id','=', values['product_proy'])] )
             res.order_line =  [ (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]
@@ -199,6 +200,7 @@ class TomCatSaleOrder(models.Model):
             'project_sections': line.project_sections if line.project_sections else False,
             'state': 'draft',
         }
+    
     """
     @api.onchange('product_proy')
     def _on_change_mins(self):
@@ -217,6 +219,13 @@ class TomCatSaleOrder(models.Model):
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 
   """
+    @api.onchange('sale_order_template_id')
+    def onchange_sale_order_template_id(self):
+        super(TomCatSaleOrder, self).onchange_sale_order_template_id()
+        for item in  self.order_line:
+             item.product_uom_change()
+
+
     def search_proyects(self,doc):
     
         actual_proy = doc.order_line[0].project_sections.name if doc.order_line[0].display_type == 'line_project' else "Sin proyecto asignado"
@@ -233,6 +242,8 @@ class TomCatSaleOrder(models.Model):
                 items[actual_index][1].append(prod)
  
         return items
+
+   
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

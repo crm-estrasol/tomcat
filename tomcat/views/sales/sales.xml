@@ -31,7 +31,8 @@
                             
 
                 </xpath>
-                 <xpath expr="//field[@name='amount_total']" position="after">
+               
+                 <xpath expr="//field[@name='amount_total']" position="before">
                    
                      <field name="currency_id"/>   
                    

@@ -3,7 +3,7 @@ from odoo import models, fields, api
 import logging
 _logger = logging.getLogger(__name__)
 from odoo.tools.misc import clean_context
-    
+from datetime import datetime   
 class TomcatProductBrand(models.Model):
      
     _name= 'tomcat.brand'
@@ -38,8 +38,8 @@ class PricelistItemTomCat(models.Model):
     @api.onchange('margin_ut')
     def product_uom_change(self):
         cost = self.cost
-        if pricelist_id.currency_id == "USD": 
+        if self.pricelist_id.currency_id.name == "USD": 
             cur = self.env['res.currency'].search([('name', '=', 'MXN')]) 
             cur_dlr = self.env['res.currency'].search([('name', '=', 'USD')]) 
-            cost = cur._convert( self.cost , cur_dlr, self.env.company, date=self.order_id.date_order, round=False)
+            cost = cur._convert( self.cost , cur_dlr, self.env.company, date=datetime.today(), round=False)
         self.fixed_price = cost / (1 - self.margin_ut) 

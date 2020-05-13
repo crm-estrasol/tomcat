@@ -144,10 +144,7 @@ class TomCatSaleOrderLine(models.Model):
                     fiscal_position=self.env.context.get('fiscal_position')
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
-                if self.order_id.pricelist_id.currency_id.name == "USD":
-                   cur = self.env['res.currency'].search([('name', '=', 'MXN')]) 
-                   cur_dlr = self.env['res.currency'].search([('name', '=', 'USD')]) 
-                   self.price_unit = cur._convert( self.price_unit , cur_dlr, self.env.company, date=self.order_id.date_order, round=False)
+              
                 
                 #id_rule = self._get_display_rule(product)
                 

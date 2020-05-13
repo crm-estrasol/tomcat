@@ -26,13 +26,20 @@ class TomcatTestItem(models.Model):
     margin_ut = fields.Float("Margen %",  store=True, digits=(12, 6))
     @api.onchange('margin_ut' )
     def product_uom_change(self):
+        
         self.fixed_price =  self.cost / (1 - self.margin_ut )
 class PricelistItemTomCat(models.Model):
     _inherit = "product.pricelist.item"
     cost = fields.Float(related="product_tmpl_id.standard_price")
- 
+    
+
     margin_ut = fields.Float("Margen %",  store=True, digits=(12, 6))
     
     @api.onchange('margin_ut')
     def product_uom_change(self):
-        self.fixed_price = self.cost / (1 - self.margin_ut) 
+        cost = self.cost
+        if pricelist_id.currency_id == "USD": 
+            cur = self.env['res.currency'].search([('name', '=', 'MXN')]) 
+            cur_dlr = self.env['res.currency'].search([('name', '=', 'USD')]) 
+            cost = cur._convert( self.cost , cur_dlr, self.env.company, date=self.order_id.date_order, round=False)
+        self.fixed_price = cost / (1 - self.margin_ut) 

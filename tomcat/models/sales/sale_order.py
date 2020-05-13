@@ -221,7 +221,7 @@ class TomCatSaleOrder(models.Model):
     @api.onchange('sale_order_template_id')
     def onchange_sale_order_template_id(self):
         super(TomCatSaleOrder, self).onchange_sale_order_template_id()
-         for item in  self.order_line:
+        for item in  self.order_line:
              item.product_uom_change()
 
 

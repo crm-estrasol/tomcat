@@ -199,6 +199,7 @@ class TomCatSaleOrder(models.Model):
             'project_sections': line.project_sections if line.project_sections else False,
             'state': 'draft',
         }
+    
     """
     @api.onchange('product_proy')
     def _on_change_mins(self):
@@ -217,6 +218,13 @@ class TomCatSaleOrder(models.Model):
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 
   """
+    @api.onchange('sale_order_template_id')
+    def onchange_sale_order_template_id(self):
+        super(TomCatSaleOrder, self).onchange_sale_order_template_id()
+         for item in  self.order_line:
+             item.product_uom_change()
+
+
     def search_proyects(self,doc):
     
         actual_proy = doc.order_line[0].project_sections.name if doc.order_line[0].display_type == 'line_project' else "Sin proyecto asignado"

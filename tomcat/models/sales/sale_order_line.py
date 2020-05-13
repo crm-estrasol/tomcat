@@ -58,7 +58,7 @@ class TomCatSaleOrderLine(models.Model):
             margin_tomcat=self.product_id.margin_ut
            
         )
-        vals['margin_tomcat'] = self.product_id.margin_ut
+       
        
         vals.update(name=self.get_sale_order_line_multiline_description_sale(product))
 
@@ -66,9 +66,10 @@ class TomCatSaleOrderLine(models.Model):
 
         if self.order_id.pricelist_id and self.order_id.partner_id:
             vals['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id)
-
-            #id_rule = self._get_display_rule(product)
-            #value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
+            vals['margin_tomcat'] = self.product_id.margin_ut
+            id_rule = self._get_display_rule(product)
+            value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
+            _logger.info("-----------------------------------"+str(value) )
             #cur = self.env['res.currency'].search([('name', '=', 'MXN')]) 
             #cur_dlr = self.env['res.currency'].search([('name', '=', 'USD')])   
             #vals['margin_tomcat'] = value.margin_ut
@@ -159,7 +160,7 @@ class TomCatSaleOrderLine(models.Model):
 
         # it is possible that a no_variant attribute is still in a variant if
         # the type of the attribute has been changed after creation.
-        _logger.info("-----------------------------------"+str("id_rule") )
+       
         no_variant_attributes_price_extra = [
             ptav.price_extra for ptav in self.product_no_variant_attribute_value_ids.filtered(
                 lambda ptav:

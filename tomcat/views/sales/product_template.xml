@@ -17,7 +17,7 @@
                         
                         <label class="oe_edit_only" for="brand" />
                         <h1><field name="brand" placeholder="Marca"/></h1>
-                           <field name="margin_ut"/>   
+                           
                            
                         <div name="options" groups="base.group_user">
                             <div>

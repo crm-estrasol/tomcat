@@ -21,9 +21,15 @@ class SaleDiscount(models.TransientModel):
         return self.env.ref('tomcat.sale_details_report_dos').report_action([], data=data)
     
     @api.onchange('sale')
-    def on_change_evt(self):
+    def on_change_sale(self):
         sistemas = [item.project.id for item in self.sale.order_line if item.product_id and item.project  ]
+        marcas = [item.product_id.brand.id for item in self.sale.order_line if item.product_id and item.product_id.brand  ]
+        ubicaciones = [ item.ubication.id for item in self.sale.order_line if item.product_id and item.ubication  ]
         return {
-            'domain': {'projects': [('id', 'in', sistemas)]}
+            'domain': { 'projects': [('id', 'in', sistemas)], 
+                        'ubications': [('id', 'in', ubicaciones)],
+                        'brand': [('id', 'in', marcas)],
+                        
+                         }
            
         }

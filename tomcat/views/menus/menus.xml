@@ -17,6 +17,5 @@
     <!-- SALES -->
     <menuitem id="report_sales_team_w" name="Corte inventario" parent="sale.menu_sale_report" groups="sales_team.group_sale_manager" action="report_sale_wizard" sequence="3"/>
     <!--INVENTORY,SALES, MRP Extra products features -->
-    <menuitem id="menu_product_brand" name="Marcas" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_project"  sequence="3" />
-     <menuitem id="menu_product_brand" name="Marcas" parent="sale.menu_sale_report" action="tomcat.action_tomcat_project"  sequence="3" />
+   
 </odoo>

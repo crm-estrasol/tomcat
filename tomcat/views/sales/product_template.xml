@@ -47,7 +47,7 @@
           
       
              
-                  <xpath expr="//input[@name='barcode']" position="after">
+                  <xpath expr="//field[@name='barcode']" position="after">
                              <field name="ubications_ids" placeholder="Marca"/>
                               <field name="project_ids" placeholder="Marca"/>
                         </xpath>

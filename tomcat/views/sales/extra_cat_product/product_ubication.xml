@@ -73,7 +73,9 @@
           <field name="view_id" ref="ubication_view_form"/>
           <field name="act_window_id" ref="action_tomcat_ubication"/>
         </record>
-
-               <menuitem id="menu_product_brand" name="Sistemas" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_ubication"   />
+        
+        <menuitem id="menu_product_ubication" name="Ubicaciones" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_ubication"   />
+         <menuitem id="menu_stock_product_ubication" name="Ubicaciones" parent="stock.menu_stock_inventory_control" action="tomcat.action_tomcat_ubication"   />
+         <menuitem id="menu_mrp_product_ubication" name="Ubicaciones" parent="mrp.menu_mrp_bom" action="tomcat.action_tomcat_ubication"   />
         </data>
     </odoo>

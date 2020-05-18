@@ -73,7 +73,12 @@
           <field name="view_id" ref="brand_view_form"/>
           <field name="act_window_id" ref="action_tomcat_brand"/>
         </record>
-
+    
        <menuitem id="menu_product_brand" name="Marcas" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_brand"   />
+         <menuitem id="menu_pro_stock_brand" name="Marcas" parent="stock.menu_stock_inventory_control" action="tomcat.action_tomcat_brand"   />
+           <menuitem id="menu_pro_mrp_brand" name="Marcas" parent="mrp.menu_mrp_bom" action="tomcat.action_tomcat_brand"   />
+
+        
+        
         </data>
     </odoo>

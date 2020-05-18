@@ -73,7 +73,9 @@
           <field name="view_id" ref="project_view_form"/>
           <field name="act_window_id" ref="action_tomcat_project"/>
         </record>
-
-
+ 
+         <menuitem id="menu_product_project" name="Sistemas" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_project"   />
+          <menuitem id="menu_stock_product_project" name="Sistemas" parent="stock.menu_stock_inventory_control" action="tomcat.action_tomcat_project"   />
+           <menuitem id="menu_mrp_product_project" name="Sistemas" parent="mrp.menu_mrp_bom" action="tomcat.action_tomcat_project"   />
         </data>
     </odoo>

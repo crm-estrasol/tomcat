@@ -254,7 +254,7 @@ class TomCatSaleOrder(models.Model):
                 'views':  [(view_id,'form')],
                 'type': 'ir.actions.act_window',
                 'target': 'new',
-                'domain':[{   'project_ids': [('id', 'in', sistemas )] }]
+                'context':{'default_sale':self.id}
                 
        
            

@@ -27,7 +27,7 @@
                 </xpath>
                   <xpath expr="//field[@name='payment_term_id']" position="after">
                             
-                      <button name="generate_discount" string="Generar descuento" type="object" class="btn-primary" attrs="{'invisible': ['|',('state', '=', 'done'),('state', '=', 'cancel')]}"/>
+                      <button name="generate_discount" string="Generar descuento" type="object" class="btn-primary" attrs="{'invisible': ['|',('state', '=', 'done'),'|',('state', '=', 'cancel'),('state', '=', 'sale')]}"/>
                        
                    
                 </xpath>

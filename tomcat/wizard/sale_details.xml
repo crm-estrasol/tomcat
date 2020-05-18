@@ -16,7 +16,7 @@
                         </group>
                         <group>                       
                                   
-                                    <field name="brand" options="{'no_create_edit': True,'no_create': True}" widget="many2many_tags" />
+                                    <field name="brand" options="{'no_create_edit': True,'no_create': True}"  />
                             
                         </group>
                         <group>                       

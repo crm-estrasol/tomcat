@@ -21,7 +21,9 @@
                  
                     <field name="name_proy"/>               
                     <field name="product_proy"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}"/>               
-                  
+                      <button name="generate_discount" string="Generar descuento" type="object" class="btn-primary"/>
+                       
+                   
                 </xpath>
                 <xpath expr="//tree//field[@name='product_id']" position="after">
                     <field name="project_sections"/>  
@@ -31,9 +33,7 @@
                        <field name="ubication" domain="[('id', 'in', ubications)]"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
                         <field name="ubications" invisible="1"/>
                         <field name="projects" invisible="1"/>  
-                          <button name="generate_discount" string="Generar descuento" type="object" class="btn-primary"/>
-                       
-                   
+                        
                   
 
                             

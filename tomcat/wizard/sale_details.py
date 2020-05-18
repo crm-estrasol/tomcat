@@ -22,7 +22,8 @@ class SaleDiscount(models.TransientModel):
     
     @api.onchange('sale')
     def on_change_evt(self):
-      return {
-            'domain': {'projects': [('id', '=', 1)]}
+        sistemas = [item.project.id for item in self.sale.order_line if item.product_id and item.project  ]
+        return {
+            'domain': {'projects': [('id', 'in', sistemas)]}
            
         }

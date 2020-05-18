@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <form string="Descuento">
                 <group>
-                  <field name="sale"/>
+                  <field name="sale" invisible="1"/>
                     <field name="projects"/>
                     <field name="ubications"/>
                       <field name="brand"/>

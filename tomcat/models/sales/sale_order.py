@@ -244,7 +244,7 @@ class TomCatSaleOrder(models.Model):
         return items
     def generate_discount(self):
         if self.order_line:
-            sistemas = [item.project.id for item in self.order_line if item.product_id and item.project  ]
+          
             view_id = self.env.ref('tomcat.view_sale_discount_wizard').id
             view = {
                 'name': ('Descuento'),

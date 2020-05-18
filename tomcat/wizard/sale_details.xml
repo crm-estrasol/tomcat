@@ -17,6 +17,10 @@
                         <group>                       
                                   
                                     <field name="brand" options="{'no_create_edit': True,'no_create': True}" />
+                            
+                        </group>
+                        <group>                       
+                                  
                                     <field name="discount"/>
                             
                         </group>

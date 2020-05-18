@@ -14,7 +14,7 @@ class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
     product_proy = fields.Many2one('product.product', string='Plantilla proyecto',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]", readonly=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
-    name_proy = fields.Char('Nombre proyecto',track_visibility=True, required=True)
+    name_proy = fields.Char('Nombre proyecto',track_visibility=True, required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
 
     @api.model
     def create(self, values):

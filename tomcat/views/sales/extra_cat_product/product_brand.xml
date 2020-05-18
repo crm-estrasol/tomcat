@@ -74,6 +74,6 @@
           <field name="act_window_id" ref="action_tomcat_brand"/>
         </record>
 
-
+       <menuitem id="menu_product_brand" name="Marcas" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_brand"   />
         </data>
     </odoo>

@@ -74,6 +74,6 @@
           <field name="act_window_id" ref="action_tomcat_ubication"/>
         </record>
 
-
+               <menuitem id="menu_product_brand" name="Sistemas" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_ubication"   />
         </data>
     </odoo>

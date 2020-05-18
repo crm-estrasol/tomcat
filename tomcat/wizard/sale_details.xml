@@ -11,12 +11,13 @@
                     <field name="projects"/>
                     <field name="ubications"/>
                       <field name="brand"/>
+                      <field name="discount"/>
                     
 
 
                 </group>
                 <footer>
-                    <button name="generate_report" string="Generar reporte" type="object" class="btn-primary"/>
+                    <button name="generate_report" string="Aplicar descuento" type="object" class="btn-primary"/>
 
                 </footer>
             </form>

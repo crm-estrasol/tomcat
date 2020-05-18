@@ -17,9 +17,9 @@ class SaleDiscount(models.TransientModel):
     sale = fields.Many2one('sale.order', string='Venta')
 
     def generate_report(self):
-        data = {'date_start':self.start_date, 'date_stop': self.end_date, 'config_ids': ""}
-        return self.env.ref('tomcat.sale_details_report_dos').report_action([], data=data)
-    
+        for prod in self.sale.order_line:
+            prod.discount = self.discount  if prod.project in self.projects or prod.brand in self.brand else prod.discount
+        return self.sale
     @api.onchange('sale')
     def on_change_sale(self):
         sistemas = [item.project.id for item in self.sale.order_line if item.product_id and item.project  ]
@@ -29,7 +29,5 @@ class SaleDiscount(models.TransientModel):
             'domain': { 'projects': [('id', 'in', sistemas)], 
                         'ubications': [('id', 'in', ubicaciones)],
                         'brand': [('id', 'in', marcas)],
-                        
-                         }
-           
+                      }                     
         }

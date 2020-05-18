@@ -17,8 +17,7 @@
                         
                         <label class="oe_edit_only" for="brand" />
                         <h1><field name="brand" placeholder="Marca"/></h1>
-                        <field name="ubications_ids" placeholder="Marca"/>
-                        <field name="project_ids" placeholder="Marca"/>
+                       
                         
                            
                         <div name="options" groups="base.group_user">
@@ -33,9 +32,13 @@
                         </div>
                     </div>
                 </xpath>
-                
+                  <xpath expr="//input[@name='barcode']" position="after">
+                             <field name="ubications_ids" placeholder="Marca"/>
+                              <field name="project_ids" placeholder="Marca"/>
+                        </xpath>
                
             </field>
+
 
        
         </record>

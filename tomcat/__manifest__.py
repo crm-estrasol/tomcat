@@ -36,12 +36,17 @@
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
         'views/sales/sales.xml',
-          'views/sales/product_template.xml',
-          'views/templates/templates.xml',
+        'views/sales/product_template.xml',
+         'views/sales/extra_cat_product/product_brand.xml',
+          'views/sales/extra_cat_product/product_project.xml',
+           'views/sales/extra_cat_product/product_ubication.xml',
+        
+        'views/templates/templates.xml',
         
         #'views/sales/sales_cron.xml',
         'reports/sales_report.xml',
         'reports/sale_report_prueba.xml', 
+
         'reports/reports.xml',
         'wizard/sale_details.xml',
         #'mail/mail_taller.xml',

@@ -20,3 +20,9 @@ class SaleDiscount(models.TransientModel):
         data = {'date_start':self.start_date, 'date_stop': self.end_date, 'config_ids': ""}
         return self.env.ref('tomcat.sale_details_report_dos').report_action([], data=data)
     
+    @api.onchange('sale')
+    def on_change_evt(self):
+      return {
+            'domain': {'other_id': [('projects', '=', 1)]}
+           
+        }

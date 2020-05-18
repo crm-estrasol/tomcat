@@ -31,6 +31,7 @@
                        <field name="ubication" domain="[('id', 'in', ubications)]"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
                         <field name="ubications" invisible="1"/>
                         <field name="projects" invisible="1"/>  
+                          <button name="generate_discount" string="Generar descuento" type="object" class="btn-primary"/>
                        
                    
                   
@@ -67,7 +68,7 @@
                 <xpath expr="//tree//field[@name='product_id']" position="after">
                     <field name="project_sections"/>   
                     
-                    <button name="generate_discount" string="Generar descuento" type="object" class="btn-primary"/>
+                  
                 </xpath>
                  <xpath expr="//control" position="replace">
                     <control>                                    

@@ -26,8 +26,8 @@ class TomcatProductTemplate(models.Model):
     client_model = fields.Char('Modelo cliente', index=True)
     brand = fields.Many2one('tomcat.brand', string='Marca')
     margin_ut = fields.Float("Margen %",  store=True, digits=(12, 6))
-    ubications_ids = fields.Many2many(comodel_name='tomcat.ubication', relation='table_many_ubications', column1='ubication_id', column2='')
-    project_ids = fields.Many2many(comodel_name='tomcat.project', relation='table_many_project', column1='project_id', column2='')
+    ubications_ids = fields.Many2many(comodel_name='tomcat.ubication', relation='table_many_ubications', column1='ubication_id', column2='',string="Ubicaciones")
+    project_ids = fields.Many2many(comodel_name='tomcat.project', relation='table_many_project', column1='project_id', column2='',string="Proyectos")
 
 
    

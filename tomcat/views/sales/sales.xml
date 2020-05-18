@@ -27,9 +27,10 @@
                     <field name="project_sections"/>  
                      <field name="type_proyect" invisible="1"/>  
                      <field name="margin_tomcat"/>   
-                      <field name="project" />   
-                       <field name="ubication" domain="[('id', 'in', ubications)]"/>   
-                        <field name="ubications"/>  
+                      <field name="project"  domain="[('id', 'in', projects)]" options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                       <field name="ubication" domain="[('id', 'in', ubications)]"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                        <field name="ubications" inviisble="1"/>
+                        <field name="projects" inviisble="1"/>  
                        
                    
                   

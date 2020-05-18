@@ -28,7 +28,7 @@ class TomCatSaleOrderLine(models.Model):
     project =  fields.Many2one('tomcat.project', string='Proyecto')
     ubication =  fields.Many2one('tomcat.ubication', string='Ubiicación')
     ubications =  fields.Many2many(related='product_id.ubications_ids') 
-     
+    projects  =  fields.Many2many(related='product_id.project_ids') 
     @api.onchange('product_id')
     def product_id_change(self):
         if not self.product_id:

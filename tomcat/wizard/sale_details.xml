@@ -6,15 +6,20 @@
         <field name="model">tomcat.sale.discount.wizard</field>
         <field name="arch" type="xml">
             <form string="Descuento">
-                <group>
-                  <field name="sale" invisible="1"/>
-                    <field name="projects"/>
-                    <field name="ubications"/>
-                      <field name="brand"/>
-                      <field name="discount"/>
-                    
-
-
+              <group>
+                        <group>
+                            
+                                <field name="sale" invisible="1"/>
+                                    <field name="projects" options="{'no_create_edit': True,'no_create': True}" />
+                                    <field name="ubications" options="{'no_create_edit': True,'no_create': True}" />
+                                                       
+                        </group>
+                        <group>                       
+                                  
+                                    <field name="brand" options="{'no_create_edit': True,'no_create': True}" />
+                                    <field name="discount"/>
+                            
+                        </group>
                 </group>
                 <footer>
                     <button name="generate_report" string="Aplicar descuento" type="object" class="btn-primary"/>

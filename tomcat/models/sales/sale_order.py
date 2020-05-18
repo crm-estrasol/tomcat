@@ -243,15 +243,19 @@ class TomCatSaleOrder(models.Model):
  
         return items
     def generate_discount(self):
-        view_id = self.env.ref('tomcat.view_sale_discount_wizard').id
-        view = {
-            'name': ('Descuento'),
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'tomcat.sale.discount.wizard',
-            'views':  [(view_id,'form')],
-            'type': 'ir.actions.act_window',
-            'target': 'new',
+        if self.order_line:
+            sistemas = [item.project.id for item in self.order_line if item.product_id and item.project  ]
+            view_id = self.env.ref('tomcat.view_sale_discount_wizard').id
+            view = {
+                'name': ('Descuento'),
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_model': 'tomcat.sale.discount.wizard',
+                'views':  [(view_id,'form')],
+                'type': 'ir.actions.act_window',
+                'target': 'new',
+                'domain':{   'project_ids': [('id', 'in', sistemas)] }
+                
        
            
             

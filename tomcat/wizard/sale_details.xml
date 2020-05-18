@@ -7,8 +7,12 @@
         <field name="arch" type="xml">
             <form string="Descuento">
                 <group>
-                    <field name="start_date"/>
-                    <field name="end_date"/>
+                    <field name="projects"/>
+                    <field name="ubications"/>
+                      <field name="brand"/>
+                    
+
+
                 </group>
                 <footer>
                     <button name="generate_report" string="Generar reporte" type="object" class="btn-primary"/>

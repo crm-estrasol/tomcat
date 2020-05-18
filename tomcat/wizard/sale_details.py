@@ -11,8 +11,9 @@ class SaleDiscount(models.TransientModel):
     _name = 'tomcat.sale.discount.wizard'
     
     _description = 'Point of Sale Details Report'
-    start_date = fields.Datetime(required=True, default=fields.Datetime.now)
-    end_date = fields.Datetime(required=True, default=fields.Datetime.now)
+    projects =  fields.Many2many(comodel_name='tomcat.project', relation='table_many_project_2', column1='project_id', column2='',string="Proyectos")
+    ubications =  fields.Many2many(comodel_name='tomcat.ubication', relation='table_many_ubication_2', column1='ubication_id', column2='',string="Ubicaciones")
+    brand =  fields.Many2many(comodel_name='tomcat.brand', relation='table_many_brand', column1='brand_id', column2='',string="Marcas")
     def generate_report(self):
         data = {'date_start':self.start_date, 'date_stop': self.end_date, 'config_ids': ""}
         return self.env.ref('tomcat.sale_details_report_dos').report_action([], data=data)

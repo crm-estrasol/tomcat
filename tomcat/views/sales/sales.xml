@@ -28,7 +28,7 @@
                      <field name="type_proyect" invisible="1"/>  
                      <field name="margin_tomcat"/>   
                       <field name="project" />   
-                       <field name="ubication"/>   
+                       <field name="ubication" domain="[('id', 'in', ubications)]"/>   
                         <field name="ubications"/>  
                        
                    

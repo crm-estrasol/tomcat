@@ -42,6 +42,24 @@
 
        
         </record>
+        <record id="inherit_product_template_form_view" model="ir.ui.view">
+            <field name="name">product.template.inherit.form.barcode</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+          
+      
+             
+                  <xpath expr="//input[@name='barcode']" position="after">
+                             <field name="ubications_ids" placeholder="Marca"/>
+                              <field name="project_ids" placeholder="Marca"/>
+                        </xpath>
+               
+            </field>
 
+
+       
+        </record>
+        
     </data>
 </odoo>

@@ -250,8 +250,8 @@ class TomCatSaleOrder(models.Model):
 
                 data.update({
                     'price_unit': price,
-                    'project':line.project
-                    'ubication':line.ubication
+                    'project':line.project,
+                    'ubication':line.ubication,
                     'discount': 100 - ((100 - discount) * (100 - line.discount) / 100),
                     'product_uom_qty': line.product_uom_qty,
                     'product_id': line.product_id.id,

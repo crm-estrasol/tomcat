@@ -6,17 +6,19 @@ from odoo.tools.misc import clean_context
 from datetime import datetime   
 class TomcatProductBrand(models.Model):
     _name= 'tomcat.brand'
+    _inherit =  ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
     name = fields.Char('Nombre', index=True, required=True)
     #Pendiende darle un form
 class TomcatProductProject(models.Model): 
     _name= 'tomcat.project'
+    _inherit =  ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
     name = fields.Char('Nombre', index=True, required=True)
     #Pendiende darle un form
 class TomcatProductUbication(models.Model):
     _name= 'tomcat.ubication'
-    #_inherit =  ['mail.thread', 'mail.activity.mixin']
+    _inherit =  ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
     name = fields.Char('Nombre', index=True, required=True)
     #Pendiende darle un form

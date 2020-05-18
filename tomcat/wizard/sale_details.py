@@ -23,6 +23,6 @@ class SaleDiscount(models.TransientModel):
     @api.onchange('sale')
     def on_change_evt(self):
       return {
-            'domain': {'other_id': [('projects', '=', 1)]}
+            'domain': {'projects': [('id', '=', 1)]}
            
         }

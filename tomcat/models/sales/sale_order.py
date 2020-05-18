@@ -242,7 +242,21 @@ class TomCatSaleOrder(models.Model):
                 items[actual_index][1].append(prod)
  
         return items
-
+    def generate_discount(self):
+        view_id = self.env.ref('tomcat.view_sale_discount_wizard').id
+        view = {
+            'name': ('Descuento'),
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'tomcat.sale.discount.wizard',
+            'views':  [(view_id,'form')],
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+       
+           
+            
+        }
+        return view 
    
 class SaleReport(models.Model):
     _inherit = "sale.report"

@@ -18,7 +18,7 @@ class SaleDiscount(models.TransientModel):
 
     def generate_report(self):
         for prod in self.sale.order_line:
-            prod.discount = self.discount  if prod.project in self.projects or prod.product_id.brand in self.product_id.brand else prod.discount
+            prod.discount = self.discount  if prod.project in self.projects or prod.product_id.brand in self.brand else prod.discount
         return self.sale
     @api.onchange('sale')
     def on_change_sale(self):

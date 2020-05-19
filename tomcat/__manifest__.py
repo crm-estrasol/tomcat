@@ -50,7 +50,8 @@
 
         'reports/reports.xml',
         'wizard/sale_details.xml',
-        #'mail/mail_taller.xml',
+        
+        'mail/mail_report.xml',
         #'views/menus/menus.xml',
     ],  
      'qweb': [

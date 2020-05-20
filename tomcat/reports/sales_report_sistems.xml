@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <odoo>
   <data>
    
     
-    <template id="completo_totalizado" name="completo_totalizado" >
-
+    <template id="completo_totalizado" >
+            <t t-set="body_classname" t-value="'container'"/>
           <h2>CALL LAYOUR </h2>
           <h2><t t-esc="doc.name"/></h2>
 
         </template>
-    
+   
+
   </data>
 </odoo>

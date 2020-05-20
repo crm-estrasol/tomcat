@@ -45,8 +45,10 @@
         'views/templates/templates.xml',
         
         #'views/sales/sales_cron.xml',
-        'views/portal/sale/sale_order.xml',
+        #'views/portal/sale/sale_order.xml',
         'reports/sales_report.xml',
+         'reports/sales_report_sistems.xml',
+        
         'reports/sale_report_prueba.xml', 
 
         'reports/reports.xml',

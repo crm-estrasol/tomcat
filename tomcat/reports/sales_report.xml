@@ -328,7 +328,7 @@
                              
                   </xpath>
 
-                <t t-call="sale.completo_totalizado"/>
+                <t t-call="completo_totalizado"/>
         </template>
     
   </data>

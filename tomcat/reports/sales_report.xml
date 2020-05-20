@@ -327,11 +327,16 @@
                       </div>
                              
                   </xpath>
-    <t t-call="tomcat.completo_totalizado"/>
+    <t t-call="completo_totalizado"/>
     
   
               
         </template>
-    
+    <template id="completo_totalizado" >
+            <t t-set="body_classname" t-value="'container'"/>
+          <h2>CALL LAYOUR </h2>
+          <h2><t t-esc="doc.name"/></h2>
+
+        </template>
   </data>
 </odoo>

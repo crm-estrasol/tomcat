@@ -328,7 +328,7 @@
                              
                   </xpath>
 
-                <t t-call="completo_totalizado"/>
+                <t t-call="tomcat.completo_totalizado"/>
         </template>
     
   </data>

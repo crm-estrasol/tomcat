@@ -336,9 +336,9 @@ class TomCatSaleOrder(models.Model):
             tree.append(item)
         return tree
     
-    def ubication_product(self,group):
+    def ubication_product(self,group_t):
         ubications = []
-        for key, group in itertools.groupby(items, key=lambda x:( x['ubication'] ) ):
+        for key, group in itertools.groupby(group_t, key=lambda x:( x['ubication'] ) ):
             item= {'ubication':key[0].name,
                 'items':group
                 

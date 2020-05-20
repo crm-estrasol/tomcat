@@ -10,6 +10,10 @@ from datetime import timedelta, datetime
 from odoo import tools
 from odoo import api, fields, models
 from odoo import fields, models
+import sys
+import itertools
+from operator import itemgetter
+import functools 
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
@@ -320,7 +324,27 @@ class TomCatSaleOrder(models.Model):
             
         }
         return view 
-   
+    def generate_report_v2(self,sale):    
+        ids = sale.order_line.ids
+        items = self.env['sale.order.line'].search([('id','in',ids)], order='ubication asc, project asc ,name asc ')
+        tree = []
+        for key, group in itertools.groupby(items, key=lambda x:( x['ubication'], x['project'] ) ):
+            item = {
+                'project':key[1].name,
+                'ubications':self.ubication_product(group)
+            }
+            tree.append(item)
+        return tree
+    
+    def ubication_product(self,group):
+        ubications = []
+        for key, group in itertools.groupby(items, key=lambda x:( x['ubication'] ) ):
+            item= {'ubication':key[0].name,
+                'items':group
+                
+            }
+            ubications.append(item)
+        return ubications
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

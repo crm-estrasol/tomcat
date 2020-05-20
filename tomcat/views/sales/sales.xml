@@ -15,7 +15,7 @@
                               widget="product_configurator"/>  
                                
                              
-                 </xpath>
+                 </xpath> 
       
                  <xpath expr="//field[@name='partner_shipping_id']" position="after">
                  

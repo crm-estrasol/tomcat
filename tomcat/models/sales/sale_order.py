@@ -344,7 +344,7 @@ class TomCatSaleOrder(models.Model):
             items =  [item for item in group]
             item= { 
                     'ubication':key.name,
-                    'items':[item for item in group],
+                    'items':items,
                     'total':sum([prod.price_subtotal for prod in items ])
             }
             ubications.append(item)

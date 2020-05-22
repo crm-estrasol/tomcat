@@ -27,8 +27,8 @@ class TomCatSaleOrderLine(models.Model):
     margin_tomcat =fields.Float("Margen %",  store=True, digits=(12, 2))
     project =  fields.Many2one('tomcat.project', string='Sistema')
     ubication =  fields.Many2one('tomcat.ubication', string='Ubiicación')
-    ubications =  fields.Many2many(related='product_id.ubications_ids') 
-    projects  =  fields.Many2many(related='product_id.project_ids') 
+    #ubications =  fields.Many2many(related='product_id.ubications_ids') 
+    #projects  =  fields.Many2many(related='product_id.project_ids') 
     @api.onchange('product_id')
     def product_id_change(self):
         if not self.product_id:

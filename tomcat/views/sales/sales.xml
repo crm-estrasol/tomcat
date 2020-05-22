@@ -36,12 +36,9 @@
                     <field name="project_sections"/>  
                      <field name="type_proyect" invisible="1"/>  
                    
-                      <field name="project"  domain="[('id', 'in', projects)]" options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
-                       <field name="ubication" domain="[('id', 'in', ubications)]"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
-                        <field name="ubications" invisible="1"/>
-                        <field name="projects" invisible="1"/>  
-                        
-                  
+                      <field name="project"   options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                       <field name="ubication"   options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                      
 
                             
 
@@ -79,11 +76,9 @@
       
                 <xpath expr="//tree//field[@name='product_id']" position="after">
                     <field name="project_sections"/>   
-                      <field name="project"  domain="[('id', 'in', projects)]" options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
-                       <field name="ubication" domain="[('id', 'in', ubications)]"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
-                        <field name="ubications" invisible="1"/>
-                        <field name="projects" invisible="1"/>  
-                    
+                      <field name="project"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                       <field name="ubication"   options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                        
                   
                 </xpath>
                  <xpath expr="//control" position="replace">

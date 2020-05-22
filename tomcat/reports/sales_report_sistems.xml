@@ -104,7 +104,7 @@
                               
                               
                             
-                                <t t-if="line_last and ubication_last ">
+                                <t t-if="line_last  ">
                                 
                                         <tr class="is-subtotal text-right">
                                           <td name="td_section_subtotal" colspan="99">

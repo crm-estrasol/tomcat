@@ -328,7 +328,7 @@ class TomCatSaleOrder(models.Model):
         ids = sale.order_line.ids
         items = self.env['sale.order.line'].search([('id','in',ids)], order='project asc, ubication asc ,name asc ')
         tree = []
-        items.filtered(lambda x: x.product_id.type != 'service' and x.product_id.service_tracking != 'project_only' )
+        items = items.filtered(lambda x: x.product_id.type != 'service' and x.product_id.service_tracking != 'project_only' )
         for key, group in itertools.groupby(items, key=lambda x:(  x['project'] ) ):
             item = {
                 'project':key.name,

@@ -326,11 +326,11 @@ class TomCatSaleOrder(models.Model):
         return view 
     def generate_report_v2(self,sale):    
         ids = sale.order_line.ids
-        items = self.env['sale.order.line'].search([('id','in',ids)], order='ubication asc, project asc ,name asc ')
+        items = self.env['sale.order.line'].search([('id','in',ids)], order='project asc, ubication asc ,name asc ')
         tree = []
-        for key, group in itertools.groupby(items, key=lambda x:( x['ubication'], x['project'] ) ):
+        for key, group in itertools.groupby(items, key=lambda x:(  x['project'] ) ):
             item = {
-                'project':key[1].name,
+                'project':key.name,
                 'ubications':self.ubication_product(group)
 
             }

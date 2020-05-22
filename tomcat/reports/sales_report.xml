@@ -2,11 +2,7 @@
 
 <odoo>
   <data>
-     <template id="completo_totalizado" >
-          <h2>CALL LAYOUR </h2>
-        
-
-        </template>
+  
    <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
          <xpath expr="//t[@t-set='colclass']" position="before">
           <div class="page " style="height:1000px;">         
@@ -212,8 +208,8 @@
                   
                          
                 </t>
-              <p style="page-break-after:always"></p>
-                <t t-call="completo_totalizado"/>
+                   <p style="page-break-after:always"></p>
+                   <t t-call="tomcat.completo_totalizado"/>
             </xpath>
             <xpath expr="//div[@class='clearfix']" position="after">
                       <div class="page">

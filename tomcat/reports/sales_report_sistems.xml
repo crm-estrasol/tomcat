@@ -5,8 +5,25 @@
     
     <template id="completo_totalizado" >
             <t t-set="body_classname" t-value="'container'"/>
-          <h2>CALL LAYOUR </h2>
+         
+          
           <h2><t t-esc="doc.name"/></h2>
+
+           <t t-set="current_partida" t-value="0"/>
+
+               <t t-foreach="doc.generate_report_v2(doc)" t-as="proy_items">
+                  
+                  <div class="container">
+                    <div class="row pt-2"  style="background:#1f3864; color:white; font-size:25px; height:60px;" >
+                      <div class="col align-self-center text-center">
+                            <t t-esc="proy_items['project']"/>
+                      </div>          
+                    </div> 
+                  </div>
+                
+             
+                         
+                </t>
 
     </template>
    

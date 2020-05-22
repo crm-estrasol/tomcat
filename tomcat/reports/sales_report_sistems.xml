@@ -11,7 +11,7 @@
 
            <t t-set="current_partida" t-value="0"/>
 
-               <t t-foreach="doc.search_proyects(doc)" t-as="proy_items">
+               <t t-foreach="doc.generate_report_v2(doc)" t-as="proy_items">
                   
                   <div class="container">
                     <div class="row pt-2"  style="background:#1f3864; color:white; font-size:25px; height:60px;" >

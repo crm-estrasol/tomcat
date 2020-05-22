@@ -46,8 +46,7 @@
                               <tr class="bg-200 font-weight-bold o_line_section">
                                     <td name="td_section_line" colspan="99">
                                               <t t-esc="ubication['ubication']"/>
-                                               <t t-esc="ubication['items']"/>
-                                      </td>
+                                                                                   </td>
                       
                               </tr>   
                               <t t-foreach="ubication['items']" t-as="line">                    

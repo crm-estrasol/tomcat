@@ -343,8 +343,8 @@ class TomCatSaleOrder(models.Model):
         for key, group in itertools.groupby(group_t, key=lambda x:( x['ubication'] ) ):
             item= { 
                     'ubication':key.name,
+                    'total':sum([prod.price_subtotal for prod in group ]),
                     'items':list(group),
-                    'total':sum([prod.price_subtotal for prod in group ])
             }
             ubications.append(item)
 

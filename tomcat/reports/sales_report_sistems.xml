@@ -41,12 +41,12 @@
                       </tr>
                   </thead>
                   <tbody class="sale_tbody mt-1">
-                      <t t-set="current_subtotal" t-value="0"/>
-                      <t t-set="current_partida" t-value="0"/>
+                    
                       <t t-foreach= "proy_items['ubications']" t-as="ubication"> 
                               <tr class="bg-200 font-weight-bold o_line_section">
                                     <td name="td_section_line" colspan="99">
                                               <t t-esc="ubication['ubication']"/>
+                                               <t t-esc="ubication['items']"/>
                                       </td>
                       
                               </tr>   

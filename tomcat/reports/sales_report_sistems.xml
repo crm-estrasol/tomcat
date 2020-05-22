@@ -103,20 +103,20 @@
                               </tr>
                               
                               
-                              <!--
-                                <t t-if="current_section and (line_last or proy_items[1][line_index+1].display_type == 'line_section')">
+                            
+                                <t t-if="line_last and ubication_last ">
                                 
-                                    <tr class="is-subtotal text-right">
-                                        <td name="td_section_subtotal" colspan="99">
-                                            <strong class="mr16"><t t-esc="current_namesection"/> Subtotal <t t-esc="line_last"/></strong>
-                                            <span
-                                                t-esc="current_subtotal"
-                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
-                                            />
-                                        </td>
-                                    </tr>
+                                        <tr class="is-subtotal text-right">
+                                          <td name="td_section_subtotal" colspan="99">
+                                              <strong class="mr16"><t t-esc="current_namesection"/> Subtotal sistema <t t-esc="line_last"/></strong>
+                                              <span
+                                                  t-esc="proy_items['total']"
+                                                  t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                              />
+                                          </td>
+                                      </tr>
                                 </t>
-                                -->
+                              
                       </t>
                   </tbody>
                   </table>

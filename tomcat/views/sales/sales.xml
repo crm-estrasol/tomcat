@@ -36,8 +36,8 @@
                     <field name="project_sections"/>  
                      <field name="type_proyect" invisible="1"/>  
                    
-                      <field name="project"   options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
-                       <field name="ubication"   options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                      <field name="project"   />   
+                       <field name="ubication"    />   
                       
 
                             
@@ -76,8 +76,8 @@
       
                 <xpath expr="//tree//field[@name='product_id']" position="after">
                     <field name="project_sections"/>   
-                      <field name="project"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
-                       <field name="ubication"   options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}" />   
+                      <field name="project"  />   
+                       <field name="ubication"    />   
                         
                   
                 </xpath>

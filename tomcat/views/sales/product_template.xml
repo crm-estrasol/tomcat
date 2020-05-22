@@ -39,6 +39,7 @@
 
        
         </record>
+        <!--
         <record id="inherit_product_template_form_view" model="ir.ui.view">
             <field name="name">product.template.inherit.form.barcode</field>
             <field name="model">product.template</field>
@@ -57,6 +58,6 @@
 
        
         </record>
-        
+        -->
     </data>
 </odoo>

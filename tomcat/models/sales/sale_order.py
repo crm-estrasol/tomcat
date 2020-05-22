@@ -332,18 +332,22 @@ class TomCatSaleOrder(models.Model):
             item = {
                 'project':key[1].name,
                 'ubications':self.ubication_product(group)
+
             }
+            item['total'] = sum([ubi['total'] for ubi in item['ubications'] ])
             tree.append(item)
         return tree
     
     def ubication_product(self,group_t):
         ubications = []
         for key, group in itertools.groupby(group_t, key=lambda x:( x['ubication'] ) ):
-            item= {'ubication':key,
-                'items':group
-                
+            item= { 
+                    'ubication':key,
+                    'items':group,
+                    'total':sum([prod.price_subtotal for prod in group ])
             }
             ubications.append(item)
+
         return ubications
 class SaleReport(models.Model):
     _inherit = "sale.report"

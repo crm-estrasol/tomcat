@@ -341,10 +341,11 @@ class TomCatSaleOrder(models.Model):
     def ubication_product(self,group_t):
         ubications = []
         for key, group in itertools.groupby(group_t, key=lambda x:( x['ubication'] ) ):
+            items =  [item for item in group]
             item= { 
                     'ubication':key.name,
                     'items':[item for item in group],
-                    'total':sum([prod.price_subtotal for prod in group ])
+                    'total':sum([prod.price_subtotal for prod in items ])
             }
             ubications.append(item)
 

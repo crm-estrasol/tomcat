@@ -49,7 +49,8 @@
                                                                                    </td>
                       
                               </tr>   
-                              <t t-foreach="ubication['items']" t-as="line">                    
+                              <t t-foreach="ubication['items']" t-as="line"> 
+                                                 
                                       <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
                                             <t t-if="not line.display_type">
                                                 <t t-set="current_partida" t-value="current_partida+1"/>
@@ -104,7 +105,7 @@
                               
                               
                             
-                                <t t-if="line_last  ">
+                                <t t-if="ubication_last ">
                                 
                                         <tr class="is-subtotal text-right">
                                           <td name="td_section_subtotal" colspan="99">

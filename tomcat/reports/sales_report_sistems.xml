@@ -89,15 +89,18 @@
                                       
                                       </tr>   
                               </t>
-                              <tr class="bg-200 font-weight-bold o_line_section">
-                                    <td name="td_section_line" colspan="99">
-                                              <t t-esc="ubication['total']"/>
-                                      </td>
-                      
-                              </tr>
+                              
 
                              
-                              
+                               <tr class="is-subtotal text-right">
+                                        <td name="td_section_subtotal" colspan="99">
+                                            <strong class="mr16"><t t-esc="current_namesection"/> Subtotal <t t-esc="line_last"/></strong>
+                                            <span
+                                                t-esc="ubication['total']"
+                                                t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                            />
+                                        </td>
+                              </tr>
                               
                               
                               <!--

@@ -21,7 +21,7 @@ class TomCatSaleOrder(models.Model):
     name_proy = fields.Char('Nombre proyecto',track_visibility=True, required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
     print_options = fields.Selection([('complete_total', 'Completo  totalizado'), 
                                                 ('only_complete', 'Completo') , ('complete_price', 'Completo precio unitario'), ('no_brandModel','Sin marca y modelo') ,
-                                                ('without_price', 'Sin precios'),('subtotal_system', 'Solo con subtotal por sistema')], string='Status', required=True, readonly=True, copy=False, default='only_complete')
+                                                ('without_price', 'Sin precios'),('subtotal_system', 'Solo con subtotal por sistema')], string='Formato pdf', copy=False, default='only_complete')
     client_model = fields.Boolean( string='Modelo cliente')
     
     @api.model

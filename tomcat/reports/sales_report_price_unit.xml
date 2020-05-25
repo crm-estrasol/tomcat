@@ -69,10 +69,17 @@
                                                 </td>
                                                 <td name="td_name">
                                                     <t t-if="doc.client_model">
-                                                      <t t-esc="line.product_id.client_model"/>
+                                                      <span>
+                                                          <t t-esc="line.product_id.client_model"/>
+                                                      </span>
+                                                      <span> 
+                                                              <t t-esc="line.product_id.description_sale"/>
+                                                      </span>
+                                                     
                                                     </t>
                                                   
                                                     <t t-else="">
+                                                    
                                                         <span t-field="line.name"/>
                                                     </t>
                                                       

@@ -58,7 +58,26 @@
                     </control>
                     
                   </xpath>
+                  
+                 <xpath expr="//page[@name='other_information']" position="before">
+                   <page string="Formato cotización" name="format_quotation">
+                           
+                            <group>
+                                <group  string="Formato">
+                                     <field name="print_options" widget="selection"/> 
+                                </group>
+                                <group  string="Modelo cliente">
+                                     <field name="client_model"/> 
+                                </group>
+                            </group>
+                           
+                        </page>
+                    
+                  </xpath>
         
+
+
+
                
             </field>
 

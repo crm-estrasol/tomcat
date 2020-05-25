@@ -4,6 +4,10 @@
     <template id="assets_end" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
             <script src="/light_control/static/src/js/field_widget.js" type="text/javascript" />
+<<<<<<< HEAD
+=======
+            
+>>>>>>> staging_1
             <link href="/light_control/static/src/scss/field_widget.scss" rel="stylesheet" type="text/scss" />
         </xpath>
     </template>

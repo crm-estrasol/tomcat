@@ -3,4 +3,5 @@
 
 
 #from . import sale_details
+from . import sale_details
 

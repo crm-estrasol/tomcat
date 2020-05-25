@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      
+      <record id="brand_view_tree" model="ir.ui.view">
+          <field name="name">tree.brand</field>
+          <field name="model">tomcat.brand</field>
+          <field name="arch" type="xml" >
+              <tree string="Contacts" >
+              
+                <field name="name"/>
+              </tree>
+          </field>
+      </record>
+      
+
+      <record id="brand_view_form" model="ir.ui.view">
+          <field name="name">tomcat.form</field>
+          <field name="model">tomcat.brand</field>
+          <field name="arch" type="xml" >
+            <form>
+              <sheet>
+                
+                <group>
+                  <group>
+                 
+                
+                    <field name="name" string="Nombre"  required="1"/>
+                  
+                  </group>
+                  <group>
+                   
+                  </group>
+                </group>
+              </sheet>
+              <div class="oe_chatter" modifiers="{}">
+                <field name="message_follower_ids" widget="mail_followers" modifiers="{}"/>
+                <field name="activity_ids" widget="mail_activity" modifiers="{}"/>
+                <field name="message_ids" widget="mail_thread" modifiers="{}" options="{'display_log_button': True}"/>
+              </div>
+            </form>
+          </field>
+      </record>
+
+
+      <record id="action_tomcat_brand" model="ir.actions.act_window">
+           <field name="name">Marca</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">tomcat.brand</field>
+          
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+               <p class="o_view_nocontent_smiling_face">
+                  Create a contact in your address book
+               </p>
+               <p>
+                Odoo helps you to easily track all activities related to a customer.
+               </p>
+           </field>
+       </record>
+
+       <record id="action_brand_tree" model="ir.actions.act_window.view">
+         <field eval="1" name="sequence"/>
+         <field name="view_mode">tree</field>
+         <field name="view_id" ref="brand_view_tree"/>
+         <field name="act_window_id" ref="action_tomcat_brand"/>
+       </record>
+
+
+      <record id="action_brand_form" model="ir.actions.act_window.view">
+          <field eval="2" name="sequence"/>
+          <field name="view_mode">form</field>
+          <field name="view_id" ref="brand_view_form"/>
+          <field name="act_window_id" ref="action_tomcat_brand"/>
+        </record>
+    
+       <menuitem id="menu_product_brand" name="Marcas" parent="sale.product_menu_catalog" action="tomcat.action_tomcat_brand"   />
+         <menuitem id="menu_pro_stock_brand" name="Marcas" parent="stock.menu_stock_inventory_control" action="tomcat.action_tomcat_brand"   />
+           <menuitem id="menu_pro_mrp_brand" name="Marcas" parent="mrp.menu_mrp_bom" action="tomcat.action_tomcat_brand"   />
+
+        
+        
+        </data>
+    </odoo>

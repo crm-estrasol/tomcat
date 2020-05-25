@@ -16,6 +16,6 @@
        
     <!-- SALES -->
     <menuitem id="report_sales_team_w" name="Corte inventario" parent="sale.menu_sale_report" groups="sales_team.group_sale_manager" action="report_sale_wizard" sequence="3"/>
-
-
+    <!--INVENTORY,SALES, MRP Extra products features -->
+   
 </odoo>

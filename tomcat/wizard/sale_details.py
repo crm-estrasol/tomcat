@@ -7,13 +7,27 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class SaleDetails(models.TransientModel):
-    _name = 'test.sale.details.wizard'
-    
-    _description = 'Point of Sale Details Report'
-    start_date = fields.Datetime(required=True, default=fields.Datetime.now)
-    end_date = fields.Datetime(required=True, default=fields.Datetime.now)
+class SaleDiscount(models.TransientModel):
+    _name = 'tomcat.sale.discount.wizard'
+    _description = 'Descuentos '
+    projects =  fields.Many2many(comodel_name='tomcat.project', relation='table_many_project_2', column1='project_id', column2='',string="Sistema")
+    ubications =  fields.Many2many(comodel_name='tomcat.ubication', relation='table_many_ubication_2', column1='ubication_id', column2='',string="Ubicaciones")
+    brand =  fields.Many2many(comodel_name='tomcat.brand', relation='table_many_brand', column1='brand_id', column2='',string="Marcas")
+    discount =  fields.Float("Descuento",digits=(16, 2) )
+    sale = fields.Many2one('sale.order', string='Venta')
+
     def generate_report(self):
-        data = {'date_start':self.start_date, 'date_stop': self.end_date, 'config_ids': ""}
-        return self.env.ref('test.sale_details_report_dos').report_action([], data=data)
-    
+        for prod in self.sale.order_line:
+            prod.discount = self.discount  if prod.project in self.projects or prod.product_id.brand in self.brand  or prod.ubication  in self.ubications else prod.discount
+        return self.sale
+    @api.onchange('sale')
+    def on_change_sale(self):
+        sistemas = [item.project.id for item in self.sale.order_line if item.product_id and item.project  ]
+        marcas = [item.product_id.brand.id for item in self.sale.order_line if item.product_id and item.product_id.brand  ]
+        ubicaciones = [ item.ubication.id for item in self.sale.order_line if item.product_id and item.ubication  ]
+        return {
+            'domain': { 'projects': [('id', 'in', sistemas)], 
+                        'ubications': [('id', 'in', ubicaciones)],
+                        'brand': [('id', 'in', marcas)],
+                      }                     
+        }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <data>
-  <!---->
+  <!--
     <record id="view_project_project_form_inherite" model="ir.ui.view">
       <field name="name">project.form.task.tomcat</field>
       <field name="model">project.task</field>
@@ -15,6 +15,7 @@
           </xpath>
       </field>
     </record>
+    -->
    <!--
     <record id="view_crm_crm_kanban_inherite_light" model="ir.ui.view">
       <field name="name">crm.kanbann.lead.tomcat</field>
@@ -51,16 +52,6 @@
     </record>
 -->
  
-
- 
-
-
-
-
-
-
-
-
 
   </data>
 </odoo>

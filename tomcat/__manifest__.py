@@ -19,13 +19,18 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
+<<<<<<< HEAD
     'depends': ['base','sale','contacts','product','mail','web','crm','sale_crm','stock','project'],
+=======
+    'depends': ['base','product','mrp','sale','stock','account','sale_management','contacts','product','mail','web','crm','sale_crm','stock','project'],
+>>>>>>> staging_1
 
     # always loaded
     'data': [
          'security/ir.model.access.csv',
+
          'views/theme/res_config_settings_views.xml',   
-        #'views/theme/theme.xml',
+        'views/theme/theme.xml',
         'views/contact/contact.xml',
         'views/contact/intermediary_category.xml',
         'views/contact/customer_segment.xml',
@@ -40,6 +45,27 @@
         #'reports/reports.xml',
         #'wizard/sale_details.xml',
         #'mail/mail_taller.xml',
+        'views/sales/sales.xml',
+        'views/sales/product_template.xml',
+         'views/sales/extra_cat_product/product_brand.xml',
+          'views/sales/extra_cat_product/product_project.xml',
+           'views/sales/extra_cat_product/product_ubication.xml',
+          # 'views/sales/sale_order_line.xml',
+        
+        'views/templates/templates.xml',
+        
+        #'views/sales/sales_cron.xml',
+        #'views/portal/sale/sale_order.xml',
+        'reports/sales_report_sistems.xml',
+        'reports/sales_report.xml',
+         
+        
+        'reports/sale_report_prueba.xml', 
+
+        'reports/reports.xml',
+        'wizard/sale_details.xml',
+        
+        'mail/mail_report.xml',
         #'views/menus/menus.xml',
     ],  
      'qweb': [

@@ -46,7 +46,7 @@
         
         #'views/sales/sales_cron.xml',
         #'views/portal/sale/sale_order.xml',
-        'reports/sales_report_sistems.xml',
+        'reports/sales_report_price_unit.xml',
         'reports/sales_report.xml',
          
         

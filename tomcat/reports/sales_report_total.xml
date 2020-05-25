@@ -71,7 +71,7 @@
                                                     <t t-if="doc.client_model">
                                                        <span>
                                                           <t t-esc="line.product_id.client_model"/>
-                                                          <br> 
+                                                          
                                                            <t t-esc="line.product_id.description_sale"/>
                                                       </span>
                                                     

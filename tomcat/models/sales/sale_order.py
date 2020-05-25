@@ -19,10 +19,11 @@ class TomCatSaleOrder(models.Model):
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
     product_proy = fields.Many2one('product.product', string='Plantilla proyecto',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]", readonly=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
     name_proy = fields.Char('Nombre proyecto',track_visibility=True, required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
-    print_options =   state = fields.Selection([('complete_total', 'Completo  totalizado'), 
+    print_options = fields.Selection([('complete_total', 'Completo  totalizado'), 
                                                 ('only_complete', 'Completo') , ('complete_price', 'Completo precio unitario'), ('no_brandModel','Sin marca y modelo') 
                                                 ('without_price', 'Sin precios'),('subtotal_system', 'Solo con subtotal por sistema')], string='Status', required=True, readonly=True, copy=False, default='open')
     client_model = fields.Boolean( string='Modelo cliente')
+    
     @api.model
     def create(self, values):
         

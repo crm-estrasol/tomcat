@@ -70,17 +70,31 @@
                                                 <td name="td_name">
                                                     <t t-if="doc.client_model">
                                                       <span>
-                                                          <t t-esc="line.product_id.client_model"/>
+                                                           Nombre:<t t-esc="line.product_id.client_model"/>.
+                                                          
+                                                          <br> 
+                                                           Marca: <t t-esc="line.product_id.brand.name"/>.
+                                                          <br> 
+            
+                                                           <t t-esc="line.product_id.description_sale"/>
                                                       </span>
-                                                      <span> 
-                                                              <t t-esc="line.product_id.description_sale"/>
-                                                      </span>
+                                                    
+                                                             
+                                                    
                                                      
                                                     </t>
                                                   
                                                     <t t-else="">
                                                     
-                                                        <span t-field="line.name"/>
+                                                        <span>
+                                                           Nombre:<t t-esc="line.product_id.name"/>.
+                                                          
+                                                          <br> 
+                                                           Marca: <t t-esc="line.product_id.brand.name"/>.
+                                                          <br> 
+            
+                                                           <t t-esc="line.product_id.description_sale"/>
+                                                      </span>
                                                     </t>
                                                       
                                                 

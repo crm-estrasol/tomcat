@@ -106,7 +106,10 @@
                     <t t-if="doc.print_options == 'complete_price'">
                        <t t-call="tomcat.price_unit"/>
                     </t>
-
+                    
+                      <t t-if="doc.print_options == 'only_complete'">
+                       <t t-call="tomcat.tom_total"/>
+                    </t>
                   
                   <p style="page-break-after:always"></p>
                 

@@ -95,11 +95,19 @@
                  <t t-set="partnert_name">
                     <t t-esc=" doc.partner_id.name"/>
                 </t>
+
                 
             </xpath>
             
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">
-                    <t t-call="tomcat.price_unit"/>
+                      <t t-if="doc.print_options == 'complete_total'">
+                       <t t-call="tomcat.complete_total"/>
+                    </t>
+                    <t t-if="doc.print_options == 'complete_price'">
+                       <t t-call="tomcat.price_unit"/>
+                    </t>
+
+                  
                   <p style="page-break-after:always"></p>
                 
             </xpath>

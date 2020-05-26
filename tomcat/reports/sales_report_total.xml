@@ -35,7 +35,7 @@
                           </th>
                           <th name="th_taxes" class="text-right"></th>
                           <th name="th_subtotal" class="text-right">
-                              <t groups="account.group_show_line_subtotals_tax_excluded">Cantidad</t>
+                              <t groups="account.group_show_line_subtotals_tax_excluded"></t>
                               <t groups="account.group_show_line_subtotals_tax_included"></t>
                           </th>
                       </tr>
@@ -67,20 +67,30 @@
                                                             />
                                                 </span>
                                                 </td>
-                                                <td name="td_name">
+                                                 <td name="td_name">
                                                     <t t-if="doc.client_model">
-                                                       <span>
-                                                          <t t-esc="line.product_id.client_model"/>
-                                                          
-                                                           <t t-esc="line.product_id.description_sale"/>
+                                                      <span>
+                                                        Marca:<t t-esc="line.product_id.client_model"/>.
+                                                        <br/>
+
+                                                          <t t-esc="line.product_id.client_model"/>.
+                                                             <br/>
+                                                   
+                                                              <t t-esc="line.product_id.description_sale"/>         
                                                       </span>
-                                                    
+                                                   
+                                                   
                                                      
                                                     </t>
                                                   
                                                     <t t-else="">
-                                                    
+                                                        <span>
+                                                             Marca:<t t-esc="line.product_id.client_model"/>.
+                                                                  <br/>
+                                                        </span>
+                                        
                                                         <span t-field="line.name"/>
+                                                          <br/>
                                                     </t>
                                                       
                                                 

@@ -70,18 +70,27 @@
                                                 <td name="td_name">
                                                     <t t-if="doc.client_model">
                                                       <span>
-                                                          <t t-esc="line.product_id.client_model"/>
-                                                          
+                                                        Marca:<t t-esc="line.product_id.client_model"/>.
+                                                        <br/>
+
+                                                          <t t-esc="line.product_id.client_model"/>.
+                                                             <br/>
+                                                   
+                                                              <t t-esc="line.product_id.description_sale"/>         
                                                       </span>
-                                                      <span> 
-                                                              <t t-esc="line.product_id.description_sale"/>
-                                                      </span>
+                                                   
+                                                   
                                                      
                                                     </t>
                                                   
                                                     <t t-else="">
-                                                    
+                                                        <span>
+                                                             Marca:<t t-esc="line.product_id.client_model"/>.
+                                                                  <br/>
+                                                        </span>
+                                        
                                                         <span t-field="line.name"/>
+                                                          <br/>
                                                     </t>
                                                       
                                                 

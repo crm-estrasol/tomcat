@@ -61,8 +61,8 @@ class TomCatSaleOrderLine(models.Model):
         )
        
        
-        vals.update(name=self.get_sale_order_line_multiline_description_sale(product))
-
+        #vals.update(name=self.get_sale_order_line_multiline_description_sale(product))
+        vals.update(name=self.product_id.description_sale)
         self._compute_tax_id()
 
         if self.order_id.pricelist_id and self.order_id.partner_id:

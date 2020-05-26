@@ -73,7 +73,7 @@
                                                         Marca:<t t-esc="line.product_id.client_model"/>.
                                                         <br/>
 
-                                                          <t t-esc="line.product_id.client_model"/>.
+                                                          Modelo:<t t-esc="line.product_id.client_model"/>.
                                                              <br/>
                                                    
                                                               <t t-esc="line.product_id.description_sale"/>         
@@ -89,7 +89,7 @@
                                                                   <br/>
                                                         </span>
                                         
-                                                        <span t-field="line.name"/>
+                                                               <span>Modelo:</span> <span t-field="line.name"/>
                                                           <br/>
                                                     </t>
                                                       

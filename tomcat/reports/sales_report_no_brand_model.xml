@@ -31,11 +31,11 @@
                           <th name="th_quantity" class="text-right">Cantidad</th>
                           <th name="th_priceunit" class="text-right"> </th>
                           <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
-                              <span>Desc.%</span>
+                              <span></span>
                           </th>
                           <th name="th_taxes" class="text-right"></th>
                           <th name="th_subtotal" class="text-right">
-                              <t groups="account.group_show_line_subtotals_tax_excluded">Cantidad</t>
+                              <t groups="account.group_show_line_subtotals_tax_excluded"></t>
                               <t groups="account.group_show_line_subtotals_tax_included"> </t>
                           </th>
                       </tr>
@@ -68,15 +68,14 @@
                                                 </span>
                                                 </td>
                                                 <td name="td_name">
-                                                    <t t-if="doc.client_model">
+                                                 
                                                       <span>
                                                       
                                                               <t t-esc="line.product_id.description_sale"/>         
                                                       </span>
                                                    
                                                    
-                                                     
-                                                    </t>
+                                        
                                                   
                                                   
                                                   

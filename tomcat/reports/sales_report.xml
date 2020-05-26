@@ -114,6 +114,10 @@
                      <t t-if="doc.print_options == 'no_brandModel'">
                        <t t-call="tomcat.no_brand_model"/>
                     </t>
+                    
+                      <t t-if="doc.print_options == 'without_price'">
+                       <t t-call="tomcat.without_price"/>
+                    </t>
 
 
                   <p style="page-break-after:always"></p>

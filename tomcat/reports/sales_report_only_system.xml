@@ -28,7 +28,7 @@
                            <th name="th_partida" class="text-left">Partida</th>
                            <th name="th_partida" class="text-left"></th>
                           <th name="th_description" class="text-left">Descripción</th>
-                          <th name="th_quantity" class="text-right"></th>
+                          <th name="th_quantity" class="text-right">Cantidad</th>
                           <th name="th_priceunit" class="text-right"></th>
                           <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
                               <span></span>

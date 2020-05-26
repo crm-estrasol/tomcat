@@ -46,6 +46,8 @@
         
         #'views/sales/sales_cron.xml',
         #'views/portal/sale/sale_order.xml',
+        
+        'reports/sales_report_only_system.xml',
         'reports/sales_report_without_price.xml',
         'reports/sales_report_no_brand_model.xml',
         'reports/sales_report_total.xml',

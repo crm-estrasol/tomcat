@@ -115,8 +115,12 @@
                        <t t-call="tomcat.no_brand_model"/>
                     </t>
                     
-                      <t t-if="doc.print_options == 'without_price'">
+                    <t t-if="doc.print_options == 'without_price'">
                        <t t-call="tomcat.without_price"/>
+                    </t>
+                    
+                      <t t-if="doc.print_options == 'subtotal_system'">
+                       <t t-call="tomcat.only_system"/>
                     </t>
 
 

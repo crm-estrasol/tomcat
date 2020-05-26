@@ -103,9 +103,18 @@
                  <t t-set="partnert_name">
                     <t t-esc=" doc.partner_id.name"/>
                 </t>
-                 <t t-set="image_cliente">
-                    <t t-esc=" doc.partner_id.image_1920"/>
+                <t t-if="doc.partner_id.image_1920">
+                      <t t-set="image_cliente">
+                          <t t-esc=" doc.partner_id.image_1920"/>
+                      </t>
                 </t>
+              
+                <t t-else="">
+                    <t t-set="image_cliente">
+                          <t t-esc="False"/>
+                      </t>
+                </t>
+               
 
                 
             </xpath>

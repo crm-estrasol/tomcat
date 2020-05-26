@@ -62,16 +62,16 @@
                                                             />
                                                 </span>
                                                 </td>
-                                                 <td name="td_name">
+                                                     <td name="td_name">
                                                     <t t-if="doc.client_model">
                                                       <span>
-                                                        Marca:<t t-esc="line.product_id.client_model"/>
+                                                        Marca:<t t-esc="line.product_id.brand.name"/>
                                                         <br/>
 
                                                           Modelo:<t t-esc="line.product_id.client_model"/>
                                                              <br/>
                                                    
-                                                              <t t-esc="line.product_id.description_sale"/>         
+                                                              <t t-esc="line.name"/>         
                                                       </span>
                                                    
                                                    
@@ -80,11 +80,14 @@
                                                   
                                                     <t t-else="">
                                                         <span>
-                                                             Marca:<t t-esc="line.product_id.client_model"/>
+                                                             Marca:<t t-esc="line.product_id.brand.name"/>
+                                                                  <br/>
+                                                                  
+                                                                Modelo:<t t-esc="line.product_id.name"/>
                                                                   <br/>
                                                         </span>
                                         
-                                                               <span>Modelo:</span> <span t-field="line.name"/>
+                                                               <span> <t t-esc="line.name"/> </span>
                                                           <br/>
                                                     </t>
                                                       

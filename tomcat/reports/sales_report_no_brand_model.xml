@@ -71,7 +71,7 @@
                                                  
                                                       <span>
                                                       
-                                                              <t t-esc="line.product_id.description_sale"/>         
+                                                              <t t-esc="line.name"/>         
                                                       </span>
                                                    
                                                    

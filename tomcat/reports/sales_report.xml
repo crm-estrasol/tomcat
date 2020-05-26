@@ -17,7 +17,7 @@
                
                 <div class="row align-self-center  mb-2 pb-0 pt-0   no-gutters mb-2" style="height: 350px;">  
                   <div class="col-12  align-self-center  text-center  pb-0 pt-0" style="height: 350px;">
-                     <t t-if="image_cliente">
+                     <t t-if="flag_image == 1">
                       <img class="h-100" t-attf-src="data:image/*;base64,{{image_cliente}}"  style="height: 350px; width:350px; transform: scale(1.7);"/>
                      </t>
                     
@@ -107,11 +107,17 @@
                       <t t-set="image_cliente">
                           <t t-esc=" doc.partner_id.image_1920"/>
                       </t>
+                       <t t-set="flag_image">
+                          <t t-esc="1"/>
+                      </t>
                 </t>
               
                 <t t-else="">
                     <t t-set="image_cliente">
-                          <t t-esc="False"/>
+                          <t t-esc="'0'"/>
+                      </t>
+                         <t t-set="flag_image">
+                          <t t-esc="0"/>
                       </t>
                 </t>
                

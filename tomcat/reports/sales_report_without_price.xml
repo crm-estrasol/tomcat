@@ -31,7 +31,7 @@
                           <th name="th_quantity" class="text-right">Cantidad</th>
                           <th name="th_priceunit" class="text-right"></th>
                           <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
-                              <span>Desc.%</span>
+                              <span></span>
                           </th>
                           <th name="th_taxes" class="text-right"></th>
                           <th name="th_subtotal" class="text-right">

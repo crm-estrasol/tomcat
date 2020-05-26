@@ -65,10 +65,10 @@
                                                  <td name="td_name">
                                                     <t t-if="doc.client_model">
                                                       <span>
-                                                        Marca:<t t-esc="line.product_id.client_model"/>.
+                                                        Marca:<t t-esc="line.product_id.client_model"/>
                                                         <br/>
 
-                                                          Modelo:<t t-esc="line.product_id.client_model"/>.
+                                                          Modelo:<t t-esc="line.product_id.client_model"/>
                                                              <br/>
                                                    
                                                               <t t-esc="line.product_id.description_sale"/>         
@@ -80,7 +80,7 @@
                                                   
                                                     <t t-else="">
                                                         <span>
-                                                             Marca:<t t-esc="line.product_id.client_model"/>.
+                                                             Marca:<t t-esc="line.product_id.client_model"/>
                                                                   <br/>
                                                         </span>
                                         

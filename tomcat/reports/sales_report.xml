@@ -110,7 +110,12 @@
                       <t t-if="doc.print_options == 'only_complete'">
                        <t t-call="tomcat.tom_total"/>
                     </t>
-                  
+                    
+                     <t t-if="doc.print_options == 'no_brandModel'">
+                       <t t-call="tomcat.no_brand_model"/>
+                    </t>
+
+
                   <p style="page-break-after:always"></p>
                 
             </xpath>

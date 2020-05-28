@@ -463,7 +463,7 @@ class TomCatSaleOrder(models.Model):
         workbook.save(fp)
         
         Attachment = self.env['ir.attachment']
-            
+        attachment_ids = []    
         data_attach = {
                 'name': "cotz.xls",
                 'datas': base64.encodestring( fp.getvalue()) ,
@@ -509,7 +509,7 @@ class MailComposerTomcat(models.TransientModel):
         values = self._convert_to_write(values)
         return {'value': values}
     """
-    
+
     """
         @api.onchange('excel')
         def on_change_excel(self):

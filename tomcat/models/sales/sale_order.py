@@ -510,9 +510,9 @@ class MailComposerTomcat(models.TransientModel):
         return {'value': values}
     """
 
-    """
-        @api.onchange('excel')
-        def on_change_excel(self):
+    
+    @api.onchange('excel')
+    def on_change_excel(self):
                 workbook = xlwt.Workbook(encoding='utf-8')
                 worksheet = workbook.add_sheet('Testing')
                 worksheet.write_merge(0 , 0,  2, 5, "Cliente")
@@ -533,4 +533,4 @@ class MailComposerTomcat(models.TransientModel):
                 values['attachment_ids'] = [(6, 0, attachment_ids) ]
                 values = self._convert_to_write(values)
                 return {'value': values}
-    """
+    

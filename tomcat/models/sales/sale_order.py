@@ -535,7 +535,7 @@ class MailComposerTomcat(models.TransientModel):
                 return {'value': values}
     """
     @api.onchange('template_id')
-    def onchange_template_id_dos(self):
+    def onchange_template_id_wrapper(self):
                 workbook = xlwt.Workbook(encoding='utf-8')
                 worksheet = workbook.add_sheet('Testing')
                 worksheet.write_merge(0 , 0,  2, 5, "Cliente")
@@ -555,4 +555,4 @@ class MailComposerTomcat(models.TransientModel):
                 attachment_ids.append(Attachment.create(data_attach).id)
                 values['attachment_ids'] = [(6, 0, attachment_ids) ]
                 values = self._convert_to_write(values)
-                return {'value': values}
+                setattr(self, 'attachment_ids', [(6, 0, attachment_ids) ])

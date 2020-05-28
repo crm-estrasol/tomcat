@@ -533,4 +533,6 @@ class MailComposerTomcat(models.TransientModel):
                 values['attachment_ids'] = [(6, 0, attachment_ids) ]
                 values = self._convert_to_write(values)
                 return {'value': values}
-    
+    @api.onchange('template_id')
+    def onchange_template_id_wrapper(self):
+        return 

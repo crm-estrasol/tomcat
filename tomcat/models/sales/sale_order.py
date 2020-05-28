@@ -461,7 +461,15 @@ class TomCatSaleOrder(models.Model):
         worksheet.write_merge(0 , 0,  2, 5, "Cliente")
         fp =  BytesIO()
         workbook.save(fp)
+        
         ctx['default_excel'] = True
+        ctx['default_attachment_ids'] = [(0, 0,  
+                                                    { 
+                                                        'name': "cotz.xls",
+                                                        'store_fname':"cotz.xls",
+                                                        'datas':base64.encodestring(fp.getvalue()) 
+                                                    }
+                                                                                    ) ]
         values['context'] = ctx 
         return values 
 
@@ -484,10 +492,12 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(0 , 0,  2, 5, "Cliente")
         fp =  BytesIO()
         workbook.save(fp)
-        self.attachment_ids =  [(0, 0,  
+        values['attachment_ids'] =  [(0, 0,  
                                       { 
                                         'name': "cotz.xls",
                                         'store_fname':"cotz.xls",
                                         'datas':base64.encodestring(fp.getvalue()) 
                                       }
                                                                       ) ]
+        values = self._convert_to_write(values)
+        return {'value': values}

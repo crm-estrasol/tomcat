@@ -481,5 +481,6 @@ class SaleReport(models.Model):
     
     name_proy = fields.Char('Name proyect', readonly=True)
 
-
-  
+class MailComposer(models.TransientModel):
+    _inherit = 'mail.compose.message'
+    excel = fields.Boolean('Excel',default=False)

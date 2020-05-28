@@ -54,6 +54,7 @@
         'reports/sales_report_complete_total.xml',
         'reports/sales_report_price_unit.xml',
         'reports/sales_report.xml',
+        'reports/excel.xml',
          
         
         'reports/sale_report_prueba.xml', 

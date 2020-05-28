@@ -461,14 +461,7 @@ class TomCatSaleOrder(models.Model):
         worksheet.write_merge(0 , 0,  2, 5, "Cliente")
         fp =  BytesIO()
         workbook.save(fp)
-
-        ctx['default_attachment_ids'] = [ (0, 0,  
-                                                 { 
-                                                'name': "cotz.xls",
-                                                'store_fname':"cotz.xls",
-                                                'datas':base64.encodestring(fp.getvalue()) 
-                                                 }
-                                                                              ) ]
+        ctx['default_excel'] = True
         values['context'] = ctx 
         return values 
 
@@ -481,6 +474,6 @@ class SaleReport(models.Model):
     
     name_proy = fields.Char('Name proyect', readonly=True)
 
-class MailComposer(models.TransientModel):
+class MailComposerTomcat(models.TransientModel):
     _inherit = 'mail.compose.message'
     excel = fields.Boolean('Excel',default=False)

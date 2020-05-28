@@ -493,17 +493,37 @@ class MailComposerTomcat(models.TransientModel):
         fp =  BytesIO()
         workbook.save(fp)
         values = {}
-        attachment_ids = []
-        Attachment = self.env['ir.attachment']
-      
-        data_attach = {
-                'name': "cotz.xls",
-                'datas': base64.encodestring( fp.getvalue()) ,
-                'res_model': 'mail.compose.message',
-                'res_id': 0,
-                'type': 'binary',  # override default_type from context, possibly meant for another model!
-        }
-        attachment_ids.append(Attachment.create(data_attach).id)
-        values['attachment_ids'] = [(6, 0, attachment_ids) ]
+        values['attachment_ids'] =  [(0, 0,  
+                                      { 
+                                        'name': "cotz.xls",
+                                        'store_fname':"cotz.xls",
+                                        'datas':base64.encodestring(fp.getvalue()) 
+                                      }
+                                                                      ) ]
         values = self._convert_to_write(values)
         return {'value': values}
+
+        """
+        @api.onchange('excel')
+        def on_change_excel(self):
+            workbook = xlwt.Workbook(encoding='utf-8')
+            worksheet = workbook.add_sheet('Testing')
+            worksheet.write_merge(0 , 0,  2, 5, "Cliente")
+            fp =  BytesIO()
+            workbook.save(fp)
+            values = {}
+            attachment_ids = []
+            Attachment = self.env['ir.attachment']
+        
+            data_attach = {
+                    'name': "cotz.xls",
+                    'datas': base64.encodestring( fp.getvalue()) ,
+                    'res_model': 'mail.compose.message',
+                    'res_id': 0,
+                    'type': 'binary',  # override default_type from context, possibly meant for another model!
+            }
+            attachment_ids.append(Attachment.create(data_attach).id)
+            values['attachment_ids'] = [(6, 0, attachment_ids) ]
+            values = self._convert_to_write(values)
+            return {'value': values}
+        """

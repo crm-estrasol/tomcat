@@ -536,7 +536,7 @@ class MailComposerTomcat(models.TransientModel):
     """
     @api.onchange('template_id')
     def onchange_template_id_dos(self):
-                 workbook = xlwt.Workbook(encoding='utf-8')
+                workbook = xlwt.Workbook(encoding='utf-8')
                 worksheet = workbook.add_sheet('Testing')
                 worksheet.write_merge(0 , 0,  2, 5, "Cliente")
                 fp =  BytesIO()

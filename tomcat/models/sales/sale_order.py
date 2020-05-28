@@ -477,3 +477,17 @@ class SaleReport(models.Model):
 class MailComposerTomcat(models.TransientModel):
     _inherit = 'mail.compose.message'
     excel = fields.Boolean('Excel',default=False)
+    @api.onchange('excel')
+    def on_change_excel(self):
+        workbook = xlwt.Workbook(encoding='utf-8')
+        worksheet = workbook.add_sheet('Testing')
+        worksheet.write_merge(0 , 0,  2, 5, "Cliente")
+        fp =  BytesIO()
+        workbook.save(fp)
+        self.attachment_ids =  [(0, 0,  
+                                      { 
+                                        'name': "cotz.xls",
+                                        'store_fname':"cotz.xls",
+                                        'datas':base64.encodestring(fp.getvalue()) 
+                                      }
+                                                                      ) ]

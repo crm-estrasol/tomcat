@@ -498,6 +498,8 @@ class MailComposerTomcat(models.TransientModel):
         c2bText_cell =  xlwt.easyxf("font:  height 230 ,bold on; align: vert center, horz center ;"+border)
         c2text_cellMoney = xlwt.easyxf("font:  height 230 ; align: vert center, horz center ;"+border)
         c2text_cellMoney.num_format_str = "[$$-409]#,##0.00;-[$$-409]#,##0.00"
+        line = xlwt.easyxf( """borders: top_color white, bottom_color black, right_color white, left_color white,
+                                    left thin, right thin, top thin, bottom thin;""")
         #---------STYLES
         #--- adjust columns
         #worksheet.write_merge(6, 6, 3, 3,'Pass')
@@ -623,8 +625,10 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write(actual_row+2 , 7, "TOTAL",c2text_cell )
         worksheet.write_merge(actual_row+2 ,actual_row+2 ,  8, 10, data.amount_total,c2text_cellMoney )
         #
-        actual_row +=3    
+        actual_row +=4    
         worksheet.write( actual_row, 0, "NOTAS", c2bText_cell )
+
+        
         quaranty = [
                     "GARANTÍA DE INSTALACIÓN 1 AÑO ",
                     "GARANTÍA DE LOS EQUIPOS DE 1 A 3 AÑOS ",
@@ -635,8 +639,19 @@ class MailComposerTomcat(models.TransientModel):
                     "EN ESTA PROPUESTA NO SE CONSIDERA OBRA CIVIL",
                     "ESTA COTIZACIÓN EXPIRA EN {}".format( data.validity_date.strftime("%d/%m/%Y") ) 
 
-                    ]    
-        
+                    ]
+        actual_row+=1                
+        for msg in quaranty:
+            worksheet.write_merge(actual_row , actual_row,  0, 8,msg ,text_cell)
+            actual_row+=1  
+        actual_row+=2
+        worksheet.write_merge(actual_row , actual_row,  0, 3,"Condiciones de pago" ,c2bText_cell)
+        actual_row+=1
+        worksheet.write_merge(actual_row , actual_row,  0, 5,data.payment_term_id.name ,text_cell)
+        actual_row+=1
+        worksheet.write_merge(actual_row , actual_row,  3, 8, ,line)
+        actual_row+=1
+        worksheet.write_merge(actual_row , actual_row,  3, 8,"ING."+data.user_id.name ,text_cell)
         #worksheet.write(actual_row+2 , 10, "TOTAL",c2text_cell )
 
 

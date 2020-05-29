@@ -6,7 +6,7 @@ from odoo.tools.misc import clean_context
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, date
 from odoo import tools
 from odoo import api, fields, models
 from odoo import fields, models
@@ -519,7 +519,7 @@ class MailComposerTomcat(models.TransientModel):
         img = Image.open('/home/odoo/src/user/tomcat/static/src/img/colocaralcentro.png')
         r, g, b, a = img.split()
         img = Image.merge("RGB", (r, g, b))
-        img.thumbnail((165,165), Image.ANTIALIAS)
+        img.thumbnail((160,160), Image.ANTIALIAS)
         img = img.save('colocarcentro.bmp')
         worksheet.insert_bitmap('colocarcentro.bmp', 0,0,50,5)
         worksheet.merge(0,8,0,1)
@@ -534,7 +534,7 @@ class MailComposerTomcat(models.TransientModel):
         L = 'http://www.tomcat.mx'
         formula = 'HYPERLINK("{}", "{}")'.format(L, T)
         worksheet.write_merge(2 , 2,  2, 5, xlwt.Formula(formula),font_blue )
-        T = 'lily@tomcat.mx'
+        T = data.user_id.email
         formula = 'mailto:{}'.format(T)
         worksheet.write_merge(3 , 3,  2, 5, formula,font_blue )
         worksheet.write_merge(4 , 4,  2, 5, "Direccion",text_cell)
@@ -542,16 +542,19 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(6 , 6,  2, 5, "RFC",text_cell)
         worksheet.write_merge(7 , 7,  2, 5, "Regimen",text_cell)
         #Company_info
-
+        today = date.today()
+        # dd/mm/YY
+        d1 = today.strftime("%d/%m/%Y")
+      
         #Customer infor
         worksheet.write_merge(0 , 0,  6, 10, "Numero Cotización",header_blue )
-        worksheet.write_merge(1 , 1,  6, 10, "1119",ctext_cell )
+        worksheet.write_merge(1 , 1,  6, 10, data.name,ctext_cell )
         worksheet.write_merge(2 , 2,  6, 10, "Fecha",header_blue )
-        worksheet.write_merge(3 , 3,  6, 10, "06/03/2020",ctext_cell )
+        worksheet.write_merge(3 , 3,  6, 10, d1,ctext_cell )
         worksheet.write_merge(4 , 4,  6, 10, "EMPRESA",header_blue )
-        worksheet.write_merge(5 , 5,  6, 10, "Alfaro",ctext_cell )
+        worksheet.write_merge(5 , 5,  6, 10, data.partner_id.parent_id.name if data.partner_id.parent_id else data.partner_id.name ,ctext_cell )
         worksheet.write_merge(6 , 6,  6, 10, "Contacto",header_blue )
-        worksheet.write_merge(7 , 7,  6, 10, "Juanito",ctext_cell )
+        worksheet.write_merge(7 , 7,  6, 10, data.partner_id.name,ctext_cell )
         #Customer infor
                 
         

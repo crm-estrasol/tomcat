@@ -519,9 +519,9 @@ class MailComposerTomcat(models.TransientModel):
         img = Image.open('/home/odoo/src/user/tomcat/static/src/img/colocaralcentro.png')
         r, g, b, a = img.split()
         img = Image.merge("RGB", (r, g, b))
-        img.thumbnail((160,160), Image.ANTIALIAS)
+        img.thumbnail((155,155), Image.ANTIALIAS)
         img = img.save('colocarcentro.bmp')
-        worksheet.insert_bitmap('colocarcentro.bmp', 0,0,50,5)
+        worksheet.insert_bitmap('colocarcentro.bmp', 0,0,50,0)
         worksheet.merge(0,8,0,1)
         #IMAGEN
 
@@ -557,7 +557,38 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(7 , 7,  6, 10, data.partner_id.name,ctext_cell )
         #Customer infor
                 
+        worksheet.write_merge(9 , 9,  0, 1, "PROYECTO",header_blue )
+        worksheet.write_merge(9 , 9,  2, 10, data.name_proy,c2text_cell )
+
+        worksheet.write_merge(11 , 11,  0, 10, "DETALLE COTIZACIÓN",bHeader_blue )
         
+        worksheet.write(12 , 0,"",c2bText_cell)
+        worksheet.write(12 , 1, "Ubicación",c2bText_cell )
+        worksheet.write(12 , 2, "Sistema",c2bText_cell )
+        worksheet.write(12 , 3, "Marca",c2bText_cell )
+        worksheet.write(12 , 4, "Modelo",c2bText_cell )
+        worksheet.write_merge(12, 12,  5, 7, "Desxc",c2bText_cell )
+        worksheet.write(12 , 8, "Cantidad",c2bText_cell )
+        worksheet.write(12 , 9, "P. unitario",c2bText_cell )
+        worksheet.write(12 , 10, "P. total",c2bText_cell )
+        actual_row = 13
+        current_count =1    
+        
+        for item in order_data:
+            worksheet.write(actual_row , 0, current_count,c2bText_cell)
+            worksheet.write(actual_row , 1, item.ubication.name,c2bText_cell )
+            worksheet.write(actual_row , 2, item.project.name,c2bText_cell )
+            worksheet.write(actual_row , 3, item.product_id.brand.name,c2bText_cell )
+            worksheet.write(actual_row , 4, item.product_id.name,c2bText_cell )
+            worksheet.write_merge(actual_row, 12,  5, 7, "Desxc",c2bText_cell )
+            worksheet.write(actual_row , 8, "Cantidad",c2bText_cell )
+            worksheet.write(actual_row , 9, "P. unitario",c2bText_cell )
+            worksheet.write(actual_row , 10, "P. total",c2bText_cell )
+            actual_row+=1
+            current_count+=1
+
+
+
         
         
         

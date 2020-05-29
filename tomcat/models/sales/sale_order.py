@@ -492,7 +492,7 @@ class MailComposerTomcat(models.TransientModel):
         header_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;")
         bHeader_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;"+border) 
         font_blue = xlwt.easyxf("font: colour  blue;"+no_border)
-        text_cell = xlwt.easyxf("font:  height 230; "+no_border)
+        text_cell = xlwt.easyxf("font:  height 230;   align: vert center, horz center ; "+no_border)
         ctext_cell =  xlwt.easyxf("font:  height 230; align: horz center;"+no_border)
         c2text_cell =  xlwt.easyxf("font:  height 230; align: vert center, horz center ,wrap on;"+border)
         c2bText_cell =  xlwt.easyxf("font:  height 230 ,bold on; align: vert center, horz center ;"+border)
@@ -531,19 +531,26 @@ class MailComposerTomcat(models.TransientModel):
 
 
         #Company_info
-        worksheet.write_merge(0 , 0,  2, 5, "Cliente",header_bold)
-        worksheet.write_merge(1 , 1,  2, 5, "335465431",font_blue )
-        T = 'www.tomcat.mx'
-        L = 'http://www.tomcat.mx'
+        worksheet.write_merge(0 , 0,  2, 5, self.company_id.name,header_bold)
+        worksheet.write_merge(1 , 1,  2, 5,  self.company_id.phone,font_blue )
+        T =  self.company_id.website
+        L = 'http://'+ self.company_id.website
         formula = 'HYPERLINK("{}", "{}")'.format(L, T)
         worksheet.write_merge(2 , 2,  2, 5, xlwt.Formula(formula),font_blue )
         T = data.user_id.email
         formula = 'mailto:{}'.format(T)
         worksheet.write_merge(3 , 3,  2, 5, formula,font_blue )
-        worksheet.write_merge(4 , 4,  2, 5, "Direccion",text_cell)
-        worksheet.write_merge(5 , 5,  2, 5, "CP",text_cell)
-        worksheet.write_merge(6 , 6,  2, 5, "RFC",text_cell)
-        worksheet.write_merge(7 , 7,  2, 5, "Regimen",text_cell)
+        address =  "{} {} {} {} {}" .format(self.company_id.street,self.company_id.street2,self.company_id.city, self.company_id.state_id.name,self.company_id.country_id.name )
+        item_size =  len(address)
+        if item_size > 39:
+                worksheet.row(4).height_mismatch = True
+                row_col = worksheet.row(4)
+                size = int( (item_size / 39) + 1 ) 
+                row_col.height = 256 * size #characters 
+        worksheet.write_merge(4 , 4,  2, 5, address,text_cell)
+        worksheet.write_merge(5 , 5,  2, 5, self.company_id.zip,text_cell)
+        worksheet.write_merge(6 , 6,  2, 5, self.company_id.vat,text_cell)
+        worksheet.write_merge(7 , 7,  2, 5, self.company_registry,text_cell)
         #Company_info
         today = date.today()
         # dd/mm/YY

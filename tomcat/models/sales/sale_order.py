@@ -486,7 +486,7 @@ class MailComposerTomcat(models.TransientModel):
         border = """borders: top_color black, bottom_color black, right_color black, left_color black,
                                     left thin, right thin, top thin, bottom thin;"""
         header_bold = xlwt.easyxf("""
-                                    font: bold on; pattern: pattern solid, fore_colour white; 
+                                    font: bold on; pattern: pattern solid, fore_colour white; align: vert center, horz center ,wrap on;
                                     """+no_border)
         header_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;")
         bHeader_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;"+border) 
@@ -601,10 +601,18 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write(actual_row , 6, "Moneda",bHeader_blue )
         worksheet.write_merge(actual_row , actual_row,  7, 10, "Total",bHeader_blue )
         actual_row+=1
-        worksheet.write_merge(actual_row , actual_row+2,  0, 5, "", header_bold)
+        worksheet.write_merge(actual_row , actual_row+2,  0, 5, "descp", header_bold)
         worksheet.write_merge(actual_row , actual_row+2,  6, 6, "Cambio", header_bold)
-       
-
+        
+        worksheet.write(actual_row , 7, "SUB TOTAactual_rowL",c2text_cell )
+        worksheet.write_merge(actual_row ,actual_row ,  8, 10, "0",c2text_cell )
+        
+        worksheet.write(actual_row+1 , 7, "IVA 16%",c2text_cell )
+        worksheet.write_merge(actual_row+1 ,actual_row+1 ,  8, 10, "1",c2text_cell )
+        
+        worksheet.write(actual_row+2 , 7, "TOTAL",c2text_cell )
+        worksheet.write_merge(actual_row+2 ,actual_row+2 ,  8, 10, "2",c2text_cell )
+            
 
 
 

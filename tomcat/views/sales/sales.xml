@@ -65,6 +65,7 @@
                             <group>
                                 <group  string="Formato">
                                      <field name="print_options" widget="selection"/> 
+                                    <field name="excel" /> 
                                 </group>
                                 <group  string="Modelo cliente">
                                      <field name="client_model"/> 

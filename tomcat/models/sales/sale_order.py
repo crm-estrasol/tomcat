@@ -35,6 +35,7 @@ class TomCatSaleOrder(models.Model):
                                                 ('only_complete', 'Completo') , ('complete_price', 'Completo precio unitario'), ('no_brandModel','Sin marca y modelo') ,
                                                 ('without_price', 'Sin precios'),('subtotal_system', 'Solo con subtotal por sistema')], string='Formato pdf', copy=False, default='only_complete')
     client_model = fields.Boolean( string='Modelo cliente')
+    excel = fields.Boolean( string='Formato excel')
     
     @api.model
     def create(self, values):
@@ -473,7 +474,7 @@ class TomCatSaleOrder(models.Model):
         }
         attachment_ids.append(Attachment.create(data_attach).id)
         
-        ctx['default_excel'] = True
+        ctx['default_excel'] = True if self.excel else False
         ctx['default_attachment_ids'] = [(6, 0, attachment_ids) ]
         values['context'] = ctx 
         return values 

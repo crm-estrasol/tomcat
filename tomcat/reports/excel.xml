@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="mail.email_compose_message_wizard_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='active_domain']" position="after">
-                 <field name="excel"/>
+                 <field name="excel" invisible="1"/>
             </xpath>
            
         </field>

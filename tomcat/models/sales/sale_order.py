@@ -531,16 +531,16 @@ class MailComposerTomcat(models.TransientModel):
 
 
         #Company_info
-        worksheet.write_merge(0 , 0,  2, 5, self.company_id.name,header_bold)
-        worksheet.write_merge(1 , 1,  2, 5,  self.company_id.phone,font_blue )
-        T =  self.company_id.website
-        L = 'http://'+ self.company_id.website
+        worksheet.write_merge(0 , 0,  2, 5, self.env.user.company_id.name,header_bold)
+        worksheet.write_merge(1 , 1,  2, 5,  self.env.user.company_id.phone,font_blue )
+        T =  self.env.user.company_id.website
+        L = 'http://'+ self.env.user.company_id.website
         formula = 'HYPERLINK("{}", "{}")'.format(L, T)
         worksheet.write_merge(2 , 2,  2, 5, xlwt.Formula(formula),font_blue )
         T = data.user_id.email
         formula = 'mailto:{}'.format(T)
         worksheet.write_merge(3 , 3,  2, 5, formula,font_blue )
-        address =  "{} {} {} {} {} {}" .format(self.company_id.street,self.company_id.street_number2, self.company_id.street2,self.company_id.city, self.company_id.state_id.name,self.company_id.country_id.name )
+        address =  "{} {} {} {} {} {}" .format(self.env.user.company_id.street,self.env.user.company_id.street_number2, self.env.user.company_id.street2,self.env.user.company_id.city, self.env.user.company_id.state_id.name,self.env.user.company_id.country_id.name )
         item_size =  len(address)
         if item_size > 39:
                 worksheet.row(4).height_mismatch = True
@@ -548,8 +548,8 @@ class MailComposerTomcat(models.TransientModel):
                 size = int( (item_size / 39) + 1 ) 
                 row_col.height = 256 * size #characters 
         worksheet.write_merge(4 , 4,  2, 5, address,text_cell)
-        worksheet.write_merge(5 , 5,  2, 5, self.company_id.zip,text_cell)
-        worksheet.write_merge(6 , 6,  2, 5, self.company_id.vat,text_cell)
+        worksheet.write_merge(5 , 5,  2, 5, self.env.user.company_id.zip,text_cell)
+        worksheet.write_merge(6 , 6,  2, 5, self.env.user.company_id.vat,text_cell)
         worksheet.write_merge(7 , 7,  2, 5, self.company_registry,text_cell)
         #Company_info
         today = date.today()

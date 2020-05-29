@@ -595,6 +595,15 @@ class MailComposerTomcat(models.TransientModel):
                 row_col.height = 256 * size #characters 
             actual_row+=1
             current_count+=1
+        
+        actual_row+=1
+        worksheet.write_merge(actual_row , actual_row,  0, 5, "OBSERVACIONES",bHeader_blue )
+        worksheet.write(actual_row , 6, "Moneda",bHeader_blue )
+        worksheet.write_merge(actual_row , actual_row,  7, 10, "Total",bHeader_blue )
+        actual_row+=1
+        worksheet.write_merge(actual_row , actual_row+2,  0, 5, "", header_bold)
+        worksheet.write_merge(actual_row , actual_row+2,  6, 6, "Cambio", header_bold)
+       
 
 
 

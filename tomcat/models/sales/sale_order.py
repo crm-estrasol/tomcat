@@ -26,6 +26,8 @@ import xlwt
 import base64
 from io import BytesIO
 
+from PIL import Image
+
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
@@ -454,7 +456,7 @@ class MailComposerTomcat(models.TransientModel):
         attachment_ids = []
         Attachment = self.env['ir.attachment']     
         data_attach = {
-                'name': "cotz.xls",
+                'name': data.name+'.xls',
                 'datas': base64.encodestring( fp.getvalue()) ,
                 'res_model': 'mail.compose.message',
                 'res_id': 0,
@@ -469,7 +471,77 @@ class MailComposerTomcat(models.TransientModel):
     def create_book(self,data, order_data):
         workbook = xlwt.Workbook(encoding='utf-8')
         worksheet = workbook.add_sheet(data.name)
-        worksheet.write_merge(0 , 0,  2, 5, "Cliente")
+        #COLORS 
+        xlwt.add_palette_colour("low_white_t", 0x21)
+        workbook.set_colour_RGB(0x21, 251, 228, 228)
+        #COLORS 
+        #MODEDA
+        currency_style = xlwt.XFStyle()
+        currency_style.num_format_str = "[$$-409]#,##0.00;-[$$-409]#,##0.00"
+        #MODEDA
+        #---------STYLES
+        no_border = """borders: top_color white, bottom_color white, right_color white, left_color white,
+                                    left thin, right thin, top thin, bottom thin;"""
+        border = """borders: top_color black, bottom_color black, right_color black, left_color black,
+                                    left thin, right thin, top thin, bottom thin;"""
+        header_bold = xlwt.easyxf("""
+                                    font: bold on; pattern: pattern solid, fore_colour white; 
+                                    """+no_border)
+        header_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;")
+        bHeader_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;"+border) 
+        font_blue = xlwt.easyxf("font: colour  blue;"+no_border)
+        text_cell = xlwt.easyxf("font:  height 230; "+no_border)
+        ctext_cell =  xlwt.easyxf("font:  height 230; align: horz center;"+no_border)
+        c2text_cell =  xlwt.easyxf("font:  height 230; align: horz center;"+border)
+        c2bText_cell =  xlwt.easyxf("font:  height 230 ,bold on; align: vert center, horz center ;"+border)
+        #---------STYLES
+        #--- adjust columns
+        #worksheet.write_merge(6, 6, 3, 3,'Pass')
+        worksheet = workbook.add_sheet('Testing')
+        first_col = worksheet.col(0)
+        first_col.width = 256 * 7 #characters 
+        second_col = worksheet.col(1)
+        second_col.width = 256 * 30 #characters 
+        worksheet.row(10).height_mismatch = True
+        row_table = worksheet.row(10)
+        row_table.height = 200 * 1 #characters 
+        worksheet.row(12).height_mismatch = True
+        row_col = worksheet.row(12)
+        row_col.height = 256 * 2 #characters 
+        #--- adjust columns        
+        
+        #Company_info
+        worksheet.write_merge(0 , 0,  2, 5, "Cliente",header_bold)
+        worksheet.write_merge(1 , 1,  2, 5, "335465431",font_blue )
+        T = 'www.tomcat.mx'
+        L = 'http://www.tomcat.mx'
+        formula = 'HYPERLINK("{}", "{}")'.format(L, T)
+        worksheet.write_merge(2 , 2,  2, 5, xlwt.Formula(formula),font_blue )
+        T = 'lily@tomcat.mx'
+        formula = 'mailto:{}'.format(T)
+        worksheet.write_merge(3 , 3,  2, 5, formula,font_blue )
+        worksheet.write_merge(4 , 4,  2, 5, "Direccion",text_cell)
+        worksheet.write_merge(5 , 5,  2, 5, "CP",text_cell)
+        worksheet.write_merge(6 , 6,  2, 5, "RFC",text_cell)
+        worksheet.write_merge(7 , 7,  2, 5, "Regimen",text_cell)
+        #Company_info
+
+        #Customer infor
+        worksheet.write_merge(0 , 0,  6, 10, "Numero Cotización",header_blue )
+        worksheet.write_merge(1 , 1,  6, 10, "1119",ctext_cell )
+        worksheet.write_merge(2 , 2,  6, 10, "Fecha",header_blue )
+        worksheet.write_merge(3 , 3,  6, 10, "06/03/2020",ctext_cell )
+        worksheet.write_merge(4 , 4,  6, 10, "EMPRESA",header_blue )
+        worksheet.write_merge(5 , 5,  6, 10, "Alfaro",ctext_cell )
+        worksheet.write_merge(6 , 6,  6, 10, "Contacto",header_blue )
+        worksheet.write_merge(7 , 7,  6, 10, "Juanito",ctext_cell )
+        #Customer infor
+                
+        
+        
+        
+        
+        
         fp =  BytesIO()
         workbook.save(fp)
        

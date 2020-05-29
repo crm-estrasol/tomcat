@@ -587,8 +587,16 @@ class MailComposerTomcat(models.TransientModel):
             #Pendiente formato precios
             worksheet.write(actual_row , 9, item.price_unit,c2text_cell  )
             worksheet.write(actual_row , 10, item.price_total,c2text_cell  )
+            item_size =  len(item.name)
+            if item_size > 19:
+                worksheet.row(actual_row).height_mismatch = True
+                row_col = worksheet.row(actual_row)
+                size = int( (item_size / 20) + 1 ) 
+                row_col.height = 256 * size #characters 
             actual_row+=1
             current_count+=1
+
+
 
 
 

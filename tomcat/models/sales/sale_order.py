@@ -622,8 +622,22 @@ class MailComposerTomcat(models.TransientModel):
         
         worksheet.write(actual_row+2 , 7, "TOTAL",c2text_cell )
         worksheet.write_merge(actual_row+2 ,actual_row+2 ,  8, 10, data.amount_total,c2text_cellMoney )
-            
+        #
+        actual_row +=3    
+        worksheet.write( actual_row, 0, "NOTAS", c2bText_cell )
+        quaranty = [
+                    "GARANTÍA DE INSTALACIÓN 1 AÑO ",
+                    "GARANTÍA DE LOS EQUIPOS DE 1 A 3 AÑOS ",
+                    "GARANTÍA EN PROGRAMACIÓN DE POR VIDA ",
+                    "ALMACENAMIENTO Y SEGURO DE EQUIPO PREVIO A INSTALACIÓN INCLUIDO",
+                    "SEGURO DE RESPONSABILIDAD CIVIL POR $3 MILLONES DE PESOS ",
+                    "PUEDE SER PAGADO EN DÓLARES AMERICANOS POR TRANSFERENCIA ELECTRÓNICA O EN MONEDA NACIONAL AL TIPO DE CAMBIO DE VENTA DEL BANCO BANORTE",
+                    "EN ESTA PROPUESTA NO SE CONSIDERA OBRA CIVIL",
+                    "ESTA COTIZACIÓN EXPIRA EN {}".format( data.validity_date.strftime("%d/%m/%Y") ) 
 
+                    ]    
+        
+        #worksheet.write(actual_row+2 , 10, "TOTAL",c2text_cell )
 
 
 

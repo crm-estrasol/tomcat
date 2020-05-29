@@ -497,7 +497,7 @@ class MailComposerTomcat(models.TransientModel):
         #---------STYLES
         #--- adjust columns
         #worksheet.write_merge(6, 6, 3, 3,'Pass')
-        worksheet = workbook.add_sheet('Testing')
+     
         first_col = worksheet.col(0)
         first_col.width = 256 * 7 #characters 
         second_col = worksheet.col(1)
@@ -510,6 +510,19 @@ class MailComposerTomcat(models.TransientModel):
         row_col.height = 256 * 2 #characters 
         #--- adjust columns        
         
+        
+        #IMAGEN
+        img = Image.open("tomcat/static/src/img/colocaralcentro.png")
+        r, g, b, a = img.split()
+        img = Image.merge("RGB", (r, g, b))
+        img.thumbnail((165,165), Image.ANTIALIAS)
+        img = img.save('colocarcentro.bmp')
+        worksheet.insert_bitmap('colocarcentro.bmp', 0,0,50,5)
+        worksheet.merge(0,8,0,1)
+        #IMAGEN
+
+
+
         #Company_info
         worksheet.write_merge(0 , 0,  2, 5, "Cliente",header_bold)
         worksheet.write_merge(1 , 1,  2, 5, "335465431",font_blue )

@@ -27,6 +27,7 @@ import base64
 from io import BytesIO
 
 from PIL import Image
+import os.path
 
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
@@ -512,7 +513,10 @@ class MailComposerTomcat(models.TransientModel):
         
         
         #IMAGEN
-        img = Image.open("tomcat/static/src/img/colocaralcentro.png")
+        
+        script_dir = os.path.dirname(os.path.abspath('colocaralcentro.png'))
+        im = os.path.join(script_dir, 'colocaralcentro.png')
+        img = Image.open(im)
         r, g, b, a = img.split()
         img = Image.merge("RGB", (r, g, b))
         img.thumbnail((165,165), Image.ANTIALIAS)

@@ -314,13 +314,14 @@
                                   <p> PUEDE SER PAGADO EN DOLARES AMERICANOS POR TRANSFERENCIA ELECTRÓNICA O EN MONEDA NACIONAL AL TIPO DE CAMBIO
                                     DE VENTA DEL BANCO BANORTE </p>
                                   <p> EN ESTA PROPUESTA NO SE CONSIDERA OBRA CIVIL
-                                    VIGENCIA DE ESTA COTIZACIÓN DE 15 DÍAS </p>
+                                    VIGENCIA DE ESTA COTIZACIÓN  <t t-esc="doc.validity_date.strftime('%d/%m/%Y')"/> </p>
+                                   
                               <h2> CONDICIONES DE PAGO</h2> 
-                              <p>50% DE ANTICIPO, EL RESTANTE CONFORME DE AVANCE DE OBRA</p>
+                                    <p> <t t-esc="doc.payment_term_id.name"/> </p>
                                 </div>
                               
                               </div>
-
+                           
 
                       </div>
                              

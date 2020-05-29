@@ -495,6 +495,7 @@ class MailComposerTomcat(models.TransientModel):
         ctext_cell =  xlwt.easyxf("font:  height 230; align: horz center;"+no_border)
         c2text_cell =  xlwt.easyxf("font:  height 230; align: horz center;"+border)
         c2bText_cell =  xlwt.easyxf("font:  height 230 ,bold on; align: vert center, horz center ;"+border)
+    
         #---------STYLES
         #--- adjust columns
         #worksheet.write_merge(6, 6, 3, 3,'Pass')
@@ -575,15 +576,16 @@ class MailComposerTomcat(models.TransientModel):
         current_count =1    
         
         for item in order_data:
-            worksheet.write(actual_row , 0, current_count,c2bText_cell)
-            worksheet.write(actual_row , 1, item.ubication.name,c2bText_cell )
-            worksheet.write(actual_row , 2, item.project.name,c2bText_cell )
-            worksheet.write(actual_row , 3, item.product_id.brand.name,c2bText_cell )
-            worksheet.write(actual_row , 4, item.product_id.name,c2bText_cell )
-            worksheet.write_merge(actual_row, actual_row,  5, 7, "Desxc",c2bText_cell )
-            worksheet.write(actual_row , 8, "Cantidad",c2bText_cell )
-            worksheet.write(actual_row , 9, "P. unitario",c2bText_cell )
-            worksheet.write(actual_row , 10, "P. total",c2bText_cell )
+            worksheet.write(actual_row , 0, current_count,c2text_cell)
+            worksheet.write(actual_row , 1, item.ubication.name,c2text_cell )
+            worksheet.write(actual_row , 2, item.project.name,c2text_cell )
+            worksheet.write(actual_row , 3, item.product_id.brand.name,c2text_cell )
+            worksheet.write(actual_row , 4, item.product_id.name,c2text_cell )
+            worksheet.write_merge(actual_row, actual_row,  5, 7, item.name,c2text_cell )
+            worksheet.write(actual_row , 8, item.product_uom_qty ,c2text_cell )
+            #Pendiente formato precios
+            worksheet.write(actual_row , 9, item.price_unit,c2text_cell  )
+            worksheet.write(actual_row , 10, item.price_total,c2text_cell  )
             actual_row+=1
             current_count+=1
 

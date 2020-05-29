@@ -540,7 +540,7 @@ class MailComposerTomcat(models.TransientModel):
         T = data.user_id.email
         formula = 'mailto:{}'.format(T)
         worksheet.write_merge(3 , 3,  2, 5, formula,font_blue )
-        address =  "{} {} {} {} {} {}" .format(self.company_id.street,(self.company_id.street_number2, self.company_id.street2,self.company_id.city, self.company_id.state_id.name,self.company_id.country_id.name )
+        address =  "{} {} {} {} {} {}" .format(self.company_id.street,self.company_id.street_number2, self.company_id.street2,self.company_id.city, self.company_id.state_id.name,self.company_id.country_id.name )
         item_size =  len(address)
         if item_size > 39:
                 worksheet.row(4).height_mismatch = True

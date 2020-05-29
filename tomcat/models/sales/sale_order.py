@@ -649,7 +649,7 @@ class MailComposerTomcat(models.TransientModel):
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  0, 5,data.payment_term_id.name ,text_cell)
         actual_row+=1
-        worksheet.write_merge(actual_row , actual_row,  3, 8, ,line)
+        worksheet.write_merge(actual_row , actual_row,  3, 8,  "",line)
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  3, 8,"ING."+data.user_id.name ,text_cell)
         #worksheet.write(actual_row+2 , 10, "TOTAL",c2text_cell )

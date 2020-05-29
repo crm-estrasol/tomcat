@@ -546,7 +546,7 @@ class MailComposerTomcat(models.TransientModel):
                 worksheet.row(4).height_mismatch = True
                 row_col = worksheet.row(4)
                 size = int( (item_size / 30) + 1 ) 
-                row_col.height = 270 * size #characters 
+                row_col.height = 300 * size #characters 
         worksheet.write_merge(4 , 4,  2, 5, address,text_cell)
         worksheet.write_merge(5 , 5,  2, 5, self.env.user.company_id.zip,text_cell)
         worksheet.write_merge(6 , 6,  2, 5, self.env.user.company_id.vat,text_cell)
@@ -601,7 +601,7 @@ class MailComposerTomcat(models.TransientModel):
                 worksheet.row(actual_row).height_mismatch = True
                 row_col = worksheet.row(actual_row)
                 size = int( (item_size / 20) + 1 ) 
-                row_col.height = 270 * size #characters 
+                row_col.height = 300 * size #characters 
             actual_row+=1
             current_count+=1
         

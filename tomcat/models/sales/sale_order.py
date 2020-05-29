@@ -368,91 +368,7 @@ class TomCatSaleOrder(models.Model):
             ubications.append(item)
 
         return ubications
-    def export_xls(self, data, token):
-        jdata = json.loads(data)
-        workbook = xlwt.Workbook()
-        worksheet = workbook.add_sheet("titulo")
-        header_bold = xlwt.easyxf("font: bold on; pattern: pattern solid, fore_colour gray25;")
-        header_plain = xlwt.easyxf("pattern: pattern solid, fore_colour gray25;")
-        bold = xlwt.easyxf("font: bold on;")
-
-        measure_count = jdata['measure_count']
-        origin_count = jdata['origin_count']
-
-        # Step 1: writing col group headers
-        col_group_headers = jdata['col_group_headers']
-
-        # x,y: current coordinates
-        # carry: queue containing cell information when a cell has a >= 2 height
-        #      and the drawing code needs to add empty cells below
-        x, y, carry = 1, 0, deque()
-        for i, header_row in enumerate(col_group_headers):
-            worksheet.write(i, 0, '', header_plain)
-            for header in header_row:
-                while (carry and carry[0]['x'] == x):
-                    cell = carry.popleft()
-                    for j in range(measure_count * (2 * origin_count - 1)):
-                        worksheet.write(y, x+j, '', header_plain)
-                    if cell['height'] > 1:
-                        carry.append({'x': x, 'height': cell['height'] - 1})
-                    x = x + measure_count * (2 * origin_count - 1)
-                for j in range(header['width']):
-                    worksheet.write(y, x + j, header['title'] if j == 0 else '', header_plain)
-                if header['height'] > 1:
-                    carry.append({'x': x, 'height': header['height'] - 1})
-                x = x + header['width']
-            while (carry and carry[0]['x'] == x):
-                cell = carry.popleft()
-                for j in range(measure_count * (2 * origin_count - 1)):
-                    worksheet.write(y, x+j, '', header_plain)
-                if cell['height'] > 1:
-                    carry.append({'x': x, 'height': cell['height'] - 1})
-                x = x + measure_count * (2 * origin_count - 1)
-            x, y = 1, y + 1
-
-        # Step 2: writing measure headers
-        measure_headers = jdata['measure_headers']
-
-        if measure_headers:
-            worksheet.write(y, 0, '', header_plain)
-            for measure in measure_headers:
-                style = header_bold if measure['is_bold'] else header_plain
-                worksheet.write(y, x, measure['title'], style)
-                for i in range(1, 2 * origin_count - 1):
-                    worksheet.write(y, x+i, '', header_plain)
-                x = x + (2 * origin_count - 1)
-            x, y = 1, y + 1
-
-        # Step 3: writing origin headers
-        origin_headers = jdata['origin_headers']
-
-        if origin_headers:
-            worksheet.write(y, 0, '', header_plain)
-            for origin in origin_headers:
-                style = header_bold if origin['is_bold'] else header_plain
-                worksheet.write(y, x, origin['title'], style)
-                x = x + 1
-            y = y + 1
-
-        # Step 4: writing data
-        x = 0
-        for row in jdata['rows']:
-            worksheet.write(y, x, row['indent'] * '     ' + ustr(row['title']), header_plain)
-            for cell in row['values']:
-                x = x + 1
-                if cell.get('is_bold', False):
-                    worksheet.write(y, x, cell['value'], bold)
-                else:
-                    worksheet.write(y, x, cell['value'])
-            x, y = 0, y + 1
-
-        response = request.make_response(None,
-            headers=[('Content-Type', 'application/vnd.ms-excel'),
-                    ('Content-Disposition', 'attachment; filename=table.xls')],
-            cookies={'fileToken': token})
-        workbook.save(response.stream)
-
-        return response
+   
     def action_quotation_send(self):
         values = super(TomCatSaleOrder, self).action_quotation_send()
         ctx = values['context']
@@ -478,6 +394,13 @@ class TomCatSaleOrder(models.Model):
         ctx['default_attachment_ids'] = [(6, 0, attachment_ids) ]
         values['context'] = ctx 
         return values 
+    #excel
+    def get_order_data(self):
+        ids = self.order_line.ids
+        items = self.env['sale.order.line'].search([('id','in',ids)] , order='project asc, ubication asc ,name asc ')
+        items = items.filtered(lambda x: x.product_id.type != 'service' and x.product_id.service_tracking != 'project_only' )
+        return items 
+
 
 
 
@@ -521,23 +444,33 @@ class MailComposerTomcat(models.TransientModel):
     def onchange_template_id_wrapper(self):
         super(MailComposerTomcat, self).onchange_template_id_wrapper()
         if self.excel:
-            workbook = xlwt.Workbook(encoding='utf-8')
-            worksheet = workbook.add_sheet('Testing')
-            worksheet.write_merge(0 , 0,  2, 5, "Cliente")
-            fp =  BytesIO()
-            workbook.save(fp)
-            values = {}
-            attachment_ids = []
-            Attachment = self.env['ir.attachment']     
-            data_attach = {
-                    'name': "cotz.xls",
-                    'datas': base64.encodestring( fp.getvalue()) ,
-                    'res_model': 'mail.compose.message',
-                    'res_id': 0,
-                    'type': 'binary', 
-            }
-            attachment_ids.append(Attachment.create(data_attach).id)
-            values['attachment_ids'] = [(6, 0, attachment_ids) ]
-            values = self._convert_to_write(values)
-            #Attch + xls
-            setattr(self, 'attachment_ids', [(6, 0, [x.id for x in self.attachment_ids] + attachment_ids) ])
+            self.excel_format()
+           
+    def excel_format(self):
+        data = self.env['sale.order'].search( [('id','=',self.res_id)] )
+        order_data = data.get_order_data()
+        fp  = self.create_book(data,order_data)
+        values = {}
+        attachment_ids = []
+        Attachment = self.env['ir.attachment']     
+        data_attach = {
+                'name': "cotz.xls",
+                'datas': base64.encodestring( fp.getvalue()) ,
+                'res_model': 'mail.compose.message',
+                'res_id': 0,
+                'type': 'binary', 
+        }
+        attachment_ids.append(Attachment.create(data_attach).id)
+        values['attachment_ids'] = [(6, 0, attachment_ids) ]
+        values = self._convert_to_write(values)
+        #Attch + xls
+        setattr(self, 'attachment_ids', [(6, 0, [x.id for x in self.attachment_ids] + attachment_ids) ])
+    
+    def create_book(self,data, order_data):
+        workbook = xlwt.Workbook(encoding='utf-8')
+        worksheet = workbook.add_sheet(data.name)
+        worksheet.write_merge(0 , 0,  2, 5, "Cliente")
+        fp =  BytesIO()
+        workbook.save(fp)
+       
+        return fp

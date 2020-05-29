@@ -500,6 +500,7 @@ class MailComposerTomcat(models.TransientModel):
         c2text_cellMoney.num_format_str = "[$$-409]#,##0.00;-[$$-409]#,##0.00"
         line = xlwt.easyxf( """borders: top_color white, bottom_color black, right_color white, left_color white,
                                     left thin, right thin, top thin, bottom thin;""")
+        text_cellLast = xlwt.easyxf("font:  height 230;   align: align: vert center, horz center, wrap on ; "+no_border)
         #---------STYLES
         #--- adjust columns
         #worksheet.write_merge(6, 6, 3, 3,'Pass')
@@ -651,7 +652,7 @@ class MailComposerTomcat(models.TransientModel):
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  3, 8,  "",line)
         actual_row+=1
-        worksheet.write_merge(actual_row , actual_row,  3, 8,"ING."+data.user_id.name ,text_cell)
+        worksheet.write_merge(actual_row , actual_row,  3, 8,"ING."+data.user_id.name ,text_cellLast)
         #worksheet.write(actual_row+2 , 10, "TOTAL",c2text_cell )
 
 

@@ -580,7 +580,7 @@ class MailComposerTomcat(models.TransientModel):
             worksheet.write(actual_row , 2, item.project.name,c2bText_cell )
             worksheet.write(actual_row , 3, item.product_id.brand.name,c2bText_cell )
             worksheet.write(actual_row , 4, item.product_id.name,c2bText_cell )
-            worksheet.write_merge(actual_row, 12,  5, 7, "Desxc",c2bText_cell )
+            worksheet.write_merge(actual_row, actual_row,  5, 7, "Desxc",c2bText_cell )
             worksheet.write(actual_row , 8, "Cantidad",c2bText_cell )
             worksheet.write(actual_row , 9, "P. unitario",c2bText_cell )
             worksheet.write(actual_row , 10, "P. total",c2bText_cell )

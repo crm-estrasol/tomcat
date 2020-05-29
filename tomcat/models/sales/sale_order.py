@@ -646,7 +646,7 @@ class MailComposerTomcat(models.TransientModel):
             worksheet.write_merge(actual_row , actual_row,  0, 8,msg ,text_cell)
             actual_row+=1  
         actual_row+=2
-        worksheet.write_merge(actual_row , actual_row,  0, 3,"Condiciones de pago" ,c2bText_cell)
+        worksheet.write_merge(actual_row , actual_row,  0, 5,"Condiciones de pago" ,c2bText_cell)
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  0, 5,data.payment_term_id.name ,text_cell)
         actual_row+=1

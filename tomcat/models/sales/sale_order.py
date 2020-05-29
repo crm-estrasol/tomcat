@@ -474,7 +474,8 @@ class MailComposerTomcat(models.TransientModel):
         worksheet = workbook.add_sheet(data.name)
         #COLORS 
         xlwt.add_palette_colour("low_white_t", 0x21)
-        workbook.set_colour_RGB(0x21, 251, 228, 228)
+        
+        workbook.set_colour_RGB(0x21, 222, 234, 246)
         #COLORS 
         #MODEDA
         currency_style = xlwt.XFStyle()
@@ -606,13 +607,13 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(actual_row , actual_row+2,  6, 6, data.currency_id.name, c2text_cell)
         
         worksheet.write(actual_row , 7, "SUB TOTAl",c2text_cell )
-        worksheet.write_merge(actual_row ,actual_row ,  8, 10, data.amount_untaxed,c2text_cell )
+        worksheet.write_merge(actual_row ,actual_row ,  8, 10, data.amount_untaxed,c2text_cellMoney )
         
         worksheet.write(actual_row+1 , 7, "IVA 16%",c2text_cell )
-        worksheet.write_merge(actual_row+1 ,actual_row+1 ,  8, 10, data.amount_tax,c2text_cell )
+        worksheet.write_merge(actual_row+1 ,actual_row+1 ,  8, 10, data.amount_tax,c2text_cellMoney )
         
         worksheet.write(actual_row+2 , 7, "TOTAL",c2text_cell )
-        worksheet.write_merge(actual_row+2 ,actual_row+2 ,  8, 10, data.amount_total,c2text_cell )
+        worksheet.write_merge(actual_row+2 ,actual_row+2 ,  8, 10, data.amount_total,c2text_cellMoney )
             
 
 

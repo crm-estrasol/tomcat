@@ -493,7 +493,7 @@ class MailComposerTomcat(models.TransientModel):
         font_blue = xlwt.easyxf("font: colour  blue;"+no_border)
         text_cell = xlwt.easyxf("font:  height 230; "+no_border)
         ctext_cell =  xlwt.easyxf("font:  height 230; align: horz center;"+no_border)
-        c2text_cell =  xlwt.easyxf("font:  height 230; align: horz center,wrap on;"+border)
+        c2text_cell =  xlwt.easyxf("font:  height 230; align: vert center, horz center ,wrap on;"+border)
         c2bText_cell =  xlwt.easyxf("font:  height 230 ,bold on; align: vert center, horz center ;"+border)
     
         #---------STYLES
@@ -568,7 +568,7 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write(12 , 2, "Sistema",c2bText_cell )
         worksheet.write(12 , 3, "Marca",c2bText_cell )
         worksheet.write(12 , 4, "Modelo",c2bText_cell )
-        worksheet.write_merge(12, 12,  5, 7, "Desxc",c2bText_cell )
+        worksheet.write_merge(12, 12,  5, 7, "Descripción",c2bText_cell )
         worksheet.write(12 , 8, "Cantidad",c2bText_cell )
         worksheet.write(12 , 9, "P. unitario",c2bText_cell )
         worksheet.write(12 , 10, "P. total",c2bText_cell )

@@ -495,7 +495,8 @@ class MailComposerTomcat(models.TransientModel):
         ctext_cell =  xlwt.easyxf("font:  height 230; align: horz center;"+no_border)
         c2text_cell =  xlwt.easyxf("font:  height 230; align: vert center, horz center ,wrap on;"+border)
         c2bText_cell =  xlwt.easyxf("font:  height 230 ,bold on; align: vert center, horz center ;"+border)
-    
+        c2text_cellMoney = xlwt.easyxf("font:  height 230 ,bold on; align: vert center, horz center ;"+border)
+        c2text_cellMoney.num_format_str = "[$$-409]#,##0.00;-[$$-409]#,##0.00"
         #---------STYLES
         #--- adjust columns
         #worksheet.write_merge(6, 6, 3, 3,'Pass')
@@ -585,8 +586,8 @@ class MailComposerTomcat(models.TransientModel):
             #Ajustar tamaño renglon 
             worksheet.write(actual_row , 8, item.product_uom_qty ,c2text_cell )
             #Pendiente formato precios
-            worksheet.write(actual_row , 9, item.price_unit,c2text_cell  )
-            worksheet.write(actual_row , 10, item.price_total,c2text_cell  )
+            worksheet.write(actual_row , 9, item.price_unit,c2text_cellMoney  )
+            worksheet.write(actual_row , 10, item.price_total,c2text_cellMoney  )
             item_size =  len(item.name)
             if item_size > 19:
                 worksheet.row(actual_row).height_mismatch = True
@@ -601,10 +602,10 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write(actual_row , 6, "Moneda",bHeader_blue )
         worksheet.write_merge(actual_row , actual_row,  7, 10, "Total",bHeader_blue )
         actual_row+=1
-        worksheet.write_merge(actual_row , actual_row+2,  0, 5, "descp", header_bold)
-        worksheet.write_merge(actual_row , actual_row+2,  6, 6, "Cambio", header_bold)
+        worksheet.write_merge(actual_row , actual_row+2,  0, 5, "descp", c2text_cell)
+        worksheet.write_merge(actual_row , actual_row+2,  6, 6, "Cambio", c2text_cell)
         
-        worksheet.write(actual_row , 7, "SUB TOTAactual_rowL",c2text_cell )
+        worksheet.write(actual_row , 7, "SUB TOTAl",c2text_cell )
         worksheet.write_merge(actual_row ,actual_row ,  8, 10, "0",c2text_cell )
         
         worksheet.write(actual_row+1 , 7, "IVA 16%",c2text_cell )

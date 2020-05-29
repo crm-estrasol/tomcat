@@ -601,7 +601,8 @@ class MailComposerTomcat(models.TransientModel):
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  0, 5, "OBSERVACIONES",bHeader_blue )
         worksheet.write(actual_row , 6, "Moneda",bHeader_blue )
-        worksheet.write_merge(actual_row , actual_row,  7, 10, "Total",bHeader_blue )
+        worksheet.write(actual_row , 7, "",bHeader_blue )
+        worksheet.write_merge(actual_row , actual_row,  8, 10, "Total",bHeader_blue )
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row+2,  0, 5, "Descripción", c2text_cell)
         worksheet.write_merge(actual_row , actual_row+2,  6, 6, data.currency_id.name, c2text_cell)

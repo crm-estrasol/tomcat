@@ -45,7 +45,7 @@ class TomCatSaleOrder(models.Model):
         states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
         required=True, change_default=True, index=True, tracking=1,
         domain="['&','|', ('company_id', '=', False), ('company_id', '=', company_id),('id', 'in', partner_avaible)]",)
-    porcent = fields.Monetary(compute='_product_porcent', help="It gives profitability by calculating the difference between the Unit Price and the cost.", currency_field='currency_id', store=True)
+    #porcent = fields.Monetary(compute='_product_porcent', help="It gives profitability by calculating the difference between the Unit Price and the cost.", currency_field='currency_id', store=True)
     
     @api.model
     def create(self, values):
@@ -418,7 +418,7 @@ class TomCatSaleOrder(models.Model):
         self.partner_shipping_id = False
 
   
-
+    """
     @api.depends('order_line.margin','order_line.price_subtotal')
     def _product_procent(self):
         for order in self:
@@ -429,7 +429,7 @@ class TomCatSaleOrder(models.Model):
                 discount_real = 1 - disct
                 total += order_line.price_subtotal / discount_real
             order.porcent = total 
-
+    """
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

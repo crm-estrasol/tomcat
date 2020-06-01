@@ -424,7 +424,7 @@ class TomCatSaleOrder(models.Model):
         for order in self:
             total = 0
             
-            for order_line in order:
+            for order_line in order.order_line:
                 disct =  order_line.discount/100
                 discount_real = 1 - disct
                 total += order_line.price_subtotal / discount_real

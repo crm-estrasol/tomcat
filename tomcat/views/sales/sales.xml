@@ -144,22 +144,7 @@
 
        
         </record>
-         <record id="inhertit_product_procent_view" model="ir.ui.view">
-                <field name="name">product.porcent.inherit.form</field>
-                        <field name="model">sale.order</field>
-                        <field name="inherit_id" ref="sale_margin.sale_margin_sale_order"/>
-                        <field name="arch" type="xml">
-                      
-                
-                            <xpath expr="//field[@name='margin']" position="replace">
-                               <field name="margin" groups="base.group_user"/>
-                                <field name="procent" string="Descuento" groups="base.group_user"/>
-                            </xpath>
-           
-                        </field>
-
-       
-        </record>
+         
     </data>
 </odoo>
  

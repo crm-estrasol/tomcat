@@ -418,9 +418,9 @@ class TomCatSaleOrder(models.Model):
         self.partner_shipping_id = False
 
   
-    """
+    
     @api.depends('order_line.margin','order_line.price_subtotal')
-    def _product_procent(self):
+    def _product_porcent(self):
         for order in self:
             total = 0
             
@@ -429,7 +429,7 @@ class TomCatSaleOrder(models.Model):
                 discount_real = 1 - disct
                 total += order_line.price_subtotal / discount_real
             order.porcent = total 
-    """
+    
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

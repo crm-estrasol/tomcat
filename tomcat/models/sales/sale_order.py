@@ -409,7 +409,11 @@ class TomCatSaleOrder(models.Model):
         items = items.filtered(lambda x: x.product_id.type != 'service' and x.product_id.service_tracking != 'project_only' )
         return items 
 
-
+    @api.onchange('user_id')
+    def on_user_id(self):
+        self.partner_id = False 
+        self.partner_invoice_id = False
+        self.partner_shipping_id = False
 
 
 class SaleReport(models.Model):

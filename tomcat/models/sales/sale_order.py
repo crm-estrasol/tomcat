@@ -430,6 +430,8 @@ class TomCatSaleOrder(models.Model):
                     discount_real = 1 - disct
                     orginal = order_line.price_subtotal / discount_real    
                     total += orginal - order_line.price_subtotal
+
+
                 else:
                     total += 0    
             order.porcent = total 

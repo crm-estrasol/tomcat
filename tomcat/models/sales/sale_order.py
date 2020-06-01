@@ -39,7 +39,7 @@ class TomCatSaleOrder(models.Model):
                                                 ('without_price', 'Sin precios'),('subtotal_system', 'Solo con subtotal por sistema')], string='Formato pdf', copy=False, default='only_complete')
     client_model = fields.Boolean( string='Modelo cliente')
     excel = fields.Boolean( string='Formato excel')
-    
+    partner_avaible =   fields.Many2many(related="user_id.partner_avaible")
     @api.model
     def create(self, values):
         
@@ -653,6 +653,7 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(actual_row , actual_row,  3, 8,  "",line)
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  3, 8,"ING."+data.user_id.name ,text_cellLast)
+        
         #worksheet.write(actual_row+2 , 10, "TOTAL",c2text_cell )
 
 

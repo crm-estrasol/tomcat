@@ -40,6 +40,11 @@ class TomCatSaleOrder(models.Model):
     client_model = fields.Boolean( string='Modelo cliente')
     excel = fields.Boolean( string='Formato excel')
     partner_avaible =   fields.Many2many(related="user_id.partner_avaible")
+    partner_id = fields.Many2one(
+        'res.partner', string='Customer', readonly=True,
+        states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
+        required=True, change_default=True, index=True, tracking=1,
+        domain="['&','|', ('company_id', '=', False), ('company_id', '=', company_id),('id', 'in', partner_avaible)]",)
     @api.model
     def create(self, values):
         

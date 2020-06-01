@@ -19,7 +19,7 @@ from .contact import customer_segment
 from .contact import intermediary_category
 from .crm import crm_lead
 from . import res_config_settings
-#from .users import res_user
+from .users import res_user
 #STOCK
 #from .stock_picking import stock_picking
 

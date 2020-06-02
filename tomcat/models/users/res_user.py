@@ -14,7 +14,7 @@ class TomcatResUser(models.Model):
     partner_avaible  =  fields.Many2many(comodel_name='res.partner', relation='table_search_partners', 
     column1='partner_id', 
     column2='user_id',
-    domain= _action  )
+    domain= _accion  )
 
     
     

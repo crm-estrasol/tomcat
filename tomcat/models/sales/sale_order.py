@@ -605,8 +605,8 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(11 , 11,  0, 10, "DETALLE COTIZACIÓN",bHeader_blue )
         
         worksheet.write(12 , 0,"",c2bText_cell)
-        worksheet.write(12 , 1, "Ubicación",c2bText_cell )
-        worksheet.write(12 , 2, "Sistema",c2bText_cell )
+        worksheet.write(12 , 1, "Sistema",c2bText_cell )
+        worksheet.write(12 , 2, "Ubicación",c2bText_cell )
         worksheet.write(12 , 3, "Marca",c2bText_cell )
         worksheet.write(12 , 4, "Modelo",c2bText_cell )
         worksheet.write_merge(12, 12,  5, 7, "Descripción",c2bText_cell )
@@ -618,8 +618,8 @@ class MailComposerTomcat(models.TransientModel):
         
         for item in order_data:
             worksheet.write(actual_row , 0, current_count,c2text_cell)
-            worksheet.write(actual_row , 1, item.ubication.name,c2text_cell )
-            worksheet.write(actual_row , 2, item.project.name,c2text_cell )
+            worksheet.write(actual_row , 1, item.project.name ,c2text_cell )
+            worksheet.write(actual_row , 2, item.ubication.name,c2text_cell )
             worksheet.write(actual_row , 3, item.product_id.brand.name,c2text_cell )
             worksheet.write(actual_row , 4, item.product_id.name,c2text_cell )
             worksheet.write_merge(actual_row, actual_row,  5, 7, item.name,c2text_cell )

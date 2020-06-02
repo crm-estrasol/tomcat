@@ -10,9 +10,8 @@
                  <xpath expr="//field[@name='notification_type']" position="after">
                  
                                
-                    <field name="partner_avaible"   options="{'no_create_edit': True,'no_create': True}" string="Clientes disponibles"    />         
-                      <field name="partner_Navaible"   options="{'no_create_edit': True,'no_create': True}" string="Clientes disponibles"    />              
-                    
+                    <field name="partner_avaible"   options="{'no_create_edit': True,'no_create': True}" string="Clientes disponibles"   domain="[ ('id', 'not in', partner_Navaible )]" />               
+                      <field name="partner_Navaible"   options="{'no_create_edit': True,'no_create': True}" string="Clientes disponibles"  inviisble="1"  />      
                        
                    
                 </xpath>

@@ -15,9 +15,9 @@ class TomcatResUser(models.Model):
       )
 
     def _accion(self):
+        self.env.cr.execute("SELECT * FROM table_search_partners")
+        vals = self._cr.dictfetchall()
         for item in self:
-            self.env.cr.execute("SELECT * FROM table_search_partners")
-            vals = self._cr.dictfetchall()
             array = [ x['user_id'] for x in vals if  x['partner_id'] != item.id  ]
             item.partner_Navaible = [ (4,x ) for x in array ]  
         

@@ -7,7 +7,7 @@
             <t t-set="body_classname" t-value="'container'"/>
          
           
-          <h2><t t-esc="doc.name"/></h2>
+          
 
            <t t-set="current_partida" t-value="0"/>
 

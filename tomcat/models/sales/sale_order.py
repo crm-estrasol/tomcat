@@ -438,7 +438,7 @@ class TomCatSaleOrder(models.Model):
     @api.depends('order_line.margin','order_line.price_subtotal')
     def _margin_porcent(self):
         for order in self:
-            order.margin_porcent = ( order.margin * 100 ) / order.amount_untaxed  
+            order.margin_porcent = ( order.margin * 100 ) / order.amount_untaxed  if order.amount_untaxed != 0 else 0 
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

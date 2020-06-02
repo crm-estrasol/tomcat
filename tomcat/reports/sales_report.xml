@@ -5,7 +5,7 @@
   
    <template id="adress_tomact" name="custom" inherit_id="web.address_layout">
          <xpath expr="//t[@t-set='colclass']" position="replace">
-          <div class="page " style="height:1000px;">         
+            <div class="page " style="height:1000px;">         
                 <div class="row align-self-center " style="height: 150px;"> 
                   <div class="col-12 align-self-center text-center">
                       <h1 >COTIZACIÓN</h1>
@@ -66,6 +66,8 @@
                   </div>
                 </div>  
           </div>
+          </xpath>
+          
           <xpath expr="//t[@t-if='address']" position="replace">
 
       

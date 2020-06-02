@@ -253,9 +253,7 @@
             <xpath expr="//div[@class='clearfix']" position="after">
                       <div class="page">
 
-                              <h2 class="mt16">
-                                      <span>Resumen del proyecto</span>                           
-                              </h2> 
+                            
                               <div class="row mt-5">
                                 <div class="col-7" style=" border-top: 1px solid black;">
                                     <p>Cliente: <t t-esc=" doc.partner_id.name"/></p>
@@ -375,6 +373,11 @@
                   <!--
    
     -->
+            <xpath expr="//div[@id='total']" position="before">
+                              <h2 class="mt16">
+                                      <span>Resumen del proyecto</span>                           
+                              </h2> 
+             </xpath> 
             <xpath expr="//td[@name='td_amount_by_group_label_3']" position="replace">
                   <td name="td_amount_by_group_label_3">
                                             <span t-esc="amount_by_group[0]"/>

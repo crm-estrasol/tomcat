@@ -252,7 +252,11 @@
 
             <xpath expr="//div[@class='clearfix']" position="after">
                       <div class="page">
-                                                <div class="row mt-5">
+
+                              <h2 class="mt16">
+                                      <span>Resumen del proyecto</span>                           
+                              </h2> 
+                              <div class="row mt-5">
                                 <div class="col-7" style=" border-top: 1px solid black;">
                                     <p>Cliente: <t t-esc=" doc.partner_id.name"/></p>
                                 </div>
@@ -376,8 +380,8 @@
                                             <span t-esc="amount_by_group[0]"/>
                                             <span>&amp;nbsp;<span>en</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/></span>
                   </td>
-             </xpath>  
-             <xpath expr="//tr[@class='border-black o_total']" position="before">
+            </xpath>  
+            <xpath expr="//tr[@class='border-black o_total']" position="before">
                  <tr class="border-black o_total">
                                     <td name="td_porcent_discount_label"><strong>Moneda</strong></td>
                                     <td name="td_porcent_total" class="text-right">
@@ -392,7 +396,7 @@
                                         <span t-field="doc.porcent"/>
                                     </td>
                   </tr>
-              </xpath> 
+            </xpath> 
         </template>
  
   </data>

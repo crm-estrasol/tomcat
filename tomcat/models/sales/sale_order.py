@@ -46,7 +46,7 @@ class TomCatSaleOrder(models.Model):
         required=True, change_default=True, index=True, tracking=1,
         domain="['&','|', ('company_id', '=', False), ('company_id', '=', company_id),('id', 'in', partner_avaible)]",)
     porcent = fields.Monetary(compute='_product_porcent', help="Total descuento.", currency_field='currency_id', store=True)
-    margin_porcent = fields.Monetary(compute='_margin_porcent', help="Margen %.", currency_field='currency_id', store=True)
+    margin_porcent = fields.Monetary(compute='_margin_porcent', help="Margen %."', store=True)
     @api.model
     def create(self, values):
         

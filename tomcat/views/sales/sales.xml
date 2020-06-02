@@ -153,7 +153,7 @@
                 
                             <xpath expr="//field[@name='margin']" position="replace">
                                <field name="margin" groups="base.group_user"/>
-                                <field name="margin"  string="Margen (%)" groups="base.group_user"/>
+                                <field name="margin_porcent"  string="Margen (%)" groups="base.group_user"/>
                                 <field name="porcent" string="Descuento" groups="base.group_user"/>
                             </xpath>
            

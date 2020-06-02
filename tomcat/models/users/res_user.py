@@ -9,11 +9,11 @@ class TomcatResUser(models.Model):
     column2='user_id',
     domain=lambda self: [ ('customer_rank','>', 0),('id','not in', self.accion() )]  )
 
-def accion(self):
-    self.env.cr.execute("SELECT * FROM table_search_partners")
+    def accion(self):
+        self.env.cr.execute("SELECT * FROM table_search_partners")
 
-    vals = self._cr.dictfetchall()
-    array = [ x.user_id for x in vals ]
-    
-    return array  
+        vals = self._cr.dictfetchall()
+        array = [ x.user_id for x in vals ]
+        
+        return array  
     

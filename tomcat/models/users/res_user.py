@@ -19,5 +19,5 @@ class TomcatResUser(models.Model):
             self.env.cr.execute("SELECT * FROM table_search_partners")
             vals = self._cr.dictfetchall()
             array = [ x['user_id'] for x in vals if  x['partner_id'] != item.id  ]
-            item.partner_Navaible = [ (4,x.id ) for x in array ]  
+            item.partner_Navaible = [ (4,x ) for x in array ]  
         

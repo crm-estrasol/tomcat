@@ -53,10 +53,10 @@
                                                           
                                                 <td name="td_partida"><span> <t t-esc="current_partida"/> </span> </td>
                                                 <td name="td_image">
-                                                <span style="widht:50px; height:50px;">
+                                               <span style="widht:50px; height:50px; max-widht:50px; max-height:50px; min-widht:50px; min-height:50px; ">
 
                                                         <img
-                                                          style="widht:50px; height:50px;"
+                                                          style="widht:50px; height:50px; max-widht:50px; max-height:50px; min-widht:50px; min-height:50px;"
                                                             t-attf-src="data:image/*;base64,{{line.product_id.image_1920}}"
                                                           
                                                             />

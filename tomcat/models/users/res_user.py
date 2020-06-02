@@ -13,7 +13,7 @@ class TomcatResUser(models.Model):
         self.env.cr.execute("SELECT * FROM table_search_partners")
 
         vals = self._cr.dictfetchall()
-        array = [ x['user_id'] for x in vals ]
+        array = [ x['user_id'] for x in vals if  x['partner_id'] != self.id  ]
         
         return array  
     

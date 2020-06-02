@@ -130,7 +130,7 @@
                                 
                                         <tr class="is-subtotal text-right">
                                           <td name="td_section_subtotal" colspan="99">
-                                              <strong class="mr16"><t t-esc="current_namesection"/> Subtotal sistema <t t-esc="ubication['ubication']"/> </strong>
+                                              <strong class="mr16"><t t-esc="current_namesection"/> Subtotal sistema  <t t-esc="proy_items['project']"/> <t t-esc="line_last"/></strong>
                                               <span
                                                   t-esc="proy_items['total']"
                                                   t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'

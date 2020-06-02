@@ -11,7 +11,7 @@
                  
                                
                     <field name="partner_avaible"   options="{'no_create_edit': True,'no_create': True}" string="Clientes disponibles"   domain="[ ('id', 'not in', partner_Navaible ) , ('customer_rank','>', 0)]" />               
-                      <field name="partner_Navaible"   options="{'no_create_edit': True,'no_create': True}" string="Clientes disponibles"  inviisble="1"  />      
+                      <field name="partner_Navaible"   options="{'no_create_edit': True,'no_create': True}" string="Clientes disponibles"  invisible="1"  />      
                        
                    
                 </xpath>

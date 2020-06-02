@@ -32,7 +32,7 @@
                    
                 </xpath>
                 <xpath expr="//field[@name='user_id']" position="after">
-                             <field name="partner_avaible" string="Clientes disponibles"/>         
+                             <field name="partner_avaible" invisible="1" string="Clientes disponibles"/>         
                     
                        
                    

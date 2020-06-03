@@ -50,6 +50,6 @@ class TomcatResPartner(models.Model):
           partners = [ (3,self.id ),(4, self.id) ] 
               
         elif self.user_id:
-              self.res_user.partner_avaible = [(4, self.id)]     
+              self.user_id.partner_avaible = [(4, self.id)]     
 
      

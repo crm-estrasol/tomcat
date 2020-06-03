@@ -36,7 +36,7 @@ class TomcatResPartner(models.Model):
       res = super(TomcatResPartner, self).create(vals) 
       if res.res_user:
         res.res_user.partner_avaible = [(4, res.id)]
-    def write(self,vals,flag):
+    def write(self,vals,flag = False ):
       if flag == True :
         super(TomcatResPartner, self).write(vals)
       else:

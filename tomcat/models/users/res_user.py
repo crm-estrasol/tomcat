@@ -43,7 +43,7 @@ class TomcatResPartner(models.Model):
         self.env.cr.execute("SELECT * FROM table_search_partners where user_id = 8")
         value = self._cr.dictfetchall() 
         if value and self.user_id:
-          value= vals[0]
+          value= value[0]
           partners = self.env['res.users'].search([('id','=',value['user_id'])]).partner_avaible
           partners = [ (3,self.id )]     
         elif self.user_id:

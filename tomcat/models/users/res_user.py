@@ -39,7 +39,7 @@ class TomcatResPartner(models.Model):
     @api.model
     def create(self,vals):
       res = super(TomcatResPartner, self).create(vals) 
-      if res.res_user:
+      if res.user_id:
         res.res_user.partner_avaible = [(4, res.id)]
       return res
     def write(self,vals,flag = False ):

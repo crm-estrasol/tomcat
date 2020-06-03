@@ -19,5 +19,15 @@ class TomcatResUser(models.Model):
         vals = self._cr.dictfetchall()
         for item in self:
             array = [ x['user_id'] for x in vals if  x['partner_id'] != item.id  ]
-            item.partner_Navaible = [ (4,x ) for x in array ]  
+            item.partner_Navaible = [ (4,x ) for x in array ] 
+    def create(self,vals):
+      res = super(TomcatResUser, self).create(vals) 
+      partners = res.partner_avaible
+      for partner in partners:
+          partner.user_id = res.id
+    def write(self,vals):
+      super(TomcatResUser, self).write(vals) 
+      partners = self.partner_avaible
+      for partner in partners:
+          partner.user_id = self.id
         

@@ -26,6 +26,8 @@ class TomcatResUser(models.Model):
       for partner in partners:
           partner.write({'user_id':res.id},True)
     def write(self,vals):
+      for partner in self.partner_avaible:
+          partner.write({'user_id':False},True)
       super(TomcatResUser, self).write(vals) 
       partners = self.partner_avaible
       for partner in partners:
@@ -45,7 +47,7 @@ class TomcatResPartner(models.Model):
         if value and self.user_id:
           value= value[0]
           partners = self.env['res.users'].search([('id','=',value['user_id'])]).partner_avaible
-          partners = [ (3,self.id ),(4, self.id)] 
+          partners = [ (3,self.id ),(4, self.id) ] 
               
         elif self.user_id:
               self.res_user.partner_avaible = [(4, self.id)]     

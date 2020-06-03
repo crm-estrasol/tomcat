@@ -24,10 +24,29 @@ class TomcatResUser(models.Model):
       res = super(TomcatResUser, self).create(vals) 
       partners = res.partner_avaible
       for partner in partners:
-          partner.user_id = res.id
+          partner.write({'user_id':res.id},True)
     def write(self,vals):
       super(TomcatResUser, self).write(vals) 
       partners = self.partner_avaible
       for partner in partners:
-          partner.user_id = self.id
-        
+          partner.write({'user_id':self.id},True)
+class TomcatResPartner(models.Model):
+    _inherit = "res.partner"   
+    def create(self,vals):
+      res = super(TomcatResPartner, self).create(vals) 
+      if res.res_user:
+        res.res_user.partner_avaible = [(4, res.id)]
+    def write(self,vals,flag):
+      if flag == True :
+        super(TomcatResPartner, self).write(vals)
+      else:
+        self.env.cr.execute("SELECT * FROM table_search_partners where user_id = 8")
+        value = self._cr.dictfetchall() 
+        if value and self.user_id:
+          value= vals[0]
+          partners = self.env['res.users'].search([('id','=',value['user_id'])]).partner_avaible
+          partners = [ (3,self.id )]     
+        elif self.user_id:
+              self.res_user.partner_avaible = [(4, self.id)]     
+
+     

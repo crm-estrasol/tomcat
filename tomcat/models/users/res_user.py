@@ -25,6 +25,7 @@ class TomcatResUser(models.Model):
       partners = res.partner_avaible
       for partner in partners:
           partner.write({'user_id':res.id},True)
+      return res    
     def write(self,vals):
       for partner in self.partner_avaible:
           partner.write({'user_id':False},True)
@@ -38,6 +39,7 @@ class TomcatResPartner(models.Model):
       res = super(TomcatResPartner, self).create(vals) 
       if res.res_user:
         res.res_user.partner_avaible = [(4, res.id)]
+      return res
     def write(self,vals,flag = False ):
       if flag == True :
         super(TomcatResPartner, self).write(vals)

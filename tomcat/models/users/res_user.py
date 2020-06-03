@@ -20,6 +20,7 @@ class TomcatResUser(models.Model):
         for item in self:
             array = [ x['user_id'] for x in vals if  x['partner_id'] != item.id  ]
             item.partner_Navaible = [ (4,x ) for x in array ] 
+    @api.model
     def create(self,vals):
       res = super(TomcatResUser, self).create(vals) 
       partners = res.partner_avaible
@@ -35,6 +36,7 @@ class TomcatResUser(models.Model):
           partner.write({'user_id':self.id},True)
 class TomcatResPartner(models.Model):
     _inherit = "res.partner"   
+    @api.model
     def create(self,vals):
       res = super(TomcatResPartner, self).create(vals) 
       if res.res_user:

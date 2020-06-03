@@ -42,7 +42,7 @@ class TomcatResPartner(models.Model):
       if flag == True :
         super(TomcatResPartner, self).write(vals)
       else:
-        self.env.cr.execute("SELECT * FROM table_search_partners where user_id = 8")
+        self.env.cr.execute("SELECT * FROM table_search_partners where partner_id = {}".format(self.id))
         value = self._cr.dictfetchall() 
         if value and self.user_id:
           value= value[0]

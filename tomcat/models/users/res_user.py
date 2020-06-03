@@ -51,8 +51,9 @@ class TomcatResPartner(models.Model):
         if value and self.user_id:
           value= value[0]
           partners = self.env['res.users'].search([('id','=',value['user_id'])]).partner_avaible
-          partners = [ (3,self.id ),(4, self.id) ] 
-              
+          partners = [ (3,self.id ) ] 
+          new_partner = self.env['res.users'].search([('id','=',self.user_id)]).partner_avaible 
+          new_partner = [ (4, self.id) ]  
         elif self.user_id:
               self.user_id.partner_avaible = [(4, self.id)]     
 

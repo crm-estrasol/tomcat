@@ -29,8 +29,15 @@ class TomcatResUser(models.Model):
       return res    
     def write(self,vals):
       _logger.info("-----------------------------------"+str(vals['partner_avaible']) )
-      for partner in self.partner_avaible:
-          partner.write({'user_id':False},True)
+      originals = [x.id for x in  self.partner_avaible]
+      #for partner in self.partner_avaible:
+      #    partner.write({'user_id':False},True)
+      if 'partner_avaible' in  vals:
+        originals_eliminated = [x.id for x in  originals if x not in  vals['partner_avaible'][0][2]   ]
+        new = [x.id for x in  vals['partner_avaible'][0][2] if x not in  originals   ]
+        _logger.info("-----------------------------------"+str(originals) )
+        _logger.info("-----------------------------------"+str(originals_eliminated) )
+        _logger.info("-----------------------------------"+str(new) )
       super(TomcatResUser, self).write(vals) 
      
       partners = self.partner_avaible

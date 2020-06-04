@@ -52,7 +52,7 @@ class TomcatResPartner(models.Model):
       
       usr = self.env['res.users'].search([('id','=',res.user_id.id)])
       if usr:
-        usr.write({ 'partner_avaible':[ (4, res.id) ] } )
+        usr.write({ 'partner_avaible':[ (4, res.id) ] },True )
       return res
     
     def write(self,vals,flag = False ):

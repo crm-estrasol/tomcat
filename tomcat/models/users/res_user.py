@@ -32,17 +32,17 @@ class TomcatResUser(models.Model):
       originals = [x.id for x in  self.partner_avaible]
       #for partner in self.partner_avaible:
       #    partner.write({'user_id':False},True)
+      
+      super(TomcatResUser, self).write(vals) 
       if 'partner_avaible' in  vals:
         originals_eliminated = [x for x in  originals if x not in  vals['partner_avaible'][0][2]   ]
         new = [x for x in  vals['partner_avaible'][0][2] if x not in  originals   ]
-        _logger.info("-----------------------------------"+str(originals) )
-        _logger.info("-----------------------------------"+str(originals_eliminated) )
-        _logger.info("-----------------------------------"+str(new) )
-      super(TomcatResUser, self).write(vals) 
-     
-      partners = self.partner_avaible
-      for partner in partners:
-          partner.write({'user_id':self.id},True)
+        eliminated = self.env['res.partner'].search([id,'in',originals_eliminated])
+        news = self.env['res.partner'].search([id,'in',new])
+        for item in eliminated:
+          item.write({'user_id':False},True)
+        for item in news:
+          item.write({'user_id':self.id},True)
 class TomcatResPartner(models.Model):
     _inherit = "res.partner"   
     @api.model

@@ -53,6 +53,7 @@ class TomcatResPartner(models.Model):
       if usr:
         usr.write({ 'partner_avaible':[ (4, res.id) ] } )
       return res
+    """
     def write(self,vals,flag = False ):
       super(TomcatResPartner, self).write(vals)
       if flag == True :
@@ -70,5 +71,5 @@ class TomcatResPartner(models.Model):
           new_partner.write({ 'partner_avaible':[ (4, self.id) ] } )
         elif self.user_id:
               self.user_id.partner_avaible = [(4, self.id)]     
-
+    """
      

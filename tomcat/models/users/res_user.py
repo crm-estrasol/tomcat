@@ -77,7 +77,7 @@ class TomcatResPartner(models.Model):
           partners = self.env['res.users'].search([('id','=',value['partner_id'])])
           partners.write( {'partner_avaible':[ (3,self.id )  ]},True )
           partners_original.write( {'partner_avaible':[ (4,self.id )  ]},True )
-    else:
+      else:
         value = self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(original_id))
         value = self._cr.dictfetchall() 
         if value:

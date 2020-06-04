@@ -27,22 +27,23 @@ class TomcatResUser(models.Model):
       for partner in partners:
           partner.write({'user_id':res.id},True)
       return res    
-    def write(self,vals):
-      _logger.info("-----------------------------------"+str(vals['partner_avaible']) )
+    def write(self,vals,flag = False ):
+      #_logger.info("-----------------------------------"+str(vals['partner_avaible']) )
       originals = [x.id for x in  self.partner_avaible]
       #for partner in self.partner_avaible:
       #    partner.write({'user_id':False},True)
-      
       super(TomcatResUser, self).write(vals) 
+      if flag:
+        return 
       if 'partner_avaible' in  vals:
         originals_eliminated = [x for x in  originals if x not in  vals['partner_avaible'][0][2]   ]
         new = [x for x in  vals['partner_avaible'][0][2] if x not in  originals   ]
         eliminated = self.env['res.partner'].search([('id','in',originals_eliminated)])
         news = self.env['res.partner'].search([('id','in',new)])
         for item in eliminated:
-          item.write({'user_id':False})
+          item.write({'user_id':False},False)
         for item in news:
-          item.write({'user_id':self.id})
+          item.write({'user_id':self.id},False)
 class TomcatResPartner(models.Model):
     _inherit = "res.partner"   
     @api.model
@@ -53,23 +54,21 @@ class TomcatResPartner(models.Model):
       if usr:
         usr.write({ 'partner_avaible':[ (4, res.id) ] } )
       return res
-    """
+    
     def write(self,vals,flag = False ):
+      original_id = int(self.user_id.id)  
       super(TomcatResPartner, self).write(vals)
-      if flag == True :
+      if flag  :
         return 
-      else:   
-        self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(self.id))
-        value = self._cr.dictfetchall() 
-        if value and self.user_id:
+      if original_id == self.user_id.id:
+           return 
+      elif self.user_id:          
+          value = self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(original_id))
+          value = self._cr.dictfetchall() 
           value= value[0]
           #Referencia
-          original_id = int(self.user_id.id)
           partners = self.env['res.users'].search([('id','=',value['partner_id'])])
-          partners.write( {'partner_avaible':[ (3,self.id ) ]} )
-          new_partner = self.env['res.users'].search([('id','=',original_id)]) 
-          new_partner.write({ 'partner_avaible':[ (4, self.id) ] } )
-        elif self.user_id:
-              self.user_id.partner_avaible = [(4, self.id)]     
-    """
+          partners.write( {'partner_avaible':[ (3,original_id ) , (4, self.id) ]},True )
+       
+        
      

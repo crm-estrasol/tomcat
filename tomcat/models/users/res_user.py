@@ -28,9 +28,11 @@ class TomcatResUser(models.Model):
           partner.write({'user_id':res.id},True)
       return res    
     def write(self,vals):
+      _logger.info("-----------------------------------"+str(vals['partner_avaible']) )
       for partner in self.partner_avaible:
           partner.write({'user_id':False},True)
       super(TomcatResUser, self).write(vals) 
+     
       partners = self.partner_avaible
       for partner in partners:
           partner.write({'user_id':self.id},True)

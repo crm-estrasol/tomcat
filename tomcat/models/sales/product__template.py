@@ -40,7 +40,7 @@ class PricelistItemTomCat(models.Model):
     
 
     margin_ut = fields.Float("Margen %",  store=True, digits=(12, 6))
-    
+    #recalculate price just visual
     @api.onchange('margin_ut')
     def product_uom_change(self):
         cost = self.cost

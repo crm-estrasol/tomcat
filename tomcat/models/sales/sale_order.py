@@ -47,17 +47,16 @@ class TomCatSaleOrder(models.Model):
         domain="['&','|', ('company_id', '=', False), ('company_id', '=', company_id),('id', 'in', partner_avaible)]",)
     porcent = fields.Monetary(compute='_product_porcent', help="Total descuento.", currency_field='currency_id', store=True)
     margin_porcent = fields.Float(compute='_margin_porcent', help="Margen %.",digits=(16, 2) ,store=True)
+    #Add proyect item
     @api.model
-    def create(self, values):
-        
-       
+    def create(self, values): 
         res = super(TomCatSaleOrder, self).create(values)
         res.write({'name':res.name+"-"+res.name_proy})
         if  'product_proy' in values:  
             product = self.env['product.product'].search( [ ('id','=', values['product_proy'])] )
             res.order_line =  [ (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]
         return res
-   
+   #Redefine log
     def write(self, values):
      
         body =""
@@ -223,7 +222,7 @@ class TomCatSaleOrder(models.Model):
 
         return res
 
-
+    #Inlcude concet section
     def _compute_line_data_for_template_change(self, line):
         return {
             'display_type': line.display_type,
@@ -250,6 +249,7 @@ class TomCatSaleOrder(models.Model):
   #'fee_ids': [(0, 0, values1), (0, 0, values2) ]
 
   """
+   #inherit and set maring
     @api.onchange('sale_order_template_id')
     def onchange_sale_order_template_id(self):
         #super(TomCatSaleOrder, self).onchange_sale_order_template_id()
@@ -332,6 +332,7 @@ class TomCatSaleOrder(models.Model):
                 items[actual_index][1].append(prod)
  
         return items
+    #WIZARD
     def generate_discount(self):
         if self.order_line:
           
@@ -345,9 +346,7 @@ class TomCatSaleOrder(models.Model):
                 'type': 'ir.actions.act_window',
                 'target': 'new',
                 'context':{'default_sale':self.id}
-                
-       
-           
+                     
             
         }
         return view 
@@ -383,25 +382,25 @@ class TomCatSaleOrder(models.Model):
         values = super(TomCatSaleOrder, self).action_quotation_send()
         ctx = values['context']
         
-        workbook = xlwt.Workbook(encoding='utf-8')
-        worksheet = workbook.add_sheet('Testing')
-        worksheet.write_merge(0 , 0,  2, 5, "Cliente")
-        fp =  BytesIO()
-        workbook.save(fp)
+        #workbook = xlwt.Workbook(encoding='utf-8')
+        #worksheet = workbook.add_sheet('Testing')
+        #worksheet.write_merge(0 , 0,  2, 5, "Cliente")
+        #fp =  BytesIO()
+        #workbook.save(fp)
         
-        Attachment = self.env['ir.attachment']
-        attachment_ids = []    
-        data_attach = {
-                'name': "cotz.xls",
-                'datas': base64.encodestring( fp.getvalue()) ,
-                'res_model': 'mail.compose.message',
-                'res_id': 0,
-                'type': 'binary',  # override default_type from context, possibly meant for another model!
-        }
-        attachment_ids.append(Attachment.create(data_attach).id)
+        #Attachment = self.env['ir.attachment']
+        #attachment_ids = []    
+        #data_attach = {
+        #        'name': "cotz.xls",
+        #        'datas': base64.encodestring( fp.getvalue()) ,
+        #        'res_model': 'mail.compose.message',
+        #        'res_id': 0,
+        #        'type': 'binary',  # override default_type from context, possibly meant for another model!
+        #}
+        #attachment_ids.append(Attachment.create(data_attach).id)
         
         ctx['default_excel'] = True if self.excel else False
-        ctx['default_attachment_ids'] = [(6, 0, attachment_ids) ]
+        #ctx['default_attachment_ids'] = [(6, 0, attachment_ids) ]
         values['context'] = ctx 
         return values 
     #excel

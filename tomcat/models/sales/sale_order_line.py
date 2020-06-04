@@ -126,6 +126,8 @@ class TomCatSaleOrderLine(models.Model):
             discount = (new_list_price - price) / new_list_price * 100
             if (discount > 0 and new_list_price > 0) or (discount < 0 and new_list_price < 0):
                 self.discount = discount
+    #inherit margin_tomcat for row
+    #adjust _get_display to get the real margin in rule , both uom are triggered last and set de margin
     @api.onchange('product_uom', 'product_uom_qty')
     def product_uom_change(self):
             if not self.product_uom or not self.product_id:

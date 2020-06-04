@@ -19,13 +19,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product','mrp','sale','stock','account','sale_margin','sale_management','contacts','product','mail','web','crm','sale_crm','stock','project'],
+    'depends': ['base','product','mrp','sale','stock',
+                'account','sale_margin','sale_management',
+                'contacts','product','mail','web','crm',
+                'sale_crm','stock','project','hr_timesheet'],
 
     # always loaded
     'data': [
-         'security/ir.model.access.csv',
-            'views/user/user.xml',
-         'views/theme/res_config_settings_views.xml',   
+        'security/ir.model.access.csv',
+        'views/user/user.xml',
+        'views/theme/res_config_settings_views.xml',   
         'views/theme/theme.xml',
         'views/contact/contact.xml',
         'views/contact/intermediary_category.xml',
@@ -37,9 +40,9 @@
         'views/project/project.xml',
         'views/sales/sales.xml',
         'views/sales/product_template.xml',
-         'views/sales/extra_cat_product/product_brand.xml',
-          'views/sales/extra_cat_product/product_project.xml',
-           'views/sales/extra_cat_product/product_ubication.xml',
+        'views/sales/extra_cat_product/product_brand.xml',
+        'views/sales/extra_cat_product/product_project.xml',
+        'views/sales/extra_cat_product/product_ubication.xml',
           # 'views/sales/sale_order_line.xml',
         
         'views/templates/templates.xml',

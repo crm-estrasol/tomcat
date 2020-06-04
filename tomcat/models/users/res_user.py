@@ -56,11 +56,12 @@ class TomcatResPartner(models.Model):
       return res
     
     def write(self,vals,flag = False ):
-      original_id = int(self.user_id.id)  
+      original_id = int(self.id)
+      original_user =   int(self.user_id.id)
       super(TomcatResPartner, self).write(vals)
       if flag  :
         return 
-      if original_id == self.user_id.id:
+      if original_user == self.user_id.id:
            return 
       elif self.user_id:          
           value = self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(original_id))

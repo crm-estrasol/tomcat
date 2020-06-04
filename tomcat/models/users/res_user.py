@@ -46,14 +46,14 @@ class TomcatResPartner(models.Model):
       if flag == True :
         super(TomcatResPartner, self).write(vals)
       else:
-        self.env.cr.execute("SELECT * FROM table_search_partners where partner_id = {}".format(self.id))
+        self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(self.id))
         value = self._cr.dictfetchall() 
         if value and self.user_id:
           value= value[0]
-          partners = self.env['res.users'].search([('id','=',value['user_id'])])
+          partners = self.env['res.users'].search([('id','=',value['partner_id'])])
           partners.write( {'partner_avaible':[ (3,self.id ) ]} )
           new_partner = self.env['res.users'].search([('id','=',self.user_id)]) 
-          new_partner .write({ 'partner_avaible':[ (4, self.id) ] } )
+          new_partner.write({ 'partner_avaible':[ (4, self.id) ] } )
         elif self.user_id:
               self.user_id.partner_avaible = [(4, self.id)]     
 

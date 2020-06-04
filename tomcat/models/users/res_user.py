@@ -39,8 +39,9 @@ class TomcatResPartner(models.Model):
     @api.model
     def create(self,vals):
       res = super(TomcatResPartner, self).create(vals) 
-      if 'user_id' in vals:
-        usr = self.env['res.users'].search([('id','=',res.user_id)])
+      
+      usr = self.env['res.users'].search([('id','=',res.user_id.id)])
+      if usr:
         usr.write({ 'partner_avaible':[ (4, res.id) ] } )
       return res
     def write(self,vals,flag = False ):

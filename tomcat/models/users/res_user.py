@@ -40,9 +40,9 @@ class TomcatResUser(models.Model):
         eliminated = self.env['res.partner'].search([('id','in',originals_eliminated)])
         news = self.env['res.partner'].search([('id','in',new)])
         for item in eliminated:
-          item.write({'user_id':False},True)
+          item.write({'user_id':False})
         for item in news:
-          item.write({'user_id':self.id},True)
+          item.write({'user_id':self.id})
 class TomcatResPartner(models.Model):
     _inherit = "res.partner"   
     @api.model

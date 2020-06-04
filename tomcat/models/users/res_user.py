@@ -40,7 +40,7 @@ class TomcatResPartner(models.Model):
     def create(self,vals):
       res = super(TomcatResPartner, self).create(vals) 
       if res.user_id:
-        res.user_id.partner_avaible = [(4, res.id)]
+        res.user_id.partner_avaible.write({ 'partner_avaible':[ (4, res.id) ] } )
       return res
     def write(self,vals,flag = False ):
       super(TomcatResPartner, self).write(vals)

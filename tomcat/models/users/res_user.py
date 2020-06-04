@@ -63,16 +63,21 @@ class TomcatResPartner(models.Model):
         return 
       if original_user == self.user_id.id:
            return 
-      elif self.user_id:          
+      elif self.user_id:  
+          #Last user relation        
           value = self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(original_id))
           value = self._cr.dictfetchall() 
-          if  len(value) == 0:
-              partners = self.env['res.users'].search([('id','=',self.user_id.id)])
-              partners.write( {'partner_avaible':[  (4, self.id) ] },True )
+          #new user
+          partners_original = self.env['res.users'].search([('id','=',self.user_id.id)])
+          if  len(value) == 0:   
+              partners_original.write( {'partner_avaible':[  (4, self.id) ] },True )
               return 
           value= value[0]
+          #last user orignal
           partners = self.env['res.users'].search([('id','=',value['partner_id'])])
-          partners.write( {'partner_avaible':[ (3,original_id ) , (4, self.id) ]},True )
+          partners.write( {'partner_avaible':[ (3,self.id )  ]},True )
+          partners_original.write( {'partner_avaible':[ (4,self.id )  ]},True )
+        
           
        
         

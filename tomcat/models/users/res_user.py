@@ -66,10 +66,14 @@ class TomcatResPartner(models.Model):
       elif self.user_id:          
           value = self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(original_id))
           value = self._cr.dictfetchall() 
+          if  not value:
+              partners = self.env['res.users'].search([('id','=',self.user_id.id)])
+              partners.write( {'partner_avaible':[  (4, self.id) ] },True )
+              return 
           value= value[0]
-          #Referencia
           partners = self.env['res.users'].search([('id','=',value['partner_id'])])
           partners.write( {'partner_avaible':[ (3,original_id ) , (4, self.id) ]},True )
+          
        
         
      

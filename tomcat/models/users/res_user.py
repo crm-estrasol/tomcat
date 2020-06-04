@@ -37,8 +37,8 @@ class TomcatResUser(models.Model):
       if 'partner_avaible' in  vals:
         originals_eliminated = [x for x in  originals if x not in  vals['partner_avaible'][0][2]   ]
         new = [x for x in  vals['partner_avaible'][0][2] if x not in  originals   ]
-        eliminated = self.env['res.partner'].search([(id,'in',originals_eliminated)])
-        news = self.env['res.partner'].search([(id,'in',new)])
+        eliminated = self.env['res.partner'].search([('id','in',originals_eliminated)])
+        news = self.env['res.partner'].search([('id','in',new)])
         for item in eliminated:
           item.write({'user_id':False},True)
         for item in news:

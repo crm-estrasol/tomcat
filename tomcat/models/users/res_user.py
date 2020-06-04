@@ -43,9 +43,10 @@ class TomcatResPartner(models.Model):
         res.user_id.partner_avaible = [(4, res.id)]
       return res
     def write(self,vals,flag = False ):
+      super(TomcatResPartner, self).write(vals)
       if flag == True :
-        super(TomcatResPartner, self).write(vals)
-      else:
+        return 
+      else:   
         self.env.cr.execute("SELECT * FROM table_search_partners where user_id = {}".format(self.id))
         value = self._cr.dictfetchall() 
         if value and self.user_id:

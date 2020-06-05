@@ -22,7 +22,8 @@
     'depends': ['base','product','mrp','sale','stock',
                 'account','sale_margin','sale_management',
                 'contacts','product','mail','web','crm',
-                'sale_crm','stock','project','hr_timesheet'],
+                'sale_crm','stock','project','hr_timesheet',
+                'purchase'],
 
     # always loaded
     'data': [
@@ -58,6 +59,7 @@
         'reports/sales_report_price_unit.xml',
         'reports/sales_report.xml',
         'reports/excel.xml',
+        'reports/purchase/purchase_report_document.xml',
          
         
         'reports/sale_report_prueba.xml', 

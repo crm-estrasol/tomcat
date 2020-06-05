@@ -481,7 +481,7 @@ class MailComposerTomcat(models.TransientModel):
         super(MailComposerTomcat, self).onchange_template_id_wrapper()
         if self.excel:
             self.excel_format()
-        if not self.purchase and not self.external_document:
+        if  self.purchase and  self.external_document:
              setattr(self, 'attachment_ids', [(6, 0, [] ) ])    
     
            

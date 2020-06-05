@@ -60,6 +60,7 @@
         'reports/sales_report.xml',
         'reports/excel.xml',
         'reports/purchase/purchase_report_document.xml',
+        'reports/purchase/purchasequotation_report_document.xml',
          
         
         'reports/sale_report_prueba.xml', 

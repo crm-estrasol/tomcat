@@ -2,7 +2,7 @@
 <odoo>
   <data>
   
-    <template id="tomcat_report_purchasequotation" name="custom_2" inherit_id="purchase.report_purchasequotation">
+    <template id="tomcat_report_purchasequotation" name="custom_2" inherit_id="purchase.report_purchasequotation_document">
              <xpath expr="//table" position="replace">
                         <table class="table table-sm">
                                 <thead>

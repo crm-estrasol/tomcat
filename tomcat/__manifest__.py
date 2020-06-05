@@ -44,6 +44,7 @@
         'views/sales/extra_cat_product/product_brand.xml',
         'views/sales/extra_cat_product/product_project.xml',
         'views/sales/extra_cat_product/product_ubication.xml',
+        'views/purchase/purchase.xml',
           # 'views/sales/sale_order_line.xml',
         
         'views/templates/templates.xml',

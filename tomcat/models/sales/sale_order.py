@@ -448,6 +448,8 @@ class SaleReport(models.Model):
 class MailComposerTomcat(models.TransientModel):
     _inherit = 'mail.compose.message'
     excel = fields.Boolean('Excel',default=False)
+    external_document =  fields.Boolean('Cotización externa', default=False)
+    purchase =  fields.Boolean('Purchase flag', default=False)
    
 
     """
@@ -479,6 +481,9 @@ class MailComposerTomcat(models.TransientModel):
         super(MailComposerTomcat, self).onchange_template_id_wrapper()
         if self.excel:
             self.excel_format()
+        if not self.purchase and not self.external_document:
+             setattr(self, 'attachment_ids', [(6, 0, [] ) ])    
+    
            
     def excel_format(self):
         data = self.env['sale.order'].search( [('id','=',self.res_id)] )

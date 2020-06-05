@@ -9,7 +9,7 @@
             <xpath expr="//field[@name='active_domain']" position="after">
                  <field name="excel" invisible="1"/>
                   <field name="external_document" />
-                   <field name="pruchase" />
+                   <field name="purchase" />
                   
 
             </xpath>

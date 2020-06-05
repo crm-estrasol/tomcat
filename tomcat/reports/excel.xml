@@ -8,8 +8,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='active_domain']" position="after">
                  <field name="excel" invisible="1"/>
-                  <field name="external_document" invisible="1"/>
-                   <field name="pruchase" invisible="1"/>
+                  <field name="external_document" />
+                   <field name="pruchase" />
                   
 
             </xpath>

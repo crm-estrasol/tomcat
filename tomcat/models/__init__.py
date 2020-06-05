@@ -8,7 +8,7 @@ from  .sales import sale_order_line
 from  .sales import sale_order_line_template
 from  .sales import sale_order
 
-from purchase import purchase
+from .purchase import purchase
 
 #from  .sales.reports import sale_report
 #Mail

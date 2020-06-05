@@ -7,7 +7,7 @@
          
          <xpath expr="//t[@t-set='colclass']" position="replace">
             
-            <t t-if="flag_sale_order == 1">
+            <t t-if="flag_sale_order == 1 ">
                 <div class="page " style="height:1000px;">         
                     <div class="row align-self-center " style="height: 150px;"> 
                       <div class="col-12 align-self-center text-center">
@@ -169,6 +169,7 @@
                       <t t-set="image_cliente">
                           <t t-esc=" doc.partner_id.image_1920"/>
                       </t>
+
                        <t t-set="flag_image">
                           <t t-esc="1"/>
                       </t>
@@ -182,9 +183,8 @@
                           <t t-esc="0"/>
                       </t>
                 </t>
-                <t t-set="flag_sale_order">
-                    <t t-esc="1"/>
-                </t>
+                 <t t-set="flag_sale_order" t-value="1"/>
+               
 
                 
             </xpath>

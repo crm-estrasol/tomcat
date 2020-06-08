@@ -17,6 +17,7 @@
                         <group>                       
                                   
                                     <field name="brand" options="{'no_create_edit': True,'no_create': True}"  />
+                                    <field name="partner" options="{'no_create_edit': True,'no_create': True}"  />
                             
                         </group>
                         <group>                       

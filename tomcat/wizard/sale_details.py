@@ -31,7 +31,7 @@ class SaleDiscount(models.TransientModel):
             if item.product_id and item.ubication:
                 for seller in item.product_id.seller_ids:
                     sellers.append(seller.name.id) 
-        sellers = set(sellers)
+        sellers = list(set(sellers))
         return {
             'domain': { 'projects': [('id', 'in', sistemas)], 
                         'ubications': [('id', 'in', ubicaciones)],

@@ -34,7 +34,7 @@ class SaleDiscount(models.TransientModel):
         ubicaciones = [ item.ubication.id for item in self.sale.order_line if item.product_id and item.ubication  ]
         sellers = []
         for item in self.sale.order_line: 
-            if item.product_id and item.ubication:
+            if item.product_id:
                 for seller in item.product_id.seller_ids:
                     sellers.append(seller.name.id) 
         sellers = list(set(sellers))

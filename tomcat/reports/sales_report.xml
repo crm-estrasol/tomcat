@@ -102,7 +102,7 @@
     </template>
     
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
-       <xpath expr="//div[@class='row']" position="replace">
+      <xpath expr="//div[@class='row']" position="replace">
            <div class="row">
                <div class="col-8" style="height:30px;"></div>
                 <div class="col-3 mb4">
@@ -113,21 +113,17 @@
                
             </div>
        
-          </xpath>
-          <xpath expr="//div[@class='o_report_layout_standard']" position="replace">
+      </xpath>
+
+       <xpath expr="//div[@class='article']" position="replace">
             <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                 <t t-call="web.address_layout"/>
                 <t t-raw="0"/>
             </div>
-             <div>
-                      <p>Hola</p>
-                      <p>Hola</p>
-                      <p>Hola</p>
-                      <p>Hola</p>
-                      <p>Hola</p>
-                </div>
-          </xpath>
+            
+        </xpath>
          
+       
          
 
     </template>

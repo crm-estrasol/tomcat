@@ -122,29 +122,40 @@
                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
                     />
                 </div>
-                
-                <div class="col-6 text-justify" name="other_inform">
-                   <table class="table table-striped mt2">
-                      <tbody>
-                        <tr>
-                          <td>John</td>
-                          <td>Doe</td>
-                         
-                        </tr>
-                        <tr>
-                          <td>Mary</td>
-                          <td>Moe</td>
-                         
-                        </tr>
-                        <tr>
-                          <td>July</td>
-                          <td>Dooley</td>
-                          
-                        </tr>
-                      </tbody>
-                    </table>
-                </div>
-            
+                <t t-if="flag_sale_order != 1 " > 
+                    <div class="col-6 text-justify" name="other_inform">
+                      <table class="table table-striped mt2 text-justify">
+                          <tbody>
+                            <tr>
+                              <td>John</td>
+                              
+                            </tr>
+                            <tr>
+                              <td>Mary</td>
+                            
+                            
+                            </tr>
+                            <tr>
+                              <td>July</td>
+                              
+                            </tr>
+                            <tr>
+                              <td>July</td>
+                              
+                            </tr>
+                            <tr>
+                              <td>July</td>
+                              
+                            </tr>
+                            <tr>
+                              <td>July</td>
+                              
+                            </tr>
+
+                          </tbody>
+                        </table>
+                    </div>
+                </t>
         </xpath>
          
        

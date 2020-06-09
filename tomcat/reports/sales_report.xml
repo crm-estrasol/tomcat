@@ -123,7 +123,7 @@
                     />
                 </div>
                 <t t-if="flag_sale_order != 1 " > 
-                    <div class="col-6 text-justify" name="other_inform">
+                    <div class="col-6 text-justify mt-5 mb-2" name="other_inform">
                       <table class="table table-striped mt2 text-justify">
                           <tbody>
                             <tr>

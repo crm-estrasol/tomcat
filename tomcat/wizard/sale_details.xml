@@ -17,13 +17,8 @@
                         <group>                       
                                   
                                     <field name="brand" options="{'no_create_edit': True,'no_create': True}"  />
-                                    <field name="partner" options="{'no_create_edit': True,'no_create': True}"  >
-                                        <tree>
-                                                <field name="display_name" string="Nombre"  />
-                                                 <field name="company_id"  />
-                                   
-                                        </tree>    
-                                    </field>
+                                    <field name="partner" options="{'no_create_edit': True,'no_create': True}" / >
+                                       
                             
                         </group>
                         <group>                       

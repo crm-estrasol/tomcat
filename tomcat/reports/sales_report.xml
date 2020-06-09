@@ -116,15 +116,33 @@
       </xpath>
 
        <xpath expr="//div[@name='company_address']" position="replace">
-            <div class="col-6" name="company_address">
+              
+              <div class="col-6" name="company_address">
                     <div t-field="company.partner_id"
                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
                     />
                 </div>
-                <div class="col-6" name="company_address">
-                    <div t-field="company.partner_id"
-                        t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                    />
+                
+                <div class="col-6" name="other_inform">
+                   <table class="table table-striped">
+                      <tbody>
+                        <tr>
+                          <td>John</td>
+                          <td>Doe</td>
+                          <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                          <td>Mary</td>
+                          <td>Moe</td>
+                          <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                          <td>July</td>
+                          <td>Dooley</td>
+                          <td>july@example.com</td>
+                        </tr>
+                      </tbody>
+                    </table>
                 </div>
             
         </xpath>

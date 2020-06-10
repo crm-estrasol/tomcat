@@ -118,24 +118,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
-                    Prube
-                    </div>
+                    
                     <div class="col-6" name="company_address">
                         <div t-field="company.partner_id"
                             t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
                         />
+                        <p>d</p>
+                          <p>d</p>
+                            <p>d</p>
+                              <p>d</p>
+                                <p>d</p>
+                                  <p>d</p>
+
+                                    <p>d</p>
+                                      <p>d</p>
+                                        <p>d</p>
                     </div>
-                    <div class="col-6" name="company_address">
-                        <div t-field="company.partner_id"
-                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                        />
-                    </div>
-                    <div class="col-6" name="company_address">
-                        <div t-field="company.partner_id"
-                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                        />
-                    </div>
+                   
                 </div>
             </div>
       </xpath>

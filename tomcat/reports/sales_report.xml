@@ -286,7 +286,7 @@
 
 
             <xpath expr="//div[@class='clearfix']" position="after">
-                      <div class="page" style="margin-top:500px;">
+                      <div class="page" >
 
                             
                               <div class="row mt-5">

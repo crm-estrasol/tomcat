@@ -104,7 +104,7 @@
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
      
 
-          <xpath expr="//div[@class='header']" position="replace" >
+          <xpath expr="//div" position="replace" >
               <div class="header" style="position:relative">
                 <div class="row">
                     <div class="col-3 mb4">

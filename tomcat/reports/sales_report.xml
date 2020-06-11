@@ -97,8 +97,8 @@
               </t>
               -->
               <div class="row justify-content-center">
-                      <div class="col-6 " style=" font-size:12px; ">
-                            <h4 class="mb-2">Titulo</h4>
+                      <div class="col-6 pl-3" style=" font-size:12px; ">
+                            <h4 class="mb-2" style="padding-top:0; margin-top:0;"> F14 S DE RL DE CV</h4>
                           <p style="margin:0;">1</p>
                           <a  class="d-block" href="">a</a>
                           <a href="">a</a>
@@ -108,18 +108,27 @@
                           <p style="margin:0;">7</p>
                       
                     </div>
-                    <div class="col-5 ml-4" style=" font-size:16px;">
+                    <div class="col-5 ml-4 mt-1 " style=" font-size:10px;">
                             <table class="table table-striped" style=" margin: 0px auto;">
                                 
                                   <tbody>
                                     <tr>
-                                      <td class="text-center" style=" padding: 4px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 4px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 4px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                    </tr>
+                                      <tr>
+                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
                                     </tr>
                                       
                             

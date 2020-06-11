@@ -19,7 +19,15 @@ class TomCatCrmLead(models.Model):
     #ON COMPUTE
 
     #ON CHANGE
-  
+    @api.onchange('partner_id')
+    def on_change_partner(self):
+        self.partners_related = False
+        return {
+            'domain': { 'partners_related': [('id', 'in',  [x.id for x in self.parter_id.child_ids] )], 
+                        
+                      }                     
+        }
+
     def _compute_show_light(self):
        num_days = int(self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days'))
        num_one = num_days

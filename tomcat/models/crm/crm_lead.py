@@ -23,7 +23,7 @@ class TomCatCrmLead(models.Model):
     def on_change_partner(self):
         self.partners_related = False
         return {
-            'domain': { 'partners_related': [('id', 'in',  [x.id for x in self.parter_id.child_ids] )], 
+            'domain': { 'partners_related': [('id', 'in',  [x.id for x in self.partner_id.child_ids] )], 
                         
                       }                     
         }

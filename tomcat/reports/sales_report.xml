@@ -96,12 +96,45 @@
                     </t>
               </t>
               -->
-              <div class="row">
+              <div class="row justify-content-center">
                    <div class="col-7" style="background:red;">
-                    <p>8</p>
+                    <h2 class="mb-2">Titulo</h2>
+                    <p>1</p>
+                    <p>1</p>
+                    <p>1</p>
+                    <p>1</p>
+                    <p>1</p>
+                    <p>1</p>
+                     <p>1</p>
+                    
                   </div>
-                  <div class="col-4 ml-2" style="background:red;">
-                    <p>9</p>
+                  <div class="col-4 ml-4" style="background:red;">
+                          <table class="table table-striped" style=" margin: 0px auto;">
+                              
+                                <tbody>
+                                  <tr>
+                                  
+                                
+                                    <td>@mdo</td>
+                                  </tr>
+                                    <tr>
+                                  
+                                
+                                    <td>@mdo</td>
+                                  </tr>
+                                    <tr>
+                                  
+                                
+                                    <td>@mdo</td>
+                                  </tr>
+                                    <tr>
+                                  
+                                
+                                    <td>@mdo</td>
+                                  </tr>
+                          
+                          </tbody>
+                        </table>
                   </div>
               </div>
              

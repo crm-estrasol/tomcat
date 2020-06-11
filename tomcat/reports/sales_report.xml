@@ -70,11 +70,14 @@
                     </div>  
                 </div>
              </t>
+             
           
           </xpath>
           
           <xpath expr="//t[@t-if='address']" position="replace">
-                
+            
+            
+            <!--    
             <t t-if="flag_sale_order != 1 " >
            
               
@@ -92,6 +95,13 @@
                         </div>
                     </t>
               </t>
+              -->
+              <div class="col-8" style="background:red;">
+                <p>8</p>
+              </div>
+              <div class="col-4" style="background:red;">
+                <p>9</p>
+              </div>
           </xpath>
           
                
@@ -104,41 +114,8 @@
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
      
 
-          <xpath expr="//div" position="replace" >
-              <div class="header" style="position:relative">
-                <div class="row">
-                    <div class="col-3 mb4">
-                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
-                    </div>
-                    <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
-                </div>
-                <div t-if="company.logo or company.report_header" class="row zero_min_height">
-                    <div class="col-12">
-                        <div style="border-bottom: 1px solid black;"/>
-                    </div>
-                </div>
-                <div class="row">
-                    
-                    <div class="col-6" name="company_address">
-                        <div t-field="company.partner_id"
-                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                        />
-                        <p>d</p>
-                          <p>d</p>
-                            <p>d</p>
-                              <p>d</p>
-                                <p>d</p>
-                                  <p>d</p>
-
-                                    <p>d</p>
-                                      <p>d</p>
-                                        <p>d</p>
-                    </div>
-                   
-                </div>
-            </div>
-      </xpath>
-     <!--
+         
+         
       <xpath expr="//div[@class='row']" position="replace">
            <div class="row">
                <div class="col-8" style="height:30px;"></div>
@@ -153,15 +130,15 @@
       </xpath>
 
        <xpath expr="//div[@name='company_address']" position="replace">
-              
+           <!--   
               <div class="col-6" name="company_address">
                     <div t-field="company.partner_id"
                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
                     />
                 </div>
-                
+            --> 
         </xpath>
-         -->
+     
        
          
 

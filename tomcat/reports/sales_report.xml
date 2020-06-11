@@ -109,7 +109,7 @@
                                 '{} {} {} {} {} {}' .format(company.street,company.street_number2, company.street2,company.city,company.state_id.name,company.country_id.name ) 
                               "/>
                           </p>
-                          <p style="margin:0;"><t t-esc="company.zip"/></p>
+                          <p style="margin:0;">CP:<t t-esc="company.zip"/></p>
                           <p style="margin:0;">RFC:<t t-esc="company.vat"/></p>
                           <p style="margin:0;">Régimen Foscal:<t t-esc="company.company_registry"/></p>
                       
@@ -119,7 +119,7 @@
                                 
                                   <tbody>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;"><t t-esc="doc.name"/></td>
                                     </tr>
                                     <tr>
                                       <td class="text-center" style=" padding: 1px 0px;">@mdo</td>

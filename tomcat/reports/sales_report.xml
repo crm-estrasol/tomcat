@@ -96,12 +96,15 @@
                     </t>
               </t>
               -->
-              <div class="col-8" style="background:red;">
-                <p>8</p>
+              <div class="row">
+                   <div class="col-7" style="background:red;">
+                    <p>8</p>
+                  </div>
+                  <div class="col-3" style="background:red;">
+                    <p>9</p>
+                  </div>
               </div>
-              <div class="col-4" style="background:red;">
-                <p>9</p>
-              </div>
+             
           </xpath>
           
                

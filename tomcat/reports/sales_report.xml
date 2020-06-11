@@ -100,7 +100,7 @@
                    <div class="col-7" style="background:red;">
                     <p>8</p>
                   </div>
-                  <div class="col-3" style="background:red;">
+                  <div class="col-4 ml-2" style="background:red;">
                     <p>9</p>
                   </div>
               </div>

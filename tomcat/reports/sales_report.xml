@@ -97,47 +97,36 @@
               </t>
               -->
               <div class="row justify-content-center">
-                   <div class="col-7" style="background:red;">
-                    <h2 class="mb-2">Titulo</h2>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                     <p>1</p>
-                    
-                  </div>
-                  <div class="col-4 ml-4" style="background:red;">
-                          <table class="table table-striped" style=" margin: 0px auto;">
-                              
-                                <tbody>
-                                  <tr>
-                                  
+                      <div class="col-6 " style=" font-size:12px; ">
+                            <h4 class="mb-2">Titulo</h4>
+                          <p style="margin:0;">1</p>
+                          <a  class="d-block"href="">a</a>
+                          <a href="">a</a>
+                          <p style="margin:0;">4</p>
+                          <p style="margin:0;">5</p>
+                          <p style="margin:0;">6</p>
+                          <p style="margin:0;">7</p>
+                      
+                    </div>
+                    <div class="col-5 ml-4" style=" font-size:16px;">
+                            <table class="table table-striped" style=" margin: 0px auto;">
                                 
-                                    <td>@mdo</td>
-                                  </tr>
+                                  <tbody>
                                     <tr>
-                                  
-                                
-                                    <td>@mdo</td>
-                                  </tr>
+                                      <td class="text-center" style=" padding: 4px 0px;">@mdo</td>
+                                    </tr>
                                     <tr>
-                                  
-                                
-                                    <td>@mdo</td>
-                                  </tr>
+                                      <td class="text-center" style=" padding: 4px 0px;">@mdo</td>
+                                    </tr>
                                     <tr>
-                                  
-                                
-                                    <td>@mdo</td>
-                                  </tr>
-                          
-                          </tbody>
-                        </table>
-                  </div>
+                                      <td class="text-center" style=" padding: 4px 0px;">@mdo</td>
+                                    </tr>
+                                      
+                            
+                            </tbody>
+                          </table>
+                    </div>
               </div>
-             
           </xpath>
           
                

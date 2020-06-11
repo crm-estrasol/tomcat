@@ -16,7 +16,9 @@
                         <field name="partners_related" />
                           <field name="extra_partner" />
           </xpath>
-          <xpath expr="//field[@name='priority']" position="before">     
+          <xpath expr="//field[@name='priority']" position="before">   
+           <field name="partners_related" />
+                          <field name="extra_partner" />  
                     <field name="light" placeholder="Semaforo" widget="int_color"  />
                     <field name="light_help" invisible="1" />
                      <field name="activity_ids" invisible="1" />

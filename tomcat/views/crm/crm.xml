@@ -11,17 +11,16 @@
                        <label for="id" string="ID" />
                         <field name="id" readonly="1"  string="ID"/>
           </xpath>
-          <xpath expr="//field[@name='partner_id']" position="after">     
-                      
-                        <field name="partners_related" />
-                          <field name="extra_partner" />
-          </xpath>
+          
           <xpath expr="//field[@name='priority']" position="before">   
-           <field name="partners_related" />
-                          <field name="extra_partner" />  
+                        
                     <field name="light" placeholder="Semaforo" widget="int_color"  />
                     <field name="light_help" invisible="1" />
                      <field name="activity_ids" invisible="1" />
+          </xpath>
+          <xpath expr="//field[@name='date_deadline']" position="before">   
+               <field name="partners_related" />
+                        
           </xpath>
       </field>
     </record>

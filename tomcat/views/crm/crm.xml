@@ -11,7 +11,7 @@
                        <label for="id" string="ID" />
                         <field name="id" readonly="1"  string="ID"/>
           </xpath>
-          <xpath expr="//field[@name='partner_id']" position="before">     
+          <xpath expr="//field[@name='partner_id']" position="after">     
                       
                         <field name="partners_related" />
           </xpath>

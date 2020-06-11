@@ -114,27 +114,42 @@
                           <p style="margin:0;">Régimen Foscal:<t t-esc="company.company_registry"/></p>
                       
                     </div>
-                    <div class="col-5 ml-4 mt-4 pt-3" style=" font-size:10px;">
+                    <div class="col-5 ml-4 mt-4 pt-3" style=" font-size:12px;">
                             <table class="table table-striped" style=" margin: 0px auto; border:2px; ">
                                 
                                   <tbody>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.name"/></td>
+                                      <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.name"/> <br/> FECHA</td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;"><t t-esc="date.today().strftime('%d/%m/%Y')"/></td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;">Sucursal</td>
                                     </tr>
                                       <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;">AV</td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;">PROVEEDOR</td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">@mdo</td>
+                                      <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.partner_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-center" style=" padding: 1px 0px;">RAZÓN SOCIAL</td>
+                                    </tr>
+                                     <tr>
+                                      <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.partner_id.vat"/></td>
+                                    </tr>
+                                     <tr>
+                                      <td class="text-center" style=" padding: 1px 0px;">ENTREGAR EN</td>
+                                    </tr>
+                                     <tr>
+                                      <td class="text-center" style=" padding: 1px 0px;"> <t t-esc="
+                                                                                    '{} {} {} {} {} {}' .format(company.street,company.street_number2, company.street2,company.city,company.state_id.name,company.country_id.name ) 
+                                                                                        "/>
+                                     </td>
                                     </tr>
                                       
                             

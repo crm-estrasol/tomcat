@@ -98,7 +98,7 @@
               -->
               <div class="row justify-content-center">
                       <div class="col-6 pl-3" style=" font-size:12px; ">
-                            <h4 class="mb-2" style="padding-top:0; margin-top:0;"> F14 S DE RL DE CV</h4>
+                            <h4 class="mb-2" style="padding-top:0; margin-top:0;"> <t t-esc="company.name"/></h4>
                           <p style="margin:0;">1</p>
                           <a  class="d-block" href="">aaaaaaaaaaaaaaaaaa</a>
                           <a href="">aaaaaaaaaaaa</a>

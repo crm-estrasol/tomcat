@@ -18,8 +18,8 @@ class TomcatPurchase(models.Model):
 class TomcatPurchaseLine(models.Model):
     _inherit = "purchase.order.line"
     discount = fields.Float(help="Discount",digits=(16, 2) ,store=True)
- 
-    @api.depends('product_qty', 'price_unit', 'taxes_id')
+
+    @api.depends('product_qty', 'price_unit', 'taxes_id','discount')
     def _compute_amount(self):
         for line in self:
             vals = line._prepare_compute_all_values()
@@ -29,10 +29,29 @@ class TomcatPurchaseLine(models.Model):
                 vals['product_qty'],
                 vals['product'],
                 vals['partner'])
+            if taxes['total_excluded'] != 0 and vals['discount'] > 0:
+                fix_price = taxes['total_excluded'] - ( taxes['total_excluded'] *  (vals['discount'] / 100) )
+            else:
+                fix_price = taxes['total_excluded']
             line.update({
                 'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
                 'price_total': taxes['total_included'],
-                'price_subtotal': taxes['total_excluded'] * 2,
+                'price_subtotal': fix_price,
             })
-    
-    
+   
+            self.price_subtotal =  self.price_subtotal  - (self.price_subtotal * (self.discount / 100) )
+    def _prepare_compute_all_values(self):
+        # Hook method to returns the different argument values for the
+        # compute_all method, due to the fact that discounts mechanism
+        # is not implemented yet on the purchase orders.
+        # This method should disappear as soon as this feature is
+        # also introduced like in the sales module.
+        self.ensure_one()
+        return {
+            'price_unit': self.price_unit,
+            'currency_id': self.order_id.currency_id,
+            'product_qty': self.product_qty,
+            'product': self.product_id,
+            'partner': self.order_id.partner_id,
+            'discount': self.discount,
+        }

@@ -30,7 +30,7 @@ class TomcatPurchaseLine(models.Model):
                 vals['product'],
                 vals['partner'])
             if taxes['total_excluded'] != 0 and vals['discount'] > 0:
-                fix_price = taxes['total_excluded'] 
+                fix_price = taxes['total_excluded'] - ( taxes['total_excluded'] *  (vals['discount'] / 100) )
             else:
                 fix_price = taxes['total_excluded']
             line.update({
@@ -39,7 +39,7 @@ class TomcatPurchaseLine(models.Model):
                 'price_subtotal': fix_price,
             })
    
-            self.price_subtotal =  self.price_subtotal  - (self.price_subtotal * (self.discount / 100) )
+           
     def _prepare_compute_all_values(self):
         # Hook method to returns the different argument values for the
         # compute_all method, due to the fact that discounts mechanism

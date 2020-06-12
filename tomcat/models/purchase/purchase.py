@@ -30,7 +30,7 @@ class TomcatPurchaseLine(models.Model):
                 vals['product'],
                 vals['partner'])
             if taxes['total_excluded'] != 0 and vals['discount'] > 0:
-                fix_price = taxes['total_excluded'] - ( taxes['total_excluded'] *  (vals['discount'] / 100) )
+                fix_price = taxes['total_excluded'] 
             else:
                 fix_price = taxes['total_excluded']
             line.update({

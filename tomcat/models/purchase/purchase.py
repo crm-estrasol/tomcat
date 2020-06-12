@@ -29,14 +29,14 @@ class TomcatPurchaseLine(models.Model):
                 vals['product_qty'],
                 vals['product'],
                 vals['partner'])
-            if taxes['total_excluded'] != 0 and vals['discount'] > 0:
-                fix_price = taxes['total_excluded'] - ( taxes['total_excluded'] *  (vals['discount'] / 100) )
-            else:
-                fix_price = taxes['total_excluded']
+            #if taxes['total_excluded'] != 0 and vals['discount'] > 0:
+            #    fix_price = taxes['total_excluded'] - ( taxes['total_excluded'] *  (vals['discount'] / 100) )
+            #else:
+            #    fix_price = taxes['total_excluded']
             line.update({
                 'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
                 'price_total': taxes['total_included'],
-                'price_subtotal': fix_price,
+                'price_subtotal':  taxes['total_excluded'],
             })
    
            
@@ -48,7 +48,7 @@ class TomcatPurchaseLine(models.Model):
         # also introduced like in the sales module.
         self.ensure_one()
         return {
-            'price_unit': self.price_unit,
+            'price_unit': self.price_unit - self.price_unit * (self.discount/100) ,
             'currency_id': self.order_id.currency_id,
             'product_qty': self.product_qty,
             'product': self.product_id,

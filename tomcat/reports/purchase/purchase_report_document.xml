@@ -4,9 +4,9 @@
   
     <template id="tomcat_purshase_order_document" name="custom" inherit_id="purchase.report_purchaseorder_document">
             
-             <xpath expr="//div[@class='oe_structure']" position="replace">
+             <xpath expr="//t[@t-call='web.external_layout']" position="replace">
              </xpath>
-
+    
             <xpath expr="//table[@class='table table-sm o_main_table']" position="replace">
                     <table class="table table-sm o_main_table">
                 <thead>

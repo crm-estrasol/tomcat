@@ -55,8 +55,7 @@
                                                     <span><t t-esc="current_partida"/></span>
                                                 </td>
                                                 <td id="product">
-                                                    <span t-field="line.product_id.name"/> <br/>
-                                                    <span t-field="line.product_id.description_purchase"/>
+                                                    <span t-field="line.name"/>
                                                 </td>
                                                 <td name="td_taxes">
                                                     <span t-esc="', '.join(map(lambda x: x.name, line.taxes_id))"/>

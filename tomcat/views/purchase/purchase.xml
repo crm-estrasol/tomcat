@@ -10,6 +10,7 @@
                 
                             <xpath expr="//field[@name='company_id']" position="after">
                                <field name="external_document" />
+                               <field name="external_number" />
                                 
                             </xpath>
            

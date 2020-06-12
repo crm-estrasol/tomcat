@@ -123,7 +123,7 @@
                                       <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.name"/> <br/> FECHA</td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;"><p t-field="o.date_order" /></td>
+                                      <td class="text-center" style=" padding: 1px 0px;"><p t-field="o.date_order.strftime('%d/%m/%Y')" /></td>
                                     </tr>
                                     <tr>
                                       <td class="text-center" style=" padding: 1px 0px;">SUCURSAL</td>

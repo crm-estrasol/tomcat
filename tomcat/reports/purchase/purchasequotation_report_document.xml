@@ -25,7 +25,9 @@
                                                     <span><t t-esc="current_partida"/></span>
                                                 </td>
                                                 <td id="product">
-                                                    <span t-field="order_line.name"/>
+                                                    <span t-field="line.product_id.name"/> <br/>
+                                                    <span t-field="line.product_id.description_purchase"/>
+                                                </td>
                                                 </td>
                                                 <td class="text-center">
                                                     <span t-field="order_line.date_planned"/>

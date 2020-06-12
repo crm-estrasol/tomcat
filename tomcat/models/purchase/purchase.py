@@ -15,3 +15,14 @@ class TomcatPurchase(models.Model):
         ctx['default_purchase'] = True
         values['context'] = ctx 
         return values 
+class TomcatPurchaseLine(models.Model):
+    _inherit = "purchase.order.line"
+    discount = fields.Float(help="Discount",digits=(16, 2) ,store=True)
+    @api.onchange('product_qty', 'product_uom')
+    def _onchange_quantity(self):
+        super(TomcatPurchaseLine, self)._onchange_quantity()
+        self.apply_discount()
+    @api.onchange('discount')    
+    def apply_discount(self):
+        self.price_subtotal =  (self.price_subtotal * self.discount) / 100
+    

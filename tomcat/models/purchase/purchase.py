@@ -25,5 +25,5 @@ class TomcatPurchaseLine(models.Model):
     @api.onchange('discount')    
     def apply_discount(self):
         if self.discount > 0:
-            self.price_subtotal =  self.price_unit  - (self.price_unit * (self.discount / 100) )
+            self.price_subtotal =  self.price_subtotal  - (self.price_subtotal * (self.discount / 100) )
     

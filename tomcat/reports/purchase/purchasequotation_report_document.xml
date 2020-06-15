@@ -9,7 +9,7 @@
                         <table class="table table-sm">
                                 <thead>
                                     <tr>
-                                        <th name="th_partida"><strong>Partida</strong></th>
+                                        <th name="th_partida"><strong>Item</strong></th>
                                         <th name="th_description"><strong>Description</strong></th>
                                         <th name="th_expected_date" class="text-center"><strong>Expected Date</strong></th>
                                         <th name="th_quantity" class="text-right"><strong>Qty</strong></th>

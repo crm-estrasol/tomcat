@@ -32,7 +32,7 @@
                           <table class="table table-sm o_main_table">
                                 <thead>
                                     <tr>
-                                        <th name="th_partida"><strong>Partida</strong></th>
+                                        <th name="th_partida"><strong>Item</strong></th>
                                         <th name="th_description"><strong>Description</strong></th>
                                         <th name="th_taxes"><strong>Taxes</strong></th>
                                         <th name="th_date_req" class="text-center"><strong>Date Req.</strong></th>

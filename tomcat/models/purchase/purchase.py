@@ -19,6 +19,7 @@ class TomcatPurchaseLine(models.Model):
     _inherit = "purchase.order.line"
     discount = fields.Float(help="Discount",digits=(16, 2) ,store=True)
 
+    """
     @api.depends('product_qty', 'price_unit', 'taxes_id','discount')
     def _compute_amount(self):
         for line in self:
@@ -38,7 +39,7 @@ class TomcatPurchaseLine(models.Model):
                 'price_total': taxes['total_included'],
                 'price_subtotal':  taxes['total_excluded'],
             })
-   
+   """
            
     def _prepare_compute_all_values(self):
         # Hook method to returns the different argument values for the
@@ -46,7 +47,13 @@ class TomcatPurchaseLine(models.Model):
         # is not implemented yet on the purchase orders.
         # This method should disappear as soon as this feature is
         # also introduced like in the sales module.
-        self.ensure_one()
+        res = super(TomcatPurchaseLine, self)._prepare_compute_all_values()
+      
+        res['price_unit'] = self.price_unit - self.price_unit * (self.discount/100)
+        
+        return res 
+        """
+        #self.ensure_one()
         return {
             'price_unit': self.price_unit - self.price_unit * (self.discount/100) ,
             'currency_id': self.order_id.currency_id,
@@ -55,3 +62,4 @@ class TomcatPurchaseLine(models.Model):
             'partner': self.order_id.partner_id,
             'discount': self.discount,
         }
+        """

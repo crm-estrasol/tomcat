@@ -32,8 +32,8 @@ import os.path
 class TomCatSaleOrder(models.Model):
     _inherit  = "sale.order"
     proyect = fields.Many2one('project.project', string='Proyecto',track_visibility=True)
-    product_proy = fields.Many2one('product.product', string='Plantilla proyecto',track_visibility=True,required=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]", readonly=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
-    name_proy = fields.Char('Nombre proyecto',track_visibility=True, required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
+    product_proy = fields.Many2one('product.product', string='Plantilla proyecto',track_visibility=True, domain="['&',('type', '=', 'service'),('service_tracking', '=', 'project_only')]", readonly=True,states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
+    name_proy = fields.Char('Nombre proyecto',track_visibility=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
     print_options = fields.Selection([('complete_total', 'Completo  totalizado'), 
                                                 ('only_complete', 'Completo') , ('complete_price', 'Completo con precio unitario'), ('no_brandModel','Sin marca y modelo') ,
                                                 ('without_price', 'Sin precios'),('subtotal_system', 'Solo con subtotal por sistema')], string='Formato pdf', copy=False, default='only_complete')
@@ -51,7 +51,8 @@ class TomCatSaleOrder(models.Model):
     @api.model
     def create(self, values): 
         res = super(TomCatSaleOrder, self).create(values)
-        res.write({'name':res.name+"-"+res.name_proy})
+        if res.name and res.name_proy:
+            res.write({'name':res.name+"-"+res.name_proy})
         if  'product_proy' in values:  
             product = self.env['product.product'].search( [ ('id','=', values['product_proy'])] )
             res.order_line =  [ (0,0 ,{'product_id':product.id,'name':product.name,'product_uom':product.uom_id.id}) ]

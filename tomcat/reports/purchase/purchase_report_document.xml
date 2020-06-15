@@ -37,7 +37,9 @@
                                         <th name="th_taxes"><strong>Taxes</strong></th>
                                         <th name="th_date_req" class="text-center"><strong>Date Req.</strong></th>
                                         <th name="th_quantity" class="text-right"><strong>Qty</strong></th>
+                                         <th name="th_discount" class="text-right"><strong>Descuento (%) </strong></th>
                                         <th name="th_price_unit" class="text-right"><strong>Unit Price</strong></th>
+                                       
                                         <th name="th_amount" class="text-right"><strong>Amount</strong></th>
                                     </tr>
                                 </thead>
@@ -66,6 +68,9 @@
                                                 <td class="text-right">
                                                     <span t-field="line.product_qty"/>
                                                     <span t-field="line.product_uom.name" groups="uom.group_uom"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-field="line.discount"/>
                                                 </td>
                                                 <td class="text-right">
                                                     <span t-field="line.price_unit"/>

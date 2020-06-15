@@ -20,6 +20,8 @@ class ProjectTask(models.Model):
                                       default=0.0)
     max_rate = fields.Integer(string='Maximum rate', default=100)
 
+    
+
 
 class TaskChecklist(models.Model):
     _name = 'task.checklist'

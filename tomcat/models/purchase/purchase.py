@@ -18,9 +18,7 @@ class TomcatPurchase(models.Model):
 class TomcatPurchaseLine(models.Model):
     _inherit = "purchase.order.line"
     discount = fields.Float(help="Discount",digits=(16, 2) ,store=True)
-
-    
-           
+         
     def _prepare_compute_all_values(self):
        
         res = super(TomcatPurchaseLine, self)._prepare_compute_all_values()

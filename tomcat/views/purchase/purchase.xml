@@ -13,6 +13,18 @@
                                <field name="external_number" />
                                 
                             </xpath>
+
+                            <xpath expr="//tree//field[@name='price_subtotal']" position="after">
+                              
+                               <field name="price_tax" invisible="1" />
+                                
+                            </xpath>
+
+                             <xpath expr="//tree//field[@name='price_unit']" position="before">
+                              
+                               <field name="discount" />
+                                
+                            </xpath>
            
                         </field>
 

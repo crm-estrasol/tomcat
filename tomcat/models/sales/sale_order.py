@@ -51,7 +51,7 @@ class TomCatSaleOrder(models.Model):
     @api.model
     def create(self, values): 
         res = super(TomCatSaleOrder, self).create(values)
-        if res.name and res.name_proy:
+        if  res.name_proy :
             res.write({'name':res.name+"-"+res.name_proy})
         if  'product_proy' in values:  
             product = self.env['product.product'].search( [ ('id','=', values['product_proy'])] )

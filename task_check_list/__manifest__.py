@@ -25,7 +25,7 @@
     'category': 'Project',
     'author': 'Odoo Mates',
     'company': 'Odoo Mates',
-    'maintainer': 'Odoo Mates',
+    'maintainer': 'Odoo Matessss',
     'website': "",
     'depends': ['project'],
     'live_test_url': 'https://www.youtube.com/watch?v=bEhhlB2dNT0',

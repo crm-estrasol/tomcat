@@ -62,9 +62,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="maximum_rate" string="Max" invisible="1"/>
-                    <field name="progress_rate" string="Checklist Progress" widget="gauge"
-                           style="width:300px;height:225px;cursor:pointer;"
-                           options="{'max_field': 'maximum_rate'}" />
+                    <field name="progress_rate" string="Checklist Progress" widget="progressbar"
+                          />
                 </xpath>
             </field>
     </record>

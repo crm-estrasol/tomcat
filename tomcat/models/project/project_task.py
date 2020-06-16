@@ -83,15 +83,20 @@ class TomcatProjectTask(models.Model):
     def add_all_activity_stages(self):
         
         items = self.env['project.task.type'].search([('project_ids','=',self.project_id.id)],order='name asc ')     
-        
-        self.write({
-                'timesheet_ids': [(0,0,{ 'project_id': self.project_id.id,
-                                         'name':item.name if item.name else "Pendiente definir",
-                                         'name_work':item.description if item.description else "Pendiente definir", 
+        values = []
+        for item in items :
+                values_temp = [(0,0,{   'project_id': self.project_id.id,
+                                         'name':item_2.name if item.name else "Pendiente definir",
+                                         'name_work':item_2.description if item.description else "Pendiente definir", 
                                          'stage_id':item.id,
                                             }
                                          
-                                         ) for item in items  ]
+                                         ) for item_2 in item.activities  ]
+                values+=values_temp
+
+        if values:
+            self.write({
+                'timesheet_ids':values
                 })
 class TomcatProjectTaskStage(models.Model):
     _inherit = "project.task.type"

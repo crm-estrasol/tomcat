@@ -105,8 +105,7 @@
                   <field name="model">project.task.type</field>
                   <field name="arch" type="xml">
                       <xpath expr="//field[@name='is_closed']" position="after">
-              
-                          <field name="activities" widget="percentpie" />
+                          <field name="activities"  />
                       </xpath>
                   </field>
         </record>

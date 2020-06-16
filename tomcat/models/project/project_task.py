@@ -79,6 +79,19 @@ class TomcatProjectTask(models.Model):
                                          
                                          ) for item in items  ]
                 })
+    def add_all_activity_stages(self):
+        
+        items = self.env['project.task.type'].search([('project_ids','=',self.project_id.id)],order='name asc ')     
+        
+        self.write({
+                'timesheet_ids': [(0,0,{ 'project_id': self.project_id.id,
+                                         'name':item.name if item.name else "Pendiente definir",
+                                         'name_work':item.description if item.description else "Pendiente definir", 
+                                         'stage_id':item.stage_id.id,
+                                            }
+                                         
+                                         ) for item in items  ]
+                })
 class TomcatProjectTaskStage(models.Model):
     _inherit = "project.task.type"
     #activities = fields.One2many (comodel_name='check.list',inverse_name='task_id',string="Actividades")

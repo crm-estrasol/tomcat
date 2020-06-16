@@ -37,7 +37,7 @@
                     <field name="progress_rate" string="Proceso actividades" widget="progressbar"
                           />
                           
-                      <button name="add_all_activity_stages" string="Agregar actividades etapa" type="object" class="btn-primary" attrs="{'invisible': [('timesheet_ids','!=',False)]}" />
+                     <button name="add_all_activity_stages" string="Agregar todas las actividades" type="object" class="btn-primary" attrs="{'invisible': [('timesheet_ids','=',[])]}" />
                      <button name="add_activity_stage" string="Agregar actividades etapa" type="object" class="btn-primary" />      
            </xpath>
             <xpath expr="//tree//field[@name='date']" position="before">     

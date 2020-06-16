@@ -64,7 +64,7 @@
                     <field name="maximum_rate" string="Max" invisible="1"/>
                     <field name="progress_rate" string="Checklist Progress" widget="gauge"
                            style="width:300px;height:225px;cursor:pointer;"
-                           options="{'max_field': 'maximum_rate'}" attrs="{'invisible':[('check_box','=',False)]}"/>
+                           options="{'max_field': 'maximum_rate'}" />
                 </xpath>
             </field>
     </record>
@@ -88,8 +88,8 @@
             <field name="model">project.task</field>
             <field name="arch" type="xml">
                 <xpath expr='//kanban/templates/t/div/div/div[2]' position="after">
-                    <field name="check_box" invisible="1"/>
-                    <field name="progress_rate" widget="percentpie" attrs="{'invisible': [('check_box', '=', False)]}"/>
+        
+                    <field name="progress_rate" widget="percentpie" />
                 </xpath>
             </field>
         </record>

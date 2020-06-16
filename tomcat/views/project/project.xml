@@ -100,6 +100,7 @@
 
                 <xpath expr="//field[@name='stage_id']" position="replace">
                     <field name="progress_rate" widget="progressbar"/>
+                    
                     <field name="progress_global" widget="progressbar"/>
                     
                 </xpath>
@@ -112,9 +113,15 @@
             <field name="model">project.task</field>
             <field name="arch" type="xml">
                 <xpath expr='//kanban/templates/t/div/div/div[2]' position="after">
-        
-                    <field name="progress_rate" widget="percentpie" />
-                      <field name="progress_global" widget="percentpie"/>
+                      <div class="row">
+                          <div class="col-6">
+                               <field name="progress_rate" widget="percentpie" string="" />
+                          </div>
+                          <div class="col-6">
+                              <field name="progress_global" widget="percentpie" string=""/>
+                          </div>
+                      </div>
+                    
                 </xpath>
             </field>
         </record>

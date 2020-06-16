@@ -7,7 +7,7 @@ from datetime import datetime
 class TomcatAnalyticAcount(models.Model):
     _inherit = "account.analytic.line"
     name_work = fields.Text('Nombre trabajo')
-    status_t = fields.Selection(string="Status",
+    status_t = fields.Selection(string="Estatus",
                               selection=[('done', 'Hecho'), ('progress', 'En progreso'), ('cancel', 'Cancelado')],
                               readonly=True)
     stage_id = fields.Many2one('project.task.type', string='Etapa',invisible=True)

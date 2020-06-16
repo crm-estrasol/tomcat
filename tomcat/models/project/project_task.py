@@ -87,7 +87,7 @@ class TomcatProjectTask(models.Model):
                 'timesheet_ids': [(0,0,{ 'project_id': self.project_id.id,
                                          'name':item.name if item.name else "Pendiente definir",
                                          'name_work':item.description if item.description else "Pendiente definir", 
-                                         'stage_id':item.stage_id.id,
+                                         'stage_id':item.id,
                                             }
                                          
                                          ) for item in items  ]

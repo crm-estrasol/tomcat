@@ -7,6 +7,7 @@ from datetime import datetime
 class TomcatProjectTask(models.Model):
     _inherit = "project.task"
     progress_rate = fields.Integer(string='Proceso actividades', compute="check_rate")
+    progress_global = fields.Integer(string='Proceso actividades', compute="check_rate_global")
     total = fields.Integer(string="Max")
     status = fields.Selection(string="Status",
                               selection=[('done', 'Done'), ('progress', 'In Progress'), ('cancel', 'Cancel')],
@@ -40,10 +41,10 @@ class TomcatProjectTask(models.Model):
                     else:
                         rec.progress_rate = round(done / (total - cancel), 2) * 100
             # rec.message_post(body=message)
-    """
-    def check_rate(self):
+    
+    def check_rate_global(self):
         for rec in self:
-            rec.progress_rate = 0
+            rec.progress_global = 0
             total = len(rec.timesheet_ids.ids)
             done = 0
             cancel = 0
@@ -62,11 +63,11 @@ class TomcatProjectTask(models.Model):
                         # if item.status == 'progress':
                         #     message = "Work: %s <br> Status: In Progress" % (item.name_work)
                     if cancel == total:
-                        rec.progress_rate = 0
+                        rec.progress_global = 0
                     else:
-                        rec.progress_rate = round(done / (total - cancel), 2) * 100
+                        rec.progress_global = round(done / (total - cancel), 2) * 100
             # rec.message_post(body=message)
-    """
+    
     #BUTTONS
     def add_activity_stage(self):
         items = self.stage_id.activities      

@@ -34,7 +34,9 @@
            </xpath>
           <xpath expr="//field[@name='progress']" position="after">
                     <field name="maximum_rate" string="Max" invisible="1"/>
-                    <field name="progress_rate" string="Proceso actividades" widget="progressbar"
+                    <field name="progress_rate" string="Proceso actividades(etapa)" widget="progressbar"
+                          />
+                    <field name="progress_global" string="Proceso actividades(global)" widget="progressbar"
                           />
                           
                      <button name="add_all_activity_stages" string="Agregar todas las actividades" type="object" class="btn-primary" attrs="{'invisible': [('timesheet_ids','!=', [] )]}" />
@@ -98,6 +100,8 @@
 
                 <xpath expr="//field[@name='stage_id']" position="replace">
                     <field name="progress_rate" widget="progressbar"/>
+                    <field name="progress_global" widget="progressbar"/>
+                    
                 </xpath>
 
             </field>
@@ -110,6 +114,7 @@
                 <xpath expr='//kanban/templates/t/div/div/div[2]' position="after">
         
                     <field name="progress_rate" widget="percentpie" />
+                      <field name="progress_global" widget="percentpie"/>
                 </xpath>
             </field>
         </record>

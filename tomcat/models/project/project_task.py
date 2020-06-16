@@ -17,6 +17,33 @@ class TomcatProjectTask(models.Model):
     def check_rate(self):
         for rec in self:
             rec.progress_rate = 0
+            items = rec.timesheet_ids.filtered(lambda x: x.stage_id.id == rec.stage_id.id  )
+            total = len(items.ids)
+            done = 0
+            cancel = 0
+            # message = 'Create Work!'
+            if total == 0:
+                pass
+            else:
+                if items:
+                    for item in items:
+                        if item.status_t == 'done':
+                            done += 1
+                            # message = "Work: %s <br> Status: done" % (item.name_work)
+                        if item.status_t == 'cancel':
+                            cancel += 1
+                            # message = "Work: %s <br> Status: cancel" % (item.name_work)
+                        # if item.status == 'progress':
+                        #     message = "Work: %s <br> Status: In Progress" % (item.name_work)
+                    if cancel == total:
+                        rec.progress_rate = 0
+                    else:
+                        rec.progress_rate = round(done / (total - cancel), 2) * 100
+            # rec.message_post(body=message)
+    """
+    def check_rate(self):
+        for rec in self:
+            rec.progress_rate = 0
             total = len(rec.timesheet_ids.ids)
             done = 0
             cancel = 0
@@ -39,6 +66,7 @@ class TomcatProjectTask(models.Model):
                     else:
                         rec.progress_rate = round(done / (total - cancel), 2) * 100
             # rec.message_post(body=message)
+    """
 
 class TomcatProjectTaskStage(models.Model):
     _inherit = "project.task.type"

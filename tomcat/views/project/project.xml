@@ -113,9 +113,16 @@
             <field name="model">project.task</field>
             <field name="arch" type="xml">
                 <xpath expr='//kanban/templates/t/div/div/div[2]' position="after">
-                      
-                      <field name="progress_rate" widget="percentpie" string="Estapa" />
-                      <field name="progress_global" widget="percentpie" string="Global"/>
+                      <div class="row">
+                        <div class="col-5 mr-2">
+                             <field name="progress_rate" widget="percentpie" string="Estapa"  />
+                        </div>
+                        <div class="col-5">
+                              <field name="progress_global" widget="percentpie" string="Global"/>
+                        </div>
+                      </div>
+                     
+                    
                 </xpath>
             </field>
         </record>

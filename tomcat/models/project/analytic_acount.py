@@ -10,6 +10,7 @@ class TomcatAnalyticAcount(models.Model):
     status_t = fields.Selection(string="Status",
                               selection=[('done', 'Hecho'), ('progress', 'En progreso'), ('cancel', 'Cancelado')],
                               readonly=True)
+    stage_id = fields.Many2one('project.task.type', string='Etapa',readonly="1")
 
     def do_accept(self):
         self.write({

@@ -26,15 +26,22 @@
       <field name="model">project.task</field>
       <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
       <field name="arch" type="xml">
-               <xpath expr="//field[@name='progress']" position="after">
+          
+          <xpath expr="//field[@name='timesheet_ids']" position="attributes">
+        
+                <attribute name="context">{'default_project_id': project_id, 'default_name':'', 'default_stage_id':stage_id}</attribute>
+                   
+           </xpath>
+          <xpath expr="//field[@name='progress']" position="after">
                     <field name="maximum_rate" string="Max" invisible="1"/>
                     <field name="progress_rate" string="Proceso actividades" widget="progressbar"
                           />
-                </xpath>
+           </xpath>
     
            <xpath expr="//tree//field[@name='name']" position="before">     
                     
                      <field name="name_work" required="1" />
+                      <field name="stage_id"  />
                      
            </xpath>
              <xpath expr="//tree//field[@name='name']" position="after">     

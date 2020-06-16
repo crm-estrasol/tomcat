@@ -40,3 +40,7 @@ class TomcatProjectTask(models.Model):
                         rec.progress_rate = round(done / (total - cancel), 2) * 100
             # rec.message_post(body=message)
 
+class TomcatProjectTaskStage(models.Model):
+    _inherit = "project.task.type"
+    #activities = fields.One2many (comodel_name='check.list',inverse_name='task_id',string="Actividades")
+    activities = fields.Many2many(comodel_name='check.list', required=True,relation='table_many_activities_task', column1='task_id', column2='activity_id')

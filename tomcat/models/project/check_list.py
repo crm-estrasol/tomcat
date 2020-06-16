@@ -8,3 +8,4 @@ class CheckList(models.Model):
     name = fields.Char('Name')
     name_work = fields.Text('Name Work', track_visibility='onchange')
     description = fields.Text('Description')
+    task_id = fields.Many2one('project.task.type', string='Etapa' , readonly="1")

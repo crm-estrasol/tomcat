@@ -99,6 +99,19 @@
                 </xpath>
             </field>
         </record>
+      <record model="ir.ui.view" id="task_project_edit_stage">
+                  <field name="name">task stage extened</field>
+                  <field name="inherit_id" ref="project.task_type_edit"/>
+                  <field name="model">project.task.type</field>
+                  <field name="arch" type="xml">
+                      <xpath expr="//field[@name='is_closed']" position="after">
+              
+                          <field name="activities" widget="percentpie" />
+                      </xpath>
+                  </field>
+        </record>
+
+         
    <!--
     <record id="view_crm_crm_kanban_inherite_light" model="ir.ui.view">
       <field name="name">crm.kanbann.lead.tomcat</field>

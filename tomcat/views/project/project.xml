@@ -47,6 +47,8 @@
                     <button name="do_set_to" string="Refrescar" type="object"
                             icon="fa-refresh"
                             attrs="{'invisible':[('status_t','!=','cancel')]}"/>
+                            
+                     <field name="status_t"  />
                      
            </xpath>
          

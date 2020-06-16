@@ -13,23 +13,23 @@ class TomcatAnalyticAcount(models.Model):
 
     def do_accept(self):
         self.write({
-            'status': 'done',
+            'status_t': 'done',
         })
         # return {'type': 'ir.actions.client', 'tag': 'reload'}
 
     def do_cancel(self):
         self.write({
-            'status': 'cancel',
+            'status_t': 'cancel',
         })
         # return {'type': 'ir.actions.client', 'tag': 'reload'}
 
     def do_progress(self):
         self.write({
-            'status': 'progress',
+            'status_t': 'progress',
         })
         # return {'type': 'ir.actions.client', 'tag': 'reload'}
 
     def do_set_to(self):
         self.write({
-            'status': ''
+            'status_t': ''
         })

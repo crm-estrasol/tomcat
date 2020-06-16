@@ -87,7 +87,7 @@ class TomcatProjectTask(models.Model):
         for item in items :
                 values_temp = [(0,0,{   'project_id': self.project_id.id,
                                          'name_work':item_2.name if item.name else "Pendiente definir",
-                                         'name':item_2.description if item.description else "Pendiente definir", 
+                                         'name':item_2.description if item_2.description else "Pendiente definir", 
                                          'stage_id':item.id,
                                             }                           
                                          ) for item_2 in item.activities  ]

@@ -41,6 +41,7 @@
            <xpath expr="//tree//field[@name='name']" position="before">     
                     
                      <field name="name_work" required="1" />
+                      <field name="stage_id"  />
                       <field name="show_stage"  />
                      
            </xpath>

@@ -5,6 +5,6 @@ access_tomcat_project_section,tomcat.project.section,model_tomcat_project_sectio
 access_tomcat_brand,tomcat.brand,model_tomcat_brand,,1,1,1,1
 access_tomcat_project,tomcat.project,model_tomcat_project,,1,1,1,1
 access_tomcat_ubication,tomcat.ubication,model_tomcat_ubication,,1,1,1,1
-access_check_list,access_check_list,model_check_list,base.group_user,1,1,1,
+access_check_list,access_check_list,model_check_list,base.group_user,1,1,1,1
 
 

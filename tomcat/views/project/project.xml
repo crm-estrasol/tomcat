@@ -36,6 +36,7 @@
                     <field name="maximum_rate" string="Max" invisible="1"/>
                     <field name="progress_rate" string="Proceso actividades" widget="progressbar"
                           />
+                     <button name="add_activity_stage" string="Agregar actividades etapa" type="object" class="btn-primary" />      
            </xpath>
             <xpath expr="//tree//field[@name='date']" position="before">     
                       <field name="show_stage"  />

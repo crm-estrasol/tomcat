@@ -67,7 +67,18 @@ class TomcatProjectTask(models.Model):
                         rec.progress_rate = round(done / (total - cancel), 2) * 100
             # rec.message_post(body=message)
     """
-
+    #BUTTONS
+    def add_activity_stage(self):
+        items = self.stage_id.activities      
+        self.write({
+                'timesheet_ids': [(0,0,{ 'project_id': self.project_id.id,
+                                         'name':item.name if item.name else "Pendiente definir",
+                                         'name_work':item.description if item.description else "Pendiente definir", 
+                                         'stage_id':self.stage_id.id,
+                                            }
+                                         
+                                         ) for item in items  ]
+                })
 class TomcatProjectTaskStage(models.Model):
     _inherit = "project.task.type"
     #activities = fields.One2many (comodel_name='check.list',inverse_name='task_id',string="Actividades")

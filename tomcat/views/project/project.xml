@@ -34,18 +34,19 @@
            </xpath>
              <xpath expr="//tree//field[@name='name']" position="after">     
                     
+                   
                      <field name="status_t"  />
                      <button name="do_accept" string="Hecho" type="object" icon="fa-check text-success"
-                            attrs="{'invisible':['|',('status','=','done'),('status','=','cancel')]}"/>
+                            attrs="{'invisible':['|',('status_t','=','done'),('status_t','=','cancel')]}"/>
                     <button name="do_cancel" string="Cancelar" type="object"
                             icon="fa-times-circle text-danger"
-                            attrs="{'invisible':['|',('status','=','done'),('status','=','cancel')]}"/>
+                            attrs="{'invisible':['|',('status_t','=','done'),('status_t','=','cancel')]}"/>
                     <button name="do_progress" string="En progreso" type="object"
                             icon="fa-play"
-                            attrs="{'invisible':[('status','!=',False)]}"/>
+                            attrs="{'invisible':[('status_t','!=',False)]}"/>
                     <button name="do_set_to" string="Refrescar" type="object"
                             icon="fa-refresh"
-                            attrs="{'invisible':[('status','!=','cancel')]}"/>
+                            attrs="{'invisible':[('status_t','!=','cancel')]}"/>
                      
            </xpath>
          

@@ -26,6 +26,11 @@
       <field name="model">project.task</field>
       <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
       <field name="arch" type="xml">
+               <xpath expr="//field[@name='progress']" position="after">
+                    <field name="maximum_rate" string="Max" invisible="1"/>
+                    <field name="progress_rate" string="Proceso actividades" widget="progressbar"
+                          />
+                </xpath>
     
            <xpath expr="//tree//field[@name='name']" position="before">     
                     
@@ -54,7 +59,7 @@
          
       </field>
     </record>
-
+    <!--
      <record id="custom_form_project_task" model="ir.ui.view">
             <field name="name">Add checklist</field>
             <field name="model">project.task</field>
@@ -63,10 +68,12 @@
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="maximum_rate" string="Max" invisible="1"/>
                     <field name="progress_rate" string="Checklist Progress" widget="progressbar"
-                          />
+                         inviisble="1" />
                 </xpath>
+               
             </field>
     </record>
+    -->
     
 
      <record id="custom_tree_view_project_task" model="ir.ui.view">

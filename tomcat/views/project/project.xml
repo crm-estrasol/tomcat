@@ -37,18 +37,21 @@
                     <field name="progress_rate" string="Proceso actividades" widget="progressbar"
                           />
            </xpath>
-    
-           <xpath expr="//tree//field[@name='name']" position="before">     
-                    
-                     <field name="name_work" required="1" />
-                      <field name="stage_id"  />
+            <xpath expr="//tree//field[@name='date']" position="before">     
                       <field name="show_stage"  />
+                      <field name="stage_id"  />
+                     
+                     
+           </xpath>
+           <xpath expr="//tree//field[@name='name']" position="before">     
+                      
+                     <field name="name_work" required="1" />
+                      
+                     
                      
            </xpath>
              <xpath expr="//tree//field[@name='name']" position="after">     
-                    
-                   
-                    
+                                  
                      <button name="do_accept" string="Hecho" type="object" icon="fa-check text-success"
                             attrs="{'invisible':['|',('status_t','=','done'),('status_t','=','cancel')]}"/>
                     <button name="do_cancel" string="Cancelar" type="object"

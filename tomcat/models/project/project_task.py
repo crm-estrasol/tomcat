@@ -6,7 +6,7 @@ from odoo.tools.misc import clean_context
 from datetime import datetime   
 class TomcatProjectTask(models.Model):
     _inherit = "project.task"
-    progress_rate = fields.Integer(string='Checklist Progress', compute="check_rate")
+    progress_rate = fields.Integer(string='Proceso actividades', compute="check_rate")
     total = fields.Integer(string="Max")
     status = fields.Selection(string="Status",
                               selection=[('done', 'Done'), ('progress', 'In Progress'), ('cancel', 'Cancel')],

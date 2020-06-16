@@ -39,6 +39,7 @@
         'views/crm/crm_cron.xml',
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
+        'views/project/task_checklist_view.xml',
         'views/sales/sales.xml',
         'views/sales/product_template.xml',
         'views/sales/extra_cat_product/product_brand.xml',

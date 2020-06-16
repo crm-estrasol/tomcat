@@ -23,18 +23,7 @@
           </field>
       </record>
 
-    <record id="task_checklist_view_tree" model="ir.ui.view">
-          <field name="name">Actividades</field>
-          <field name="model">check.list</field>
-          <field name="arch" type="xml" >
-              <tree string="Actividades"  >
-                <field name="name"/>
-                <field name="description" />
   
-              </tree>
-          </field>
-    </record>
-
     <record id="task_checklist_view_tree" model="ir.ui.view">
           <field name="name">Actividades</field>
           <field name="model">check.list</field>

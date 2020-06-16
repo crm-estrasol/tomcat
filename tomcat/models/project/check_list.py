@@ -7,5 +7,5 @@ class CheckList(models.Model):
     _name = 'check.list'
     name = fields.Char('Nombre trabajo')
     name_work = fields.Text('Name Work', track_visibility='onchange', invisible="1")
-    description = fields.Text('Description',string="Descripción")
+    description = fields.Text(string="Descripción")
     task_id = fields.Many2one('project.task.type', string='Etapa' , readonly="1")

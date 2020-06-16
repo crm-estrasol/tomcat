@@ -10,3 +10,26 @@ class TomcatAnalyticAcount(models.Model):
     status_t = fields.Selection(string="Status",
                               selection=[('done', 'Hecho'), ('progress', 'En progreso'), ('cancel', 'Cancelado')],
                               readonly=True)
+
+    def do_accept(self):
+        self.write({
+            'status': 'done',
+        })
+        # return {'type': 'ir.actions.client', 'tag': 'reload'}
+
+    def do_cancel(self):
+        self.write({
+            'status': 'cancel',
+        })
+        # return {'type': 'ir.actions.client', 'tag': 'reload'}
+
+    def do_progress(self):
+        self.write({
+            'status': 'progress',
+        })
+        # return {'type': 'ir.actions.client', 'tag': 'reload'}
+
+    def do_set_to(self):
+        self.write({
+            'status': ''
+        })

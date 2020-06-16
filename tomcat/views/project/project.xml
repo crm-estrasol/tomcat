@@ -21,6 +21,37 @@
       </field>
     </record>
     
+    <record id="view_project_project_form_tomcat_activities" model="ir.ui.view">
+      <field name="name">hr_timesheet.view.task.activities.tomcat</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+      <field name="arch" type="xml">
+    
+           <xpath expr="//tree//field[@name='name']" position="before">     
+                    
+                     <field name="name_work" required="1" />
+                     
+           </xpath>
+             <xpath expr="//tree//field[@name='name']" position="after">     
+                    
+                     <field name="status_t"  />
+                     <button name="do_accept" string="Hecho" type="object" icon="fa-check text-success"
+                            attrs="{'invisible':['|',('status','=','done'),('status','=','cancel')]}"/>
+                    <button name="do_cancel" string="Cancelar" type="object"
+                            icon="fa-times-circle text-danger"
+                            attrs="{'invisible':['|',('status','=','done'),('status','=','cancel')]}"/>
+                    <button name="do_progress" string="En progreso" type="object"
+                            icon="fa-play"
+                            attrs="{'invisible':[('status','!=',False)]}"/>
+                    <button name="do_set_to" string="Refrescar" type="object"
+                            icon="fa-refresh"
+                            attrs="{'invisible':[('status','!=','cancel')]}"/>
+                     
+           </xpath>
+         
+      </field>
+    </record>
+     	
    <!--
     <record id="view_crm_crm_kanban_inherite_light" model="ir.ui.view">
       <field name="name">crm.kanbann.lead.tomcat</field>

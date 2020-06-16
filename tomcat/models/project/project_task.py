@@ -82,7 +82,7 @@ class TomcatProjectTask(models.Model):
                 })
     def add_all_activity_stages(self):
         
-        items = self.env['project.task.type'].search([('project_ids','=',self.project_id.id)],order='sequence asc ')     
+        items = self.env['project.task.type'].search([('project_ids','=',self.project_id.id)],order='sequence desc ')     
         values = []
         for item in items :
                 values_temp = [(0,0,{   'project_id': self.project_id.id,

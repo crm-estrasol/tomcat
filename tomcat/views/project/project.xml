@@ -35,7 +35,7 @@
              <xpath expr="//tree//field[@name='name']" position="after">     
                     
                    
-                     <field name="status_t"  />
+                    
                      <button name="do_accept" string="Hecho" type="object" icon="fa-check text-success"
                             attrs="{'invisible':['|',('status_t','=','done'),('status_t','=','cancel')]}"/>
                     <button name="do_cancel" string="Cancelar" type="object"
@@ -54,7 +54,45 @@
          
       </field>
     </record>
-     	
+
+     <record id="custom_form_project_task" model="ir.ui.view">
+            <field name="name">Add checklist</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="maximum_rate" string="Max" invisible="1"/>
+                    <field name="progress_rate" string="Checklist Progress" widget="gauge"
+                           style="width:300px;height:225px;cursor:pointer;"
+                           options="{'max_field': 'maximum_rate'}" attrs="{'invisible':[('check_box','=',False)]}"/>
+                </xpath>
+            </field>
+    </record>
+    
+
+     <record id="custom_tree_view_project_task" model="ir.ui.view">
+            <field name="name">Show up progress</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='stage_id']" position="replace">
+                    <field name="progress_rate" widget="progressbar"/>
+                </xpath>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="task_project_kanban_view_extened">
+            <field name="name">task kanban extened</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <xpath expr='//kanban/templates/t/div/div/div[2]' position="after">
+                    <field name="check_box" invisible="1"/>
+                    <field name="progress_rate" widget="percentpie" attrs="{'invisible': [('check_box', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
    <!--
     <record id="view_crm_crm_kanban_inherite_light" model="ir.ui.view">
       <field name="name">crm.kanbann.lead.tomcat</field>

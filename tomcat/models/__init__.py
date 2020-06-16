@@ -10,6 +10,7 @@ from  .sales import sale_order
 
 from .purchase import purchase
 from .project import analytic_acount
+from .project import project_task
 #from  .sales.reports import sale_report
 #Mail
 #from .mail import mail_activity

@@ -105,7 +105,12 @@
                   <field name="model">project.task.type</field>
                   <field name="arch" type="xml">
                       <xpath expr="//field[@name='is_closed']" position="after">
-                          <field name="activities"  />
+                          <field name="activities"  >
+                               <tree string="Contacts" >
+                                  <field name="name" />
+                                  <field name="description"/>
+                                </tree>
+                          </field >
                       </xpath>
                   </field>
         </record>

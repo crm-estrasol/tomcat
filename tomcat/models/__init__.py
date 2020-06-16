@@ -9,7 +9,7 @@ from  .sales import sale_order_line_template
 from  .sales import sale_order
 
 from .purchase import purchase
-
+from .project import analytic_acount
 #from  .sales.reports import sale_report
 #Mail
 #from .mail import mail_activity

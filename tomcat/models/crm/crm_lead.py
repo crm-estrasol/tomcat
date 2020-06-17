@@ -13,6 +13,8 @@ class TomCatCrmLead(models.Model):
     light = fields.Integer('Semaforo',tracking=True,default=0 )
     light_help = fields.Integer('Semadforo temo',default=0, compute='_compute_show_light' )
     partners_related =  fields.Many2many(comodel_name='res.partner', relation='table_mny_partner', column1='partner_id', column2='',string="Usarios")
+    filter_users = fields.Many2many(related="partner_id.child_ids")
+    
     #extra_partner =  fields.Many2many(comodel_name='res.partner', relation='tabl_mny_partner', column1='partner_id', column2='',string="Usarios")
     #ON BUTTON ACTIONS
 
@@ -22,11 +24,11 @@ class TomCatCrmLead(models.Model):
     @api.onchange('partner_id')
     def on_change_partner(self):
         self.partners_related = False
-        return {
-            'domain': { 'partners_related': [('id', 'in',  [x.id for x in self.partner_id.child_ids] )], 
-                        
-                      }                     
-        }
+    #    return {
+    #        'domain': { 'partners_related': [('id', 'in',  [x.id for x in self.partner_id.child_ids] )], 
+    #                    
+    #                  }                     
+    #    }
 
     def _compute_show_light(self):
        num_days = int(self.env['ir.config_parameter'].sudo().get_param('intelli.limit_days'))

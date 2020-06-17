@@ -13,7 +13,7 @@ class TomCatCrmLead(models.Model):
     light = fields.Integer('Semaforo',tracking=True,default=0 )
     light_help = fields.Integer('Semadforo temo',default=0, compute='_compute_show_light' )
     partners_related =  fields.Many2many(comodel_name='res.partner', relation='table_mny_partner', column1='partner_id', column2='',string="Usarios")
-    filter_users = fields.Many2many(related="partner_id.child_ids")
+    filter_users = fields.One2Many(related="partner_id.child_ids")
     
     #extra_partner =  fields.Many2many(comodel_name='res.partner', relation='tabl_mny_partner', column1='partner_id', column2='',string="Usarios")
     #ON BUTTON ACTIONS

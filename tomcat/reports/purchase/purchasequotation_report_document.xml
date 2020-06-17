@@ -11,6 +11,7 @@
                                     <tr>
                                         <th name="th_partida"><strong>Item</strong></th>
                                         <th name="th_description"><strong>Description</strong></th>
+                                           <th name="th_brand"><strong>Brand</strong></th>
                                         <th name="th_expected_date" class="text-center"><strong>Expected Date</strong></th>
                                         <th name="th_quantity" class="text-right"><strong>Qty</strong></th>
                                     </tr>
@@ -26,6 +27,11 @@
                                                 </td>
                                                 <td id="product">
                                                     <span t-field="order_line.name"/>
+                                                </td>
+                                                 <td id="brand">
+                                                   <span>
+                                                    <t t-esc="line.product_id.brand.name"/>
+                                                   </span>
                                                 </td>
                                                 <td class="text-center">
                                                     <span t-field="order_line.date_planned"/>

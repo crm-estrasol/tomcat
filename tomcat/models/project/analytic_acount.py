@@ -35,3 +35,12 @@ class TomcatAnalyticAcount(models.Model):
         self.write({
             'status_t': ''
         })
+#WIZARD
+
+class  ProjectTaskCreateTimesheet(models.TransientModel):
+    _inherit = 'project.task.create.timesheet'
+     
+    def save_timesheet(self):
+        res = super(ProjectTaskCreateTimesheet, self).save_timesheet()
+        res.stage_id = self.task_id.stage_id.id
+        return res

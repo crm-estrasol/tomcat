@@ -23,7 +23,7 @@
                 'account','sale_margin','sale_management',
                 'contacts','product','mail','web','crm',
                 'sale_crm','stock','project','hr_timesheet',
-                'purchase','helpdesk','helpdesk_timesheet'],
+                'purchase','helpdesk','helpdesk_timesheet',	'sale_timesheet_enterprise'],
 
     # always loaded
     'data': [

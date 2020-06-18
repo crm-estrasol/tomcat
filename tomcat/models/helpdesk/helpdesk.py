@@ -14,3 +14,4 @@ class TomcatHelpDesk(models.Model):
     #                         readonly=True, track_visibility='onchange')
 
     #maximum_rate = fields.Integer(default=100)
+

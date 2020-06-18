@@ -23,7 +23,7 @@
                 'account','sale_margin','sale_management',
                 'contacts','product','mail','web','crm',
                 'sale_crm','stock','project','hr_timesheet',
-                'purchase'],
+                'purchase','helpdesk','helpdesk_timesheet'],
 
     # always loaded
     'data': [
@@ -40,6 +40,7 @@
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
         'views/project/task_checklist_view.xml',
+        'views/helpdesk/helpdesk.xml',
         'views/sales/sales.xml',
         'views/sales/product_template.xml',
         'views/sales/extra_cat_product/product_brand.xml',

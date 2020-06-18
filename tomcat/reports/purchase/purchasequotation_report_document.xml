@@ -32,7 +32,7 @@
                                                    <span>
                                                     <t t-esc="line.product_id.brand.name"/>
                                                    </span>
-                                                </td>
+                                                </td> 
                                                 <td class="text-center">
                                                     <span t-field="order_line.date_planned"/>
                                                 </td>

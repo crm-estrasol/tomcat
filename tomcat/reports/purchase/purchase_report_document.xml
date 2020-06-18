@@ -60,7 +60,7 @@
                                                 <td id="product">
                                                     <span t-field="line.name"/>
                                                 </td>
-                                                <td id="product">
+                                                <td id="brand">
                                                    <span>
                                                     <t t-esc="line.product_id.brand.name"/>
                                                    </span>

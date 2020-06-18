@@ -13,6 +13,24 @@
                                             <attribute name="attrs"></attribute>
                                             <attribute name="invisible">1</attribute>
                                     </xpath>
+                             <xpath expr="//page[1]" position="replace">
+                                    
+                                           <page string="Description">
+                                                    <group>
+  
+                                                        <field name="description" placeholder="Description of the ticket..."/>
+                                                        <field name="activity_done" placeholder="Actividades realizadas para solucionarlo(Material y equipo) ..."/>
+                                                        <field name="cause" placeholder="Causas del problema"/>
+                                                        <field name="observation" placeholder="Observaciones..."/>
+                                                    </group>     
+                                                     <group>
+                                                        <field name="service_quaranty" />
+                                                         <field name="service_days" />
+                                                          <field name="expected_date" />
+                                                    </group>                                   
+                                                
+                                            </page>
+                            </xpath>
 
                           
            

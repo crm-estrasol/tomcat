@@ -6,12 +6,10 @@ from odoo.tools.misc import clean_context
 from datetime import datetime   
 class TomcatHelpDesk(models.Model):
     _inherit = "helpdesk.ticket"
-    #progress_rate = fields.Integer(string='Proceso actividades', compute="check_rate")
-    #progress_global = fields.Integer(string='Proceso actividades', compute="check_rate_global")
-    #otal = fields.Integer(string="Max")
-    #tatus = fields.Selection(string="Status",
-    #                          selection=[('done', 'Done'), ('progress', 'In Progress'), ('cancel', 'Cancel')],
-    #                         readonly=True, track_visibility='onchange')
-
-    #maximum_rate = fields.Integer(default=100)
+    activity_done = fields.Text(string="Actividades")
+    cause = fields.Text(string="Causas problema ")
+    observation = fields.Text(string="Observaciones ")
+    service_quaranty = fields.Selection([('yes', 'Si'), ('no', 'No')], string='Servicio entra en garantía',default="no")
+    service_days  = fields.Selection([('yes', 'Si'), ('no', 'No')], string='Servicio requiera mas días', default='no')
+    expected_date =  fields.Datetime(string='Fecha estimada de entrega', default=fields.Datetime.now)
 

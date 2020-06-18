@@ -15,7 +15,37 @@
                                     </xpath>
                              <xpath expr="//page[1]" position="replace">
                                     
-                                           <page string="Description">
+                                           <page string="Resumen">
+                                                    <group>
+                                                        
+                                                        <group>
+                                                             <field name="service_quaranty" widget="radio" />
+                                                        </group>
+                                                        
+                                                        <group>
+                                                            <field name="service_days"  widget="radio"/>
+                                                        </group>
+                                                        
+                                                        <group>
+                                                            <field name="expected_date" />
+                                                        </group>
+                                                    </group>
+
+
+                                                    <group>
+  
+                                                        <field name="description" placeholder="Description of the ticket..."/>
+                                                        <field name="activity_done" placeholder="Actividades realizadas para solucionarlo(Material y equipo) ..."/>
+                                                        <field name="cause" placeholder="Causas del problema"/>
+                                                        <field name="observation" placeholder="Observaciones..."/>
+                                                    </group>     
+                                                    
+                                                                                  
+                                                
+                                            </page>
+                            </xpath>
+
+                          <!--
                                                 <group>
                                                     <group>
   
@@ -29,12 +59,9 @@
                                                          <field name="service_days"  widget="radio"/>
                                                           <field name="expected_date" />
                                                     </group>
-                                                 </group>                                   
-                                                
-                                            </page>
-                            </xpath>
+                                                 </group>        
 
-                          
+                          -->
            
                         </field>
 

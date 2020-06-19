@@ -281,7 +281,7 @@ msgstr "<strong>Monto</strong>"
 #: model_terms:ir.ui.view,arch_db:tomcat.tomcat_purshase_order_document
 #: model_terms:ir.ui.view,arch_db:tomcat.tomcat_report_purchasequotation
 msgid "<strong>Brand</strong>"
-msgstr ""
+msgstr "<strong>Marca</strong>"
 
 #. module: tomcat
 #: model_terms:ir.ui.view,arch_db:tomcat.tomcat_purshase_order_document

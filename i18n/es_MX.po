@@ -1410,8 +1410,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:tomcat.price_unit
 #: model_terms:ir.ui.view,arch_db:tomcat.tom_total
 #: model_terms:ir.ui.view,arch_db:tomcat.without_price
-msgid "Partida"
-msgstr ""
+msgid "Item"
+msgstr "Partida"
 
 #. module: tomcat
 #: model:ir.model.fields,field_description:tomcat.field_res_users__partner_avaible

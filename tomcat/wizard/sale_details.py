@@ -17,7 +17,26 @@ class SaleDiscount(models.TransientModel):
     discount =  fields.Float("Descuento",digits=(16, 2) )
     sale = fields.Many2one('sale.order', string='Venta')
 
-    def generate_report(self):
+    def generate_report(self):    
+        for prod in self.sale.order_line:
+            goal = False
+            if self.projects:
+                goal = True if prod.project in self.projects  else False
+            if self.ubications:
+                goal = True if prod.ubication  in self.ubications  else False
+            if self.brand:
+                goal = True if prod.product_id.brand in self.brand  else False
+            if self.partner:
+                sellers = []
+                for seller in prod.product_id.seller_ids:
+                        sellers.append(seller.name.id)     
+                goal = True if  any(i in sellers for i in self.partner.ids) else False
+            
+            prod.discount = self.discount  if goal  else prod.discount
+        return self.sale
+   
+        
+        """
         for prod in self.sale.order_line:
             sellers = []
             for seller in prod.product_id.seller_ids:
@@ -27,6 +46,7 @@ class SaleDiscount(models.TransientModel):
                 is_seller = any(i in sellers for i in self.partner.ids)
             prod.discount = self.discount  if prod.project in self.projects or prod.product_id.brand in self.brand  or prod.ubication  in self.ubications or is_seller else prod.discount
         return self.sale
+        """
     @api.onchange('sale')
     def on_change_sale(self):
         sistemas = [item.project.id for item in self.sale.order_line if item.product_id and item.project  ]

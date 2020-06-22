@@ -19,20 +19,20 @@ class SaleDiscount(models.TransientModel):
 
     def generate_report(self):    
         for prod in self.sale.order_line:
-            goal = False
+            goal = []
             if self.projects:
-                goal = True if prod.project in self.projects  else False
+                goal.append( True if prod.project in self.projects  else False )
             if self.ubications:
-                goal = True if prod.ubication  in self.ubications  else False
+                goal.append( True if prod.ubication  in self.ubications  else False )
             if self.brand:
-                goal = True if prod.product_id.brand in self.brand  else False
+                goal.append( True if prod.product_id.brand in self.brand  else False )
             if self.partner:
                 sellers = []
                 for seller in prod.product_id.seller_ids:
                         sellers.append(seller.name.id)     
-                goal = True if  any(i in sellers for i in self.partner.ids) else False
+                goal.append( True if  any(i in sellers for i in self.partner.ids) else False )
             
-            prod.discount = self.discount  if goal  else prod.discount
+            prod.discount = self.discount  if all(goal)  else prod.discount
         return self.sale
    
         

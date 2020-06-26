@@ -32,7 +32,7 @@ class SaleDiscount(models.TransientModel):
                         sellers.append(seller.name.id)     
                 goal.append( True if  any(i in sellers for i in self.partner.ids) else False )
             
-            prod.discount = self.discount  if all(goal)  else prod.discount
+            prod.discount = self.discount  if all(goal if goal else False)  else prod.discount
         return self.sale
    
         

@@ -513,7 +513,7 @@
                                     <td name="td_subtotal">
                                            
                                             <span>
-                                                  <t t-esc="doc.amount_untaxed - doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                  <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                             </span>
                                    </td>
                   </tr>

@@ -501,21 +501,15 @@
                                     </td>
                   </tr>
                 <tr class="border-black o_total">
-                                    <td name="td_porcent_discount_label"><strong>Subtotal</strong></td>
-                                   
-                                    <td name="td_subtotal">
-                                           
-                                            <span>
-                                                  <t t-esc="doc.amount_untaxed - doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                            </span>
-                                   </td>
-                </tr>
-                <tr class="border-black o_total">
                                     <td name="td_porcent_discount_label"><strong>Descuento</strong></td>
                                     <td name="td_porcent_total" class="text-right">
                                         <span t-field="doc.porcent"/>
                                     </td>
 
+                                   
+                  </tr>
+                  <tr class="border-black o_total">
+                                   <td name="td_subtotal_discount_label"><strong>Subtotal</strong></td>
                                     <td name="td_subtotal">
                                            
                                             <span>
@@ -523,7 +517,6 @@
                                             </span>
                                    </td>
                   </tr>
-                 
             </xpath> 
         </template>
  

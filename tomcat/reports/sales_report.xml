@@ -341,10 +341,18 @@
                                   <table class="table table-sm">
                                       <tr class="border-black o_subtotal" style="">
                                           <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
-                                          <td name="td_amount_untaxed" class="text-right">
-                                              <span t-field="doc.amount_untaxed"/>
-                                          </td>
+                                         <span>
+                                                  <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                          </span>
                                       </tr>
+                                       <tr class="border-black o_total">
+                                          <td name="td_porcent_discount_label"><strong>Descuento</strong></td>
+                                          <td name="td_porcent_total" class="text-right">
+                                              <span t-field="doc.porcent"/>
+                                          </td>
+
+                                                    
+                                       </tr>
                                       <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
                                           <tr style="">
                                               <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
@@ -374,6 +382,14 @@
                                               <span t-field="doc.amount_total"/>
                                           </td>
                                       </tr>
+                                      <tr class="border-black o_total">
+                                                      <td name="td_porcent_discount_label"><strong>Moneda</strong></td>
+                                                      <td name="td_porcent_total" class="text-right">
+                                                          <span>
+                                                          <t t-esc="doc.currency_id.name"/>
+                                                          </span>
+                                                      </td>
+                                    </tr>
                                   </table>
                               </div>
                           </div>
@@ -519,33 +535,7 @@
                   </td>
                   
             </xpath>  
-            <xpath expr="//tr[@class='border-black o_total']" position="before">
-                 <tr class="border-black o_total">
-                                    <td name="td_porcent_discount_label"><strong>Moneda</strong></td>
-                                    <td name="td_porcent_total" class="text-right">
-                                        <span>
-                                        <t t-esc="doc.currency_id.name"/>
-                                        </span>
-                                    </td>
-                  </tr>
-                <tr class="border-black o_total">
-                                    <td name="td_porcent_discount_label"><strong>Descuento</strong></td>
-                                    <td name="td_porcent_total" class="text-right">
-                                        <span t-field="doc.porcent"/>
-                                    </td>
-
-                                   
-                  </tr>
-                  <tr class="border-black o_total">
-                                   <td name="td_subtotal_discount_label"><strong>Subtotal</strong></td>
-                                    <td name="td_subtotal"  class="text-right">
-                                           
-                                            <span>
-                                                  <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                            </span>
-                                   </td>
-                  </tr>
-            </xpath> 
+            
         </template>
  
   </data>

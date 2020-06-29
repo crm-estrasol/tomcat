@@ -188,7 +188,7 @@
       </xpath>
 
           
-      <xpath expr="//ul[@class='list-inline']" position="replace">
+      <xpath expr="//ul[@class='list-inline mb4']" position="replace">
            <ul class="list-inline mb4">
                     <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
                          adding d-inline class fixes the problem-->

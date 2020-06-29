@@ -51,7 +51,7 @@
                               contacto@tomcat.mx
                               Piscis No. 504
                               Zapopan, Jalisco
-                              Marco Méndez</p>
+                              </p>
                           </div>
                           <div class="col-3   mt-5 pt-5 text-center text-break mt-3">
                             <h2>Quéretaro</h2>
@@ -61,7 +61,7 @@
                               Sendero Escondido #60
                               Milenio III
                               Querétaro, Qro.
-                              Rafael Mutio
+                              
                             </p>
                              <p class="mt-3">Creado:  <t t-esc="doc.date_order.strftime('%d/%m/%Y')"/></p>
                           </div>

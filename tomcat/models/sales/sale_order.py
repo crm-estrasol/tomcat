@@ -379,6 +379,8 @@ class TomCatSaleOrder(models.Model):
             ubications.append(item)
 
         return ubications
+    def current_date(self):
+        return datetime.today().strftime('%d/%m/%Y')
    
     def action_quotation_send(self):
         values = super(TomCatSaleOrder, self).action_quotation_send()

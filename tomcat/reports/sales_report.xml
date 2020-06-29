@@ -196,7 +196,7 @@
                         <li class="list-inline-item d-inline" >ID:<t t-esc="doc.name"/></li>
                           <li class="list-inline-item d-inline" >Oportunidad: <t t-esc="doc.opportunity_id.id"/></li>
                             <li class="list-inline-item d-inline" >Cliente: <t t-esc="doc.partner_id.name"/> </li>
-                             <li class="list-inline-item d-inline" > Fecha: <t t-esc="doc.create_date"/> </li>
+                             <li class="list-inline-item d-inline" > Fecha: <t t-esc="doc.current_date()"/> </li>
                               
                     </t>
                     

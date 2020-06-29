@@ -340,10 +340,12 @@
                               <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
                                   <table class="table table-sm">
                                       <tr class="border-black o_subtotal" style="">
-                                          <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
-                                         <span>
-                                                  <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                          </span>
+                                        <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
+                                         <td name="td_amount_untaxed" class="text-right">
+                                            <span>
+                                                      <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                              </span>
+                                          </td>
                                       </tr>
                                        <tr class="border-black o_total">
                                           <td name="td_porcent_discount_label"><strong>Descuento</strong></td>

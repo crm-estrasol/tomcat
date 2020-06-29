@@ -192,11 +192,22 @@
            <ul class="list-inline mb4">
                     <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
                          adding d-inline class fixes the problem-->
-                    <li class="list-inline-item d-inline" ><t t-esc="doc.name"/></li>
-                    <li t-if="company.phone" class="list-inline-item d-inline">Phone: <span t-field="company.phone"/></li>
-                    <li t-if="company.email" class="list-inline-item d-inline">Email: <span t-field="company.email"/></li>
-                    <li t-if="company.website" class="list-inline-item d-inline">Web: <span t-field="company.website"/></li>
-                    <li t-if="company.vat" class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    <t t-if="doc">
+                        <li class="list-inline-item d-inline" >ID:<t t-esc="doc.name"/></li>
+                          <li class="list-inline-item d-inline" >Oportunidad:<t t-esc="doc.opportunity_id.id"/></li>
+                            <li class="list-inline-item d-inline" >Cliente:<t t-esc="doc.partner_id.name"/> </li>
+                             <li class="list-inline-item d-inline" > Fecha:<t t-esc="doc.date_order.strftime('%d/%m/%Y')"/> </li>
+                              
+                    </t>
+                    
+                    <t t-else="">
+                      
+                        <li t-if="company.phone" class="list-inline-item d-inline">Phone: <span t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item d-inline">Email: <span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item d-inline">Web: <span t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </t>     
+                    
             </ul>
        
       </xpath>

@@ -62,7 +62,7 @@
                                                             />
                                                 </span>
                                                 </td>
-                                                     <td name="td_name">
+                                                  <td name="td_name">
                                                     <t t-if="doc.client_model">
                                                       <span>
                                                         <strong><t t-esc="line.product_id.brand.name"/></strong>

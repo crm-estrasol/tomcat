@@ -501,9 +501,6 @@
                               <div class="row">
                                 <div class="col-12">
                                   <h2>Notas</h2>
-                                </div>
-                                <div class="col-12" style="font-size:12px;">
-                                  
                                   <p> GARANTÍA DE INSTALACIÓN 1 AÑO  </p>
                                   <p> GARANTÍA DE LOS EQUIPOS DE 1 A 3 AÑOS  </p>
                                 
@@ -519,7 +516,10 @@
                                  
                                   
                                 </div>
-                                <div class="row mt-3">
+                               
+                              
+                              </div>
+                              <div class="row mt-3">
                                   <div class="col-12">
                                        <h2> CONDICIONES DE PAGO</h2> 
                                         <p> <t t-esc="doc.payment_term_id.name"/> </p>
@@ -527,8 +527,6 @@
                                         <p> <t t-esc="doc.note"/> </p>
 
                                   </div>
-                                </div>
-                              
                               </div>
                            
 

@@ -355,7 +355,7 @@
 
                                                     
                                        </tr>
-                                      <t t-foreach="doc.amount_by_group text-wrap" t-as="amount_by_group" style="font-size:26px;">
+                                      <t t-foreach="doc.amount_by_group" t-as="amount_by_group" style="font-size:26px;">
                                           <tr style="">
                                               <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
                                                   <td name="td_amount_by_group_label_3">

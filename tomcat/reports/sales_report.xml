@@ -194,9 +194,9 @@
                          adding d-inline class fixes the problem-->
                     <t t-if="doc">
                         <li class="list-inline-item d-inline" >ID:<t t-esc="doc.name"/></li>
-                          <li class="list-inline-item d-inline" >Oportunidad:<t t-esc="doc.opportunity_id.id"/></li>
-                            <li class="list-inline-item d-inline" >Cliente:<t t-esc="doc.partner_id.name"/> </li>
-                             <li class="list-inline-item d-inline" > Fecha:<t t-esc="doc.date_order.strftime('%d/%m/%Y')"/> </li>
+                          <li class="list-inline-item d-inline" >Oportunidad: <t t-esc="doc.opportunity_id.id"/></li>
+                            <li class="list-inline-item d-inline" >Cliente: <t t-esc="doc.partner_id.name"/> </li>
+                             <li class="list-inline-item d-inline" > Fecha: <t t-esc="datetime.today().strftime('%d/%m/%Y')"/> </li>
                               
                     </t>
                     
@@ -257,7 +257,7 @@
                         <p class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}'/>
                     </div>
                     <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2" name="expiration_date">
-                        <strong>Expicación:</strong>
+                        <strong>Expiración:</strong>
                         <p class="m-0" t-field="doc.validity_date"/>
                     </div>
                     <div t-if="doc.user_id.name" class="col-auto mw-100 mb-2">

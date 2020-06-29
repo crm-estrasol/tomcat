@@ -335,7 +335,7 @@
                 
               </t>  
               <t t-else="">
-                    <div class="clearfix mr-5" name="so_total_summary">
+                    <div class="clearfix" name="so_total_summary">
                           <div id="total" class="row mr-5" name="total">
                               <div t-attf-class="#{'col-4 mr-5' if report_type != 'html' else 'col-sm-7 col-md-5 mr-5'} ml-auto">
                                   <table class="table table-sm mr-5" style="font-size:30px;">

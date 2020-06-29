@@ -338,8 +338,8 @@
                     <div class="clearfix" name="so_total_summary">
                           <div id="total" class="row" name="total">
                               <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
-                                  <table class="table table-sm">
-                                      <tr class="border-black o_subtotal" style="">
+                                  <table class="table table-sm" style="font-size:30px;">
+                                      <tr class="border-black o_subtotal" style="font-size:30px;">
                                         <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
                                          <td name="td_amount_untaxed" class="text-right">
                                             <span>
@@ -347,7 +347,7 @@
                                               </span>
                                           </td>
                                       </tr>
-                                       <tr class="border-black o_total">
+                                       <tr class="border-black o_total" style="font-size:30px;">
                                           <td name="td_porcent_discount_label"><strong>Descuento</strong></td>
                                           <td name="td_porcent_total" class="text-right">
                                               <span t-field="doc.porcent"/>
@@ -355,7 +355,7 @@
 
                                                     
                                        </tr>
-                                      <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
+                                      <t t-foreach="doc.amount_by_group" t-as="amount_by_group" style="font-size:30px;">
                                           <tr style="">
                                               <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
                                                   <td name="td_amount_by_group_label_3">
@@ -378,13 +378,13 @@
                                               </t>
                                           </tr>
                                       </t>
-                                      <tr class="border-black o_total">
+                                      <tr class="border-black o_total" style="font-size:30px;">
                                           <td name="td_amount_total_label"><strong>Total</strong></td>
                                           <td name="td_amount_total" class="text-right">
                                               <span t-field="doc.amount_total"/>
                                           </td>
                                       </tr>
-                                      <tr class="border-black o_total">
+                                      <tr class="border-black o_total" style="font-size:30px;">
                                                       <td name="td_porcent_discount_label"><strong>Moneda</strong></td>
                                                       <td name="td_porcent_total" class="text-right">
                                                           <span>

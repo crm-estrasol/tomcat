@@ -15,6 +15,7 @@
                           
                           <p class="mt5" style="font-size:25px;">   <t t-raw="proyect_name"/> </p>
                           <p class="mt5" style="font-size:25px;">   <t t-raw="partnert_name"/> </p>
+
                       </div>
                     </div>
                   
@@ -169,7 +170,7 @@
     </template>
     
     <template id="external_tomact" name="custom" inherit_id="web.external_layout_standard">
-     
+
 
          
          
@@ -183,6 +184,20 @@
                 <div class="col-12 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
                
             </div>
+       
+      </xpath>
+
+          
+      <xpath expr="//div[@class='list-inline mb4']" position="replace">
+           <ul class="list-inline mb4">
+                    <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
+                         adding d-inline class fixes the problem-->
+                    <li class="list-inline-item d-inline" ><t t-esc="doc.name"/></li>
+                    <li t-if="company.phone" class="list-inline-item d-inline">Phone: <span t-field="company.phone"/></li>
+                    <li t-if="company.email" class="list-inline-item d-inline">Email: <span t-field="company.email"/></li>
+                    <li t-if="company.website" class="list-inline-item d-inline">Web: <span t-field="company.website"/></li>
+                    <li t-if="company.vat" class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+            </ul>
        
       </xpath>
 
@@ -510,7 +525,7 @@
                   </tr>
                   <tr class="border-black o_total">
                                    <td name="td_subtotal_discount_label"><strong>Subtotal</strong></td>
-                                    <td name="td_subtotal">
+                                    <td name="td_subtotal"  class="text-right">
                                            
                                             <span>
                                                   <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>

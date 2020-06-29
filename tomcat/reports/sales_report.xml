@@ -342,7 +342,7 @@
                                       <tr class="border-black o_subtotal text-wrap" style="font-size:24px; max-width:100px;">
                                         <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
                                          <td name="td_amount_untaxed" class="text-right">
-                                            <span>
+                                            <span style=" max-width:50px;">
                                                       <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                               </span>
                                           </td>

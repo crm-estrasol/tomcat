@@ -429,7 +429,7 @@
                                 </div>
                               </div>
                             
-                              <div class="row">
+                              <div class="row mt-5">
                                 <div class="col-12">
 
                                   <table  class ="table table-bordered text-center " style=" table-layout:fixed;">
@@ -444,7 +444,7 @@
                                     </tr>
                                     <tr>
                                     
-                                      <td colspan="1" >Fecha
+                                      <td colspan="1" styl="font-size:18px;" >Fecha
                                         DD / MM /AA</td>
                                       <td colspan="3">Observaciones</td>
                                     </tr>
@@ -455,13 +455,6 @@
                                     
                                     </tr>
                                     
-                                      <tr>
-                                          <td  class="text-left" colspan="2">1</td>
-                                          <td></td>
-                                          <td colspan="3"></td>
-                                      
-                                      </tr>
-                                      
                                       <tr>
                                           <td  class="text-left" colspan="2">2</td>
                                           <td></td>
@@ -483,8 +476,15 @@
                                       
                                       </tr>
                                       
-                                        <tr>
+                                      <tr>
                                           <td  class="text-left" colspan="2">5</td>
+                                          <td></td>
+                                          <td colspan="3"></td>
+                                      
+                                      </tr>
+                                      
+                                        <tr>
+                                          <td  class="text-left" colspan="2">6</td>
                                           <td></td>
                                           <td colspan="3"></td>
                                       

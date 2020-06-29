@@ -438,13 +438,13 @@
                                         Metodo de pago</td>
                                     </tr>
                                     <tr>
-                                      <td colspan="2" rowspan="2" >Plazos, cantidad o porcentaje</td>
+                                      <td colspan="2" rowspan="2" class="text-center" style="margin-top:10px;">Plazos, cantidad o porcentaje</td>
                                       <td colspan="2" >Crédito ( ____Días)</td>
                                       <td colspan="2" >Anticipado</td>
                                     </tr>
                                     <tr>
                                     
-                                      <td colspan="1" styl="font-size:14px;" >Fecha
+                                      <td colspan="1" style="font-size:14px;" >Fecha
                                         DD / MM /AA</td>
                                       <td colspan="3">Observaciones</td>
                                     </tr>

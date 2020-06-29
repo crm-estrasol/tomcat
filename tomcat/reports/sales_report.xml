@@ -338,7 +338,7 @@
                     <div class="clearfix" name="so_total_summary">
                           <div id="total" class="row" name="total">
                               <div t-attf-class="#{'col-4 ml-5' if report_type != 'html' else 'col-sm-7 col-md-5 ml-5'} ml-auto">
-                                  <table class="table table-sm" style="font-size:30px;">
+                                  <table class="table table-sm ml-5" style="font-size:30px;">
                                       <tr class="border-black o_subtotal text-wrap" style="font-size:24px; max-width:100px;">
                                         <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
                                          <td name="td_amount_untaxed" class="text-right">

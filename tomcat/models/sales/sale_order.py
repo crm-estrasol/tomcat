@@ -598,7 +598,7 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(4 , 4,  2, 5, address,text_cell)
         worksheet.write_merge(5 , 5,  2, 5, "CP: "+str(self.env.user.company_id.zip ),text_cell)
         worksheet.write_merge(6 , 6,  2, 5, "RFC: "+str(self.env.user.company_id.vat),text_cell)
-        worksheet.write_merge(7 , 7,  2, 5, "Régimen Fiscal: "+str(self.env.user.company_id.company_registry,text_cell)
+        worksheet.write_merge(7 , 7,  2, 5, "Régimen Fiscal: "+str(self.env.user.company_id.company_registry),text_cell)
         #Company_info
         today = date.today()
         # dd/mm/YY

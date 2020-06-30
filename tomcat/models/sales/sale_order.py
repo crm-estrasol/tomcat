@@ -355,7 +355,8 @@ class TomCatSaleOrder(models.Model):
         ids = sale.order_line.ids
         items = self.env['sale.order.line'].search([('id','in',ids)], order='project asc, ubication asc ,name asc ')
         tree = []
-        items = items.filtered(lambda x: x.product_id.type != 'service' and x.product_id.service_tracking != 'project_only' )
+        # x.product_id.type != 'service'
+        items = items.filtered(lambda x:  x.product_id.service_tracking != 'project_only' )
         for key, group in itertools.groupby(items, key=lambda x:(  x['project'] ) ):
             item = {
                 'project':key.name,
@@ -411,7 +412,7 @@ class TomCatSaleOrder(models.Model):
     def get_order_data(self):
         ids = self.order_line.ids
         items = self.env['sale.order.line'].search([('id','in',ids)] , order='project asc, ubication asc ,name asc ')
-        items = items.filtered(lambda x: x.product_id.type != 'service' and x.product_id.service_tracking != 'project_only' )
+        items = items.filtered(lambda x:  x.product_id.service_tracking != 'project_only' )
         return items 
 
     @api.onchange('user_id')

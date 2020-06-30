@@ -331,73 +331,75 @@
             </xpath>
 
             <xpath expr="//div[@class='clearfix']" position="replace"> 
-              <t t-if="doc.print_options == 'without_price'">
-                
-              </t>  
-              <t t-else="">
+             
+              
+                    
+                  
                     <div class="clearfix" name="so_total_summary">
-                          <div id="total" class="row " name="total">
-                              <div t-attf-class="#{'col-4 mr-5' if report_type != 'html' else 'col-sm-7 col-md-5 mr-5'} ml-auto">
-                                  <table class="table table-sm mr-1" style="font-size:30px;">
-                                      <tr class="border-black o_subtotal text-wrap" style="font-size:22px; max-width:100px;">
-                                        <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
-                                         <td name="td_amount_untaxed" class="text-right">
-                                            <span style=" max-width:50px;">
-                                                      <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                              </span>
-                                          </td>
-                                      </tr>
-                                       <tr class="border-black o_total text-wrap" style="font-size:22px; max-width:100px;">
-                                          <td name="td_porcent_discount_label"><strong>Descuento</strong></td>
-                                          <td name="td_porcent_total" class="text-right">
-                                              <span t-field="doc.porcent"/>
-                                          </td>
-
-                                                    
-                                       </tr>
-                                      <t t-foreach="doc.amount_by_group" t-as="amount_by_group" style="font-size:22px; max-width:100px;">
-                                          <tr style="">
-                                              <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
-                                                  <td name="td_amount_by_group_label_3" style="font-size:18px;">
-                                                      <span t-esc="amount_by_group[0]"/>
-                                                      <span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/></span>
-                                                  </td>
-                                                  <td name="td_amount_by_group_3" class="text-right o_price_total" style="font-size:20px;">
-                                                      <span t-esc="amount_by_group[1]"
-                                                          t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                                  </td>
-                                              </t>
-                                              <t t-else ="">
-                                                  <td name="td_amount_by_group_label" style="font-size:18px;">
-                                                      <span t-esc="amount_by_group[0]"/>
-                                                  </td>
-                                                  <td name="td_amount_by_group" class="text-right o_price_total" style="font-size:20px;">
-                                                      <span t-esc="amount_by_group[1]"
-                                                          t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-                                                  </td>
-                                              </t>
+                        <t t-if="doc.print_options != 'without_price'"> 
+                              <div id="total" class="row " name="total">
+                                  <div t-attf-class="#{'col-4 mr-5' if report_type != 'html' else 'col-sm-7 col-md-5 mr-5'} ml-auto">
+                                      <table class="table table-sm mr-1" style="font-size:30px;">
+                                          <tr class="border-black o_subtotal text-wrap" style="font-size:22px; max-width:100px;">
+                                            <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
+                                            <td name="td_amount_untaxed" class="text-right">
+                                                <span style=" max-width:50px;">
+                                                          <t t-esc="doc.amount_untaxed + doc.porcent" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                  </span>
+                                              </td>
                                           </tr>
-                                      </t>
-                                      <tr class="border-black o_total text-wrap" style="font-size:22px; max-width:100px;">
-                                          <td name="td_amount_total_label"><strong>Total</strong></td>
-                                          <td name="td_amount_total" class="text-right">
-                                              <span t-field="doc.amount_total"/>
-                                          </td>
-                                      </tr>
-                                      <tr class="border-black o_total text-wrap" style="font-size:22px; max-width:100px;">
-                                                      <td name="td_porcent_discount_label"><strong>Moneda</strong></td>
-                                                      <td name="td_porcent_total" class="text-right">
-                                                          <span>
-                                                          <t t-esc="doc.currency_id.name"/>
-                                                          </span>
+                                          <tr class="border-black o_total text-wrap" style="font-size:22px; max-width:100px;">
+                                              <td name="td_porcent_discount_label"><strong>Descuento</strong></td>
+                                              <td name="td_porcent_total" class="text-right">
+                                                  <span t-field="doc.porcent"/>
+                                              </td>
+
+                                                        
+                                          </tr>
+                                          <t t-foreach="doc.amount_by_group" t-as="amount_by_group" style="font-size:22px; max-width:100px;">
+                                              <tr style="">
+                                                  <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
+                                                      <td name="td_amount_by_group_label_3" style="font-size:18px;">
+                                                          <span t-esc="amount_by_group[0]"/>
+                                                          <span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/></span>
                                                       </td>
-                                    </tr>
-                                  </table>
+                                                      <td name="td_amount_by_group_3" class="text-right o_price_total" style="font-size:20px;">
+                                                          <span t-esc="amount_by_group[1]"
+                                                              t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                      </td>
+                                                  </t>
+                                                  <t t-else ="">
+                                                      <td name="td_amount_by_group_label" style="font-size:18px;">
+                                                          <span t-esc="amount_by_group[0]"/>
+                                                      </td>
+                                                      <td name="td_amount_by_group" class="text-right o_price_total" style="font-size:20px;">
+                                                          <span t-esc="amount_by_group[1]"
+                                                              t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                      </td>
+                                                  </t>
+                                              </tr>
+                                          </t>
+                                          <tr class="border-black o_total text-wrap" style="font-size:22px; max-width:100px;">
+                                              <td name="td_amount_total_label"><strong>Total</strong></td>
+                                              <td name="td_amount_total" class="text-right">
+                                                  <span t-field="doc.amount_total"/>
+                                              </td>
+                                          </tr>
+                                          <tr class="border-black o_total text-wrap" style="font-size:22px; max-width:100px;">
+                                                          <td name="td_porcent_discount_label"><strong>Moneda</strong></td>
+                                                          <td name="td_porcent_total" class="text-right">
+                                                              <span>
+                                                              <t t-esc="doc.currency_id.name"/>
+                                                              </span>
+                                                          </td>
+                                        </tr>
+                                      </table>
+                                  </div>
                               </div>
-                          </div>
+                        </t> 
                      </div>
-            
-              </t>
+               
+              
             
             </xpath>
 

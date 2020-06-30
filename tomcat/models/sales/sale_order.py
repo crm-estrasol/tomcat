@@ -570,7 +570,7 @@ class MailComposerTomcat(models.TransientModel):
         img = Image.open('/home/odoo/src/user/tomcat/static/src/img/colocaralcentro2.png')
         r, g, b, a = img.split()
         img = Image.merge("RGB", (r, g, b))
-        img.thumbnail((155,155), Image.ANTIALIAS)
+        img.thumbnail((150,150), Image.ANTIALIAS)
         img = img.save('colocarcentro.bmp')
         worksheet.insert_bitmap('colocarcentro.bmp', 0,0,50,0)
         worksheet.merge(0,8,0,1)
@@ -658,6 +658,7 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write(actual_row , 6, "Moneda",bHeader_blue )
         worksheet.write(actual_row , 7, "",bHeader_blue )
         worksheet.write_merge(actual_row , actual_row,  8, 10, "Total",bHeader_blue )
+        
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row+3,  0, 5, "Descripción", c2text_cell)
         worksheet.write_merge(actual_row , actual_row+3,  6, 6, data.currency_id.name, c2text_cell)

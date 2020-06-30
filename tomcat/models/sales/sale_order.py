@@ -547,8 +547,13 @@ class MailComposerTomcat(models.TransientModel):
      
         first_col = worksheet.col(0)
         first_col.width = 256 * 7 #characters 
+        
         second_col = worksheet.col(1)
         second_col.width = 256 * 30 #characters 
+        
+        adjust_total =  worksheet.col(7)
+        adjust_total.width = 256 * 14 #characters 
+        
         worksheet.row(10).height_mismatch = True
         row_table = worksheet.row(10)
         row_table.height = 200 * 1 #characters 
@@ -657,7 +662,7 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(actual_row , actual_row+2,  0, 5, "Descripción", c2text_cell)
         worksheet.write_merge(actual_row , actual_row+2,  6, 6, data.currency_id.name, c2text_cell)
         
-        worksheet.write(actual_row , 7, "SUB TOTAl",c2text_cell )
+        worksheet.write(actual_row , 7, "SUB TOTAL",c2text_cell )
         worksheet.write_merge(actual_row ,actual_row ,  8, 10, data.amount_untaxed,c2text_cellMoney )
         
         worksheet.write(actual_row+1 , 7, "IVA 16%",c2text_cell )

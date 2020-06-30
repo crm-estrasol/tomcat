@@ -567,7 +567,7 @@ class MailComposerTomcat(models.TransientModel):
         
         #script_dir = os.path.dirname(os.path.abspath('colocaralcentro.png'))
         #im = os.path.join(script_dir, 'colocaralcentro.png')    
-        img = Image.open('/home/odoo/src/user/tomcat/static/src/img/colocaralcentro.png')
+        img = Image.open('/home/odoo/src/user/tomcat/static/src/img/colocaralcentro2.png')
         r, g, b, a = img.split()
         img = Image.merge("RGB", (r, g, b))
         img.thumbnail((155,155), Image.ANTIALIAS)

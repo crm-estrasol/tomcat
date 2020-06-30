@@ -529,7 +529,7 @@ class MailComposerTomcat(models.TransientModel):
         header_bold = xlwt.easyxf("""
                                     font: bold on; pattern: pattern solid, fore_colour white; align: vert center, horz center ,wrap on;
                                     """+no_border)
-        header_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;"+border)
+        header_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  vert center, horz center ,wrap on;"+border)
         bHeader_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;"+border) 
         font_blue = xlwt.easyxf("font: colour  blue;"+no_border)
         text_cell = xlwt.easyxf("font:  height 230;   align: wrap on ; "+no_border)

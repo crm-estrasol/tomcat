@@ -659,19 +659,25 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write(actual_row , 7, "",bHeader_blue )
         worksheet.write_merge(actual_row , actual_row,  8, 10, "Total",bHeader_blue )
         actual_row+=1
-        worksheet.write_merge(actual_row , actual_row+2,  0, 5, "Descripción", c2text_cell)
-        worksheet.write_merge(actual_row , actual_row+2,  6, 6, data.currency_id.name, c2text_cell)
+        worksheet.write_merge(actual_row , actual_row+3,  0, 5, "Descripción", c2text_cell)
+        worksheet.write_merge(actual_row , actual_row+3,  6, 6, data.currency_id.name, c2text_cell)
         
         worksheet.write(actual_row , 7, "SUB TOTAL",c2text_cell )
         worksheet.write_merge(actual_row ,actual_row ,  8, 10, data.amount_untaxed,c2text_cellMoney )
         
-        worksheet.write(actual_row+1 , 7, "IVA 16%",c2text_cell )
-        worksheet.write_merge(actual_row+1 ,actual_row+1 ,  8, 10, data.amount_tax,c2text_cellMoney )
+        worksheet.write(actual_row+1 , 7, "DESCUENTO",c2text_cell )
+        worksheet.write_merge(actual_row+1 ,actual_row+1 ,  8, 10, data.porcent,c2text_cellMoney )
+
+        worksheet.write(actual_row+2 , 7, "IVA 16%",c2text_cell )
+        worksheet.write_merge(actual_row+2 ,actual_row+2 ,  8, 10, data.amount_tax,c2text_cellMoney )
         
-        worksheet.write(actual_row+2 , 7, "TOTAL",c2text_cell )
-        worksheet.write_merge(actual_row+2 ,actual_row+2 ,  8, 10, data.amount_total,c2text_cellMoney )
+        worksheet.write(actual_row+3 , 7, "TOTAL",c2text_cell )
+        worksheet.write_merge(actual_row+3 ,actual_row+3 ,  8, 10, data.amount_total,c2text_cellMoney )
+       
+       
         #
-        actual_row +=4    
+        
+        actual_row +=5    
         worksheet.write( actual_row, 0, "NOTAS", c2bText_cell )
 
         

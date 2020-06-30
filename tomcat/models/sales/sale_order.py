@@ -529,7 +529,7 @@ class MailComposerTomcat(models.TransientModel):
         header_bold = xlwt.easyxf("""
                                     font: bold on; pattern: pattern solid, fore_colour white; align: vert center, horz center ,wrap on;
                                     """+no_border)
-        header_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;")
+        header_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;"+border)
         bHeader_blue = xlwt.easyxf(" font: bold on, height 230; pattern: pattern solid, fore_colour low_white_t;  align: horz center;"+border) 
         font_blue = xlwt.easyxf("font: colour  blue;"+no_border)
         text_cell = xlwt.easyxf("font:  height 230;   align: wrap on ; "+no_border)
@@ -601,13 +601,13 @@ class MailComposerTomcat(models.TransientModel):
       
         #Customer infor
         worksheet.write_merge(0 , 0,  6, 10, "Numero Cotización",header_blue )
-        worksheet.write_merge(1 , 1,  6, 10, data.name,ctext_cell )
+        worksheet.write_merge(1 , 1,  6, 10, data.name,c2text_cell )
         worksheet.write_merge(2 , 2,  6, 10, "Fecha",header_blue )
-        worksheet.write_merge(3 , 3,  6, 10, d1,ctext_cell )
+        worksheet.write_merge(3 , 3,  6, 10, d1,c2text_cell )
         worksheet.write_merge(4 , 4,  6, 10, "EMPRESA",header_blue )
-        worksheet.write_merge(5 , 5,  6, 10, data.partner_id.parent_id.name if data.partner_id.parent_id else data.partner_id.name ,ctext_cell )
+        worksheet.write_merge(5 , 5,  6, 10, data.partner_id.parent_id.name if data.partner_id.parent_id else data.partner_id.name ,c2text_cell )
         worksheet.write_merge(6 , 6,  6, 10, "Contacto",header_blue )
-        worksheet.write_merge(7 , 7,  6, 10, data.partner_id.name,ctext_cell )
+        worksheet.write_merge(7 , 7,  6, 10, data.partner_id.name,c2text_cell )
         #Customer infor
                 
         worksheet.write_merge(9 , 9,  0, 1, "PROYECTO",header_blue )

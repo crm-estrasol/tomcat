@@ -570,7 +570,7 @@ class MailComposerTomcat(models.TransientModel):
         img = Image.open('/home/odoo/src/user/tomcat/static/src/img/colocaralcentro.png')
         r, g, b, a = img.split()
         img = Image.merge("RGB", (r, g, b))
-        #img.thumbnail((155,155), Image.ANTIALIAS)
+        img.thumbnail((155,155), Image.ANTIALIAS)
         img = img.save('colocarcentro.bmp')
         worksheet.insert_bitmap('colocarcentro.bmp', 0,0,50,0)
         worksheet.merge(0,8,0,1)

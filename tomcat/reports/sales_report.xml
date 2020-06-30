@@ -26,7 +26,7 @@
                         </t>
                         
                         <t t-else="">
-                            <img class="h-100" src='/tomcat/static/src/img/colocaralcentro.png' style="height: 350px;  transform: scale(1.7);"/>
+                            <img class="h-100" src='/tomcat/static/src/img/colocaralcentro2.png' style="height: 350px;  transform: scale(1.7);"/>
                         </t> 
                       
                         

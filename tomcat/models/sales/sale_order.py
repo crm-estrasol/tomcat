@@ -701,7 +701,7 @@ class MailComposerTomcat(models.TransientModel):
                 size = int( (item_size / 70) + 1 ) 
                 row_col.height = 300 * size #characters
         
-        actual_row+=2
+        actual_row+=3
         worksheet.write_merge(actual_row , actual_row,  3, 8,  "",line)
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  3, 8,"ING."+data.user_id.name ,text_cellLast)

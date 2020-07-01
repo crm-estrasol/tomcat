@@ -661,8 +661,8 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(actual_row , actual_row,  8, 10, "Total",bHeader_blue )
         
         actual_row+=1
-        worksheet.write_merge(actual_row , actual_row+3,  0, 5, "Descripción", c2text_cell)
-        item_size =  len(actual_row+3)
+        worksheet.write_merge(actual_row , actual_row+3,  0, 5, data.note, c2text_cell)
+        item_size =  len(data.note)
         if item_size > 375:
                 worksheet.row(actual_row+3).height_mismatch = True
                 row_col = worksheet.row(actual_row+3)

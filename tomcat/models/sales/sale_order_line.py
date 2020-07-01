@@ -147,6 +147,8 @@ class TomCatSaleOrderLine(models.Model):
                 id_rule = self._get_display_rule(product)
                 value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
                 self.margin_tomcat = value.margin_ut
+                margin_fix = (self.margin_tomcat / 100 ) 
+                self.price_unit = self.purchase_price  / (1 -  margin_fix ) 
                 #id_rule = self._get_display_rule(product)
                 
                 #value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]

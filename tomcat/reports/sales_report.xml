@@ -8,7 +8,7 @@
          <xpath expr="//t[@t-set='colclass']" position="replace">
             
             <t t-if="flag_sale_order == 1 ">
-                <div class="page" style="height:1000px; background:blue;">         
+                <div class="page" style="height:1000px;">         
                     <div class="row align-self-center " style="height: 150px;"> 
                       <div class="col-12 align-self-center text-center">
                           <h1 >COTIZACIÓN</h1>
@@ -33,11 +33,11 @@
                       </div>
                     </div>
 
-                    <div class="row align-self-center  pt-5" style="height:500px; background:red; margin-top:150px;">  
+                    <div class="row align-self-center  pt-5" style="height:500px;  margin-top:150px;">  
                       <div class="col-12 mt-5 pt-5">
                         <div class="row lign-self-center">
-                          <div class="col-3   text-center text-break">
-                            <h6 class="">Presentado por </h6
+                          <div class="col-3 pt-1  text-center text-break">
+                            <h6 class="" >Presentado por </h6
                             >
                             <div>
                               <img class="img-fluid"  src='/tomcat/static/src/img/esqinfizq.png' style="max-width:25px max-height: 25px;" alt="Logo"/>

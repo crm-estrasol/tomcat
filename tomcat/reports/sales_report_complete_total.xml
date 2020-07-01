@@ -46,9 +46,9 @@
                              
                               <t t-foreach="ubication['items']" t-as="line"> 
                                                  
-                                      <tr  t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''"
+                                      <tr  t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else 'adjus_color'"
   
-                                      style="border-color:white;">
+                                      >
                                             <t t-if="not line.display_type">
                                                 <t t-set="current_partida" t-value="current_partida+1"/>
                                             

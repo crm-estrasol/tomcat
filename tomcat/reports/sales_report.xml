@@ -8,7 +8,7 @@
          <xpath expr="//t[@t-set='colclass']" position="replace">
             
             <t t-if="flag_sale_order == 1 ">
-                <div class="page " style="height:1000px; background:blue;">         
+                <div class="page" style="height:900px; background:blue;">         
                     <div class="row align-self-center " style="height: 150px;"> 
                       <div class="col-12 align-self-center text-center">
                           <h1 >COTIZACIÓN</h1>
@@ -33,7 +33,7 @@
                       </div>
                     </div>
 
-                    <div class="row align-self-center mt-5 " style="height:500px;">  
+                    <div class="row align-self-center mt-5 pt-5" style="height:500px;">  
                       <div class="col-12">
                         <div class="row lign-self-center">
                           <div class="col-3   text-center text-break">
@@ -44,8 +44,8 @@
                               
                               </div>
                           </div>
-                          <div class="col-2 mt-5 pt-5"></div>
-                          <div class="col-3  mt-5 pt-5  text-center text-break mt-3" >
+                          <div class="col-2 "></div>
+                          <div class="col-3    text-center text-break " >
                             <h2>Guadalajara</h2>
                             <p>+52 (33) 3122-5563
                               contacto@tomcat.mx
@@ -53,7 +53,7 @@
                               Zapopan, Jalisco
                               </p>
                           </div>
-                          <div class="col-3   mt-5 pt-5 text-center text-break mt-3">
+                          <div class="col-3    text-center text-break">
                             <h2>Quéretaro</h2>
                             <p>
                               +52 (442) 404-1341

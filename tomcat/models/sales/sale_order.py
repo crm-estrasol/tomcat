@@ -712,17 +712,17 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(actual_row , actual_row,  0, 5,"Condiciones de pago" ,c2bText_cell)
         actual_row+=1
         worksheet.write_merge(actual_row , actual_row,  0, 5,data.payment_term_id.name ,text_cell)
-        actual_row+=2
-        worksheet.write_merge(actual_row , actual_row,  0, 5,"Notas" ,c2bText_cell)
-        actual_row+=1
-        worksheet.write_merge(actual_row , actual_row,  0, 5,data.note ,text_cell)
+        #actual_row+=2
+        #worksheet.write_merge(actual_row , actual_row,  0, 5,"Notas" ,c2bText_cell)
+        #actual_row+=1
+        #worksheet.write_merge(actual_row , actual_row,  0, 5,data.note ,text_cell)
 
-        item_size =  len(data.note)
-        if item_size > 19:
-                worksheet.row(actual_row).height_mismatch = True
-                row_col = worksheet.row(actual_row)
-                size = int( (item_size / 70) + 1 ) 
-                row_col.height = 300 * size #characters
+        #item_size =  len(data.note)
+        #if item_size > 19:
+        #        worksheet.row(actual_row).height_mismatch = True
+        #        row_col = worksheet.row(actual_row)
+        #        size = int( (item_size / 70) + 1 ) 
+        #        row_col.height = 300 * size #characters
         
         actual_row+=3
         worksheet.write_merge(actual_row , actual_row,  3, 8,  "",line)

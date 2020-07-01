@@ -338,7 +338,7 @@
                        
                               <div id="total" class="row " name="total">
                                 <t t-if="doc.print_options != 'without_price'"> 
-                                  <div t-attf-class="#{'col-4 mr-5' if report_type != 'html' else 'col-sm-7 col-md-5 mr-5'} ml-auto">
+                                  <div t-attf-class="#{'col-4 mr-3' if report_type != 'html' else 'col-sm-7 col-md-5 mr-3'} ml-auto">
                                       <table class="table table-sm mr-1" style="font-size:30px;">
                                           <tr class="border-black o_subtotal text-wrap" style="font-size:22px; max-width:100px;">
                                             <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>

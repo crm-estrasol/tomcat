@@ -667,7 +667,7 @@ class MailComposerTomcat(models.TransientModel):
                 worksheet.row(actual_row+3).height_mismatch = True
                 row_col = worksheet.row(actual_row+3)
                 size = int( (item_size / 75) + 1 ) 
-                row_col.height = 200 * size #characters 
+                row_col.height = 250 * size #characters 
 
         worksheet.write_merge(actual_row , actual_row+3,  6, 6, data.currency_id.name, c2text_cell)
         

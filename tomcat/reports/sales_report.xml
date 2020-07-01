@@ -33,10 +33,10 @@
                       </div>
                     </div>
 
-                    <div class="row align-self-center  pt-5 ml-5" style="height:500px;  margin-top:150px; margin-left:80px;">  
+                    <div class="row align-self-center  pt-5 ml-5" style="height:500px;  margin-top:150px; ">  
                       <div class="col-12 mt-5 pt-5">
                         <div class="row lign-self-center">
-                          <div class="col-4 pt-2  text-center text-break">
+                          <div class="col-4 pt-3  text-center text-break">
                             <h6 class="" >Presentado por </h6
                             >
                             <div>

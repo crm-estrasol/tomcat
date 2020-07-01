@@ -644,7 +644,7 @@ class MailComposerTomcat(models.TransientModel):
             worksheet.write(actual_row , 8, item.product_uom_qty ,c2text_cell )
             #Pendiente formato precios
             worksheet.write(actual_row , 9, item.price_unit,c2text_cellMoney  )
-            worksheet.write(actual_row , 10, item.price_subtotal,c2text_cellMoney  )
+            worksheet.write(actual_row , 10, item.price_unit * float(item.product_uom_qty) ,c2text_cellMoney  )
             item_size =  len(item.name)
             if item_size > 19:
                 worksheet.row(actual_row).height_mismatch = True
@@ -665,7 +665,7 @@ class MailComposerTomcat(models.TransientModel):
         worksheet.write_merge(actual_row , actual_row+3,  6, 6, data.currency_id.name, c2text_cell)
         
         worksheet.write(actual_row , 7, "SUB TOTAL",c2text_cell )
-        worksheet.write_merge(actual_row ,actual_row ,  8, 10, data.amount_untaxed,c2text_cellMoney )
+        worksheet.write_merge(actual_row ,actual_row ,  8, 10, data.amount_untaxed+data.porcent,c2text_cellMoney )
         
         worksheet.write(actual_row+1 , 7, "DESCUENTO",c2text_cell )
         worksheet.write_merge(actual_row+1 ,actual_row+1 ,  8, 10, data.porcent,c2text_cellMoney )
@@ -684,16 +684,19 @@ class MailComposerTomcat(models.TransientModel):
 
         
         quaranty = [
-                    "GARANTÍA DE INSTALACIÓN 1 AÑO ",
-                    "GARANTÍA DE LOS EQUIPOS DE 1 A 3 AÑOS ",
-                    "GARANTÍA EN PROGRAMACIÓN DE POR VIDA ",
-                    "ALMACENAMIENTO Y SEGURO DE EQUIPO PREVIO A INSTALACIÓN INCLUIDO",
-                    "SEGURO DE RESPONSABILIDAD CIVIL POR $3 MILLONES DE PESOS ",
-                    "PUEDE SER PAGADO EN DÓLARES AMERICANOS POR TRANSFERENCIA ELECTRÓNICA O EN MONEDA NACIONAL AL TIPO DE CAMBIO DE VENTA DEL BANCO BANORTE",
-                    "EN ESTA PROPUESTA NO SE CONSIDERA OBRA CIVIL",
-                    "ESTA COTIZACIÓN EXPIRA EN {}".format( data.validity_date.strftime("%d/%m/%Y") ) 
+                    "Garantía de instalación 1 año. ",
+                    "Garantía de los equipos de 1 a 3 años. ",
+                    "Garantía en programación de por vida. ",
+                    "Almacenamiento y seguro de equipo previo a instalación incluido.",
+                    "Seguro de responsabilidad civil por $3 millones de pesos. ",
+                    "Puede ser pagado en dólares americanos por transferencia electrónica o en moneda nacional al tipo de cambio de venta del banco banorte.",
+                    "En esta propuesta no se considera obra civil.",
+                    "Esta cotización expira en {}.".format( data.validity_date.strftime("%d/%m/%y") ) 
 
                     ]
+
+
+
         actual_row+=1                
         for msg in quaranty:
             worksheet.write_merge(actual_row , actual_row,  0, 8,msg ,text_cell)

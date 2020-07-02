@@ -547,7 +547,7 @@ class MailComposerTomcat(models.TransientModel):
         #worksheet.write_merge(6, 6, 3, 3,'Pass')
      
         first_col = worksheet.col(0)
-        first_col.width = 256 * 7 #characters 
+        first_col.width = 256 * 9 #characters 
         
         second_col = worksheet.col(1)
         second_col.width = 256 * 30 #characters 

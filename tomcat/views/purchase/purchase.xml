@@ -20,9 +20,14 @@
                                 
                             </xpath>
 
-                             <xpath expr="//tree//field[@name='price_unit']" position="before">
+                            <xpath expr="//tree//field[@name='price_unit']" position="before">
                               
                                <field name="discount" />
+                                
+                            </xpath>
+                            <xpath expr="//tree//field[@name='name']" position="before">
+                              
+                               <field name="brand" />
                                 
                             </xpath>
            

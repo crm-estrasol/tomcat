@@ -132,31 +132,31 @@
                                       <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.name"/></td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;"> <br/> FECHA</td>
+                                      <td class="text-center" style=" padding: 1px 0px; font-size:13px; color: #357fa9 ; font-weight:bold;"> <br/> FECHA</td>
                                     </tr>
                                     <tr>
                                       <td class="text-center" style=" padding: 1px 0px;"><p t-field="o.date_order" /></td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">SUCURSAL</td>
+                                      <td class="text-center" style=" padding: 1px 0px; font-size:13px; color: #357fa9 ; font-weight:bold;">SUCURSAL</td>
                                     </tr>
                                       <tr>
                                       <td class="text-center" style=" padding: 1px 0px;">AV</td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">PROVEEDOR</td>
+                                      <td class="text-center" style=" padding: 1px 0px; font-size:13px; color: #357fa9 ; font-weight:bold;">PROVEEDOR</td>
                                     </tr>
                                     <tr>
                                       <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.partner_id.name"/></td>
                                     </tr>
                                     <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">RAZÓN SOCIAL</td>
+                                      <td class="text-center" style=" padding: 1px 0px; font-size:13px; color: #357fa9 ; font-weight:bold;">RAZÓN SOCIAL</td>
                                     </tr>
                                      <tr>
                                       <td class="text-center" style=" padding: 1px 0px;"><t t-esc="o.partner_id.vat"/></td>
                                     </tr>
                                      <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">ENTREGAR EN</td>
+                                      <td class="text-center" style=" padding: 1px 0px; font-size:13px; color: #357fa9 ; font-weight:bold;">ENTREGAR EN</td>
                                     </tr>
                                      <tr>
                                       <td class="text-center" style=" padding: 1px 0px;"> <t t-esc="

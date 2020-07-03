@@ -121,7 +121,7 @@
                                 <p style="margin:0;">Régimen Foscal:<t t-esc="company.company_registry"/></p>
                             
                     </div>
-                    <div class="col-6 ml-5 pl-3 mt-0 pt-0 " style=" font-size:12px;">
+                    <div class="col-6 ml-5 pl-3 mt-0 pt-0 mb-3" style=" font-size:12px;">
                             <table class="table table-striped" style=" margin: 0px auto; border:2px; ">
                                 
                                   <tbody>

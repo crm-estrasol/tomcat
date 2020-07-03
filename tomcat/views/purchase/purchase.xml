@@ -28,6 +28,7 @@
                             <xpath expr="//tree//field[@name='name']" position="before">
                               
                                <field name="brand" />
+                               <field name="price_tax" />
                                 
                             </xpath>
            

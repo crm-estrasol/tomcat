@@ -31,3 +31,8 @@ class TomcatPurchaseLine(models.Model):
     def _on_change_discount(self):
         #self.price_subtotal = self.price_unit - self.price_unit * (self.discount/100)
         self._compute_amount()
+
+    def _get_product_purchase_description(self, product_lang):
+        self.ensure_one()
+        name = product_lang.display_nam
+        return name

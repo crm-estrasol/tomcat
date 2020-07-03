@@ -34,5 +34,7 @@ class TomcatPurchaseLine(models.Model):
 
     def _get_product_purchase_description(self, product_lang):
         self.ensure_one()
-        name = product_lang.display_nam
+        name=""
+        if product_lang.description_purchase:
+            name += product_lang.description_purchase
         return name

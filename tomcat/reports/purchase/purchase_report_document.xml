@@ -61,7 +61,7 @@
                                                     <span><t t-esc="current_partida"/></span>
                                                 </td>
                                                  <td id="product_n">
-                                                    <span t-field="order_line.product_id.name"/>
+                                                    <span t-field="line.order_line.product_id.name"/>
                                                 </td>
                                                 <td id="product">
                                                     <span t-field="line.name"/>

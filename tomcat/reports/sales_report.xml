@@ -104,12 +104,12 @@
               -->
               <t t-if="flag_sale_order != 1 " >
                     <div class="row justify-content-center mb-4">
-                            <div class="col-6 pl-3 " style=" font-size:12px; ">
+                    <div class="col-6 pl-3 " style=" font-size:12px; ">
                                   <h4 class="mb-2" style="padding-top:0; margin-top:0;"> <t t-esc="company.name"/></h4>
                                 <p style="margin:0;"><t t-esc="company.phone"/></p>
-
+                                <a  t-att-href="company.website" ><t t-esc="company.website"/></a> <br/>
                                 <a  t-att-href="company.email" ><t t-esc="company.email"/></a>
-                                <a  t-att-href="company.website" ><t t-esc="company.website"/></a>
+                               
                                 
                                 <p style="margin:0;">
                                 <t t-esc="

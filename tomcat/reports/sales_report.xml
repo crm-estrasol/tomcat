@@ -141,7 +141,11 @@
                                       <td class="text-center" style=" padding: 1px 0px; font-size:13px; color: #357fa9 ; font-weight:bold;">SUCURSAL</td>
                                     </tr>
                                       <tr>
-                                      <td class="text-center" style=" padding: 1px 0px;">AV</td>
+                                      <td class="text-center" style=" padding: 1px 0px;">
+                                        <t t-esc="
+                                                  '{} {} {} {} {} {}' .format(o.partner_id.street,o.partner_id.street_number2, o.partner_id.street2,o.partner_id.city,o.partner_id.state_id.name,o.partner_id.country_id.name ) 
+                                                      "/>
+                                      </td>
                                     </tr>
                                     <tr>
                                       <td class="text-center" style=" padding: 1px 0px; font-size:13px; color: #357fa9 ; font-weight:bold;">PROVEEDOR</td>

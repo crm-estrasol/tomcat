@@ -116,9 +116,9 @@
                                       '{} {} {} {} {} {}' .format(company.street,company.street_number2, company.street2,company.city,company.state_id.name,company.country_id.name ) 
                                     "/>
                                 </p>
-                                <p style="margin:0;">CP:<t t-esc="company.zip"/></p>
-                                <p style="margin:0;">RFC:<t t-esc="company.vat"/></p>
-                                <p style="margin:0;">Régimen Foscal:<t t-esc="company.company_registry"/></p>
+                                <p style="margin:0;">CP: <t t-esc="company.zip"/></p>
+                                <p style="margin:0;">RFC: <t t-esc="company.vat"/></p>
+                                <p style="margin:0;">Régimen Fiscal: <t t-esc="company.company_registry"/></p>
                             
                     </div>
                     <div class="col-6 ml-5 pl-3 mt-0 pt-0 mb-3" style=" font-size:12px; ">

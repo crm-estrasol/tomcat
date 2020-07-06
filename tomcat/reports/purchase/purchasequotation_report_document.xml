@@ -10,9 +10,10 @@
                                 <thead>
                                     <tr>
                                         <th name="th_partida"><strong>Item</strong></th>
+                                        <th name="th_product"><strong>Product</strong></th>
                                         <th name="th_description"><strong>Description</strong></th>
-                                           <th name="th_brand"><strong>Brand</strong></th>
-                                        <th name="th_expected_date" class="text-center"><strong>Expected Date</strong></th>
+                                        <th name="th_brand"><strong>Brand</strong></th>
+                                      
                                         <th name="th_quantity" class="text-right"><strong>Qty</strong></th>
                                     </tr>
                                 </thead>
@@ -25,6 +26,9 @@
                                                 <td id="partida">
                                                     <span><t t-esc="current_partida"/></span>
                                                 </td>
+                                                <td id="product_n">
+                                                    <span t-field="order_line.product_id.name"/>
+                                                </td>
                                                 <td id="product">
                                                     <span t-field="order_line.name"/>
                                                 </td>
@@ -33,9 +37,7 @@
                                                     <t t-esc="order_line.product_id.brand.name"/>
                                                    </span>
                                                 </td> 
-                                                <td class="text-center">
-                                                    <span t-field="order_line.date_planned"/>
-                                                </td>
+                                              
                                                 <td class="text-right">
                                                     <span t-field="order_line.product_qty"/>
                                                     <span t-field="order_line.product_uom" groups="uom.group_uom"/>

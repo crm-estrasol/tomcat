@@ -33,6 +33,7 @@
                                 <thead>
                                     <tr>
                                         <th name="th_partida"><strong>Item</strong></th>
+                                          <th name="th_product"><strong>Product</strong></th>
                                         <th name="th_description"><strong>Description</strong></th>
                                          <th name="th_brand"><strong>Brand</strong></th>
                                         <th name="th_taxes"><strong>Taxes</strong></th>
@@ -58,6 +59,9 @@
                                                 <t t-set="current_partida" t-value="current_partida+1"/>
                                                 <td id="partida">
                                                     <span><t t-esc="current_partida"/></span>
+                                                </td>
+                                                 <td id="product_n">
+                                                    <span t-field="order_line.product_id.name"/>
                                                 </td>
                                                 <td id="product">
                                                     <span t-field="line.name"/>

@@ -145,8 +145,11 @@ class TomCatSaleOrderLine(models.Model):
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
                 id_rule = self._get_display_rule(product)
-                value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
-                self.margin_tomcat = value.margin_ut if self.margin_tomcat == 0 else self.margin_tomcat
+                
+                value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])
+                value = value[0].margin_ut if value else 0
+                
+                self.margin_tomcat = value if self.margin_tomcat == 0 else self.margin_tomcat
                 margin_fix = (self.margin_tomcat / 100 ) 
                 self.price_unit = self.purchase_price  / (1 -  margin_fix ) 
                 #id_rule = self._get_display_rule(product)

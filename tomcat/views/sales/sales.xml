@@ -11,27 +11,54 @@
                               options="{'no_open': True}" 
                               force_save="1"
                               context="{'partner_id': parent.partner_id,'quantity': product_uom_qty, 'pricelist': parent.pricelist_id,   'uom':product_uom, 'company_id': parent.company_id, 'default_lst_price': price_unit,'default_description_sale': name}" 
-                              domain="[('sale_ok', '=', True),'&amp;',('type', '!=', 'service'),('service_tracking', '!=', 'project_only'), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]" 
+                              domain="[('sale_ok', '=', True),('service_tracking', '!=', 'project_only'), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]" 
                               widget="product_configurator"/>  
                                
                              
-                 </xpath>
+                 </xpath> 
       
                  <xpath expr="//field[@name='partner_shipping_id']" position="after">
                  
                     <field name="name_proy"/>               
                     <field name="product_proy"  options="{'no_create_edit': True, 'no_quick_create': True,'no_open': True}"/>               
-                  
+                    
+                       
+                   
                 </xpath>
+                  <xpath expr="//field[@name='payment_term_id']" position="after">
+                            
+                      <button name="generate_discount" string="Descuento masivo" type="object" class="btn-primary" attrs="{'invisible': ['|',('state', '=', 'done'),'|',('state', '=', 'cancel'),('state', '=', 'sale')]}"/>
+                       
+                   
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                             <field name="partner_avaible" invisible="1" string="Clientes disponibles"/>         
+                    
+                       
+                   
+                </xpath>
+                 <xpath expr="//field[@name='partner_id']" position="attributes">
+                    
+                         <attribute name="options">{ 'no_create': True}</attribute>
+                </xpath>
+
                 <xpath expr="//tree//field[@name='product_id']" position="after">
                     <field name="project_sections"/>  
                      <field name="type_proyect" invisible="1"/>  
-                     <field name="margin_tomcat"/>   
                    
+                      <field name="project"   />   
+                       <field name="ubication"    />   
+                      
+
                             
 
                 </xpath>
                
+                 <xpath expr="//tree//field[@name='price_unit']" position="before">
+                   
+                     <field name="margin_tomcat"/>            
+
+                </xpath>
               
                  <xpath expr="//control" position="replace">
                     <control>                                    
@@ -41,11 +68,32 @@
                     </control>
                     
                   </xpath>
+                  
+                 <xpath expr="//page[@name='other_information']" position="before">
+                   <page string="Formato cotización" name="format_quotation">
+                           
+                            <group>
+                                <group  string="Formato">
+                                     <field name="print_options" widget="selection"/> 
+                                    <field name="excel" /> 
+                                </group>
+                                <group  string="Modelo cliente">
+                                     <field name="client_model"/> 
+                                </group>
+                            </group>
+                           
+                        </page>
+                    
+                  </xpath>
         
+
+
+
                
             </field>
 
         </record>
+        	
          <record id="inherit_sale_order_template" model="ir.ui.view">
             <field name="name">sale.order.template.inherit.form</field>
             <field name="model">sale.order.template</field>
@@ -58,8 +106,10 @@
       
                 <xpath expr="//tree//field[@name='product_id']" position="after">
                     <field name="project_sections"/>   
-                    
-   
+                      <field name="project"  />   
+                       <field name="ubication"    />   
+                        
+                  
                 </xpath>
                  <xpath expr="//control" position="replace">
                     <control>                                    
@@ -77,7 +127,7 @@
         </record>
         
            
-               <record id="inhertit_product_pricelist_item_form_view" model="ir.ui.view">
+        <record id="inhertit_product_pricelist_item_form_view" model="ir.ui.view">
                 <field name="name">product.pricelist.item.inherit.form</field>
                         <field name="model">product.pricelist.item</field>
                         <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
@@ -94,7 +144,23 @@
 
        
         </record>
+         <record id="inhertit_product_procent_view" model="ir.ui.view">
+                <field name="name">product.porcent.inherit.form</field>
+                        <field name="model">sale.order</field>
+                        <field name="inherit_id" ref="sale_margin.sale_margin_sale_order"/>
+                        <field name="arch" type="xml">
+                      
+                
+                            <xpath expr="//field[@name='margin']" position="replace">
+                               <field name="margin" groups="base.group_user"/>
+                                <field name="margin_porcent"  string="Margen (%)" groups="base.group_user"/>
+                                <field name="porcent" string="Descuento" groups="base.group_user"/>
+                            </xpath>
+           
+                        </field>
 
+       
+        </record>
     </data>
 </odoo>
  

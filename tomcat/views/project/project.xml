@@ -1,21 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <data>
-  <!--
+  
     <record id="view_project_project_form_inherite" model="ir.ui.view">
-      <field name="name">project.form.task.tomcat</field>
+      <field name="name">hr_timesheet.view.task.tree.tomcat</field>
       <field name="model">project.task</field>
-      <field name="inherit_id" ref="project.view_task_form2"/>
+      <field name="inherit_id" ref="hr_timesheet.view_task_tree2_inherited"/>
       <field name="arch" type="xml">
     
-          <xpath expr="//widget[@name='web_ribbon']" position="before">     
-                     <label for="id" string="ID" />
-                    <field name="id" string="ID" />
+           <xpath expr="//field[@name='effective_hours']" position="replace">     
+                    
+                    
+                     
+          </xpath>
+          <xpath expr="//field[@name='planned_hours']" position="before">     
+                    
+                     <field name="effective_hours" widget="float_time" sum="Spent Hours" />
                      
           </xpath>
       </field>
     </record>
+    
+    <record id="view_project_project_form_tomcat_activities" model="ir.ui.view">
+      <field name="name">hr_timesheet.view.task.activities.tomcat</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+      <field name="arch" type="xml">
+          
+          <xpath expr="//field[@name='timesheet_ids']" position="attributes">
+        
+                <attribute name="context">{'default_project_id': project_id, 'default_name':'', 'default_stage_id':stage_id}</attribute>
+                   
+           </xpath>
+
+           <xpath expr="//field[@name='planned_hours']" position="after">
+            
+                          
+                     <button name="add_all_activity_stages" string="Agregar todas las actividades" type="object" class="btn-primary" attrs="{'invisible': [('timesheet_ids','!=', [] )]}" />
+                     <button name="add_activity_stage" string="Agregar actividades etapa" type="object" class="btn-primary" />      
+           </xpath>
+          <xpath expr="//field[@name='progress']" position="after">
+                    <field name="maximum_rate" string="Max" invisible="1"/>
+                    <field name="progress_rate" string="Proceso actividades(etapa)" widget="progressbar"
+                          />
+                    <field name="progress_global" string="Proceso actividades(global)" widget="progressbar"
+                          />
+                       
+           </xpath>
+            <xpath expr="//tree//field[@name='date']" position="before">     
+                      <field name="show_stage"  />
+                      <field name="stage_id" invisible="1"  />
+                     
+                     
+           </xpath>
+           <xpath expr="//tree//field[@name='name']" position="before">     
+                      
+                     <field name="name_work" required="1" />
+                      
+                     
+                     
+           </xpath>
+             <xpath expr="//tree//field[@name='name']" position="after">     
+                                  
+                     <button name="do_accept" string="Hecho" type="object" icon="fa-check text-success"
+                            attrs="{'invisible':['|',('status_t','=','done'),('status_t','=','cancel')]}"/>
+                    <button name="do_cancel" string="Cancelar" type="object"
+                            icon="fa-times-circle text-danger"
+                            attrs="{'invisible':['|',('status_t','=','done'),('status_t','=','cancel')]}"/>
+                    <button name="do_progress" string="En progreso" type="object"
+                            icon="fa-play"
+                            attrs="{'invisible':[('status_t','!=',False)]}"/>
+                    <button name="do_set_to" string="Refrescar" type="object"
+                            icon="fa-refresh"
+                            attrs="{'invisible':[('status_t','!=','cancel')]}"/>
+                            
+                     <field name="status_t"  />
+                     
+           </xpath>
+         
+      </field>
+    </record>
+    <!--
+     <record id="custom_form_project_task" model="ir.ui.view">
+            <field name="name">Add checklist</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="maximum_rate" string="Max" invisible="1"/>
+                    <field name="progress_rate" string="Checklist Progress" widget="progressbar"
+                         inviisble="1" />
+                </xpath>
+               
+            </field>
+    </record>
     -->
+    
+
+     <record id="custom_tree_view_project_task" model="ir.ui.view">
+            <field name="name">Show up progress</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='stage_id']" position="replace">
+                    <field name="progress_rate" widget="progressbar"/>
+                    
+                    <field name="progress_global" widget="progressbar"/>
+                    
+                </xpath>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="task_project_kanban_view_extened">
+            <field name="name">task kanban extened</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <xpath expr='//kanban/templates/t/div/div/div[2]' position="after">
+                      <div class="row">
+                        <div class="col-5 mr-2">
+                             <field name="progress_rate" widget="percentpie" string="Estapa"  />
+                        </div>
+                        <div class="col-5">
+                              <field name="progress_global" widget="percentpie" string="Global"/>
+                        </div>
+                      </div>
+                     
+                    
+                </xpath>
+            </field>
+        </record>
+      <record model="ir.ui.view" id="task_project_edit_stage">
+                  <field name="name">task stage extened</field>
+                  <field name="inherit_id" ref="project.task_type_edit"/>
+                  <field name="model">project.task.type</field>
+                  <field name="arch" type="xml">
+                      <xpath expr="//field[@name='is_closed']" position="after">
+                          <field name="activities"  >
+                               <tree string="Contacts" >
+                                  <field name="name" />
+                                  <field name="description"/>
+                                </tree>
+                          </field >
+                      </xpath>
+                  </field>
+        </record>
+
+         
    <!--
     <record id="view_crm_crm_kanban_inherite_light" model="ir.ui.view">
       <field name="name">crm.kanbann.lead.tomcat</field>

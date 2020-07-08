@@ -19,13 +19,17 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product','sale','account','sale_management','contacts','product','mail','web','crm','sale_crm','stock','project'],
+    'depends': ['base','product','mrp','sale','stock',
+                'account','sale_margin','sale_management',
+                'contacts','product','mail','web','crm',
+                'sale_crm','stock','project','hr_timesheet',
+                'purchase','helpdesk','helpdesk_timesheet',	'sale_timesheet_enterprise'],
 
     # always loaded
     'data': [
-         'security/ir.model.access.csv',
-
-         'views/theme/res_config_settings_views.xml',   
+        'security/ir.model.access.csv',
+        'views/user/user.xml',
+        'views/theme/res_config_settings_views.xml',   
         'views/theme/theme.xml',
         'views/contact/contact.xml',
         'views/contact/intermediary_category.xml',
@@ -35,16 +39,39 @@
         'views/crm/crm_cron.xml',
         'views/mail/mail_activity.xml',
         'views/project/project.xml',
+        'views/project/task_checklist_view.xml',
+        'views/helpdesk/helpdesk.xml',
         'views/sales/sales.xml',
-          'views/sales/product_template.xml',
-          'views/templates/templates.xml',
+        'views/sales/product_template.xml',
+        'views/sales/extra_cat_product/product_brand.xml',
+        'views/sales/extra_cat_product/product_project.xml',
+        'views/sales/extra_cat_product/product_ubication.xml',
+        'views/purchase/purchase.xml',
+          # 'views/sales/sale_order_line.xml',
+        
+        'views/templates/templates.xml',
         
         #'views/sales/sales_cron.xml',
+        #'views/portal/sale/sale_order.xml',
+        
+        'reports/sales_report_only_system.xml',
+        'reports/sales_report_without_price.xml',
+        'reports/sales_report_no_brand_model.xml',
+        'reports/sales_report_total.xml',
+        'reports/sales_report_complete_total.xml',
+        'reports/sales_report_price_unit.xml',
         'reports/sales_report.xml',
+        'reports/excel.xml',
+        'reports/purchase/purchase_report_document.xml',
+        'reports/purchase/purchasequotation_report_document.xml',
+         
+        
         'reports/sale_report_prueba.xml', 
+
         'reports/reports.xml',
-        #'wizard/sale_details.xml',
-        #'mail/mail_taller.xml',
+        'wizard/sale_details.xml',
+        
+        'mail/mail_report.xml',
         #'views/menus/menus.xml',
     ],  
      'qweb': [

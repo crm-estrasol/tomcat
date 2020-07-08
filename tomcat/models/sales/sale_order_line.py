@@ -25,9 +25,10 @@ class TomCatSaleOrderLine(models.Model):
     project_sections = fields.Many2one('tomcat.project.section', string='Proyecto',track_visibility=True)
     type_proyect  = fields.Selection(related='product_id.service_tracking') 
     margin_tomcat =fields.Float("Margen %",  store=True, digits=(12, 2))
-   
-
-     
+    project =  fields.Many2one('tomcat.project', string='Sistema')
+    ubication =  fields.Many2one('tomcat.ubication', string='Ubiicación')
+    #ubications =  fields.Many2many(related='product_id.ubications_ids') 
+    #projects  =  fields.Many2many(related='product_id.project_ids') 
     @api.onchange('product_id')
     def product_id_change(self):
         if not self.product_id:
@@ -60,8 +61,8 @@ class TomCatSaleOrderLine(models.Model):
         )
        
        
-        vals.update(name=self.get_sale_order_line_multiline_description_sale(product))
-
+        #vals.update(name=self.get_sale_order_line_multiline_description_sale(product))
+        vals.update(name=self.product_id.description_sale)
         self._compute_tax_id()
 
         if self.order_id.pricelist_id and self.order_id.partner_id:
@@ -125,6 +126,8 @@ class TomCatSaleOrderLine(models.Model):
             discount = (new_list_price - price) / new_list_price * 100
             if (discount > 0 and new_list_price > 0) or (discount < 0 and new_list_price < 0):
                 self.discount = discount
+    #inherit margin_tomcat for row
+    #adjust _get_display to get the real margin in rule , both uom are triggered last and set de margin
     @api.onchange('product_uom', 'product_uom_qty')
     def product_uom_change(self):
             if not self.product_uom or not self.product_id:
@@ -142,8 +145,13 @@ class TomCatSaleOrderLine(models.Model):
                 )    
                 self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id) 
                 id_rule = self._get_display_rule(product)
-                value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]
-                self.margin_tomcat = value.margin_ut
+                
+                value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])
+                value = value[0].margin_ut if value else 0
+                
+                self.margin_tomcat = value if self.margin_tomcat == 0 else self.margin_tomcat
+                margin_fix = (self.margin_tomcat / 100 ) 
+                self.price_unit = self.purchase_price  / (1 -  margin_fix ) 
                 #id_rule = self._get_display_rule(product)
                 
                 #value =  self.env['product.pricelist.item'].search([('id','=',id_rule)])[0]

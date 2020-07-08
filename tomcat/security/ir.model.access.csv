@@ -1,7 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_tomcat_intermediary_category,tomcat.intermediary.category,model_tomcat_intermediary_category,,1,1,1,1
 access_tomcat_customer_segment,tomcat.customer.segment,model_tomcat_customer_segment,,1,1,1,1
-access_tomcat_customer_segment,tomcat.project.section,model_tomcat_project_section,,1,1,1,1
+access_tomcat_project_section,tomcat.project.section,model_tomcat_project_section,,1,1,1,1
 access_tomcat_brand,tomcat.brand,model_tomcat_brand,,1,1,1,1
+access_tomcat_project,tomcat.project,model_tomcat_project,,1,1,1,1
+access_tomcat_ubication,tomcat.ubication,model_tomcat_ubication,,1,1,1,1
+access_check_list,access_check_list,model_check_list,base.group_user,1,1,1,1
 
 

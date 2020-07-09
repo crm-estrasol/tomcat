@@ -11,7 +11,7 @@
                   <field name="external_document" invisible="1" />
                    <field name="purchase" invisible="1"/>
                   
-
+            <!--github-->
             </xpath>
            
         </field>

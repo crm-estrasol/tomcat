@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+      
+         <record id="inhertit_helpdesk_t_view" model="ir.ui.view">
+                <field name="name">helpdesk.inherit.form</field>
+                        <field name="model">helpdesk.ticket</field>
+                        <field name="inherit_id" ref="helpdesk_timesheet.helpdesk_ticket_view_form_inherit_helpdesk_timesheet"/>
+                        <field name="arch" type="xml">
+                      
+                
+                             <xpath expr="//page[2]" position="attributes">
+                                    
+                                            <attribute name="attrs"></attribute>
+                                            <attribute name="invisible">1</attribute>
+                                    </xpath>
+                             <xpath expr="//page[1]" position="replace">
+                                    
+                                           <page string="Resumen">
+                                                    <group>
+                                                        
+                                                        <group>
+                                                             <field name="service_quaranty" widget="radio" />
+                                                        </group>
+                                                        
+                                                        <group>
+                                                            <field name="service_days"  widget="radio"/>
+                                                        </group>
+                                                        
+                                                        <group>
+                                                            <field name="expected_date" />
+                                                        </group>
+                                                    </group>
+
+
+                                                    <group>
+  
+                                                        <field name="description" placeholder="Description of the ticket..."/>
+                                                        <field name="activity_done" placeholder="Actividades realizadas para solucionarlo(Material y equipo) ..."/>
+                                                        <field name="cause" placeholder="Causas del problema"/>
+                                                        <field name="observation" placeholder="Observaciones..."/>
+                                                    </group>     
+                                                    
+                                                                                  
+                                                
+                                            </page>
+                            </xpath>
+
+                          <!--
+                                                <group>
+                                                    <group>
+  
+                                                        <field name="description" placeholder="Description of the ticket..."/>
+                                                        <field name="activity_done" placeholder="Actividades realizadas para solucionarlo(Material y equipo) ..."/>
+                                                        <field name="cause" placeholder="Causas del problema"/>
+                                                        <field name="observation" placeholder="Observaciones..."/>
+                                                    </group>     
+                                                     <group>
+                                                        <field name="service_quaranty" widget="radio" />
+                                                         <field name="service_days"  widget="radio"/>
+                                                          <field name="expected_date" />
+                                                    </group>
+                                                 </group>        
+
+                          -->
+           
+                        </field>
+
+       
+        </record>
+    </data>
+</odoo>
+ 

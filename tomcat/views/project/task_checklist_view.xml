@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="task_checklist_view_form" model="ir.ui.view">
+          <field name="name">activities.form</field>
+          <field name="model">check.list</field>
+          <field name="arch" type="xml" >
+            <form>
+              <sheet>
+                  
+                <group>
+                  <group>
+                     <field name="name"/>
+                    <field name="description" />
+                  
+                  </group>
+                  <group>
+                   
+                  </group>
+                </group>
+              </sheet>
+             
+            </form>
+          </field>
+      </record>
+
+  
+    <record id="task_checklist_view_tree" model="ir.ui.view">
+          <field name="name">Actividades</field>
+          <field name="model">check.list</field>
+          <field name="arch" type="xml" >
+              <tree string="Actividades"  >
+                <field name="name"/>
+                <field name="description" />
+  
+              </tree>
+          </field>
+    </record>
+    <record id="action_task_checklist" model="ir.actions.act_window">
+        <field name="name">Actividades</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">check.list</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Crea un tipo de actividad
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="task_check_list_menu" name="Actividades" parent="project.menu_project_config" sequence="3"
+              action="action_task_checklist"/>
+
+</odoo>

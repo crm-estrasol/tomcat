@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record model="ir.ui.view" id="email_compose_onboarding_sample_excel">
+        <field name="name">mail.compose.message.form.excel
+        </field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active_domain']" position="after">
+                 <field name="excel" invisible="1"/>
+                  <field name="external_document" invisible="1" />
+                   <field name="purchase" invisible="1"/>
+                  
+
+            </xpath>
+           
+        </field>
+    </record>
+</odoo>

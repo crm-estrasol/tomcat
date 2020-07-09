@@ -50,6 +50,7 @@ table.o_section_and_note_list_view tr.o_data_row {
         td {
             // There is an undeterministic CSS behaviour in Chrome related to
             // the combination of the row's and its children's borders.
+             // the combination of the row's and its children's borders.
             border: none !important;
         }
     }
